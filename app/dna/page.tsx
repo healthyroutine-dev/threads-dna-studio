@@ -1,8 +1,11 @@
-export default function DnaPage() {
-  return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold">DNA</h1>
-      <p className="mt-2 text-sm text-muted">준비 중입니다.</p>
-    </div>
-  );
+import { redirect } from 'next/navigation';
+import { getCurrentUser } from '@/lib/auth';
+import DnaClient from '@/components/DnaClient';
+
+export const dynamic = 'force-dynamic';
+
+export default async function DnaPage() {
+  const user = await getCurrentUser();
+  if (!user) redirect('/login');
+  return <DnaClient />;
 }

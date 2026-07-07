@@ -129,7 +129,10 @@ export class FileStore implements Store {
 
   async saveDna(userId: string, dna: Dna): Promise<void> {
     const d = await load();
-    (d.dna[userId] ??= []).push(dna);
+    const list = (d.dna[userId] ??= []);
+    const idx = list.findIndex((x) => x.version === dna.version);
+    if (idx >= 0) list[idx] = dna;
+    else list.push(dna);
     await persist();
   }
 
