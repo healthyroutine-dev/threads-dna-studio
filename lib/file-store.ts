@@ -95,6 +95,11 @@ export class FileStore implements Store {
     return (await load()).tokens[userId] ?? null;
   }
 
+  async getTokensExpiringBefore(iso: string): Promise<Token[]> {
+    const d = await load();
+    return Object.values(d.tokens).filter((t) => t.expires_at < iso);
+  }
+
   async upsertPosts(posts: Post[]): Promise<void> {
     const d = await load();
     for (const p of posts) d.posts[p.id] = p;

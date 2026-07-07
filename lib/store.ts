@@ -19,6 +19,7 @@ export interface Store {
   getUser(id: string): Promise<User | null>;
   saveToken(token: Token): Promise<void>;
   getToken(userId: string): Promise<Token | null>;
+  getTokensExpiringBefore(iso: string): Promise<Token[]>;
 
   // posts / insights
   upsertPosts(posts: Post[]): Promise<void>;

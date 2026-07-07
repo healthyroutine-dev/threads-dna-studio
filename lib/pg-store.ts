@@ -136,6 +136,11 @@ export class PgStore implements Store {
     return { ...rows[0], expires_at: rows[0].expires_at.toISOString() };
   }
 
+  async getTokensExpiringBefore(iso: string): Promise<Token[]> {
+    const { rows } = await this.pool.query('SELECT * FROM tokens WHERE expires_at < $1', [iso]);
+    return rows.map((r) => ({ ...r, expires_at: r.expires_at.toISOString() }));
+  }
+
   async upsertPosts(posts: Post[]): Promise<void> {
     for (const p of posts) {
       await this.pool.query(
