@@ -1,8 +1,11 @@
-export default function WritePage() {
-  return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold">쓰기</h1>
-      <p className="mt-2 text-sm text-muted">준비 중입니다.</p>
-    </div>
-  );
+import { redirect } from 'next/navigation';
+import { getCurrentUser } from '@/lib/auth';
+import WriteClient from '@/components/WriteClient';
+
+export const dynamic = 'force-dynamic';
+
+export default async function WritePage() {
+  const user = await getCurrentUser();
+  if (!user) redirect('/login');
+  return <WriteClient />;
 }
