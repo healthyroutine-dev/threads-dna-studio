@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hypeduck": {
+      "type": "http",
+      "url": "https://api.hypeduck.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${HYPEDUCK_API_KEY}"
+      }
+    }
+  }
+}
