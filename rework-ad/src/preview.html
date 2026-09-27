@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RE:WORK 15s — 미리보기</title>
+    <style>
+      :root { --ink: #0f0f0f; --cream: #f3efe4; --red: #ff2d2d; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100vh; background: var(--ink); color: var(--cream);
+        font-family: 'Pretendard Variable', -apple-system, 'Malgun Gothic', sans-serif;
+        display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 16px;
+      }
+      .frame { position: relative; height: calc(100vh - 110px); aspect-ratio: 9 / 16; overflow: hidden; border-radius: 12px; box-shadow: 0 0 0 1px #f3efe429; }
+      iframe { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; border: 0; transform-origin: 0 0; }
+      .bar { display: flex; gap: 12px; align-items: center; width: min(100%, 760px); font-size: 14px; }
+      button { background: var(--red); color: var(--cream); border: 0; border-radius: 6px; padding: 10px 18px; font: inherit; font-weight: 700; cursor: pointer; }
+      input[type='range'] { flex: 1; accent-color: var(--red); }
+      .time { font-variant-numeric: tabular-nums; min-width: 120px; color: #f3efe48c; }
+      label { color: #f3efe48c; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div class="frame"><iframe id="view" src="./index.html"></iframe></div>
+    <div class="bar">
+      <button id="play" disabled>재생</button>
+      <input id="seek" type="range" min="0" max="449" value="0" disabled />
+      <span class="time" id="time">0.00s · f0</span>
+      <label><input type="checkbox" id="safe" /> 인스타 UI 영역</label>
+    </div>
+    <audio id="audio" src="../out/audio.wav" preload="auto"></audio>
+    <script type="module">
+      // config.js 를 고친 뒤 이 페이지를 새로고침하면 바로 반영됩니다 (npm run preview 로 열기).
+      const view = document.getElementById('view');
+      const frame = document.querySelector('.frame');
+      const play = document.getElementById('play');
+      const seek = document.getElementById('seek');
+      const time = document.getElementById('time');
+      const audio = document.getElementById('audio');
+      const safe = document.getElementById('safe');
+      let tl = { fps: 30, total: 450 };
+      let playing = false;
+      let startedAt = 0;
+      let useAudio = false; // 브라우저가 소리 재생을 막으면 시계 기준으로 재생
+
+      const fit = () => (view.style.transform = `scale(${frame.clientHeight / 1920})`);
+      new ResizeObserver(fit).observe(frame);
+
+      const show = (f) => {
+        f = Math.max(0, Math.min(tl.total - 1, f));
+        view.contentWindow.renderFrame?.(f);
+        seek.value = f;
+        time.textContent = `${(f / tl.fps).toFixed(2)}s · f${f}`;
+      };
+
+      const waitReady = () =>
+        new Promise((ok) => {
+          const poll = () => (view.contentWindow?.__ready ? ok() : setTimeout(poll, 50));
+          poll();
+        });
+
+      view.addEventListener('load', async () => {
+        await waitReady();
+        tl = view.contentWindow.__timeline;
+        seek.max = tl.total - 1;
+        play.disabled = seek.disabled = false;
+        show(Number(seek.value));
+      });
+
+      const loop = () => {
+        if (!playing) return;
+        const t = useAudio ? audio.currentTime : (performance.now() - startedAt) / 1000;
+        const f = Math.floor(t * tl.fps);
+        if (f >= tl.total) {
+          stop();
+          show(tl.total - 1);
+          return;
+        }
+        show(f);
+        requestAnimationFrame(loop);
+      };
+      const stop = () => {
+        playing = false;
+        audio.pause();
+        play.textContent = '재생';
+      };
+      play.addEventListener('click', () => {
+        if (playing) return stop();
+        let f = Number(seek.value);
+        if (f >= tl.total - 1) f = 0;
+        audio.currentTime = f / tl.fps;
+        startedAt = performance.now() - (f / tl.fps) * 1000;
+        useAudio = false;
+        audio.play().then(() => (useAudio = true)).catch(() => (useAudio = false));
+        playing = true;
+        play.textContent = '정지';
+        requestAnimationFrame(loop);
+      });
+      seek.addEventListener('input', () => {
+        stop();
+        show(Number(seek.value));
+        audio.currentTime = Number(seek.value) / tl.fps;
+      });
+      safe.addEventListener('change', () => {
+        stop();
+        play.disabled = seek.disabled = true;
+        view.src = `./index.html${safe.checked ? '?debug=1' : ''}`;
+      });
+    </script>
+  </body>
+</html>

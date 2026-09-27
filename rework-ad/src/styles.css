@@ -1,0 +1,237 @@
+/* RE:WORK STUDIO 15s — 레이아웃·타이포.
+   컬러는 config.js 의 3색(--ink / --cream / --red)과 그 투명도만 씁니다.
+   (랜딩 페이지도 --muted-inverse = 크림 55%, --hairline = 잉크 14% 처럼 투명도로 톤을 만듭니다) */
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: block;
+  src: url('../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+:root {
+  --ink: #0f0f0f;
+  --cream: #f3efe4;
+  --red: #ff2d2d;
+  --font: 'Pretendard Variable';
+  --cream-92: color-mix(in srgb, var(--cream) 92%, transparent);
+  --cream-70: color-mix(in srgb, var(--cream) 70%, transparent);
+  --cream-55: color-mix(in srgb, var(--cream) 55%, transparent); /* 랜딩 --muted-inverse */
+  --cream-40: color-mix(in srgb, var(--cream) 40%, transparent);
+  --cream-26: color-mix(in srgb, var(--cream) 26%, transparent);
+  --cream-16: color-mix(in srgb, var(--cream) 16%, transparent); /* 랜딩 --hairline-inverse */
+  --cream-10: color-mix(in srgb, var(--cream) 10%, transparent);
+  --cream-07: color-mix(in srgb, var(--cream) 7%, transparent);
+  --ink-55: color-mix(in srgb, var(--ink) 55%, transparent);
+  --ink-40: color-mix(in srgb, var(--ink) 40%, transparent);
+  --ink-14: color-mix(in srgb, var(--ink) 14%, transparent); /* 랜딩 --hairline */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--ink); }
+body { width: 1080px; height: 1920px; overflow: hidden; }
+
+#stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font), -apple-system, 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+  word-break: keep-all;
+}
+
+.scene { position: absolute; inset: 0; }
+.scene.dark { background: var(--ink); color: var(--cream); z-index: 10; }
+.scene.cream { color: var(--ink); z-index: 30; }
+.inner { position: absolute; inset: 0; transform-origin: 50% 50%; }
+
+.ic { width: 1em; height: 1em; display: block; flex: none; }
+
+/* ── 키네틱 텍스트: 줄마다 마스크, 단어가 아래에서 올라옴 ─────────────── */
+.tb { position: absolute; white-space: nowrap; }
+.tb-line { display: block; overflow: hidden; padding: 0.08em 0.1em 0.16em 0; margin: -0.08em -0.1em -0.16em 0; }
+.w { display: inline-block; will-change: transform; }
+.acc-br .br { display: inline-block; color: var(--red); }
+.acc-br .core { display: inline-block; }
+.acc-ul { position: relative; }
+.ul-bar {
+  position: absolute; left: 0.02em; right: 0.02em; bottom: 0.02em; height: 0.12em;
+  background: var(--red); transform-origin: 0 50%; transform: scaleX(0); z-index: -1;
+}
+
+/* ── ① hook: 잠금화면 시계 + 쌓이는 알림 ─────────────────────────────── */
+.clock { position: absolute; top: 290px; left: 0; right: 0; text-align: center; }
+.clock-label { font-size: 30px; font-weight: 600; color: var(--cream-55); letter-spacing: 0.04em; }
+.clock-time {
+  font-size: 128px; font-weight: 260; line-height: 1; margin-top: 12px;
+  letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--cream-92);
+}
+.notif-stack { position: absolute; top: 520px; left: 96px; width: 888px; height: 600px; }
+.notif {
+  position: absolute; left: 0; top: 0; width: 888px; height: 128px;
+  display: flex; align-items: center; gap: 26px; padding: 0 32px 0 28px;
+  border-radius: 32px; background: color-mix(in srgb, var(--cream) 8%, var(--ink)); box-shadow: inset 0 0 0 1.5px var(--cream-07);
+  transform-origin: 50% 0; opacity: 0;
+}
+.notif-icon {
+  width: 72px; height: 72px; border-radius: 19px; background: var(--cream-10);
+  display: grid; place-items: center; font-size: 40px; color: var(--cream-70); flex: none;
+}
+.notif-body { flex: 1; min-width: 0; }
+.notif-head { display: flex; justify-content: space-between; font-size: 25px; font-weight: 600; color: var(--cream-40); }
+.notif-title {
+  margin-top: 4px; font-size: 36px; font-weight: 700; letter-spacing: -0.01em; color: var(--cream-70);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.notif.hl .notif-title { color: var(--cream); }
+.notif.hl .notif-icon { color: var(--cream); background: var(--cream-16); }
+.hook-text {
+  left: 96px; top: 1178px; font-size: 106px; font-weight: 800; line-height: 1.2;
+  letter-spacing: -0.035em; color: var(--cream);
+}
+
+/* ── ② struggle: 게시물 작성 화면 ─────────────────────────────────────── */
+.composer .inner { transform-origin: 96px 1070px; }
+.cmp-bar {
+  position: absolute; top: 290px; left: 96px; right: 96px; height: 84px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cmp-x { font-size: 44px; color: var(--cream-70); }
+.cmp-title { font-size: 36px; font-weight: 700; color: var(--cream-92); }
+.cmp-action { font-size: 34px; font-weight: 700; color: var(--cream-26); }
+.cmp-sep { position: absolute; top: 400px; left: 0; right: 0; height: 2px; background: var(--cream-10); }
+.cmp-media {
+  position: absolute; top: 444px; left: 96px; width: 888px; height: 440px;
+  border-radius: 32px; border: 3px dashed var(--cream-16);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  color: var(--cream-40); font-size: 31px; font-weight: 600;
+}
+.cmp-media .ic { font-size: 76px; color: var(--cream-26); }
+.cmp-field { position: absolute; top: 948px; left: 96px; width: 888px; }
+.cmp-label { font-size: 30px; font-weight: 600; color: var(--cream-40); }
+.cmp-text {
+  margin-top: 22px; font-size: 92px; font-weight: 700; line-height: 1.22;
+  letter-spacing: -0.03em; color: var(--cream); min-height: 1.22em; white-space: pre;
+}
+.cmp-line { white-space: pre; }
+.caret {
+  display: inline-block; width: 0.075em; height: 1em; margin-left: 0.06em;
+  vertical-align: -0.16em; background: var(--cream);
+}
+.sel { background: var(--cream-26); border-radius: 0.06em; }
+.cmp-under { margin-top: 24px; height: 3px; background: var(--cream-16); }
+.cmp-count {
+  margin-top: 18px; text-align: right; font-size: 28px; font-weight: 500;
+  color: var(--cream-40); font-variant-numeric: tabular-nums;
+}
+
+/* ── ② struggle: 올려놓은 게시물 ──────────────────────────────────────── */
+.scene.post { z-index: 40; }
+.post-head {
+  position: absolute; top: 296px; left: 96px; display: flex; align-items: center; gap: 14px;
+  font-size: 31px; font-weight: 700; color: var(--cream-55);
+}
+.post-head .ic { font-size: 36px; }
+.post-card {
+  position: absolute; top: 362px; left: 96px; width: 888px; height: 470px; overflow: hidden;
+  border-radius: 32px; background: var(--cream-07); box-shadow: inset 0 0 0 1.5px var(--cream-07);
+}
+.post-thumb { position: absolute; left: 0; right: 0; top: 0; height: 352px; background: var(--cream-07); overflow: hidden; }
+.post-thumb .shape { position: absolute; display: block; }
+.post-thumb .s1 { width: 300px; height: 300px; border-radius: 50%; left: 70px; top: 120px; background: var(--cream-10); }
+.post-thumb .s2 { width: 250px; height: 190px; border-radius: 22px; left: 470px; top: 58px; background: var(--cream-07); }
+.post-thumb .s3 { width: 400px; height: 3px; left: 400px; top: 300px; background: var(--cream-16); }
+.post-thumb .reel { position: absolute; right: 30px; top: 28px; font-size: 40px; color: var(--cream-70); }
+.post-stats {
+  position: absolute; left: 36px; right: 36px; bottom: 0; height: 118px;
+  display: flex; align-items: center; gap: 46px; font-size: 40px; font-weight: 700; color: var(--cream-92);
+}
+.stat { display: flex; align-items: center; gap: 14px; font-variant-numeric: tabular-nums; }
+.stat .ic { font-size: 38px; color: var(--cream-55); }
+.stat .lbl { font-size: 27px; font-weight: 600; color: var(--cream-40); margin-right: -4px; }
+.post-text {
+  left: 96px; top: 908px; font-size: 86px; font-weight: 800; line-height: 1.2;
+  letter-spacing: -0.035em; color: var(--cream);
+}
+
+/* ── 전환: 크림 배경 · 레드 라인 ─────────────────────────────────────── */
+.cream-bg { position: absolute; inset: 0; background: var(--cream); z-index: 20; }
+.redline { position: absolute; left: 0; top: 0; background: var(--red); z-index: 50; transform-origin: 0 50%; }
+
+/* 섹션 마커 — 랜딩 페이지 section-marker 와 같은 구성 (번호 · 한글 · 룰 · 영문) */
+.marker { position: absolute; top: 290px; left: 96px; width: 888px; height: 48px; overflow: hidden; }
+.mk-row { position: absolute; inset: 0; display: flex; align-items: center; gap: 22px; }
+.mk-no { font-size: 28px; font-weight: 800; letter-spacing: 0.14em; color: var(--red); }
+.mk-ko { font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink); }
+.mk-rule { flex: 1; height: 2px; background: var(--ink-14); transform-origin: 0 50%; }
+.mk-en { font-size: 25px; font-weight: 600; letter-spacing: 0.16em; color: var(--ink-40); }
+
+/* ── ③ turn ──────────────────────────────────────────────────────────── */
+.turn-head {
+  left: 96px; top: 540px; font-size: 150px; font-weight: 900; line-height: 1.08;
+  letter-spacing: -0.045em; color: var(--ink);
+}
+.steps { position: absolute; top: 944px; left: 96px; width: 888px; font-size: 88px; }
+.step { position: relative; height: 132px; display: flex; align-items: center; gap: 40px; }
+.step-pill {
+  flex: none; height: 58px; padding: 0 20px; border-radius: 8px; background: var(--ink); color: var(--cream);
+  display: flex; align-items: center; font-size: 26px; font-weight: 700; letter-spacing: 0.12em;
+}
+.step-mask { display: block; overflow: hidden; padding: 0.1em 0.1em 0.16em 0; margin: -0.1em -0.1em -0.16em 0; }
+.step-word {
+  display: block; font-size: 1em; font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; color: var(--ink); white-space: nowrap;
+}
+.step-rule { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink-14); transform-origin: 0 50%; }
+
+/* ── ④ value / setup ─────────────────────────────────────────────────── */
+.v-marker {
+  position: absolute; top: 290px; left: 96px; height: 48px; display: flex; align-items: center; gap: 18px;
+  font-size: 25px; font-weight: 600; letter-spacing: 0.2em; color: var(--ink-55); white-space: nowrap;
+}
+.v-marker .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); flex: none; }
+.slogan, .setup-text {
+  left: 96px; font-size: 112px; font-weight: 900; line-height: 1.24; letter-spacing: -0.04em; color: var(--ink);
+}
+.slogan { top: 690px; }
+.setup-text { top: 776px; }
+
+/* ── ⑤ CTA ───────────────────────────────────────────────────────────── */
+.logo {
+  position: absolute; left: 0; right: 0; top: 628px; display: flex; justify-content: center; align-items: center;
+  font-size: 104px; font-weight: 800; line-height: 1; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap;
+}
+.lg-mask { display: inline-block; overflow: hidden; padding: 0.12em 0.02em; margin: -0.12em -0.02em; }
+.lg-part { display: inline-block; }
+/* 랜딩 로고: 콜론이 빨간 박스 안에 (14×22px @16px → 0.875em × 1.375em) */
+.lg-colon {
+  display: inline-flex; justify-content: center; align-items: center; width: 0.875em; height: 1.375em;
+  margin: 0 0.125em; border-radius: 0.125em; background: var(--red); color: var(--cream);
+  font-size: 1em; line-height: 1;
+}
+.lg-colon span { display: block; font-size: 0.875em; transform: translateY(-0.04em); }
+.lg-suffix { font-size: 0.8125em; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-55); margin-left: 0.375em; }
+.cta-btn {
+  position: absolute; top: 872px; left: 50%; display: flex; align-items: center; gap: 22px;
+  padding: 36px 60px; border-radius: 20px; background: var(--red); color: var(--cream);
+  font-size: 58px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden;
+}
+.cta-btn .ic { font-size: 54px; stroke-width: 2.4; }
+.ripple { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: var(--cream); opacity: 0; }
+.cta-url {
+  position: absolute; top: 1072px; left: 50%; display: flex; align-items: center; gap: 16px;
+  padding: 22px 40px; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ink-14);
+  font-size: 40px; font-weight: 600; letter-spacing: 0; color: var(--ink); white-space: nowrap;
+}
+.cta-url .ic { font-size: 34px; color: var(--ink-55); }
+
+/* ── 매치컷용 '스토리' ───────────────────────────────────────────────── */
+.flyer { position: absolute; left: 0; top: 0; z-index: 60; transform-origin: 0 0; white-space: pre; color: var(--ink); line-height: 1.24; }
+
+/* ── 디버그: 인스타 UI 영역 (?debug=1) ───────────────────────────────── */
+.safe { position: absolute; left: 0; right: 0; z-index: 100; background: rgba(0, 160, 255, 0.28); pointer-events: none; }
+.safe-side { position: absolute; top: 0; bottom: 0; z-index: 100; width: 1px; background: rgba(0, 160, 255, 0.6); }
