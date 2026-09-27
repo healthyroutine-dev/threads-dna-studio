@@ -25,6 +25,7 @@
   --cream-07: color-mix(in srgb, var(--cream) 7%, transparent);
   --ink-55: color-mix(in srgb, var(--ink) 55%, transparent);
   --ink-40: color-mix(in srgb, var(--ink) 40%, transparent);
+  --ink-26: color-mix(in srgb, var(--ink) 26%, transparent);
   --ink-14: color-mix(in srgb, var(--ink) 14%, transparent); /* 랜딩 --hairline */
 }
 
@@ -163,46 +164,52 @@ body { width: 1080px; height: 1920px; overflow: hidden; }
 .cream-bg { position: absolute; inset: 0; background: var(--cream); z-index: 20; }
 .redline { position: absolute; left: 0; top: 0; background: var(--red); z-index: 50; transform-origin: 0 50%; }
 
-/* 섹션 마커 — 랜딩 페이지 section-marker 와 같은 구성 (번호 · 한글 · 룰 · 영문) */
-.marker { position: absolute; top: 290px; left: 96px; width: 888px; height: 48px; overflow: hidden; }
-.mk-row { position: absolute; inset: 0; display: flex; align-items: center; gap: 22px; }
-.mk-no { font-size: 28px; font-weight: 800; letter-spacing: 0.14em; color: var(--red); }
-.mk-ko { font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink); }
-.mk-rule { flex: 1; height: 2px; background: var(--ink-14); transform-origin: 0 50%; }
-.mk-en { font-size: 25px; font-weight: 600; letter-spacing: 0.16em; color: var(--ink-40); }
-
-/* ── ③ turn ──────────────────────────────────────────────────────────── */
-.turn-head {
-  left: 96px; top: 540px; font-size: 150px; font-weight: 900; line-height: 1.08;
-  letter-spacing: -0.045em; color: var(--ink);
-}
-.steps { position: absolute; top: 944px; left: 96px; width: 888px; font-size: 88px; }
-.step { position: relative; height: 132px; display: flex; align-items: center; gap: 40px; }
-.step-pill {
-  flex: none; height: 58px; padding: 0 20px; border-radius: 8px; background: var(--ink); color: var(--cream);
-  display: flex; align-items: center; font-size: 26px; font-weight: 700; letter-spacing: 0.12em;
-}
-.step-mask { display: block; overflow: hidden; padding: 0.1em 0.1em 0.16em 0; margin: -0.1em -0.1em -0.16em 0; }
-.step-word {
-  display: block; font-size: 1em; font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; color: var(--ink); white-space: nowrap;
-}
-.step-rule { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink-14); transform-origin: 0 50%; }
-
-/* ── ④ value / setup ─────────────────────────────────────────────────── */
-.v-marker {
-  position: absolute; top: 290px; left: 96px; height: 48px; display: flex; align-items: center; gap: 18px;
+/* 전환 이후 상단 브랜드 표기 — 랜딩 히어로의 '● RE:WORK STUDIO — CONTENT BRANDING' */
+.brand-marker {
+  position: absolute; top: 290px; left: 96px; height: 48px; z-index: 35; display: flex; align-items: center; gap: 18px;
   font-size: 25px; font-weight: 600; letter-spacing: 0.2em; color: var(--ink-55); white-space: nowrap;
 }
-.v-marker .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); flex: none; }
-.slogan, .setup-text {
-  left: 96px; font-size: 112px; font-weight: 900; line-height: 1.24; letter-spacing: -0.04em; color: var(--ink);
+.brand-marker .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); flex: none; }
+
+/* ── ③ turn: 헤드라인 + 체크리스트 ───────────────────────────────────── */
+.turn-head {
+  left: 96px; top: 452px; font-size: 108px; font-weight: 900; line-height: 1.14;
+  letter-spacing: -0.04em; color: var(--ink);
 }
-.slogan { top: 690px; }
+.checklist { position: absolute; top: 824px; left: 96px; width: 888px; font-size: 84px; }
+.check-row { position: relative; height: 156px; display: flex; align-items: center; gap: 36px; }
+.cbox {
+  flex: none; width: 0.74em; height: 0.74em; border-radius: 0.14em; display: grid; place-items: center;
+  box-shadow: inset 0 0 0 4px var(--ink-26);
+}
+.cbox.on { background: var(--red); box-shadow: none; }
+.cbox svg { width: 78%; height: 78%; fill: none; stroke: var(--cream); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.cbox path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.check-mask { display: block; overflow: hidden; padding: 0.1em 0.1em 0.16em 0; margin: -0.1em -0.1em -0.16em 0; }
+.check-text { display: block; font-size: 1em; font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; white-space: nowrap; color: var(--ink); }
+.check-rule { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink-14); transform-origin: 0 50%; }
+
+/* ── ④ trust: 1:1 ───────────────────────────────────────────────────── */
+.badge {
+  position: absolute; left: 96px; top: 470px; display: flex; align-items: center;
+  font-size: 320px; font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--ink);
+}
+.b-mask { display: inline-block; overflow: hidden; padding: 0.02em 0.03em 0.04em; margin: -0.02em -0.03em -0.04em; }
+.b-digit { display: inline-block; }
+.b-colon {
+  width: 0.3em; height: 0.62em; margin: 0 0.07em; border-radius: 0.05em; background: var(--red);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.14em;
+}
+.b-colon i { display: block; width: 0.075em; height: 0.075em; border-radius: 50%; background: var(--cream); }
+.trust-text, .setup-text {
+  left: 96px; font-size: 104px; font-weight: 900; line-height: 1.22; letter-spacing: -0.04em; color: var(--ink);
+}
+.trust-text { top: 880px; }
 .setup-text { top: 776px; }
 
 /* ── ⑤ CTA ───────────────────────────────────────────────────────────── */
 .logo {
-  position: absolute; left: 0; right: 0; top: 628px; display: flex; justify-content: center; align-items: center;
+  position: absolute; left: 0; right: 0; top: 596px; display: flex; justify-content: center; align-items: center;
   font-size: 104px; font-weight: 800; line-height: 1; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap;
 }
 .lg-mask { display: inline-block; overflow: hidden; padding: 0.12em 0.02em; margin: -0.12em -0.02em; }
@@ -216,21 +223,22 @@ body { width: 1080px; height: 1920px; overflow: hidden; }
 .lg-colon span { display: block; font-size: 0.875em; transform: translateY(-0.04em); }
 .lg-suffix { font-size: 0.8125em; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-55); margin-left: 0.375em; }
 .cta-btn {
-  position: absolute; top: 872px; left: 50%; display: flex; align-items: center; gap: 22px;
-  padding: 36px 60px; border-radius: 20px; background: var(--red); color: var(--cream);
-  font-size: 58px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden;
+  position: absolute; top: 800px; left: 50%; display: flex; align-items: center; gap: 22px;
+  padding: 36px 64px; border-radius: 20px; background: var(--red); color: var(--cream);
+  font-size: 60px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden;
 }
 .cta-btn .ic { font-size: 54px; stroke-width: 2.4; }
 .ripple { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: var(--cream); opacity: 0; }
 .cta-url {
-  position: absolute; top: 1072px; left: 50%; display: flex; align-items: center; gap: 16px;
+  position: absolute; top: 1066px; left: 50%; display: flex; align-items: center; gap: 16px;
   padding: 22px 40px; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ink-14);
   font-size: 40px; font-weight: 600; letter-spacing: 0; color: var(--ink); white-space: nowrap;
 }
 .cta-url .ic { font-size: 34px; color: var(--ink-55); }
-
-/* ── 매치컷용 '스토리' ───────────────────────────────────────────────── */
-.flyer { position: absolute; left: 0; top: 0; z-index: 60; transform-origin: 0 0; white-space: pre; color: var(--ink); line-height: 1.24; }
+.cta-note {
+  position: absolute; top: 986px; left: 0; right: 0; text-align: center;
+  font-size: 36px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink-55); white-space: nowrap;
+}
 
 /* ── 디버그: 인스타 UI 영역 (?debug=1) ───────────────────────────────── */
 .safe { position: absolute; left: 0; right: 0; z-index: 100; background: rgba(0, 160, 255, 0.28); pointer-events: none; }

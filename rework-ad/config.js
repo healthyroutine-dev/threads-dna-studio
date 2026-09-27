@@ -44,27 +44,30 @@ export default {
   },
 
   scenes: {
-    // ① 0~2.5초 [후킹/공감] 바쁜 대표님의 하루 — 알림이 쌓이는 모션 위에 한 문장
+    // ① 0~2.5초 [후킹] 첫 프레임부터 타깃을 부른다.
+    //    업무 알림이 쌓이는 동안 'SNS 게시물 올리기' 알림만 계속 미뤄진다 (→ '늘 뒷전')
     hook: {
       start: 0,
-      text: ['SNS, 해야 하는 건', '아는데…'], // 줄 단위로 나눠 적습니다
-      textAt: 0.13,
+      text: ['혼자 사업하는 대표님,', 'SNS는 늘 뒷전이죠?'], // 줄 단위로 나눠 적습니다
+      textAt: -0.4, // 음수 = 영상 시작 전에 등장이 끝나 첫 프레임(썸네일)부터 문장이 보임
+      lineGap: 0.47, // 둘째 줄은 이만큼 늦게 (첫 줄을 먼저 읽도록)
       clock: { label: '오늘', from: '09:00', to: '23:47' },
-      // at: 알림이 도착하는 시간(초). highlight: true 면 더 밝게 강조
+      // at: 알림이 도착하는 시간(초, 음수면 첫 프레임에 이미 도착). highlight: true 면 밝게 강조
       notifications: [
-        { at: 0.0, app: '메시지', icon: 'chat', title: '견적서 요청 1건' },
+        { at: -0.25, app: '메시지', icon: 'chat', title: '견적서 요청 1건' },
+        { at: 0.0, app: '미리 알림', icon: 'check', title: 'SNS 게시물 올리기', highlight: true },
         { at: 0.25, app: '캘린더', icon: 'calendar', title: '14:00 거래처 미팅' },
         { at: 0.5, app: '메일', icon: 'mail', title: '세금계산서 발행 요청' },
-        { at: 0.75, app: '미리 알림', icon: 'check', title: 'SNS 게시물 올리기 · 3일째', highlight: true },
-        { at: 1.0, app: '메시지', icon: 'chat', title: '답장 기다리는 문의 7건' },
+        { at: 0.75, app: '메시지', icon: 'chat', title: '답장 기다리는 문의 7건' },
+        { at: 1.0, app: '미리 알림', icon: 'check', title: 'SNS 게시물 올리기 · 다시 알림', highlight: true },
         { at: 1.25, app: '캘린더', icon: 'calendar', title: '19:00 강의 자료 준비' },
-        { at: 1.5, app: '미리 알림', icon: 'check', title: '릴스 기획하기', highlight: true },
-        { at: 1.75, app: '메일', icon: 'mail', title: '이번 달 정산 내역 확인' },
-        { at: 2.0, app: '메시지', icon: 'chat', title: '새 문의 3건' },
+        { at: 1.5, app: '메일', icon: 'mail', title: '이번 달 정산 내역 확인' },
+        { at: 1.75, app: '메시지', icon: 'chat', title: '새 문의 3건' },
+        { at: 2.0, app: '미리 알림', icon: 'check', title: 'SNS 게시물 올리기 · 3일째 미룸', highlight: true },
       ],
     },
 
-    // ② 2.5~7초 [막막함] 고민을 타이핑했다 지우는 빠른 컷
+    // ② 2.5~7초 [공감] 고민을 타이핑했다 지우는 빠른 컷 → 올려도 조용한 반응
     struggle: {
       start: 2.5,
       composer: {
@@ -81,10 +84,10 @@ export default {
         { at: 2.5, lines: ['뭐부터 올리지?'], speed: 15, erase: 'backspace', zoom: 1 },
         { at: 4.0, lines: ['컨셉은?', '스토리는?'], speed: 30, erase: 'selectAll', zoom: 1.32 },
       ],
-      // 올려놓은 게시물 — 낮은 조회수가 천천히 오르다 멈춤 (대표님 계정 상황 묘사용 숫자)
+      // 올린 게시물 — 조회수가 천천히 오르다 멈춤 (대표님 계정 상황을 보여주는 연출용 숫자)
       post: {
         at: 5.6,
-        text: '올려놓고 보면… 아쉽고',
+        text: '올려도… 반응은 조용하고',
         label: '게시물 인사이트',
         views: [12, 37], // 시작 → 멈추는 조회수
         likes: 2,
@@ -92,41 +95,45 @@ export default {
       },
     },
 
-    // ③ 7~10초 [전환] 비비드 레드 라인이 화면을 가르고 크림 톤으로 정돈
+    // ③ 7~10초 [전환·안도] 레드 라인이 화면을 가르고 크림 톤으로 정돈.
+    //    ②에서 고민하던 질문들이 체크리스트로 돌아와 박자마다 체크된다
     turn: {
       start: 7.0,
-      marker: { no: '02', ko: '전환', en: 'THE TURN' },
-      headline: ['혼자', '애쓰지 마세요'],
+      headline: ['혼자 애쓰지 마세요,', '같이 정리해드릴게요'],
       headlineAt: 7.33,
-      // 리워크 방식 4단계 (랜딩 페이지 '03 방식 — The Method' 와 동일)
-      stepsMarker: { no: '03', ko: '방식', en: 'THE METHOD' },
-      stepLabel: 'STEP',
-      steps: ['정리', '언어화', '스토리', '자산'],
-      stepsAt: [8.0, 8.25, 8.5, 8.75],
+      lineGap: 0.3,
+      checklist: ['뭐부터 올릴지', '컨셉', '스토리'],
+      listAt: 7.9, // 체크 전 목록이 먼저 흐리게 나타나는 시점
+      checkAt: [8.25, 8.5, 8.75], // 항목마다 빨간 체크 (벨 소리가 함께 오름)
     },
 
-    // ④ 10~11.5초 [가치] 랜딩 페이지 슬로건
-    value: {
+    // ④ 10~11.5초 [신뢰] 랜딩 페이지의 '1:1 · 전 과정 대표 직접 진행'
+    trust: {
       start: 10.0,
-      marker: 'RE:WORK STUDIO — CONTENT BRANDING',
-      // [스토리] 는 ③의 STEP '스토리' 가 날아와 자리 잡는 매치컷으로 연결됩니다 (같은 단어일 때)
-      slogan: ['선택받는 브랜드는', '운이 아니라', '[스토리]입니다'],
+      badge: '1:1', // 가운데 콜론은 로고와 같은 빨간 박스로 그립니다
+      lines: ['처음부터 끝까지,', '대표가 직접 함께해요'],
     },
 
-    // ④ 11.5~13초 [가치] 행동 제안
+    // ④ 11.5~13초 [제안] 올해가 가기 전에 (재촉하지 않고 권하는 톤)
     setup: {
       start: 11.5,
       lines: ['올해가 가기 전에,', '내 SNS {제대로 세팅}'],
     },
 
-    // ⑤ 13~15초 [CTA] 로고 타이포 + 신청 버튼 + 배포 주소
+    // ⑤ 13~15초 [CTA] 로고 + 무료 상담 버튼 + 안심 문구 + 주소
     cta: {
       start: 13.0,
       logo: { left: 'RE', colon: ':', right: 'WORK', suffix: 'STUDIO' },
-      button: '무료 계정 분석 신청',
+      button: '무료 상담하기',
+      note: '상담만 받아도 괜찮아요', // 랜딩: '상담은 무료이며 계약으로 이어지지 않습니다'
       url: 'rework-studio.vercel.app',
       pressAt: 14.27, // 버튼이 살짝 눌리는 순간
     },
+  },
+
+  // 전환 이후 화면 상단에 계속 보이는 브랜드 표기 (랜딩 히어로의 빨간 점 + 문구)
+  brand: {
+    marker: 'RE:WORK STUDIO — CONTENT BRANDING',
   },
 
   audio: {
@@ -138,6 +145,7 @@ export default {
     // 효과음 켜고 끄기
     sfx: {
       transition: true, // 7초 레드 라인 스우시 + 벨
+      check: true, // 체크리스트 체크 소리
       cta: true, // 로고 등장 차임
       typing: true, // 타이핑 소리 (작게)
       tap: true, // 버튼 눌림

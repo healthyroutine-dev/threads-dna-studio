@@ -44,12 +44,12 @@ const GLASS = {
   Dm: [[0, 'F5'], [1.5, 'D5'], [3, 'A4']],
   E7: [[0, 'G#4'], [1, 'B4']],
 };
-// 후반부 벨 멜로디 (마디별). 첫 마디는 4단계가 뜰 때 오르는 벨(STEP_BELLS)이 대신한다
+// 후반부 벨 멜로디 (마디별). 첫 마디는 체크리스트가 체크될 때 오르는 벨(CHECK_BELLS)이 대신한다
 const MELODY = {
   E: [[0, 'B5'], [1, 'G#5'], [1.5, 'B5'], [2, 'E6']],
   D: [[0, 'A5'], [1, 'F#5'], [1.5, 'A5'], [2, 'D6'], [3, 'C#6']],
 };
-const STEP_BELLS = ['A5', 'B5', 'C#6', 'E6'];
+const CHECK_BELLS = ['A5', 'C#6', 'E6', 'A6']; // A장조 화음을 한 칸씩 오른다
 
 // 결정적 난수 (매번 같은 소리가 나오도록)
 function mulberry32(seed) {
@@ -354,8 +354,10 @@ export function synthesize(cfg = config) {
       if (t - lastKey < 0.05) continue; // 너무 빠른 연타는 한 번으로
       lastKey = t;
       keyClick(t, e.type === 'select' ? 0.12 : 0.2, e.type);
-    } else if (e.type === 'step') {
-      bell(music, t, STEP_BELLS[e.index % STEP_BELLS.length], 0.15, e.index % 2 ? 0.2 : -0.2);
+    } else if (e.type === 'check') {
+      // 체크리스트가 하나씩 체크될 때: 오르는 벨 + 작은 체크 소리
+      bell(music, t, CHECK_BELLS[e.index % CHECK_BELLS.length], 0.15, e.index % 2 ? 0.2 : -0.2);
+      if (A.sfx.check) tick(t, 0.1, e.index % 2 ? 0.15 : -0.15);
     } else if (e.type === 'transition' && A.sfx.transition) {
       // 레드 라인이 왼쪽→오른쪽으로 그어지는 방향으로 스우시가 지나간다
       noiseSweep(fx, t - 0.08, 0.5, { from: 7000, to: 700, peakAt: 0.22, Q: 0.9, gain: 0.34 * vSfx, pan: (u) => -0.8 + 1.6 * Math.min(1, u / 0.3), rev: 0.3 });

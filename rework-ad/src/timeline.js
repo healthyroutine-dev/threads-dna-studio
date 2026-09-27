@@ -12,7 +12,7 @@ function choseongOf(ch) {
 // [강조] {밑줄} 표기를 뺀 순수 문장
 export const plainText = (str) => str.replace(/[[\]{}]/g, '');
 
-const SCENE_ORDER = ['hook', 'struggle', 'turn', 'value', 'setup', 'cta'];
+const SCENE_ORDER = ['hook', 'struggle', 'turn', 'trust', 'setup', 'cta'];
 
 // 입력창 컷 하나의 타이핑 → 유지 → 삭제 상태를 프레임별로 만든다.
 // phase: idle(빈 칸) | typing | hold(커서 깜빡임) | erasing | selected | empty(커서가 잠깐 남았다 사라짐)
@@ -100,10 +100,11 @@ export function buildTimeline(cfg) {
   const tl = { fps, total, bounds, scenes: {}, items: [], events: [] };
   const item = (id, text, appear, disappear, restAt) => tl.items.push({ id, text, appear, disappear, restAt });
 
-  // ① hook
-  const hook = { ...bounds.hook, textAt: F(S.hook.textAt) };
+  // ① hook — textAt 이 음수면 첫 프레임에 이미 문장이 떠 있다
+  const hook = { ...bounds.hook, textAt: F(S.hook.textAt), lineGap: F(S.hook.lineGap ?? 0) };
   hook.notifs = S.hook.notifications.map((n) => ({ ...n, f: F(n.at) }));
-  item('hook.text', S.hook.text.join(' '), hook.textAt, hook.end, Math.min(hook.end - 2, hook.textAt + 30));
+  const hookShown = Math.max(hook.start, hook.textAt);
+  item('hook.text', S.hook.text.join(' '), hookShown, hook.end, Math.min(hook.end - 2, hookShown + hook.lineGap + 20));
   tl.scenes.hook = hook;
 
   // ② struggle — 입력창 컷들 + 게시물 컷
@@ -120,29 +121,31 @@ export function buildTimeline(cfg) {
   struggle.post = { ...S.struggle.post, start: postStart, end: struggle.end };
   tl.scenes.struggle = struggle;
 
-  // ③ turn — 레드 라인 → 화면 분할 → 헤드라인 → 4단계
+  // ③ turn — 레드 라인 → 화면 분할 → 헤드라인 → 질문들이 체크리스트로 정리
   const t0 = bounds.turn.start;
   const turn = {
     ...bounds.turn,
     lineDraw: [t0, t0 + 5], // 레드 라인이 왼쪽→오른쪽으로 그어짐
     split: [t0 + 5, t0 + 17], // 검은 화면이 위/아래로 갈라짐
-    morph: [t0 + 14, t0 + 28], // 레드 라인이 편집 룰(구분선)로 자리 잡음
+    morph: [t0 + 14, t0 + 28], // 레드 라인이 편집 구분선으로 자리 잡음
     headlineAt: F(S.turn.headlineAt),
-    stepsAt: S.turn.stepsAt.map(F),
-    exit: bounds.turn.end, // 10초 박자에 하드컷 — '스토리' 만 남아 슬로건으로 날아간다
+    lineGap: F(S.turn.lineGap ?? 0),
+    listAt: F(S.turn.listAt),
+    checkAt: S.turn.checkAt.map(F),
+    exit: bounds.turn.end,
   };
+  const turnRest = turn.checkAt[turn.checkAt.length - 1] + 14;
   item('struggle.post', S.struggle.post.text, postStart + 1, turn.split[0] + 6, t0 - 6);
-  item('turn.headline', S.turn.headline.join(' '), turn.headlineAt, turn.end, turn.stepsAt[turn.stepsAt.length - 1] + 14);
-  turn.stepsAt.forEach((f, i) =>
-    item(`turn.step${i}`, S.turn.steps[i], f, turn.end, turn.stepsAt[turn.stepsAt.length - 1] + 14),
-  );
+  item('turn.headline', S.turn.headline.join(' '), turn.headlineAt, turn.end, turnRest);
+  S.turn.checklist.forEach((label, i) => item(`turn.check${i}`, label, turn.listAt + i * 3, turn.end, turnRest));
   tl.scenes.turn = turn;
 
-  // ④ value / setup
+  // ④ trust / setup
   // 크림 파트의 장면 전환은 모두 박자에 맞춘 하드컷 (나가는 글자와 들어오는 글자가 겹치지 않게)
-  const value = { ...bounds.value };
-  item('value.slogan', plainText(S.value.slogan.join(' ')), value.start, value.end, value.start + 18);
-  tl.scenes.value = value;
+  const trust = { ...bounds.trust };
+  item('trust.badge', S.trust.badge, trust.start, trust.end, trust.start + 26);
+  item('trust.lines', plainText(S.trust.lines.join(' ')), trust.start + 6, trust.end, trust.start + 26);
+  tl.scenes.trust = trust;
   const setup = { ...bounds.setup };
   item('setup.lines', plainText(S.setup.lines.join(' ')), setup.start + 2, setup.end, setup.start + 26);
   tl.scenes.setup = setup;
@@ -154,17 +157,19 @@ export function buildTimeline(cfg) {
     logoAt: c0 + 2,
     colonAt: c0 + 5,
     buttonAt: c0 + 12,
-    urlAt: c0 + 20,
+    noteAt: c0 + 17,
+    urlAt: c0 + 21,
     pressAt: F(S.cta.pressAt),
   };
   item('cta.logo', Object.values(S.cta.logo).join(''), cta.logoAt, total, cta.urlAt + 12);
   item('cta.button', S.cta.button, cta.buttonAt, total, cta.urlAt + 12);
+  if (S.cta.note) item('cta.note', S.cta.note, cta.noteAt, total, cta.urlAt + 12);
   item('cta.url', S.cta.url, cta.urlAt, total, cta.urlAt + 12);
   tl.scenes.cta = cta;
 
   // 오디오 큐 (프레임)
   tl.events.push({ f: turn.lineDraw[0], type: 'transition', group: 'sfx' });
-  turn.stepsAt.forEach((f, i) => tl.events.push({ f, type: 'step', index: i, group: 'music' }));
+  turn.checkAt.forEach((f, i) => tl.events.push({ f, type: 'check', index: i, group: 'music' }));
   tl.events.push({ f: cta.colonAt, type: 'cta', group: 'sfx' });
   tl.events.push({ f: cta.pressAt, type: 'tap', group: 'sfx' });
   tl.events.sort((a, b) => a.f - b.f);

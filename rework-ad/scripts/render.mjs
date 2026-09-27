@@ -201,15 +201,15 @@ async function stills(session) {
   const S = tl.scenes;
   const C = config.scenes;
   const keys = [
-    [S.hook.textAt + 24, '① 후킹 · 공감', 0, S.hook.end, plainText(C.hook.text.join(' '))],
-    [S.struggle.cuts[0].typedEnd + 4, '② 막막함', S.struggle.cuts[0].start, S.struggle.cuts[0].end, C.struggle.cuts[0].lines.join(' ')],
-    [S.struggle.cuts[1].typedEnd + 3, '② 막막함', S.struggle.cuts[1].start, S.struggle.cuts[1].end, C.struggle.cuts[1].lines.join(' ')],
-    [S.turn.start - 5, '② 막막함', S.struggle.post.start, S.turn.start, C.struggle.post.text],
+    [Math.max(0, S.hook.textAt) + S.hook.lineGap + 22, '① 후킹', 0, S.hook.end, plainText(C.hook.text.join(' '))],
+    [S.struggle.cuts[0].typedEnd + 4, '② 공감', S.struggle.cuts[0].start, S.struggle.cuts[0].end, C.struggle.cuts[0].lines.join(' ')],
+    [S.struggle.cuts[1].typedEnd + 3, '② 공감', S.struggle.cuts[1].start, S.struggle.cuts[1].end, C.struggle.cuts[1].lines.join(' ')],
+    [S.turn.start - 5, '② 공감', S.struggle.post.start, S.turn.start, C.struggle.post.text],
     [S.turn.split[0] + 4, '③ 전환', S.turn.start, S.turn.split[1], '레드 라인이 화면을 가르고 크림 톤으로'],
-    [S.turn.stepsAt[3] + 16, '③ 전환 · 방식', S.turn.headlineAt, S.turn.end, `${C.turn.headline.join(' ')} — ${C.turn.steps.join(' → ')}`],
-    [S.value.start + 22, '④ 가치', S.value.start, S.value.end, plainText(C.value.slogan.join(' '))],
-    [S.setup.start + 28, '④ 가치', S.setup.start, S.setup.end, plainText(C.setup.lines.join(' '))],
-    [S.cta.urlAt + 16, '⑤ CTA', S.cta.start, tl.total, `${C.cta.button} · ${C.cta.url}`],
+    [S.turn.checkAt[S.turn.checkAt.length - 1] + 16, '③ 안도', S.turn.headlineAt, S.turn.end, `${C.turn.headline.join(' ')} — ${C.turn.checklist.map((x) => `☑ ${x}`).join(' ')}`],
+    [S.trust.start + 26, '④ 신뢰', S.trust.start, S.trust.end, `${C.trust.badge} · ${plainText(C.trust.lines.join(' '))}`],
+    [S.setup.start + 28, '④ 제안', S.setup.start, S.setup.end, plainText(C.setup.lines.join(' '))],
+    [S.cta.urlAt + 16, '⑤ CTA', S.cta.start, tl.total, [C.cta.button, C.cta.note, C.cta.url].filter(Boolean).join(' · ')],
   ];
   const dir = out('out/stills');
   await rm(dir, { recursive: true, force: true });

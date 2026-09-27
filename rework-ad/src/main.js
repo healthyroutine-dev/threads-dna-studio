@@ -12,7 +12,7 @@ const H = config.video.height;
 const MX = 96; // 좌우 레이아웃 여백 → 콘텐츠 x 96~984
 const CW = W - MX * 2;
 const SPLIT_Y = 960; // 레드 라인이 화면을 가르는 높이
-const RULE_Y = 898; // 전환 후 레드 라인이 자리 잡는 구분선 높이
+const RULE_Y = 768; // 전환 후 레드 라인이 자리 잡는 구분선 높이 (헤드라인 아래)
 const TL = buildTimeline(config);
 const SC = config.scenes;
 const params = new URLSearchParams(location.search);
@@ -30,7 +30,7 @@ function textBlock(parent, lines, cls, key) {
   const block = el('div', `tb ${cls}`, parent);
   if (key) block.dataset.key = key;
   const words = [];
-  const lineEls = lines.map((line) => {
+  const lineEls = lines.map((line, li) => {
     const lineEl = el('div', 'tb-line', block);
     for (const seg of parseMarkup(line)) {
       if (seg.accent === 'bracket') {
@@ -38,13 +38,13 @@ function textBlock(parent, lines, cls, key) {
         const open = el('span', 'br', w, '[');
         const core = el('span', 'core', w, seg.text);
         const close = el('span', 'br', w, ']');
-        words.push({ el: w, kind: 'bracket', open, core, close, text: seg.text });
+        words.push({ el: w, kind: 'bracket', open, core, close, text: seg.text, line: li });
         continue;
       }
       if (seg.accent === 'underline') {
         const w = el('span', 'w acc-ul', lineEl);
         el('span', 'ul-text', w, seg.text);
-        words.push({ el: w, kind: 'underline', bar: el('span', 'ul-bar', w), text: seg.text });
+        words.push({ el: w, kind: 'underline', bar: el('span', 'ul-bar', w), text: seg.text, line: li });
         continue;
       }
       for (const tok of seg.text.split(/( |…)/)) {
@@ -54,7 +54,7 @@ function textBlock(parent, lines, cls, key) {
           continue;
         }
         const kind = tok === '…' ? 'ellipsis' : 'word';
-        words.push({ el: el('span', `w ${kind}`, lineEl, tok), kind, text: tok });
+        words.push({ el: el('span', `w ${kind}`, lineEl, tok), kind, text: tok, line: li });
       }
     }
     return lineEl;
@@ -70,16 +70,18 @@ function kinetic(tb, f, inAt, outAt, o = {}) {
   const outStagger = o.outStagger ?? 1;
   const dotGap = o.dotGap ?? 3;
   let t = inAt;
-  let afterFlyer = false;
+  let line = 0;
   tb.words.forEach((w, i) => {
+    if (w.line !== line) {
+      t += o.lineGap ?? 0; // 다음 줄은 조금 늦게 (앞 줄을 먼저 읽도록)
+      line = w.line;
+    }
     if (w.kind === 'ellipsis') t += o.ellipsisLead ?? 0;
-    if (afterFlyer) t = Math.max(t, o.flyer.landAt - 2); // 착지한 '스토리' 뒤에 이어 붙는다
-    if (w.kind === 'bracket' && o.flyer) afterFlyer = true;
     const start = t;
     t += stagger + (w.kind === 'ellipsis' ? (o.ellipsisPause ?? 0) + 2 * dotGap : 0);
     const kout = outAt == null ? 0 : prog(f, outAt + i * outStagger, outDur, E.inCubic);
     let kin = prog(f, start, dur, E.outExpo);
-    let visible = f >= start && kout < 1;
+    const visible = f >= start && kout < 1;
 
     if (w.kind === 'ellipsis') {
       // 말줄임표는 점이 하나씩 찍힌다
@@ -87,17 +89,11 @@ function kinetic(tb, f, inAt, outAt, o = {}) {
       w.el.style.clipPath = `inset(-0.4em ${(((3 - dots) / 3) * 100).toFixed(1)}% -0.4em 0)`;
       kin = 1;
     }
-    if (w.kind === 'bracket' && o.flyer) {
-      // 매치컷: 핵심 단어는 날아온 '스토리' 가 착지하는 순간 보인다
-      kin = 1;
-      visible = kout < 1;
-      w.core.style.opacity = f >= o.flyer.landAt ? '1' : '0';
-    }
     w.el.style.transform = `translateY(${((1 - kin) * 110 - kout * 110).toFixed(2)}%)`;
     w.el.style.opacity = visible ? '1' : '0';
 
     if (w.kind === 'bracket') {
-      const at = o.flyer ? o.flyer.landAt : start + 5;
+      const at = start + 5;
       const kb = prog(f, at, 10, E.outBack);
       const a = f >= at ? String(Math.min(1, (f - at + 1) / 3)) : '0';
       w.open.style.transform = `translateX(${((1 - kb) * 0.45).toFixed(3)}em)`;
@@ -166,7 +162,7 @@ function hookScene() {
         c.style.opacity = (pin * clamp(1 - depth * 0.6)).toFixed(3);
         c.style.zIndex = String(10 + i);
       });
-      kinetic(text, f, T.textAt, null, { stagger: 2, dur: 12, ellipsisLead: 2, dotGap: 3 });
+      kinetic(text, f, T.textAt, null, { stagger: 2, dur: 12, ellipsisLead: 2, dotGap: 3, lineGap: T.lineGap });
     },
   };
 }
@@ -319,97 +315,100 @@ function creamLayer() {
   return { update: (f) => show(node, f >= T.split[0]) };
 }
 
-// 랜딩 페이지 section-marker: 번호(레드) · 한글 · 룰 · 영문
-function marker(parent, m) {
-  const row = el('div', 'mk-row', parent);
-  el('span', 'mk-no', row, m.no);
-  el('span', 'mk-ko', row, m.ko);
-  const rule = el('span', 'mk-rule', row);
-  el('span', 'mk-en', row, m.en);
-  return { row, rule };
+// 전환 이후 상단에 계속 보이는 브랜드 표기 (랜딩 히어로: 빨간 점 + 문구). CTA 에서 로고로 이어진다
+function brandMarkerLayer() {
+  const T = TL.scenes.turn;
+  const C = TL.scenes.cta;
+  const node = el('div', 'brand-marker', stage);
+  node.innerHTML = `<i class="dot"></i><span>${escapeHtml(config.brand.marker)}</span>`;
+  return {
+    update(f) {
+      const on = f >= T.morph[0] && f < C.start;
+      show(node, on);
+      if (!on) return;
+      const k = prog(f, T.morph[0] + 6, 10, E.outCubic);
+      node.style.opacity = k.toFixed(3);
+      node.style.transform = `translateY(${((1 - k) * 16).toFixed(2)}px)`;
+    },
+  };
 }
 
-// ── ③ turn: 혼자 애쓰지 마세요 + 4단계 ────────────────────────────────────
-function turnScene(flyer) {
+// ── ③ turn: 혼자 애쓰지 마세요, 같이 정리해드릴게요 + ②의 질문들이 체크리스트로 ──────
+function turnScene() {
   const T = TL.scenes.turn;
   const S = SC.turn;
   const root = el('div', 'scene cream turn', stage);
-  const mkBox = el('div', 'marker', root);
-  const mk1 = marker(mkBox, S.marker);
-  const mk2 = marker(mkBox, S.stepsMarker);
   const head = textBlock(root, S.headline, 'turn-head', 'turn.headline');
-  const list = el('div', 'steps', root);
-  const rows = S.steps.map((word, i) => {
-    const row = el('div', 'step', list);
-    row.dataset.key = `turn.step${i}`;
-    const pill = el('span', 'step-pill', row, `${S.stepLabel} ${i + 1}`);
-    const mask = el('span', 'step-mask', row);
-    const w = el('span', 'step-word', mask, word);
-    const rule = el('span', 'step-rule', row);
-    return { row, pill, word: w, rule, text: word };
+  const list = el('div', 'checklist', root);
+  const rows = S.checklist.map((label, i) => {
+    const row = el('div', 'check-row', list);
+    row.dataset.key = `turn.check${i}`;
+    const box = el('span', 'cbox', row);
+    box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.6 12.6l4.1 4.1 8.7-8.9"/></svg>';
+    const mask = el('span', 'check-mask', row);
+    const text = el('span', 'check-text', mask, label);
+    const rule = el('span', 'check-rule', row);
+    return { row, box, tick: box.querySelector('path'), text, rule };
   });
+
   return {
-    rows,
     fit() {
       head.fit();
-      const pillW = Math.max(...rows.map((r) => r.pill.getBoundingClientRect().width));
-      fitFont(list, rows.map((r) => r.word), CW - pillW - 40);
+      const boxW = rows[0].box.getBoundingClientRect().width + 36;
+      fitFont(list, rows.map((r) => r.text), CW - boxW);
     },
     update(f) {
-      // 10초 박자에서 하드컷: 모든 요소가 한 번에 사라지고 STEP 의 '스토리' 만 남아 날아간다
-      const on = f >= T.split[0] && f < T.exit;
+      const on = f >= T.split[0] && f < T.exit; // 10초 박자에서 하드컷
       show(root, on);
       if (!on) return;
-      const mIn = prog(f, T.morph[0] + 4, 10, E.outExpo);
-      const swap = prog(f, T.stepsAt[0] - 6, 9, E.inOutCubic);
-      mk1.row.style.transform = `translateY(${((1 - mIn) * 100 - swap * 100).toFixed(2)}%)`;
-      mk2.row.style.transform = `translateY(${((1 - swap) * 100).toFixed(2)}%)`;
-      mk1.rule.style.transform = `scaleX(${prog(f, T.morph[0] + 6, 14, E.outCubic).toFixed(4)})`;
-      mk2.rule.style.transform = `scaleX(${prog(f, T.stepsAt[0] - 3, 14, E.outCubic).toFixed(4)})`;
-
-      kinetic(head, f, T.headlineAt, null, { stagger: 3, dur: 14 });
-
+      kinetic(head, f, T.headlineAt, null, { stagger: 2, dur: 14, lineGap: T.lineGap });
       rows.forEach((r, i) => {
-        const a = T.stepsAt[i];
-        const kp = prog(f, a, 9, E.outBack);
-        const kw = prog(f, a + 1, 11, E.outExpo);
-        r.pill.style.transform = `scale(${lerp(0.3, 1, kp).toFixed(4)})`;
-        r.pill.style.opacity = f >= a ? '1' : '0';
-        r.word.style.transform = `translateY(${((1 - kw) * 110).toFixed(2)}%)`;
-        r.word.style.opacity = f >= a + 1 ? '1' : '0';
+        const a = T.listAt + i * 3; // 체크 전: 빈 상자 + 흐린 글자로 먼저 등장
+        const c = T.checkAt[i]; // 박자에 맞춰 빨간 체크
+        const done = f >= c;
+        r.row.style.opacity = f >= a ? '1' : '0';
+        r.text.style.transform = `translateY(${((1 - prog(f, a, 12, E.outExpo)) * 110).toFixed(2)}%)`;
+        r.text.style.color = `color-mix(in srgb, var(--ink) ${Math.round(lerp(34, 100, prog(f, c, 4)))}%, transparent)`;
+        r.box.classList.toggle('on', done);
+        const pop = done ? lerp(0.72, 1, prog(f, c, 9, E.outBack)) : lerp(0.5, 1, prog(f, a, 10, E.outBack));
+        r.box.style.transform = `scale(${pop.toFixed(4)})`;
+        r.tick.style.strokeDashoffset = (1 - prog(f, c + 1, 7, E.outCubic)).toFixed(4);
         r.rule.style.transform = `scaleX(${prog(f, a, 14, E.outCubic).toFixed(4)})`;
       });
     },
   };
 }
 
-// ── ④ value: 슬로건 ────────────────────────────────────────────────────────
-function valueScene(flyer) {
-  const T = TL.scenes.value;
-  const setupT = TL.scenes.setup;
-  const S = SC.value;
-  const root = el('div', 'scene cream value', stage);
-  const mk = el('div', 'v-marker', root);
-  mk.innerHTML = `<i class="dot"></i><span>${escapeHtml(S.marker)}</span>`;
-  const slogan = textBlock(root, S.slogan, 'slogan', 'value.slogan');
+// ── ④ trust: 1:1 — 처음부터 끝까지, 대표가 직접 함께해요 ──────────────────────
+function trustScene() {
+  const T = TL.scenes.trust;
+  const S = SC.trust;
+  const root = el('div', 'scene cream trust', stage);
+  const badge = el('div', 'badge', root);
+  badge.dataset.key = 'trust.badge';
+  const [l, r] = S.badge.split(':');
+  const digit = (text) => el('span', 'b-digit', el('span', 'b-mask', badge), text);
+  const left = digit(l);
+  const colon = el('span', 'b-colon', badge); // 로고와 같은 빨간 콜론 박스
+  colon.innerHTML = '<i></i><i></i>';
+  const right = digit(r);
+  const tb = textBlock(root, S.lines, 'trust-text', 'trust.lines');
 
   return {
-    slogan,
-    fit: () => slogan.fit(),
+    fit: () => tb.fit(),
     update(f) {
-      // 마커는 슬로건~세팅 동안 유지, 슬로건은 11.5초 박자에서 하드컷
-      const on = f >= T.start && f < setupT.end;
+      const on = f >= T.start && f < T.end; // 11.5초 박자에서 하드컷
       show(root, on);
       if (!on) return;
-      const mIn = prog(f, T.start, 10, E.outCubic);
-      mk.style.opacity = mIn.toFixed(3);
-      mk.style.transform = `translateY(${((1 - mIn) * 16).toFixed(2)}px)`;
-      show(slogan.block, f < T.end);
-      kinetic(slogan, f, T.start, null, {
-        stagger: 2,
-        dur: 13,
-        flyer: flyer.active ? { landAt: flyer.landAt } : null,
-      });
+      const rise = (node, at) => {
+        node.style.transform = `translateY(${((1 - prog(f, at, 12, E.outExpo)) * 105).toFixed(2)}%)`;
+        node.style.opacity = f >= at ? '1' : '0';
+      };
+      rise(left, T.start);
+      rise(right, T.start + 3);
+      colon.style.transform = `scale(${prog(f, T.start + 2, 11, E.outBack).toFixed(4)})`;
+      colon.style.opacity = f >= T.start + 2 ? '1' : '0';
+      kinetic(tb, f, T.start + 6, null, { stagger: 2, dur: 13, lineGap: 2 });
     },
   };
 }
@@ -450,6 +449,9 @@ function ctaScene() {
   el('span', 'btn-text', btn, S.button);
   btn.insertAdjacentHTML('beforeend', icon('arrow'));
   const ripple = el('span', 'ripple', btn);
+
+  const note = S.note ? el('div', 'cta-note', root, S.note) : null;
+  if (note) note.dataset.key = 'cta.note';
 
   const url = el('div', 'cta-url', root);
   url.dataset.key = 'cta.url';
@@ -495,48 +497,15 @@ function ctaScene() {
       ripple.style.transform = `scale(${(kr * 22).toFixed(3)})`;
       ripple.style.opacity = f >= T.pressAt ? (0.24 * (1 - kr)).toFixed(3) : '0';
 
+      if (note) {
+        const kn = prog(f, T.noteAt, 12, E.outExpo);
+        note.style.transform = `translateY(${((1 - kn) * 30).toFixed(2)}px)`;
+        note.style.opacity = prog(f, T.noteAt, 5).toFixed(3);
+      }
+
       const ku = prog(f, T.urlAt, 13, E.outExpo);
       url.style.transform = `translate(-50%, ${((1 - ku) * 44).toFixed(2)}px)`;
       url.style.opacity = prog(f, T.urlAt, 4).toFixed(3);
-    },
-  };
-}
-
-// ── 매치컷: STEP 의 '스토리' 가 슬로건의 [스토리] 자리로 날아간다 ───────────────
-function glyphRect(node) {
-  const textNode = [...node.childNodes].find((n) => n.nodeType === Node.TEXT_NODE);
-  const range = document.createRange();
-  range.selectNodeContents(textNode || node);
-  return range.getBoundingClientRect();
-}
-
-function flyerLayer(flyer, turn, value) {
-  const core = value.slogan.words.find((w) => w.kind === 'bracket');
-  const idx = core ? SC.turn.steps.indexOf(core.text) : -1;
-  if (idx < 0) return { update() {} }; // 단어가 다르면 매치컷 없이 일반 등장
-  flyer.active = true;
-  flyer.stepIndex = idx;
-  const node = el('div', 'flyer', stage);
-  node.textContent = core.text;
-  const sloganStyle = getComputedStyle(value.slogan.block);
-  node.style.fontSize = sloganStyle.fontSize;
-  node.style.fontWeight = '800';
-  const base = glyphRect(node); // 변환 없는 상태의 글자 사각형
-  const place = (r) => {
-    const s = r.height / base.height;
-    return { s, x: r.left - base.left * s, y: r.top - base.top * s };
-  };
-  const from = place(glyphRect(turn.rows[idx].word));
-  const to = place(glyphRect(core.core));
-  return {
-    update(f) {
-      const on = f >= flyer.startAt && f < flyer.landAt;
-      show(node, on);
-      if (!on) return;
-      const k = prog(f, flyer.startAt, flyer.landAt - flyer.startAt, E.inOutCubic);
-      node.style.transform = `translate(${lerp(from.x, to.x, k).toFixed(2)}px, ${lerp(from.y, to.y, k).toFixed(2)}px) scale(${lerp(from.s, to.s, k).toFixed(4)})`;
-      node.style.fontWeight = String(Math.round(lerp(800, 900, k)));
-      node.style.letterSpacing = `${lerp(-0.035, -0.04, k).toFixed(4)}em`;
     },
   };
 }
@@ -545,21 +514,12 @@ function flyerLayer(flyer, turn, value) {
 const layers = [];
 
 function build() {
-  const flyer = {
-    active: false,
-    stepIndex: -1,
-    startAt: TL.scenes.turn.exit,
-    landAt: TL.scenes.value.start + 12,
-  };
   layers.push(hookScene());
   TL.scenes.struggle.cuts.forEach((_, i) => layers.push(composerScene(i)));
   layers.push(creamLayer());
   layers.push(postScene('top'), postScene('bottom'));
-  const turn = turnScene(flyer);
-  const value = valueScene(flyer);
-  layers.push(turn, value, setupScene(), ctaScene(), redLineLayer());
+  layers.push(turnScene(), trustScene(), setupScene(), ctaScene(), brandMarkerLayer(), redLineLayer());
   layers.forEach((l) => l.fit && l.fit()); // 모든 요소가 기본 위치에 있을 때 크기 맞춤
-  layers.push(flyerLayer(flyer, turn, value)); // 맞춘 뒤의 위치를 재서 매치컷 경로 계산
 }
 
 function debugOverlay() {
@@ -591,7 +551,8 @@ window.__checkSafe = () => {
     let r = null;
     for (const n of stage.querySelectorAll(`[data-key="${it.id}"]`)) {
       if (!n.getClientRects().length) continue;
-      const b = n.classList.contains('tb') || n.classList.contains('cmp-text') || n.classList.contains('step') ? inkRect(n) : n.classList.contains('logo') ? unionRect([...n.children]) : n.getBoundingClientRect();
+      const textOnly = ['tb', 'cmp-text', 'check-row', 'cta-note'].some((c) => n.classList.contains(c));
+      const b = textOnly ? inkRect(n) : n.classList.contains('logo') ? unionRect([...n.children]) : n.getBoundingClientRect();
       if (!b) continue;
       r = r
         ? { left: Math.min(r.left, b.left), top: Math.min(r.top, b.top), right: Math.max(r.right, b.right), bottom: Math.max(r.bottom, b.bottom) }
