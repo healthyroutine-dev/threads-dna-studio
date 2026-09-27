@@ -201,14 +201,15 @@ async function stills(session) {
   const S = tl.scenes;
   const C = config.scenes;
   const keys = [
-    [Math.max(0, S.hook.textAt) + S.hook.lineGap + 22, '① 후킹', 0, S.hook.end, plainText(C.hook.text.join(' '))],
-    [S.struggle.cuts[0].typedEnd + 4, '② 공감', S.struggle.cuts[0].start, S.struggle.cuts[0].end, C.struggle.cuts[0].lines.join(' ')],
-    [S.struggle.cuts[1].typedEnd + 3, '② 공감', S.struggle.cuts[1].start, S.struggle.cuts[1].end, C.struggle.cuts[1].lines.join(' ')],
-    [S.turn.start - 5, '② 공감', S.struggle.post.start, S.turn.start, C.struggle.post.text],
-    [S.turn.split[0] + 4, '③ 전환', S.turn.start, S.turn.split[1], '레드 라인이 화면을 가르고 크림 톤으로'],
-    [S.turn.checkAt[S.turn.checkAt.length - 1] + 16, '③ 안도', S.turn.headlineAt, S.turn.end, `${C.turn.headline.join(' ')} — ${C.turn.checklist.map((x) => `☑ ${x}`).join(' ')}`],
-    [S.trust.start + 26, '④ 신뢰', S.trust.start, S.trust.end, `${C.trust.badge} · ${plainText(C.trust.lines.join(' '))}`],
-    [S.setup.start + 28, '④ 제안', S.setup.start, S.setup.end, plainText(C.setup.lines.join(' '))],
+    [Math.max(0, S.hook.textAt) + S.hook.lineGap + 14, '① 후킹', 0, S.hook.end, plainText(C.hook.text.join(' '))],
+    [S.punch.end - 4, '① 정곡', S.punch.start, S.punch.end, plainText(C.punch.text.join(' '))],
+    [S.answer.start - 4, '① 원인', S.cause.start, S.answer.start, plainText(C.cause.text.join(' '))],
+    [S.answer.split[0] + 5, '② 드롭', S.answer.start, S.answer.split[1], '레드 라인이 게시물 0 을 가르고 크림으로'],
+    [S.answer.end - 3, '② 답', S.answer.textAt, S.answer.end, plainText(C.answer.text.join(' '))],
+    [S.show.caps[1].f - 3, '③ 보여주기', S.show.start, S.show.caps[1].f, plainText(C.show.captions[0].text.join(' '))],
+    [S.show.end - 3, '③ 보여주기', S.show.caps[1].f, S.show.end, plainText(C.show.captions[1].text.join(' '))],
+    [S.heart.end - 3, '④ 마음', S.heart.start, S.heart.end, plainText(C.heart.text.join(' '))],
+    [S.push.end - 12, '④ 행동', S.push.start, S.push.end, plainText(C.push.text.join(' '))],
     [S.cta.urlAt + 16, '⑤ CTA', S.cta.start, tl.total, [C.cta.button, C.cta.note, C.cta.url].filter(Boolean).join(' · ')],
   ];
   const dir = out('out/stills');
@@ -227,7 +228,7 @@ async function stills(session) {
     body{width:1800px;height:auto;background:${c.cream};color:${c.ink};font-family:'Pretendard Variable',sans-serif;padding:56px 64px 64px;overflow:visible;word-break:keep-all}
     h1{font-size:40px;font-weight:900;letter-spacing:-.03em} h1 i{font-style:normal;color:${c.red}}
     .sub{margin-top:10px;font-size:20px;color:color-mix(in srgb,${c.ink} 55%,transparent)}
-    .grid{margin-top:40px;display:grid;grid-template-columns:repeat(9,1fr);gap:18px}
+    .grid{margin-top:40px;display:grid;grid-template-columns:repeat(10,1fr);gap:18px}
     .cell img{width:100%;display:block;border-radius:10px;box-shadow:0 0 0 1px color-mix(in srgb,${c.ink} 14%,transparent)}
     .range{margin-top:14px;font-size:15px;font-weight:800;color:${c.red};font-variant-numeric:tabular-nums}
     .meta{margin-top:2px;font-size:16px;font-weight:800}

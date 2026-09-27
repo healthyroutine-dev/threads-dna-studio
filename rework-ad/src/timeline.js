@@ -1,89 +1,10 @@
 // config(초 단위) → 프레임 단위 타임라인.
 // 영상(브라우저)과 오디오·검사(Node)가 같은 계산을 쓰도록 DOM 없이 작성합니다.
 
-const CHOSEONG = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+// {밑줄} 표기를 뺀 순수 문장
+export const plainText = (str) => str.replace(/[{}]/g, '');
 
-// 한글 음절의 초성 (타이핑할 때 'ㅁ' → '뭐' 처럼 조합되는 느낌을 주기 위해)
-function choseongOf(ch) {
-  const c = ch.codePointAt(0);
-  return c >= 0xac00 && c <= 0xd7a3 ? CHOSEONG[Math.floor((c - 0xac00) / 588)] : null;
-}
-
-// [강조] {밑줄} 표기를 뺀 순수 문장
-export const plainText = (str) => str.replace(/[[\]{}]/g, '');
-
-const SCENE_ORDER = ['hook', 'struggle', 'turn', 'trust', 'setup', 'cta'];
-
-// 입력창 컷 하나의 타이핑 → 유지 → 삭제 상태를 프레임별로 만든다.
-// phase: idle(빈 칸) | typing | hold(커서 깜빡임) | erasing | selected | empty(커서가 잠깐 남았다 사라짐)
-function typingScript(cut, start, end, fps) {
-  const fpc = fps / (cut.speed || 15);
-  const states = [];
-  const events = [];
-  const lines = [''];
-  const spans = cut.lines.map(() => ({ appear: null, disappear: null }));
-  const push = (f, phase, extra = {}) => states.push({ f, phase, lines: lines.slice(), sel: false, ...extra });
-
-  push(start, 'idle', { blinkFrom: start });
-  let t = start + 1;
-  cut.lines.forEach((line, li) => {
-    if (li > 0) {
-      lines.push('');
-      const f = Math.round(t);
-      push(f, 'typing');
-      events.push({ f, type: 'enter' });
-      t += fpc;
-    }
-    for (const ch of Array.from(line)) {
-      const f = Math.round(t);
-      const cho = choseongOf(ch);
-      const prev = lines[li];
-      if (cho && fpc >= 1.9) {
-        lines[li] = prev + cho;
-        push(f, 'typing');
-        lines[li] = prev + ch;
-        push(f + 1, 'typing');
-      } else {
-        lines[li] = prev + ch;
-        push(f, 'typing');
-      }
-      if (spans[li].appear === null) spans[li].appear = f;
-      events.push({ f, type: ch === ' ' ? 'space' : 'key' });
-      t += fpc;
-    }
-  });
-  const typedEnd = states[states.length - 1].f;
-  push(typedEnd + 1, 'hold', { blinkFrom: typedEnd + 1 });
-
-  if (cut.erase === 'backspace') {
-    let remaining = lines.reduce((n, l) => n + Array.from(l).length, 0);
-    let f = end - 1 - remaining;
-    while (remaining > 0) {
-      const li = lines.length - 1;
-      const chars = Array.from(lines[li]);
-      chars.pop();
-      lines[li] = chars.join('');
-      remaining -= 1;
-      if (lines[li] === '') spans[li].disappear = f;
-      if (lines[li] === '' && lines.length > 1) lines.pop();
-      push(f, remaining === 0 ? 'empty' : 'erasing', { blinkFrom: f });
-      events.push({ f, type: 'backspace' });
-      f += 1;
-    }
-  } else {
-    // 전체 선택 → 삭제 → 빈 칸에서 커서가 한 번 깜빡이다 사라짐
-    const selectF = end - 8;
-    const deleteF = selectF + 3;
-    push(selectF, 'selected', { sel: true });
-    events.push({ f: selectF, type: 'select' });
-    lines.length = 0;
-    lines.push('');
-    push(deleteF, 'empty', { blinkFrom: deleteF });
-    events.push({ f: deleteF, type: 'delete' });
-    spans.forEach((s) => (s.disappear = deleteF));
-  }
-  return { states, events, spans, typedEnd };
-}
+const SCENE_ORDER = ['hook', 'punch', 'cause', 'answer', 'show', 'heart', 'push', 'cta'];
 
 export function buildTimeline(cfg) {
   const fps = cfg.video.fps;
@@ -97,83 +18,109 @@ export function buildTimeline(cfg) {
     bounds[k] = { start: F(S[k].start), end: next ? F(S[next].start) : total };
   });
 
-  const tl = { fps, total, bounds, scenes: {}, items: [], events: [] };
+  // items: 읽어야 하는 문장 (노출 시간·세이프존 검사용)
+  // events: 소리 신호, shakes: 화면 흔들림
+  const tl = { fps, total, bounds, scenes: {}, items: [], events: [], shakes: [] };
   const item = (id, text, appear, disappear, restAt) => tl.items.push({ id, text, appear, disappear, restAt });
+  const ev = (f, type, extra = {}) => tl.events.push({ f, type, ...extra });
+  const shake = (f, amp, dur) => tl.shakes.push({ f, amp, dur });
+  const wordsOf = (lines) => lines.join(' ').split(/\s+/).filter(Boolean);
 
-  // ① hook — textAt 이 음수면 첫 프레임에 이미 문장이 떠 있다
+  // ① hook — 결제 알림이 쏟아진다 (textAt 이 음수면 첫 프레임에 이미 문장이 떠 있다)
   const hook = { ...bounds.hook, textAt: F(S.hook.textAt), lineGap: F(S.hook.lineGap ?? 0) };
-  hook.notifs = S.hook.notifications.map((n) => ({ ...n, f: F(n.at) }));
+  hook.pays = S.hook.payments.map((p) => ({ ...p, f: F(p.at) }));
   const hookShown = Math.max(hook.start, hook.textAt);
-  item('hook.text', S.hook.text.join(' '), hookShown, hook.end, Math.min(hook.end - 2, hookShown + hook.lineGap + 20));
+  item('hook.text', S.hook.text.join(' '), hookShown, hook.end, Math.min(hook.end - 2, hookShown + hook.lineGap + 12));
+  ev(hook.start, 'impact');
+  hook.pays.filter((p) => p.f >= hook.start).forEach((p) => ev(p.f, 'pay'));
   tl.scenes.hook = hook;
 
-  // ② struggle — 입력창 컷들 + 게시물 컷
-  const postStart = F(S.struggle.post.at);
-  const struggle = { ...bounds.struggle, cuts: [] };
-  S.struggle.cuts.forEach((c, i) => {
-    const start = F(c.at);
-    const end = i + 1 < S.struggle.cuts.length ? F(S.struggle.cuts[i + 1].at) : postStart;
-    const script = typingScript(c, start, end, fps);
-    struggle.cuts.push({ ...c, start, end, ...script });
-    script.spans.forEach((sp, li) => item(`struggle.cut${i}`, c.lines[li], sp.appear, sp.disappear, script.typedEnd + 3));
-    tl.events.push(...script.events.map((e) => ({ ...e, group: 'typing' })));
+  // ① punch — 음악이 멈추고 한 단어씩 쾅
+  const punch = { ...bounds.punch };
+  punch.words = wordsOf(S.punch.text).map((_, i) => F(S.punch.start + i * S.punch.wordEvery));
+  item('punch.text', S.punch.text.join(' '), punch.start, punch.end, punch.end - 2);
+  punch.words.forEach((f, i, all) => {
+    const last = i === all.length - 1;
+    ev(f, 'hit', { big: last });
+    shake(f, last ? 24 : 11, last ? 9 : 5);
   });
-  struggle.post = { ...S.struggle.post, start: postStart, end: struggle.end };
-  tl.scenes.struggle = struggle;
+  tl.scenes.punch = punch;
 
-  // ③ turn — 레드 라인 → 화면 분할 → 헤드라인 → 질문들이 체크리스트로 정리
-  const t0 = bounds.turn.start;
-  const turn = {
-    ...bounds.turn,
-    lineDraw: [t0, t0 + 5], // 레드 라인이 왼쪽→오른쪽으로 그어짐
-    split: [t0 + 5, t0 + 17], // 검은 화면이 위/아래로 갈라짐
-    morph: [t0 + 14, t0 + 28], // 레드 라인이 편집 구분선으로 자리 잡음
-    headlineAt: F(S.turn.headlineAt),
-    lineGap: F(S.turn.lineGap ?? 0),
-    listAt: F(S.turn.listAt),
-    checkAt: S.turn.checkAt.map(F),
-    exit: bounds.turn.end,
+  // ① cause — 휩팬으로 내 계정 → 게시물 0 줌 펀치
+  const cause = { ...bounds.cause, textAt: bounds.cause.start + 3, zoomAt: bounds.cause.start + 9 };
+  ev(cause.start, 'whip');
+  ev(cause.zoomAt, 'thump');
+  shake(cause.zoomAt, 7, 5);
+  tl.scenes.cause = cause;
+
+  // ② answer — 드롭: 레드 라인이 화면을 가르고(분할) 밑줄로 자리 잡는다
+  const a0 = bounds.answer.start;
+  const answer = {
+    ...bounds.answer,
+    lineDraw: [a0, a0 + 5],
+    split: [a0 + 5, a0 + 17],
+    morph: [a0 + 15, a0 + 28],
+    textAt: a0 + 8,
   };
-  const turnRest = turn.checkAt[turn.checkAt.length - 1] + 14;
-  item('struggle.post', S.struggle.post.text, postStart + 1, turn.split[0] + 6, t0 - 6);
-  item('turn.headline', S.turn.headline.join(' '), turn.headlineAt, turn.end, turnRest);
-  S.turn.checklist.forEach((label, i) => item(`turn.check${i}`, label, turn.listAt + i * 3, turn.end, turnRest));
-  tl.scenes.turn = turn;
+  item('cause.text', S.cause.text.join(' '), cause.textAt, answer.split[0] + 4, a0 - 3);
+  item('answer.text', plainText(S.answer.text.join(' ')), answer.textAt, answer.end, answer.end - 3);
+  ev(a0, 'drop');
+  shake(a0, 14, 7);
+  tl.scenes.answer = answer;
 
-  // ④ trust / setup
-  // 크림 파트의 장면 전환은 모두 박자에 맞춘 하드컷 (나가는 글자와 들어오는 글자가 겹치지 않게)
-  const trust = { ...bounds.trust };
-  item('trust.badge', S.trust.badge, trust.start, trust.end, trust.start + 26);
-  item('trust.lines', plainText(S.trust.lines.join(' ')), trust.start + 6, trust.end, trust.start + 26);
-  tl.scenes.trust = trust;
-  const setup = { ...bounds.setup };
-  item('setup.lines', plainText(S.setup.lines.join(' ')), setup.start + 2, setup.end, setup.start + 26);
-  tl.scenes.setup = setup;
+  // ③ show — 같은 계정이 정리되며 채워진다
+  const show = { ...bounds.show };
+  show.caps = S.show.captions.map((c) => ({ ...c, f: F(c.at) }));
+  show.caps.forEach((c, i) => {
+    const next = show.caps[i + 1]?.f ?? show.end;
+    item(`show.cap${i}`, plainText(c.text.join(' ')), c.f + 1, next, next - 3);
+  });
+  show.tiles = cfg.profile.tiles.map((_, i) => F(S.show.start + 0.1 + i * S.show.tileEvery));
+  show.tiles.forEach((f, i) => ev(f, 'tile', { index: i }));
+  tl.scenes.show = show;
 
-  // ⑤ cta
+  // ④ heart — 강의 카드가 쌓이고 하나씩 '수강 완료'
+  const n = Math.min(S.heart.cards, S.hook.payments.length);
+  const heart = { ...bounds.heart, textAt: bounds.heart.start + 3 };
+  heart.lands = Array.from({ length: n }, (_, i) => heart.start - 4 + i * 5); // 컷 직전부터 떨어지기 시작
+  heart.stamps = Array.from({ length: n }, (_, i) => F(S.heart.start + 0.5 + i * 0.25));
+  item('heart.text', plainText(S.heart.text.join(' ')), heart.textAt, heart.end, heart.end - 3);
+  heart.lands.forEach((f) => ev(f + 7, 'land')); // 카드가 닿는 순간
+  heart.stamps.forEach((f, i) => ev(f, 'stamp', { index: i }));
+  tl.scenes.heart = heart;
+
+  // ④ push — 쌓인 카드가 하나씩 위로 날아간다
+  const push = { ...bounds.push, textAt: bounds.push.start + 3 };
+  push.flies = Array.from({ length: n }, (_, i) => F(S.push.start + 0.1 + i * 0.25));
+  item('push.text', plainText(S.push.text.join(' ')), push.textAt, push.end, push.end - 3);
+  push.flies.forEach((f) => ev(f, 'fly'));
+  tl.scenes.push = push;
+
+  // ⑤ cta — 로고가 꽝, 버튼, 안심 문구, 주소
   const c0 = bounds.cta.start;
-  const cta = {
-    ...bounds.cta,
-    logoAt: c0 + 2,
-    colonAt: c0 + 5,
-    buttonAt: c0 + 12,
-    noteAt: c0 + 17,
-    urlAt: c0 + 21,
-    pressAt: F(S.cta.pressAt),
-  };
-  item('cta.logo', Object.values(S.cta.logo).join(''), cta.logoAt, total, cta.urlAt + 12);
-  item('cta.button', S.cta.button, cta.buttonAt, total, cta.urlAt + 12);
-  if (S.cta.note) item('cta.note', S.cta.note, cta.noteAt, total, cta.urlAt + 12);
-  item('cta.url', S.cta.url, cta.urlAt, total, cta.urlAt + 12);
+  const cta = { ...bounds.cta, logoAt: c0, colonAt: c0 + 4, buttonAt: c0 + 10, noteAt: c0 + 16, urlAt: c0 + 20, pressAt: F(S.cta.pressAt) };
+  item('cta.logo', Object.values(S.cta.logo).join(''), cta.logoAt, total, cta.urlAt + 14);
+  item('cta.button', S.cta.button, cta.buttonAt, total, cta.urlAt + 14);
+  if (S.cta.note) item('cta.note', S.cta.note, cta.noteAt, total, cta.urlAt + 14);
+  item('cta.url', S.cta.url, cta.urlAt, total, cta.urlAt + 14);
+  ev(c0, 'final');
+  ev(cta.colonAt, 'chime');
+  ev(cta.pressAt, 'tap');
+  shake(c0, 10, 6);
   tl.scenes.cta = cta;
 
-  // 오디오 큐 (프레임)
-  tl.events.push({ f: turn.lineDraw[0], type: 'transition', group: 'sfx' });
-  turn.checkAt.forEach((f, i) => tl.events.push({ f, type: 'check', index: i, group: 'music' }));
-  tl.events.push({ f: cta.colonAt, type: 'cta', group: 'sfx' });
-  tl.events.push({ f: cta.pressAt, type: 'tap', group: 'sfx' });
+  // 음악 구간 (초) — 장면 시작 시간을 따라간다
+  const sec = (f) => f / fps;
+  tl.music = {
+    stop: sec(punch.start), // 스톱타임 (단어 타격)
+    build: sec(cause.start), // 빌드업
+    drop: sec(answer.start), // 드롭
+    breakdown: sec(heart.start), // 브레이크다운 (감정)
+    build2: sec(push.start), // 두 번째 빌드업
+    final: sec(cta.start), // CTA 드롭
+    end: total / fps,
+  };
   tl.events.sort((a, b) => a.f - b.f);
-
   return tl;
 }
 

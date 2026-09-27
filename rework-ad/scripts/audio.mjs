@@ -1,8 +1,12 @@
 // BGM + 효과음을 코드로 합성합니다 (외부 음원·샘플 없음).
-// 타이밍은 config.js → timeline 에서 가져오므로 문구·타이밍을 바꾸면 소리도 같이 따라갑니다.
-//   0초 ~ 전환(7초)  : A단조, 미니멀 — 시계 틱, 낮은 펄스, 어두운 패드, 타이핑 소리, 라이저
-//   전환 ~ 끝(15초)  : A장조, 밝고 경쾌 — 킥·클랩·셰이커, 플럭 아르페지오, 벨 멜로디
-//   효과음           : 전환 스우시(레드 라인 방향으로 좌→우), CTA 팝·차임, 버튼 탭
+// 구간은 config.js → timeline 의 장면 시작 시간을 따라갑니다. 문구·타이밍을 바꾸면 소리도 같이 움직입니다.
+//   0초 ~ 정곡      : A단조 인트로. 0초 임팩트, 4박 킥·16분 하이햇·펄스 베이스, 결제 알림음
+//   정곡            : 스톱타임. 음악이 멈추고 단어마다 타격음 (마지막 단어는 크게)
+//   원인            : 빌드업. 휩 소리, 스네어 롤, 라이저 → 직전에 한 박 비움
+//   답(드롭)~       : A장조 드롭. 임팩트·크래시, 하우스 그루브(오프비트 베이스·코드 스탭), 타일마다 플럭
+//   마음            : 브레이크다운. 드럼이 빠지고 패드와 벨, 도장 소리
+//   행동            : 두 번째 빌드업. 킥·스네어 롤·라이저, 카드 날아가는 소리
+//   CTA            : 마지막 드롭. 임팩트·차임·그루브 → 으뜸화음으로 마무리
 // 단독 실행: `npm run audio` → out/audio.wav
 
 import { writeFile, mkdir } from 'node:fs/promises';
@@ -24,32 +28,21 @@ const up = (name, semis) => {
   const names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   return `${names[n % 12]}${Math.floor(n / 12) - 1}`;
 };
+const lerp = (a, b, t) => a + (b - a) * t;
 
-// 코드 진행: [베이스 루트, 패드 구성음]
-const CHORDS = {
-  Am: ['A2', ['A3', 'C4', 'E4', 'B4']],
-  F: ['F2', ['F3', 'A3', 'C4', 'E4']],
-  Dm: ['D2', ['D3', 'F3', 'A3', 'C4']],
-  E7: ['E2', ['E3', 'G#3', 'B3', 'D4']],
+// 코드: [베이스 루트, 패드·스탭 구성음]
+const CH = {
+  Am: ['A2', ['A3', 'C4', 'E4']],
+  E7: ['E2', ['G#3', 'B3', 'D4']],
   A: ['A2', ['A3', 'C#4', 'E4']],
   E: ['E2', ['G#3', 'B3', 'E4']],
+  Fsm: ['F#2', ['F#3', 'A3', 'C#4']],
   D: ['D2', ['F#3', 'A3', 'D4']],
 };
-const PART_A = ['Am', 'F', 'Dm']; // 마지막 마디는 E7 (A장조로 풀리기 직전의 긴장)
-const PART_B = ['A', 'E', 'D']; // CTA 가 들어오는 마디는 A (으뜸화음으로 도착)
-// 전반부 유리 모티프 (박 단위 위치, 음)
-const GLASS = {
-  Am: [[0, 'E5'], [1.5, 'C5'], [3, 'B4']],
-  F: [[0, 'A4'], [1.5, 'C5'], [3, 'E5']],
-  Dm: [[0, 'F5'], [1.5, 'D5'], [3, 'A4']],
-  E7: [[0, 'G#4'], [1, 'B4']],
-};
-// 후반부 벨 멜로디 (마디별). 첫 마디는 체크리스트가 체크될 때 오르는 벨(CHECK_BELLS)이 대신한다
-const MELODY = {
-  E: [[0, 'B5'], [1, 'G#5'], [1.5, 'B5'], [2, 'E6']],
-  D: [[0, 'A5'], [1, 'F#5'], [1.5, 'A5'], [2, 'D6'], [3, 'C#6']],
-};
-const CHECK_BELLS = ['A5', 'C#6', 'E6', 'A6']; // A장조 화음을 한 칸씩 오른다
+const DROP_CHORDS = ['A', 'E', 'Fsm', 'D']; // 드롭: 1초마다 한 코드 (I–V–vi–IV)
+const FINAL_CHORDS = ['A', 'D', 'E']; // CTA: 마지막은 A 로 도착
+const TILE_NOTES = ['A5', 'C#6', 'E6', 'A6', 'C#7', 'E7']; // 타일이 뜰 때마다 한 칸씩 오름
+const STAMP_NOTES = ['A5', 'C#6', 'D6', 'F#6', 'A6']; // 도장이 찍힐 때마다
 
 // 결정적 난수 (매번 같은 소리가 나오도록)
 function mulberry32(seed) {
@@ -65,24 +58,23 @@ function mulberry32(seed) {
 export function synthesize(cfg = config) {
   const tl = buildTimeline(cfg);
   const A = cfg.audio;
+  const M = tl.music;
   const SR = A.sampleRate;
   const N = Math.round(cfg.video.duration * SR);
-  const END = N / SR;
   const BEAT = 60 / A.bpm;
-  const BAR = BEAT * 4;
   const sec = (f) => f / tl.fps;
   const vMusic = A.volume.music;
   const vSfx = A.volume.sfx;
-  const vType = A.volume.typing;
   const rand01 = mulberry32(20261231);
   const rnd = () => rand01() * 2 - 1;
 
   const bus = () => ({ L: new Float32Array(N), R: new Float32Array(N) });
-  const music = bus();
+  const music = bus(); // 킥에 맞춰 살짝 눌리는 버스 (베이스·패드·스탭)
   const drums = bus();
   const fx = bus();
   const revSend = bus();
   const dlySend = bus();
+  const kicks = []; // 사이드체인용 킥 시간
 
   // 한 음(보이스)을 버스에 더한다. gen(t)는 음 시작 후 t초의 샘플값.
   function add(b, t0, dur, gen, { gain = 1, pan = 0, rev = 0, dly = 0 } = {}) {
@@ -95,7 +87,7 @@ export function synthesize(cfg = config) {
       const t = (i - off) / SR;
       const left = i1 - 1 - i;
       const v = gen(t) * gain * (left < fadeN ? left / fadeN : 1);
-      const p = panAt(t);
+      const p = panAt(t / dur);
       const l = v * Math.cos(((p + 1) * Math.PI) / 4) * Math.SQRT2;
       const r = v * Math.sin(((p + 1) * Math.PI) / 4) * Math.SQRT2;
       b.L[i] += l;
@@ -167,11 +159,12 @@ export function synthesize(cfg = config) {
 
   // ── 악기 ────────────────────────────────────────────────────────────────
   function kick(t0, gain) {
+    kicks.push(t0);
     let ph = 0;
     add(drums, t0, 0.45, (t) => {
-      ph += (2 * Math.PI * (46 + 120 * Math.exp(-t / 0.032))) / SR;
+      ph += (2 * Math.PI * (46 + 130 * Math.exp(-t / 0.03))) / SR;
       const body = Math.sin(ph) * Math.exp(-t / 0.2) * Math.min(1, t / 0.0015);
-      return body + rnd() * Math.exp(-t / 0.002) * 0.18;
+      return body + rnd() * Math.exp(-t / 0.002) * 0.2;
     }, { gain: gain * vMusic });
   }
   function clap(t0, gain) {
@@ -186,13 +179,26 @@ export function synthesize(cfg = config) {
     const hp = biquad('hp', 7500, 0.8);
     add(drums, t0, decay * 7, (t) => hp(rnd()) * Math.exp(-t / decay) * Math.min(1, t / 0.0015), { gain: gain * vMusic, pan });
   }
-  function tick(t0, gain, pan) {
-    const hp = biquad('hp', 5000, 1);
+  function snare(t0, gain) {
+    const bp = biquad('bp', 1900, 0.9);
     let ph = 0;
-    add(drums, t0, 0.05, (t) => {
-      ph += (2 * Math.PI * 2400) / SR;
-      return hp(rnd()) * Math.exp(-t / 0.005) * 0.9 + Math.sin(ph) * Math.exp(-t / 0.0035) * 0.45;
-    }, { gain: gain * vMusic, pan, rev: 0.12 });
+    add(drums, t0, 0.28, (t) => {
+      ph += (2 * Math.PI * 190) / SR;
+      return bp(rnd()) * Math.exp(-t / 0.08) * 1.6 + Math.sin(ph) * Math.exp(-t / 0.04) * 0.5;
+    }, { gain: gain * vMusic, rev: 0.2 });
+  }
+  // 8분 → 16분 → 32분으로 빨라지며 커지는 스네어 롤
+  function snareRoll(t0, t1, g0, g1) {
+    let t = t0;
+    while (t < t1 - 0.01) {
+      const u = (t - t0) / (t1 - t0);
+      snare(t, lerp(g0, g1, u * u));
+      t += u < 0.45 ? BEAT / 2 : u < 0.8 ? BEAT / 4 : BEAT / 8;
+    }
+  }
+  function crash(t0, gain) {
+    const hp = biquad('hp', 5200, 0.7);
+    add(drums, t0, 1.8, (t) => hp(rnd()) * Math.exp(-t / 0.5) * Math.min(1, t / 0.002), { gain: gain * vMusic, rev: 0.35 });
   }
   function bass(t0, dur, note, gain, bright) {
     const f = hz(note);
@@ -215,21 +221,25 @@ export function synthesize(cfg = config) {
           ph += f / SR;
           if (ph >= 1) ph -= 1;
           const saw = 2 * ph - 1 - polyblep(ph, f / SR);
-          const env = Math.min(1, t / 0.3) * (t > dur ? Math.exp(-(t - dur) / 0.18) : 1);
+          const env = Math.min(1, t / 0.25) * (t > dur ? Math.exp(-(t - dur) / 0.18) : 1);
           return lp(saw, cutoffAt(t0 + t), 0.6) * env;
         }, { gain: (gain * vMusic) / Math.sqrt(notes.length * 2), pan, rev });
       }
     });
   }
-  function pluck(t0, note, gain, pan, decay = 0.2) {
+  function pluck(t0, note, gain, pan, decay = 0.2, b = music) {
     const f = hz(note);
     let ph = 0, mph = 0;
-    add(music, t0, decay * 5, (t) => {
+    add(b, t0, decay * 5, (t) => {
       mph += (2 * Math.PI * f * 2) / SR;
       ph += (2 * Math.PI * f) / SR;
       const idx = 2.4 * Math.exp(-t / 0.028);
       return Math.sin(ph + idx * Math.sin(mph)) * Math.min(1, t / 0.002) * Math.exp(-t / decay);
-    }, { gain: gain * vMusic, pan, dly: 0.3, rev: 0.12 });
+    }, { gain: gain * vMusic, pan, dly: 0.25, rev: 0.12 });
+  }
+  // 오프비트 코드 스탭 (짧게 끊는 화음)
+  function stab(t0, notes, gain, decay = 0.13) {
+    notes.forEach((n, k) => pluck(t0, up(n, 12), gain / Math.sqrt(notes.length), (k - (notes.length - 1) / 2) * 0.3, decay));
   }
   function bell(b, t0, note, gain, pan = 0, len = 1.5, vol = vMusic) {
     const f = hz(note);
@@ -239,19 +249,10 @@ export function synthesize(cfg = config) {
       let v = 0;
       P.forEach(([r, a, d], k) => {
         ph[k] += (2 * Math.PI * f * r) / SR;
-        v += a * Math.sin(ph[k]) * Math.exp(-t / (d * len * 0.45));
+        v += a * Math.sin(ph[k]) * Math.exp(-t / (d * len * 0.35));
       });
       return v * Math.min(1, t / 0.0015);
     }, { gain: gain * vol, pan, rev: 0.45, dly: 0.1 });
-  }
-  function glass(t0, note, gain, pan) {
-    const f = hz(note);
-    let ph = 0, ph3 = 0;
-    add(music, t0, 1.8, (t) => {
-      ph += (2 * Math.PI * f) / SR;
-      ph3 += (2 * Math.PI * f * 3.01) / SR;
-      return (Math.sin(ph) + 0.15 * Math.sin(ph3) * Math.exp(-t / 0.08)) * Math.min(1, t / 0.01) * Math.exp(-t / 0.5);
-    }, { gain: gain * vMusic, pan, dly: 0.4, rev: 0.35 });
   }
   function noiseSweep(b, t0, dur, { from, to, peakAt = 0.5, Q = 1.2, gain, pan = 0, rev = 0.2, curve = 2 }) {
     const f = svf();
@@ -262,21 +263,66 @@ export function synthesize(cfg = config) {
       return f(rnd(), fc, Q, 'bp') * env * 2;
     }, { gain, pan, rev });
   }
-  function keyClick(t0, gain, type) {
-    const bp = biquad('bp', type === 'backspace' ? 2300 : 3000 + rand01() * 900, 1.5);
-    const thump = type === 'enter' || type === 'delete' ? 120 : 175;
+
+  // ── 효과음 ──────────────────────────────────────────────────────────────
+  // 임팩트: 깊은 서브 붐 + 크랙 (0초, 드롭, CTA)
+  function impact(t0, gain) {
     let ph = 0;
-    add(fx, t0, 0.06, (t) => {
-      ph += (2 * Math.PI * thump) / SR;
-      return bp(rnd()) * Math.exp(-t / 0.0045) * 1.6 + Math.sin(ph) * Math.exp(-t / 0.011) * 0.35;
-    }, { gain: gain * vType * (0.85 + 0.3 * rand01()), pan: (rand01() - 0.5) * 0.3 });
+    add(fx, t0, 1.4, (t) => {
+      ph += (2 * Math.PI * (38 + 75 * Math.exp(-t / 0.06))) / SR;
+      return Math.sin(ph) * Math.exp(-t / 0.45) * Math.min(1, t / 0.002);
+    }, { gain: gain * vSfx });
+    const bp = biquad('bp', 1800, 0.8);
+    add(fx, t0, 0.5, (t) => bp(rnd()) * Math.exp(-t / 0.05) * 2.2, { gain: gain * 0.55 * vSfx, rev: 0.5 });
   }
-  function pop(t0, gain) {
+  // 단어 타격음: 짧고 단단한 저음 + 스냅 (마지막 단어는 크고 길게)
+  function hit(t0, gain, big) {
     let ph = 0;
-    add(fx, t0, 0.14, (t) => {
-      ph += (2 * Math.PI * (560 + 900 * (1 - Math.exp(-t / 0.018)))) / SR;
-      return Math.sin(ph) * Math.min(1, t / 0.001) * Math.exp(-t / 0.04);
-    }, { gain: gain * vSfx, rev: 0.25 });
+    add(fx, t0, big ? 1.3 : 0.5, (t) => {
+      ph += (2 * Math.PI * (big ? 40 + 110 * Math.exp(-t / 0.05) : 55 + 140 * Math.exp(-t / 0.03))) / SR;
+      return Math.sin(ph) * Math.exp(-t / (big ? 0.3 : 0.12)) * Math.min(1, t / 0.0015);
+    }, { gain: gain * vSfx });
+    const bp = biquad('bp', big ? 1300 : 2300, 1.0);
+    add(fx, t0, 0.35, (t) => bp(rnd()) * Math.exp(-t / (big ? 0.07 : 0.03)) * 2.2, { gain: gain * 0.5 * vSfx, rev: big ? 0.7 : 0.35 });
+  }
+  function subDrop(t0, gain) {
+    let ph = 0;
+    add(fx, t0, 0.9, (t) => {
+      ph += (2 * Math.PI * (30 + 70 * Math.exp(-t / 0.22))) / SR;
+      return Math.sin(ph) * Math.exp(-t / 0.45) * Math.min(1, t / 0.01);
+    }, { gain: gain * vSfx });
+  }
+  // 카드 결제 알림음: 짧은 두 음 '삐빅'
+  function payBlip(t0, gain) {
+    for (const [dt, fq] of [[0, 1760], [0.07, 2350]]) {
+      let ph = 0;
+      add(fx, t0 + dt, 0.12, (t) => {
+        ph += (2 * Math.PI * fq) / SR;
+        return Math.sin(ph) * Math.exp(-t / 0.035) * Math.min(1, t / 0.002);
+      }, { gain: gain * vSfx, rev: 0.12 });
+    }
+  }
+  function whoosh(t0, gain, pan) {
+    noiseSweep(fx, t0 - 0.06, 0.42, { from: 6500, to: 700, peakAt: 0.25, Q: 0.9, gain: gain * vSfx, pan, rev: 0.25 });
+  }
+  function whooshUp(t0, gain) {
+    noiseSweep(fx, t0 - 0.04, 0.34, { from: 700, to: 6000, peakAt: 0.65, Q: 1.1, gain: gain * vSfx, curve: 1.5, rev: 0.15 });
+  }
+  function thud(t0, gain) {
+    let ph = 0;
+    const lp = biquad('lp', 900, 0.7);
+    add(fx, t0, 0.22, (t) => {
+      ph += (2 * Math.PI * (105 + 60 * Math.exp(-t / 0.02))) / SR;
+      return Math.sin(ph) * Math.exp(-t / 0.05) + lp(rnd()) * Math.exp(-t / 0.02) * 0.4;
+    }, { gain: gain * vSfx });
+  }
+  function stampSound(t0, gain) {
+    const bp = biquad('bp', 1100, 1.2);
+    let ph = 0;
+    add(fx, t0, 0.2, (t) => {
+      ph += (2 * Math.PI * 160) / SR;
+      return bp(rnd()) * Math.exp(-t / 0.012) * 2 + Math.sin(ph) * Math.exp(-t / 0.03) * 0.6;
+    }, { gain: gain * vSfx, rev: 0.15 });
   }
   function tap(t0, gain) {
     const bp = biquad('bp', 2600, 1.2);
@@ -287,101 +333,141 @@ export function synthesize(cfg = config) {
     }, { gain: gain * vSfx, rev: 0.15 });
   }
 
-  // ── 편곡 ────────────────────────────────────────────────────────────────
-  const turnT = sec(tl.scenes.turn.start);
-  const ctaT = sec(tl.scenes.cta.start);
+  // 하우스 그루브: 4박 킥, 2·4박 클랩, 오프비트 하이햇·베이스·코드 스탭 (+코드 패드)
+  function groove(t0, t1, chords, { kickGain = 0.62, clap: clapGain = 0.24, stabGain = 0.2 } = {}) {
+    const chordAt = (t) => chords[Math.min(chords.length - 1, Math.floor((t - t0 + 1e-6) / (BEAT * 2)))];
+    for (let t = t0, b = 0; t < t1 - 1e-6; t += BEAT, b++) {
+      kick(t, kickGain);
+      if (b % 2 === 1) clap(t, clapGain);
+      hat(t + BEAT / 2, 0.1, 0.15, 0.08);
+      for (let s = 0; s < 4; s++) hat(t + (s * BEAT) / 4, [0.035, 0.02, 0.03, 0.02][s], s % 2 ? 0.3 : -0.2);
+      const [root, notes] = CH[chordAt(t)];
+      bass(t + BEAT / 2, BEAT * 0.42, root, 0.32, 0.9);
+      bass(t, BEAT * 0.2, up(root, 12), 0.1, 0.5);
+      stab(t + BEAT / 2, notes, stabGain);
+    }
+    for (let t = t0, i = 0; t < t1 - 1e-6; t += BEAT * 2, i++) {
+      const [, notes] = CH[chords[Math.min(chords.length - 1, i)]];
+      pad(t, Math.min(BEAT * 2, t1 - t), notes, 0.16, () => 2600, 0.25);
+    }
+  }
 
-  // 전반부: 마디 나누기 (마지막 마디는 E7, 길이는 전환 시점에 맞춰 잘림)
-  const barsA = [];
-  for (let t = 0, k = 0; t < turnT - 1e-6; t += BAR, k++) barsA.push({ t, dur: Math.min(BAR, turnT - t), chord: PART_A[k % PART_A.length] });
-  barsA[barsA.length - 1].chord = 'E7';
-  const cutA = (t) => 500 + 1300 * Math.min(1, t / turnT); // 필터가 서서히 열리며 긴장감
+  const S = A.sfx;
+  // ── ① 인트로 (A단조) — 첫 프레임부터 에너지 ─────────────────────────────────
+  if (S.impact) impact(0, 0.55);
+  for (let t = 0, b = 0; t < M.stop - 1e-6; t += BEAT, b++) {
+    kick(t, b === 0 ? 0.3 : 0.5);
+    for (let s = 0; s < 4; s++) hat(t + (s * BEAT) / 4, [0.06, 0.028, 0.045, 0.028][s], s % 2 ? 0.25 : -0.15);
+  }
+  for (let t = 0, k = 0; t < M.stop - 1e-6; t += BEAT / 2, k++) {
+    bass(t, BEAT * 0.38, 'A2', k % 2 === 0 ? 0.3 : 0.2, 0.6);
+    pluck(t + BEAT / 4, ['E5', 'A5', 'C6', 'A5'][k % 4], 0.07, k % 2 ? 0.35 : -0.35, 0.12);
+  }
+  pad(0, M.stop, CH.Am[1], 0.14, () => 1100, 0.3);
 
-  barsA.forEach((bar) => {
-    const [root, notes] = CHORDS[bar.chord];
-    pad(bar.t, bar.dur, notes, 0.2, cutA, 0.35);
-    for (let s = 0; s < bar.dur - 1e-6; s += BEAT / 2) {
-      const onBeat = Math.abs(s / BEAT - Math.round(s / BEAT)) < 1e-6;
-      bass(bar.t + s, BEAT * 0.42, root, onBeat ? 0.2 : 0.12, 0.3);
-    }
-    for (const [b, note] of GLASS[bar.chord]) {
-      if (b * BEAT < bar.dur - 0.05) glass(bar.t + b * BEAT, note, 0.08, b === 0 ? -0.3 : 0.3);
-    }
-  });
-  // 시계 틱 (8분음표) — 알림이 도착하는 박자와 같다
-  for (let t = 0, k = 0; t < turnT - 0.3; t += BEAT / 2, k++) tick(t, k % 2 === 0 ? 0.14 : 0.08, k % 2 === 0 ? -0.15 : 0.15);
-  // 라이저: 전환 1초 전부터 차오르다 전환 직전에 멈춤
-  noiseSweep(fx, turnT - 1.0, 0.97, { from: 300, to: 6000, peakAt: 0.97, Q: 1.6, gain: 0.3 * vMusic, curve: 2.2, rev: 0.1 });
+  // ── ① 원인 → 빌드업 (드롭 직전 한 박을 비운다) ──────────────────────────────
+  const gap = 0.06;
+  for (let t = Math.ceil(M.build / BEAT) * BEAT; t < M.drop - 1e-6; t += BEAT) kick(t, 0.45);
+  snareRoll(M.build + BEAT / 2, M.drop - gap, 0.05, 0.26);
+  noiseSweep(fx, M.build, M.drop - M.build - gap, { from: 300, to: 7500, peakAt: 0.97, Q: 1.4, gain: 0.32 * vMusic, curve: 2.3, rev: 0.1 });
+  pad(M.build, M.drop - M.build - gap, CH.E7[1], 0.14, (t) => lerp(500, 3000, Math.min(1, (t - M.build) / (M.drop - M.build))), 0.2);
 
-  // 후반부: 전환 시점부터 2초 마디
-  const barsB = [];
-  for (let t = turnT, k = 0; t < END - 1e-6; t += BAR, k++) barsB.push({ t, dur: Math.min(BAR, END - t), chord: PART_B[k % PART_B.length] });
-  barsB.forEach((bar) => {
-    if (ctaT >= bar.t - 1e-6 && ctaT < bar.t + BAR) bar.chord = 'A';
-  });
-  const last = barsB[barsB.length - 1];
-  const stopAt = END - BEAT; // 마지막 박에서 리듬을 멈추고 화음만 남긴다
-  barsB.forEach((bar, bi) => {
-    const [root, notes] = CHORDS[bar.chord];
-    const isLast = bar === last;
-    pad(bar.t, bar.dur + (isLast ? 0.3 : 0), notes, 0.3, () => 2600, 0.3);
-    for (let b = 0; b < 4; b++) {
-      const t = bar.t + b * BEAT;
-      if (t >= stopAt) break;
-      if (b % 2 === 0) kick(t, 0.5);
-      else clap(t, 0.2);
-      for (let s = 0; s < 4; s++) hat(t + (s * BEAT) / 4, [0.07, 0.035, 0.1, 0.04][s], s % 2 ? 0.25 : -0.1);
-    }
-    const bassPat = [0, 0, 12, 0, 0, 0, 12, 0];
-    const arpIdx = [0, 1, 2, 3, 2, 1, 2, 3];
-    const arpNotes = [...notes.map((n) => up(n, 12)), up(notes[0], 24)];
-    for (let s = 0; s < 8; s++) {
-      const t = bar.t + (s * BEAT) / 2;
-      if (t >= stopAt) break;
-      bass(t, BEAT * 0.4, up(root, bassPat[s]), 0.26, 0.9);
-      if (bi > 0 || s >= 2) pluck(t, arpNotes[arpIdx[s] % arpNotes.length], 0.1, s % 2 ? 0.3 : -0.3);
-    }
-    for (const [b, note] of MELODY[bar.chord] || []) {
-      if (bar.t + b * BEAT < stopAt && !(isLast && bar.chord === 'A')) bell(music, bar.t + b * BEAT, note, 0.12, 0.1);
-    }
-  });
+  // ── ② 드롭 (A장조) ───────────────────────────────────────────────────────
+  if (S.impact) {
+    impact(M.drop, 0.6);
+    subDrop(M.drop, 0.4);
+  }
+  crash(M.drop, 0.16);
+  groove(M.drop, M.breakdown, DROP_CHORDS);
 
-  // ── 타임라인 이벤트: 타이핑, 4단계 벨, 효과음 ─────────────────────────────
-  let lastKey = -1;
+  // ── ④ 브레이크다운 (감정) — 드럼이 빠지고 패드와 벨 ─────────────────────────
+  pad(M.breakdown, (M.build2 - M.breakdown) / 2, CH.Fsm[1], 0.15, () => 1500, 0.45);
+  pad(M.breakdown + (M.build2 - M.breakdown) / 2, (M.build2 - M.breakdown) / 2, CH.D[1], 0.15, () => 1500, 0.45);
+  bass(M.breakdown, (M.build2 - M.breakdown) / 2, 'F#2', 0.1, 0.2);
+  bass(M.breakdown + (M.build2 - M.breakdown) / 2, (M.build2 - M.breakdown) / 2, 'D2', 0.1, 0.2);
+  crash(M.breakdown, 0.08);
+
+  // ── ④ 두 번째 빌드업 ─────────────────────────────────────────────────────
+  const mid2 = (M.build2 + M.final) / 2;
+  pad(M.build2, mid2 - M.build2, CH.A[1], 0.2, (t) => lerp(900, 2600, (t - M.build2) / (M.final - M.build2)), 0.3);
+  pad(mid2, M.final - mid2 - gap, CH.E[1], 0.2, (t) => lerp(900, 3000, (t - M.build2) / (M.final - M.build2)), 0.3);
+  for (let t = M.build2, b = 0; t < M.final - 1e-6; t += BEAT, b++) {
+    kick(t, lerp(0.3, 0.55, b / 4));
+    bass(t + BEAT / 2, BEAT * 0.4, b < 2 ? 'A2' : 'E2', 0.24, 0.8);
+    for (let s = 0; s < 2; s++) hat(t + (s * BEAT) / 2, 0.03, s ? 0.2 : -0.2);
+  }
+  snareRoll(mid2, M.final - gap, 0.05, 0.24);
+  noiseSweep(fx, mid2 - 0.25, M.final - mid2 + 0.25 - gap, { from: 400, to: 8000, peakAt: 0.97, Q: 1.3, gain: 0.3 * vMusic, curve: 2.2, rev: 0.1 });
+
+  // ── ⑤ CTA 드롭 → 으뜸화음으로 마무리 ──────────────────────────────────────
+  const lastHit = M.end - BEAT; // 마지막 박에서 리듬을 멈추고 A 화음만 남긴다
+  if (S.impact) {
+    impact(M.final, 0.55);
+    subDrop(M.final, 0.35);
+  }
+  crash(M.final, 0.16);
+  groove(M.final, lastHit, FINAL_CHORDS, { kickGain: 0.6 });
+  kick(lastHit, 0.6);
+  crash(lastHit, 0.12);
+  stab(lastHit, CH.A[1], 0.26, 0.5);
+  pad(lastHit, M.end - lastHit, CH.A[1], 0.2, () => 2400, 0.4);
+  bass(lastHit, M.end - lastHit - 0.05, 'A2', 0.3, 0.6);
+
+  // ── 타임라인 이벤트 (화면과 프레임 단위로 일치) ─────────────────────────────
   for (const e of tl.events) {
     const t = sec(e.f);
-    if (e.group === 'typing' && A.sfx.typing) {
-      if (t - lastKey < 0.05) continue; // 너무 빠른 연타는 한 번으로
-      lastKey = t;
-      keyClick(t, e.type === 'select' ? 0.12 : 0.2, e.type);
-    } else if (e.type === 'check') {
-      // 체크리스트가 하나씩 체크될 때: 오르는 벨 + 작은 체크 소리
-      bell(music, t, CHECK_BELLS[e.index % CHECK_BELLS.length], 0.15, e.index % 2 ? 0.2 : -0.2);
-      if (A.sfx.check) tick(t, 0.1, e.index % 2 ? 0.15 : -0.15);
-    } else if (e.type === 'transition' && A.sfx.transition) {
-      // 레드 라인이 왼쪽→오른쪽으로 그어지는 방향으로 스우시가 지나간다
-      noiseSweep(fx, t - 0.08, 0.5, { from: 7000, to: 700, peakAt: 0.22, Q: 0.9, gain: 0.34 * vSfx, pan: (u) => -0.8 + 1.6 * Math.min(1, u / 0.3), rev: 0.3 });
-      for (const note of ['A5', 'E6', 'A6']) bell(fx, t + 0.02, note, 0.06, 0, 1.8, vSfx);
-      noiseSweep(fx, t, 1.2, { from: 9000, to: 4000, peakAt: 0.02, Q: 0.5, gain: 0.05 * vSfx, rev: 0.4, curve: 1 });
-    } else if (e.type === 'cta' && A.sfx.cta) {
-      pop(t, 0.3);
-      for (const note of ['A5', 'C#6', 'E6']) bell(fx, t + 0.03, note, 0.09, 0, 2.2, vSfx);
-    } else if (e.type === 'tap' && A.sfx.tap) {
-      tap(t, 0.25);
+    switch (e.type) {
+      case 'pay':
+        if (S.pay) payBlip(t, 0.16);
+        break;
+      case 'hit':
+        if (S.impact) hit(t, e.big ? 0.72 : 0.42, e.big);
+        if (S.impact && e.big) subDrop(t, 0.2);
+        break;
+      case 'whip':
+        if (S.whoosh) whoosh(t, 0.34, (u) => 0.8 - 1.6 * Math.min(1, u / 0.4)); // 오른쪽 → 왼쪽
+        break;
+      case 'thump':
+        if (S.impact) hit(t, 0.4, false);
+        break;
+      case 'drop':
+        if (S.whoosh) whoosh(t, 0.3, (u) => -0.8 + 1.6 * Math.min(1, u / 0.3)); // 레드 라인 방향: 왼쪽 → 오른쪽
+        break;
+      case 'tile':
+        if (S.pop) pluck(t, TILE_NOTES[e.index % TILE_NOTES.length], 0.11, e.index % 2 ? 0.3 : -0.3, 0.16);
+        break;
+      case 'land':
+        if (S.pop) thud(t, 0.22);
+        break;
+      case 'stamp':
+        if (S.pop) stampSound(t, 0.3);
+        bell(music, t, STAMP_NOTES[e.index % STAMP_NOTES.length], 0.13, e.index % 2 ? 0.2 : -0.2);
+        break;
+      case 'fly':
+        if (S.whoosh) whooshUp(t, 0.2);
+        break;
+      case 'chime':
+        if (S.cta) for (const note of ['A5', 'C#6', 'E6']) bell(fx, t + 0.02, note, 0.1, 0, 2.2, vSfx);
+        break;
+      case 'tap':
+        if (S.tap) tap(t, 0.28);
+        break;
+      default:
+        break;
     }
   }
 
   // ── 이펙트·마스터 ────────────────────────────────────────────────────────
-  const delay = pingPong(dlySend, Math.round(BEAT * 0.75 * SR), 0.32, 3500, N, SR);
+  const delay = pingPong(dlySend, Math.round(BEAT * 0.75 * SR), 0.3, 3500, N, SR);
   const reverb = freeverb(revSend, N, SR);
+  const duck = sidechain(kicks, N, SR);
   const L = new Float32Array(N);
   const R = new Float32Array(N);
-  const duck = sidechain(barsB, BEAT, stopAt, N, SR);
-  const hpL = biquad('hp', 35, 0.7);
-  const hpR = biquad('hp', 35, 0.7);
+  const hpL = biquad('hp', 32, 0.7);
+  const hpR = biquad('hp', 32, 0.7);
   for (let i = 0; i < N; i++) {
-    L[i] = hpL(music.L[i] * duck[i] + drums.L[i] + fx.L[i] + delay.L[i] * 0.55 + reverb.L[i] * 0.8);
-    R[i] = hpR(music.R[i] * duck[i] + drums.R[i] + fx.R[i] + delay.R[i] * 0.55 + reverb.R[i] * 0.8);
+    L[i] = hpL(music.L[i] * duck[i] + drums.L[i] + fx.L[i] + delay.L[i] * 0.5 + reverb.L[i] * 0.75);
+    R[i] = hpR(music.R[i] * duck[i] + drums.R[i] + fx.R[i] + delay.R[i] * 0.5 + reverb.R[i] * 0.75);
   }
   // 끝 0.45초 페이드아웃 (영상이 정확히 15초에서 끝나도 소리가 뚝 끊기지 않게)
   const fadeN = Math.round(0.45 * SR);
@@ -443,18 +529,14 @@ function freeverb(src, N, SR, room = 0.82, damp = 0.3) {
   return { L: channel(src.L, 0), R: channel(src.R, 23) };
 }
 
-// 킥이 칠 때 음악 버스를 살짝 눌러 리듬감을 만든다
-function sidechain(bars, beat, stopAt, N, SR) {
+// 킥이 칠 때 음악 버스를 살짝 눌러 펌핑감을 만든다
+function sidechain(kicks, N, SR) {
   const env = new Float32Array(N).fill(1);
-  for (const bar of bars) {
-    for (const b of [0, 2]) {
-      const t = bar.t + b * beat;
-      if (t >= stopAt) continue;
-      const i0 = Math.round(t * SR);
-      for (let i = i0; i < Math.min(N, i0 + Math.round(0.35 * SR)); i++) {
-        const u = (i - i0) / SR;
-        env[i] = Math.min(env[i], 1 - 0.3 * Math.exp(-u / 0.09) * Math.min(1, u / 0.004));
-      }
+  for (const t of kicks) {
+    const i0 = Math.round(t * SR);
+    for (let i = Math.max(0, i0); i < Math.min(N, i0 + Math.round(0.3 * SR)); i++) {
+      const u = (i - i0) / SR;
+      env[i] = Math.min(env[i], 1 - 0.38 * Math.exp(-u / 0.08) * Math.min(1, u / 0.004));
     }
   }
   return env;
