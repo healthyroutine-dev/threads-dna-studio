@@ -9,6 +9,7 @@ const P = {
   check: '<path d="m5.5 12.6 4.2 4.2 8.8-9"/>',
   arrow: '<path d="M4.5 12h15M13.5 5.8 19.7 12l-6.2 6.2"/>',
   lock: '<rect x="5" y="10.4" width="14" height="10" rx="2.2"/><path d="M8.2 10.4V7.9a3.8 3.8 0 0 1 7.6 0v2.5"/>',
+  comment: '<path d="M20.4 11.6a8.4 8.4 0 0 1-12.3 7.4l-4.3 1.2 1.2-4.1a8.4 8.4 0 1 1 15.4-4.5z"/>',
 };
 
 export function icon(name, cls = '') {

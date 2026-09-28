@@ -499,7 +499,7 @@ function learnScene() {
   };
 }
 
-// ── ⑤ CTA: 로고가 꽝 → 무료 상담 버튼 → 안심 문구 → 주소 ─────────────────────────────
+// ── ⑤ CTA: 로고가 꽝 → 무료 상담 버튼 → 안심 문구 → 버튼 눌림 → 댓글 안내 ─────────────────
 function ctaScene() {
   const T = TL.scenes.cta;
   const S = SC.cta;
@@ -519,9 +519,13 @@ function ctaScene() {
   const ripple = el('span', 'ripple', btn);
   const note = S.note ? el('div', 'cta-note', root, S.note) : null;
   if (note) note.dataset.key = 'cta.note';
-  const url = el('div', 'cta-url', root);
-  url.dataset.key = 'cta.url';
-  url.innerHTML = `${icon('lock')}<span>${escapeHtml(S.url)}</span>`;
+  // 댓글 안내: 말풍선 + 문구 + 아래를 가리키는 ⌄ (릴스 댓글은 화면 아래·오른쪽에 있다)
+  const guide = S.guide ? el('div', 'cta-guide', root) : null;
+  if (guide) {
+    guide.dataset.key = 'cta.guide';
+    guide.innerHTML = `${icon(S.guide.icon || 'comment', 'g-icon')}<span>${escapeHtml(S.guide.text)}</span>${icon('chevron', 'g-down')}`;
+  }
+  const down = guide?.querySelector('.g-down');
 
   const fitBox = (node, maxW) => {
     const w = node.getBoundingClientRect().width;
@@ -532,7 +536,7 @@ function ctaScene() {
       const w = [...logo.children].reduce((a, c) => a + c.getBoundingClientRect().width, 0);
       if (w > CW) logo.style.fontSize = `${Math.floor(parseFloat(getComputedStyle(logo).fontSize) * (CW / w))}px`;
       fitBox(btn, CW);
-      fitBox(url, CW);
+      if (guide) fitBox(guide, CW);
     },
     update(f) {
       const on = f >= T.start;
@@ -557,9 +561,12 @@ function ctaScene() {
         note.style.transform = `translateY(${((1 - kn) * 30).toFixed(2)}px)`;
         note.style.opacity = prog(f, T.noteAt, 5).toFixed(3);
       }
-      const ku = prog(f, T.urlAt, 12, E.outExpo);
-      url.style.transform = `translate(-50%, ${((1 - ku) * 40).toFixed(2)}px)`;
-      url.style.opacity = prog(f, T.urlAt, 4).toFixed(3);
+      if (guide) {
+        const kg = prog(f, T.guideAt, 12, E.outExpo);
+        guide.style.transform = `translate(-50%, ${((1 - kg) * 40).toFixed(2)}px)`;
+        guide.style.opacity = prog(f, T.guideAt, 4).toFixed(3);
+        down.style.transform = `translateY(${(Math.abs(Math.sin(Math.max(0, f - T.guideAt) * 0.3)) * 7).toFixed(1)}px)`;
+      }
     },
   };
 }

@@ -125,7 +125,7 @@ export function buildTimeline(cfg) {
   ev(heart.flies[0], 'fly');
   tl.scenes.heart = heart;
 
-  // ⑤ cta — 로고가 꽝, 말에 맞춰 버튼 → 안심 문구 → 버튼 눌림 → 주소
+  // ⑤ cta — 로고가 꽝, 말에 맞춰 버튼 → 안심 문구 → 버튼 눌림 → 댓글 안내
   const C = S.cta;
   const cta = {
     ...bounds.cta,
@@ -134,13 +134,14 @@ export function buildTimeline(cfg) {
     buttonAt: FV(vAt('cta', C.buttonAt ?? 0.33)),
     noteAt: FV(vAt('cta', C.noteAt ?? 0.53)),
     pressAt: FV(vAt('cta', C.pressAt ?? 1.2)),
-    urlAt: FV(vAt('cta', C.urlAt ?? 0.67)),
+    guideAt: FV(vAt('cta', C.guideAt ?? 1.2)),
   };
-  const ctaRest = Math.min(total - 1, cta.urlAt + 14);
+  const ctaRest = Math.min(total - 1, Math.max(cta.buttonAt, cta.noteAt, cta.pressAt, C.guide ? cta.guideAt : 0) + 14);
+  cta.restAt = ctaRest; // 모든 요소가 다 나온 뒤 (스틸·세이프존 검사용)
   item('cta.logo', Object.values(C.logo).join(''), cta.logoAt, total, ctaRest);
   item('cta.button', C.button, cta.buttonAt, total, ctaRest);
   if (C.note) item('cta.note', C.note, cta.noteAt, total, ctaRest);
-  item('cta.url', C.url, cta.urlAt, total, ctaRest);
+  if (C.guide) item('cta.guide', C.guide.text, cta.guideAt, total, ctaRest);
   ev(c0, 'final');
   ev(cta.colonAt, 'chime');
   ev(cta.pressAt, 'tap', { t: vAt('cta', C.pressAt ?? 1.2) });

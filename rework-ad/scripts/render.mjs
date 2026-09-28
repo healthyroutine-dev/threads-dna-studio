@@ -230,8 +230,8 @@ async function stills(session) {
     [S.answer.end - 3, '② 답', S.answer.reveal.at, S.answer.end, p(C.answer.text)],
     [S.show.end - 3, '③ 보여주기', S.show.start, S.show.end, p(C.show.text)],
     [S.heart.flies[0] - 2, '④ 마음', S.heart.start, S.heart.end, p(C.heart.text)],
-    [S.cta.pressAt + 2, '⑤ CTA', S.cta.start, S.cta.urlAt, `${C.cta.button} (말에 맞춰 눌림)`],
-    [Math.min(tl.total - 4, S.cta.urlAt + 16), '⑤ CTA', S.cta.urlAt, tl.total, [C.cta.button, C.cta.note, C.cta.url].filter(Boolean).join(' · ')],
+    [S.cta.pressAt + 1, '⑤ CTA', S.cta.start, S.cta.pressAt, `${C.cta.button} (말에 맞춰 눌림)`],
+    [Math.min(tl.total - 4, S.cta.restAt + 2), '⑤ CTA', S.cta.pressAt, tl.total, [C.cta.button, C.cta.note, C.cta.guide?.text].filter(Boolean).join(' · ')],
   ];
   const dir = out('out/stills');
   await rm(dir, { recursive: true, force: true });
@@ -256,7 +256,7 @@ async function stills(session) {
     .copy{margin-top:6px;font-size:15px;line-height:1.45;word-break:keep-all}
   </style></head><body>
     <h1>RE<i>:</i>WORK STUDIO — 15초 광고 스토리보드</h1>
-    <div class="sub">1080×1920 · 30fps · 450프레임 · ${rel(out(config.video.output))} · ${config.scenes.cta.url} · 자막 = 대표님 내레이션 그대로</div>
+    <div class="sub">1080×1920 · 30fps · 450프레임 · ${rel(out(config.video.output))} · 자막 = 대표님 내레이션 그대로</div>
     <div class="grid">${cells.map((x) => `<div class="cell"><img src="/out/stills/${x.name}"><div class="range">${x.range}</div><div class="meta">${x.scene}</div><div class="copy">${x.copy}</div></div>`).join('')}</div>
   </body></html>`;
   const sb = await session.browser.newPage({ viewport: { width: 1800, height: 400 }, deviceScaleFactor: 1 });

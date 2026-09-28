@@ -196,12 +196,14 @@ body { width: 1080px; height: 1920px; overflow: hidden; }
   position: absolute; top: 1018px; left: 0; right: 0; text-align: center;
   font-size: 38px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-60); white-space: nowrap;
 }
-.cta-url {
-  position: absolute; top: 1096px; left: 50%; display: flex; align-items: center; gap: 16px;
-  padding: 22px 40px; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ink-14);
-  font-size: 40px; font-weight: 600; letter-spacing: 0; color: var(--ink); white-space: nowrap;
+/* 댓글 안내: 실제로 신청하는 길이라 버튼 다음으로 눈에 띄게 (잉크 바탕 · 빨간 말풍선 · 아래를 가리키는 ⌄) */
+.cta-guide {
+  position: absolute; top: 1096px; left: 50%; display: flex; align-items: center; gap: 14px;
+  padding: 24px 34px 24px 32px; border-radius: 999px; background: var(--ink);
+  font-size: 42px; font-weight: 800; letter-spacing: -0.01em; color: var(--cream); white-space: nowrap;
 }
-.cta-url .ic { font-size: 34px; color: color-mix(in srgb, var(--ink) 55%, transparent); }
+.cta-guide .g-icon { font-size: 44px; color: var(--red); stroke-width: 2.4; }
+.cta-guide .g-down { font-size: 36px; color: var(--cream-70); stroke-width: 2.8; }
 
 /* ── 디버그: 인스타 UI 영역 (?debug=1) ───────────────────────────────── */
 .safe { position: absolute; left: 0; right: 0; z-index: 100; background: rgba(0, 160, 255, 0.28); pointer-events: none; }
