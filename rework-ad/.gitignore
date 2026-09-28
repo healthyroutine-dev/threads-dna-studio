@@ -1,3 +1,10 @@
 node_modules/
 out/audio.wav
+out/audio_music_only.wav
 out/stills/
+
+# 공개 저장소라 대표님 녹음 원본과 목소리가 들어간 영상은 올리지 않습니다.
+# 녹음을 voice/narration.m4a 에 두고 `npm run render` 하면 로컬에서 만들어집니다.
+voice/*
+!voice/README.md
+out/rework_ad_15s_9x16.mp4

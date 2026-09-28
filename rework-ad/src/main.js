@@ -2,7 +2,7 @@
 // window.renderFrame(f) 는 프레임 번호만으로 화면 전체를 결정합니다 (시간·랜덤에 의존하지 않음).
 // 문구·타이밍·컬러는 ../config.js 에서만 바꿉니다.
 // 슬라이드처럼 보이지 않도록: 자막 아래 UI 는 계속 움직이고, 카메라는 늘 천천히 이동하며,
-// 컷은 박자에 맞춰 휩팬·줌 펀치·분할·흔들림으로 넘어갑니다.
+// 컷은 박자에 맞춰 휩팬·줌 펀치·분할·흔들림으로 넘어갑니다. 글자·줌·버튼은 내레이션의 단어에 맞춰 움직입니다.
 
 import config from '../config.js';
 import { buildTimeline } from './timeline.js';
@@ -88,6 +88,9 @@ function animWords(tb, f, inAt, o = {}) {
     }
   });
 }
+
+// 타임라인의 reveal(at·stagger·lineGap)대로 자막 등장
+const revealWords = (tb, f, r, o = {}) => animWords(tb, f, r.at, { stagger: r.stagger, lineGap: r.lineGap, ...o });
 
 // 결정적 흔들림 (프레임마다 같은 값)
 const noise = (f, seed) => {
@@ -202,26 +205,73 @@ function hookScene() {
         c.el.style.zIndex = String(10 + i);
       });
       show(cap.block, f < P.start);
-      animWords(cap, f, T.textAt, { mode: 'slam', stagger: 2, lineGap: T.lineGap, from: 1.3 });
+      revealWords(cap, f, T.reveal, { mode: 'slam', from: 1.3 });
     },
   };
 }
 
-// ── ① punch: 음악이 멈추고 거대한 글자가 한 단어씩 떨어진다 ──────────────────────────
+// ── ① punch: 음악이 멈추고, 말하는 단어마다 거대한 글자가 쾅 → 지출 목록이 아래에서 계속 올라온다 ─────
+// 줄의 첫 단어를 말하는 순간 그 줄이 통째로 떨어지고(끝까지 읽을 시간 확보), 나머지 단어는 말할 때 한 번 더 튄다.
+// 목록 전체(큰 두 줄 + 작은 항목들)는 천천히 위로 스크롤, 맨 아래 항목은 흐려지고 ⌄ 가 '아래에 더 있음'을 알린다
 function punchScene() {
   const T = TL.scenes.punch;
   const root = el('div', 'scene punch', world);
-  const tb = textBlock(root, SC.punch.text, 'giant free', 'punch.text');
+  const col = el('div', 'punch-col', root);
+  const tb = textBlock(col, SC.punch.text, 'giant free', 'punch.text');
+  const more = T.more.map((_, k) => el('div', 'more-item', col, SC.punch.more[k]));
+  const cue = el('div', 'more-cue', root);
+  cue.innerHTML = icon('chevron');
   const WHIP = 6;
+  const PITCH = 104; // 목록 항목 간격 (px)
+  const SCROLL = 2.2; // 위로 스크롤 속도 (px/프레임)
+  const FADE = [1290, 1470]; // 항목 중심이 이 높이를 지나며 흐려짐 (인스타 하단 UI 영역 전에 사라짐)
+  const CUE_MAX = 1480; // ⌄ 는 이보다 내려가지 않는다 (아래 끝 1480+80 < 인스타 하단 UI 1570)
+  let moreTop = 0;
   return {
-    fit: () => tb.fit(),
+    fit() {
+      tb.fit();
+      moreTop = tb.block.getBoundingClientRect().bottom + 22;
+      const widest = Math.max(0, ...more.map((m) => m.getBoundingClientRect().width));
+      const size = parseFloat(getComputedStyle(more[0] ?? cue).fontSize);
+      more.forEach((m, k) => {
+        if (widest > CW) m.style.fontSize = `${Math.floor(size * (CW / widest))}px`;
+        m.style.top = `${(moreTop + k * PITCH).toFixed(1)}px`;
+      });
+    },
     update(f) {
       const on = f >= T.start && f < T.end + WHIP;
       show(root, on);
       if (!on) return;
       const last = T.words[T.words.length - 1];
-      animWords(tb, f, T.start, { mode: 'slam', at: T.words, from: 1.6, dur: 5 });
+      tb.lineEls.forEach((lineEl, li) => {
+        const lineAt = T.words[T.lineFirst[li]];
+        const k = prog(f, lineAt, 5, E.outCubic);
+        lineEl.style.transform = `scale(${lerp(1.6, 1, k).toFixed(4)})`; // 줄 통째로 (단어끼리 겹치지 않게)
+        lineEl.style.opacity = f >= lineAt ? Math.min(1, (f - lineAt + 1) / 2).toFixed(3) : '0';
+      });
+      tb.words.forEach((w, i) => {
+        const pulse = !T.lineFirst.includes(i) && f >= T.words[i] ? 0.12 * (1 - prog(f, T.words[i], 7, E.outCubic)) : 0;
+        w.el.style.transform = `scale(${(1 + pulse).toFixed(4)})`;
+      });
       tb.block.style.transform = `scale(${(1 + 0.05 * prog(f, last, T.end - last, E.outCubic)).toFixed(4)})`;
+      const scroll = SCROLL * Math.max(0, f - T.scrollFrom) * Math.min(1, Math.max(0, f - T.scrollFrom) / 8);
+      col.style.transform = `translateY(${(-scroll).toFixed(1)}px)`;
+      let bottom = 0; // 지금 보이는 목록의 맨 아래 (⌄ 가 바로 밑에 따라붙는다)
+      more.forEach((m, k) => {
+        const kin = prog(f, T.more[k], 7, E.outCubic);
+        const top = moreTop + k * PITCH - scroll;
+        const fade = clamp((FADE[1] - (top + PITCH / 2)) / (FADE[1] - FADE[0]));
+        m.style.transform = `translateY(${((1 - kin) * 70).toFixed(1)}px)`;
+        m.style.opacity = f >= T.more[k] ? (kin * fade).toFixed(3) : '0';
+        if (f >= T.more[k]) bottom = Math.max(bottom, top + PITCH + (1 - kin) * 70);
+      });
+      if (T.more.length) {
+        const kc = prog(f, T.more[0] + 2, 6, E.outCubic);
+        const bounce = Math.abs(Math.sin((f - T.more[0]) * 0.32)) * -14;
+        cue.style.top = `${Math.min(CUE_MAX, bottom + 8).toFixed(1)}px`;
+        cue.style.opacity = f >= T.more[0] ? kc.toFixed(3) : '0';
+        cue.style.transform = `translate(-50%, ${bounce.toFixed(1)}px)`;
+      }
       const kw = prog(f, T.end, WHIP, E.inCubic); // 휩팬으로 왼쪽으로 빠진다
       root.style.transform = `translateX(${(-kw * 1150).toFixed(1)}px)`;
       root.style.filter = kw > 0 ? `blur(${(kw * 16).toFixed(1)}px)` : 'none';
@@ -262,7 +312,7 @@ function causeScene(half) {
       const dim = (1 - 0.65 * kz).toFixed(3); // 0 만 남기고 나머지는 흐리게
       prof.others.forEach((o) => (o.s.style.opacity = dim));
       prof.emptyBox.style.opacity = (1 - kz).toFixed(3);
-      animWords(cap, f, T.textAt, { mode: 'slam', stagger: 2, lineGap: 5 });
+      revealWords(cap, f, T.reveal, { mode: 'slam' });
       if (f >= A.split[0]) {
         const k = prog(f, A.split[0], A.split[1] - A.split[0], E.inOutCubic);
         root.style.clipPath = isTop ? `inset(0 0 ${H - SPLIT_Y}px 0)` : `inset(${SPLIT_Y}px 0 0 0)`;
@@ -335,7 +385,7 @@ function brandBar() {
   };
 }
 
-// ── ② answer: 배운 걸, 문의 오는 SNS로 ─────────────────────────────────────────
+// ── ② answer: SNS 시작하세요 (레드 라인이 'SNS' 밑줄이 된다) ─────────────────────────
 function answerScene() {
   const T = TL.scenes.answer;
   const S = TL.scenes.show;
@@ -345,14 +395,21 @@ function answerScene() {
   const OUT = 5;
   return {
     underline: ul ? ul.bar : null,
-    fit: () => tb.fit(),
+    // 밑줄이 화면을 가른 레드 라인 높이(SPLIT_Y)에 오도록 글자 블록을 세운다 → 라인이 글자를 가로지르지 않고 제자리에서 밑줄이 됨
+    fit() {
+      tb.fit();
+      if (!ul) return;
+      const bar = ul.bar.getBoundingClientRect();
+      const top = parseFloat(getComputedStyle(tb.block).top);
+      tb.block.style.top = `${(top + SPLIT_Y - (bar.top + bar.height / 2)).toFixed(1)}px`;
+    },
     update(f) {
       const on = f >= T.split[0] && f < S.start;
       show(root, on);
       if (!on) return;
       // 밑줄은 레드 라인이 도착하는 순간 그대로 넘겨받는다
-      animWords(tb, f, T.textAt, { mode: 'slam', stagger: 2, lineGap: 3, underlineAt: T.morph[1], underlineInstant: true });
-      const drift = prog(f, T.textAt, T.end - T.textAt);
+      revealWords(tb, f, T.reveal, { mode: 'slam', underlineAt: T.morph[1], underlineInstant: true });
+      const drift = prog(f, T.reveal.at, T.end - T.reveal.at);
       const ko = prog(f, S.start - OUT, OUT, E.inCubic); // 다음 장면 전에 위로 빠진다
       tb.block.style.transform = `translateY(${(-ko * 420).toFixed(1)}px) scale(${(1 + 0.03 * drift - 0.2 * ko).toFixed(4)})`;
       tb.block.style.opacity = (1 - ko).toFixed(3);
@@ -367,9 +424,9 @@ function showScene() {
   const cam = el('div', 'inner', root);
   const prof = profileUI(cam, 'cream', false);
   el('div', 'scrim cream low', root);
-  const caps = T.caps.map((c, i) => textBlock(root, c.text, 'cap on-cream free', `show.cap${i}`));
+  const cap = textBlock(root, SC.show.text, 'cap on-cream free', 'show.text');
   return {
-    fit: () => caps.forEach((c) => c.fit()),
+    fit: () => cap.fit(),
     update(f) {
       const on = f >= T.start && f < T.end;
       show(root, on);
@@ -398,41 +455,34 @@ function showScene() {
         tile.style.opacity = f >= a ? '1' : '0';
       });
       prof.posts.b.textContent = String(count);
-      caps.forEach((c, i) => {
-        const a = T.caps[i].f;
-        const next = T.caps[i + 1]?.f;
-        show(c.block, f >= a && (next == null || f < next + 4));
-        animWords(c, f, a + 1, { mode: 'slam', stagger: 2, lineGap: 4, outAt: next ?? null });
-      });
+      revealWords(cap, f, T.reveal, { mode: 'slam' });
     },
   };
 }
 
-// ── ④ heart + push: 강의 카드가 쌓여 '수강 완료' → 하나씩 위로 날아간다 ─────────────────
+// ── ④ heart: 강의 카드가 쌓여 하나씩 '수강 완료' → CTA 직전에 위로 날아간다(꺼내기) ──────────
 function learnScene() {
   const Hh = TL.scenes.heart;
-  const Pu = TL.scenes.push;
+  const Ct = TL.scenes.cta;
   const root = el('div', 'scene cream learn', world);
   const cam = el('div', 'inner', root);
   const pile = el('div', 'pile', cam);
   const cards = Hh.lands.map((_, i) => payCard(pile, SC.hook.payments[i], 'cream'));
-  const heartCap = textBlock(root, SC.heart.text, 'cap learn-cap on-cream', 'heart.text');
-  const pushCap = textBlock(root, SC.push.text, 'cap learn-cap on-cream', 'push.text');
+  const cap = textBlock(root, SC.heart.text, 'cap learn-cap on-cream', 'heart.text');
   const SLOT = 134;
+  const FLY = 10;
   const tilt = [-7, 5, -4, 6, -5];
+  const gone = Math.max(...Hh.flies) + FLY;
   return {
-    fit() {
-      heartCap.fit();
-      pushCap.fit();
-    },
+    fit: () => cap.fit(),
     update(f) {
-      const on = f >= Hh.start && f < Pu.end;
+      const on = f >= Hh.start && f < gone; // 카드는 컷 직전부터 떨어지기 시작해 컷 순간엔 이미 움직이는 중
       show(root, on);
       if (!on) return;
-      cam.style.transform = `scale(${(1 + 0.05 * prog(f, Hh.start, Pu.end - Hh.start)).toFixed(4)})`;
+      cam.style.transform = `scale(${(1 + 0.05 * prog(f, Hh.start, Ct.start - Hh.start)).toFixed(4)})`;
       cards.forEach((c, i) => {
         const land = prog(f, Hh.lands[i], 9, E.outBack);
-        const fly = prog(f, Pu.flies[i], 10, E.inQuad);
+        const fly = prog(f, Hh.flies[i], FLY, E.inQuad);
         const y = i * SLOT + (1 - land) * -900 - fly * 1900;
         const r = tilt[i % tilt.length] * (1 - land) + fly * (i % 2 ? 9 : -9);
         c.el.style.transform = `translateY(${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg)`;
@@ -443,10 +493,8 @@ function learnScene() {
         c.stamp.style.transform = `translateY(-50%) rotate(-8deg) scale(${lerp(2.2, 1, ks).toFixed(4)})`;
         c.price.style.opacity = f >= Hh.stamps[i] ? '0.25' : '1';
       });
-      show(heartCap.block, f < Pu.start);
-      animWords(heartCap, f, Hh.textAt, { mode: 'rise', stagger: 3, lineGap: 4, dur: 14 });
-      show(pushCap.block, f >= Pu.start);
-      animWords(pushCap, f, Pu.textAt, { mode: 'rise', stagger: 2, lineGap: 3, dur: 12, underlineAt: Pu.textAt + 18 });
+      show(cap.block, f >= Hh.start && f < Ct.start);
+      revealWords(cap, f, Hh.reveal, { mode: 'rise', dur: 14 });
     },
   };
 }

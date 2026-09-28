@@ -1,5 +1,6 @@
-// 렌더 파이프라인: 검사 → 오디오 합성 → 프레임 캡처(헤드리스 Chromium) → ffmpeg 인코딩 → 결과 검증
-//   npm run render   mp4 만들기 (out/rework_ad_15s_9x16.mp4)
+// 렌더 파이프라인: 검사 → 오디오(BGM 합성 + 내레이션 믹스) → 프레임 캡처(헤드리스 Chromium) → ffmpeg 인코딩 → 결과 검증
+//   npm run render   mp4 만들기 (out/rework_ad_15s_9x16.mp4 = 목소리 버전,
+//                    config.voice.musicOnlyOutput = 같은 화면에 음악만 넣은 A/B 테스트용)
 //   npm run check    노출 시간·세이프존 검사만
 //   npm run stills   주요 장면 스틸 + 스토리보드 이미지 (out/storyboard.png)
 // 옵션: --force (검사에 실패해도 계속)  --debug (스틸에 인스타 UI 영역 표시)
@@ -14,6 +15,7 @@ import config from '../config.js';
 import { buildTimeline, validate, plainText } from '../src/timeline.js';
 import { startServer, ROOT } from './server.mjs';
 import { renderAudio } from './audio.mjs';
+import { hasVoice, voiceFile } from './voice.mjs';
 
 const args = new Set(process.argv.slice(2));
 const MODE = args.has('--check') ? 'check' : args.has('--stills') ? 'stills' : 'render';
@@ -42,6 +44,13 @@ function checkTiming() {
   console.log(`\n[검사] 문장 노출 시간 (최소 ${config.rules.minReadSec}초)`);
   for (const r of v.rows) {
     console.log(`  ${r.ok ? '✓' : '✗'} ${fmtSec(r.appear).padStart(5)}s–${fmtSec(r.disappear).padStart(5)}s  ${r.sec.toFixed(2)}초  ${r.text}`);
+  }
+  if (v.voice.length) {
+    console.log(`\n[검사] 내레이션 배치 (녹음 구간 → 영상 위치, 장면이 끝나기 전에 끝나야 함)`);
+    for (const x of v.voice) {
+      const ok = x.problems.length === 0;
+      console.log(`  ${ok ? '✓' : '✗'} ${x.id.padEnd(7)} 녹음 ${x.from.toFixed(2)}–${x.to.toFixed(2)}s → 영상 ${x.at.toFixed(2)}–${x.end.toFixed(2)}s (장면 끝 ${x.sceneEnd.toFixed(2)}s)`);
+    }
   }
   v.errors.forEach((e) => console.log(`  ✗ ${e}`));
   return v.ok;
@@ -94,8 +103,7 @@ async function openPage(query = '') {
 }
 
 // ── 3. 인코딩 ────────────────────────────────────────────────────────────────
-async function encode(session, audioPath) {
-  const output = out(config.video.output);
+async function encode(session, audioPath, output = out(config.video.output)) {
   await mkdir(resolve(output, '..'), { recursive: true });
   const argv = ['-hide_banner', '-y', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'png', '-i', '-'];
   if (audioPath) argv.push('-i', audioPath);
@@ -127,6 +135,18 @@ async function encode(session, audioPath) {
     stdin.end();
   });
   process.stdout.write('\n');
+  return output;
+}
+
+// 같은 화면에 소리만 바꾼 버전 (영상 스트림은 그대로 복사 → 화면이 프레임 단위로 똑같다)
+async function remux(videoFile, audioPath, output) {
+  await mkdir(resolve(output, '..'), { recursive: true });
+  await run(FFMPEG, [
+    '-hide_banner', '-y', '-i', videoFile, '-i', audioPath,
+    '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy',
+    '-c:a', 'aac', '-b:a', '256k', '-ar', String(config.audio.sampleRate), '-ac', '2',
+    '-t', String(config.video.duration), '-movflags', '+faststart', output,
+  ]);
   return output;
 }
 
@@ -200,17 +220,18 @@ async function contactSheet(file) {
 async function stills(session) {
   const S = tl.scenes;
   const C = config.scenes;
+  const p = (lines) => plainText(lines.join(' '));
   const keys = [
-    [Math.max(0, S.hook.textAt) + S.hook.lineGap + 14, '① 후킹', 0, S.hook.end, plainText(C.hook.text.join(' '))],
-    [S.punch.end - 4, '① 정곡', S.punch.start, S.punch.end, plainText(C.punch.text.join(' '))],
-    [S.answer.start - 4, '① 원인', S.cause.start, S.answer.start, plainText(C.cause.text.join(' '))],
+    [S.hook.reveal.full + 14, '① 후킹', 0, S.hook.end, p(C.hook.text)],
+    [S.punch.more[1] ?? S.punch.end - 20, '① 정곡', S.punch.start, S.punch.end, p(C.punch.text)],
+    [S.punch.end - 3, '① 정곡 (목록)', S.punch.more[0] ?? S.punch.start, S.punch.end, `${(C.punch.more ?? []).slice(0, 2).join(' ')} … 아래에서 계속 올라옴 ⌄`],
+    [S.answer.start - 4, '① 원인', S.cause.start, S.answer.start, p(C.cause.text)],
     [S.answer.split[0] + 5, '② 드롭', S.answer.start, S.answer.split[1], '레드 라인이 게시물 0 을 가르고 크림으로'],
-    [S.answer.end - 3, '② 답', S.answer.textAt, S.answer.end, plainText(C.answer.text.join(' '))],
-    [S.show.caps[1].f - 3, '③ 보여주기', S.show.start, S.show.caps[1].f, plainText(C.show.captions[0].text.join(' '))],
-    [S.show.end - 3, '③ 보여주기', S.show.caps[1].f, S.show.end, plainText(C.show.captions[1].text.join(' '))],
-    [S.heart.end - 3, '④ 마음', S.heart.start, S.heart.end, plainText(C.heart.text.join(' '))],
-    [S.push.end - 12, '④ 행동', S.push.start, S.push.end, plainText(C.push.text.join(' '))],
-    [S.cta.urlAt + 16, '⑤ CTA', S.cta.start, tl.total, [C.cta.button, C.cta.note, C.cta.url].filter(Boolean).join(' · ')],
+    [S.answer.end - 3, '② 답', S.answer.reveal.at, S.answer.end, p(C.answer.text)],
+    [S.show.end - 3, '③ 보여주기', S.show.start, S.show.end, p(C.show.text)],
+    [S.heart.flies[0] - 2, '④ 마음', S.heart.start, S.heart.end, p(C.heart.text)],
+    [S.cta.pressAt + 2, '⑤ CTA', S.cta.start, S.cta.urlAt, `${C.cta.button} (말에 맞춰 눌림)`],
+    [Math.min(tl.total - 4, S.cta.urlAt + 16), '⑤ CTA', S.cta.urlAt, tl.total, [C.cta.button, C.cta.note, C.cta.url].filter(Boolean).join(' · ')],
   ];
   const dir = out('out/stills');
   await rm(dir, { recursive: true, force: true });
@@ -235,7 +256,7 @@ async function stills(session) {
     .copy{margin-top:6px;font-size:15px;line-height:1.45;word-break:keep-all}
   </style></head><body>
     <h1>RE<i>:</i>WORK STUDIO — 15초 광고 스토리보드</h1>
-    <div class="sub">1080×1920 · 30fps · 450프레임 · ${rel(out(config.video.output))} · ${config.scenes.cta.url}</div>
+    <div class="sub">1080×1920 · 30fps · 450프레임 · ${rel(out(config.video.output))} · ${config.scenes.cta.url} · 자막 = 대표님 내레이션 그대로</div>
     <div class="grid">${cells.map((x) => `<div class="cell"><img src="/out/stills/${x.name}"><div class="range">${x.range}</div><div class="meta">${x.scene}</div><div class="copy">${x.copy}</div></div>`).join('')}</div>
   </body></html>`;
   const sb = await session.browser.newPage({ viewport: { width: 1800, height: 400 }, deviceScaleFactor: 1 });
@@ -263,15 +284,33 @@ try {
   } else if (MODE === 'stills') {
     await stills(session);
   } else if (MODE === 'render') {
+    // 목소리: config 에서 켜져 있고 녹음 파일이 있으면 넣는다
+    const withVoice = hasVoice(config);
+    if (config.voice?.enabled && !withVoice) console.log(`\n! 녹음 파일이 없어 목소리 없이 만듭니다: ${rel(voiceFile(config) ?? '(config.voice.file)')}`);
     let audioPath = null;
+    let musicOnly = null;
     if (config.audio.enabled) {
-      const a = await renderAudio(config, out('out/audio.wav'));
+      const a = await renderAudio(config, out('out/audio.wav'), { voice: withVoice });
       audioPath = a.path;
-      console.log(`\n[오디오] ${rel(a.path)} · ${a.seconds.toFixed(3)}초 · ${a.lufs.toFixed(1)} LUFS`);
+      console.log(`\n[오디오] ${rel(a.path)} · ${a.seconds.toFixed(3)}초 · ${a.lufs.toFixed(1)} LUFS · ${a.voice ? '목소리 + 음악' : '음악만'}`);
+      if (a.voiceStats) {
+        const v = a.voiceStats;
+        console.log(`  목소리 다듬기: 치찰음 최대 ${(-v.deessDb).toFixed(1)}dB 줄임 · 말끝 최대 +${v.tailBoostDb.toFixed(1)}dB · 컴프레서 최대 ${(-v.compressDb).toFixed(1)}dB · 피크 ${v.peakDb.toFixed(1)}dBFS`);
+      }
+      a.lines?.forEach((l) => console.log(`  ${l.id.padEnd(7)} 목소리가 음악보다 ${(l.voice - l.music).toFixed(1)} LU 위`));
+      if (withVoice && config.voice.musicOnlyOutput) {
+        const b = await renderAudio(config, out('out/audio_music_only.wav'), { voice: false });
+        musicOnly = b.path;
+        console.log(`  A/B용 음악만: ${rel(b.path)} · ${b.lufs.toFixed(1)} LUFS`);
+      }
     }
     console.log(`\n[렌더] ${tl.total}프레임 캡처 → ${FFMPEG === 'ffmpeg' ? 'ffmpeg' : 'ffmpeg-static'} 인코딩`);
     const file = await encode(session, audioPath);
-    const ok = await verify(file);
+    let ok = await verify(file);
+    if (musicOnly) {
+      const bFile = await remux(file, musicOnly, out(config.voice.musicOnlyOutput));
+      ok = (await verify(bFile)) && ok;
+    }
     const sheet = await contactSheet(file);
     console.log(`  컨택트 시트 ${rel(sheet)} (0.5초 간격 30컷)`);
     if (!ok) process.exitCode = 1;

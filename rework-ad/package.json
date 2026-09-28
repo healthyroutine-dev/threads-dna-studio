@@ -9,7 +9,8 @@
     "audio": "node scripts/audio.mjs",
     "check": "node scripts/render.mjs --check",
     "stills": "node scripts/render.mjs --stills",
-    "preview": "node scripts/preview.mjs"
+    "preview": "node scripts/preview.mjs",
+    "voice:scan": "node scripts/voice.mjs"
   },
   "dependencies": {
     "ffmpeg-static": "^5.2.0",

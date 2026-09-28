@@ -4,11 +4,13 @@
 // {밑줄} 표기를 뺀 순수 문장
 export const plainText = (str) => str.replace(/[{}]/g, '');
 
-const SCENE_ORDER = ['hook', 'punch', 'cause', 'answer', 'show', 'heart', 'push', 'cta'];
+export const SCENE_ORDER = ['hook', 'punch', 'cause', 'answer', 'show', 'heart', 'cta'];
 
 export function buildTimeline(cfg) {
   const fps = cfg.video.fps;
   const F = (sec) => Math.round(sec * fps);
+  // 말에 맞춘 화면 이벤트는 내림: 화면이 소리보다 늦지 않게 (눈은 소리가 먼저 오는 어긋남에 더 민감)
+  const FV = (sec) => Math.floor(sec * fps + 1e-6);
   const total = Math.round(cfg.video.duration * fps);
   const S = cfg.scenes;
 
@@ -18,38 +20,72 @@ export function buildTimeline(cfg) {
     bounds[k] = { start: F(S[k].start), end: next ? F(S[next].start) : total };
   });
 
-  // items: 읽어야 하는 문장 (노출 시간·세이프존 검사용)
-  // events: 소리 신호, shakes: 화면 흔들림
-  const tl = { fps, total, bounds, scenes: {}, items: [], events: [], shakes: [] };
+  // items: 읽어야 하는 문장 (노출 시간·세이프존 검사용. appear = 문장 전체가 다 보이는 순간)
+  // events: 소리 신호 (t 가 있으면 그 시각(초)에 정확히, 없으면 프레임 시각에), shakes: 화면 흔들림
+  // voice: 내레이션 배치 (녹음 구간 from~to 를 영상의 at 초에)
+  const tl = { fps, total, bounds, scenes: {}, items: [], events: [], shakes: [], voice: [] };
   const item = (id, text, appear, disappear, restAt) => tl.items.push({ id, text, appear, disappear, restAt });
   const ev = (f, type, extra = {}) => tl.events.push({ f, type, ...extra });
   const shake = (f, amp, dur) => tl.shakes.push({ f, amp, dur });
   const wordsOf = (lines) => lines.join(' ').split(/\s+/).filter(Boolean);
+  // 자막 등장: 단어마다 stagger 프레임, 줄이 바뀔 때 lineGap 프레임 더. full = 문장 전체가 다 보이는 프레임
+  const reveal = (lines, at, stagger, lineGap, settle = 2) => ({
+    at,
+    stagger,
+    lineGap,
+    full: at + (wordsOf(lines).length - 1) * stagger + (lines.length - 1) * lineGap + settle,
+  });
+
+  // 장면 k 의 음성이 시작하는 시각(초) + rel. 목소리 없는 버전도 화면 타이밍은 같다
+  const vAt = (k, rel = 0) => S[k].start + (S[k].voice?.delay ?? 0) + rel;
+  for (const k of SCENE_ORDER) {
+    const v = S[k].voice;
+    if (v) tl.voice.push({ id: k, from: v.from, to: v.to, at: vAt(k), end: vAt(k) + (v.to - v.from) });
+  }
 
   // ① hook — 결제 알림이 쏟아진다 (textAt 이 음수면 첫 프레임에 이미 문장이 떠 있다)
-  const hook = { ...bounds.hook, textAt: F(S.hook.textAt), lineGap: F(S.hook.lineGap ?? 0) };
+  const hook = { ...bounds.hook, reveal: reveal(S.hook.text, F(S.hook.textAt), 2, F(S.hook.lineGap ?? 0)) };
   hook.pays = S.hook.payments.map((p) => ({ ...p, f: F(p.at) }));
-  const hookShown = Math.max(hook.start, hook.textAt);
-  item('hook.text', S.hook.text.join(' '), hookShown, hook.end, Math.min(hook.end - 2, hookShown + hook.lineGap + 12));
+  const hookShown = Math.max(hook.start, hook.reveal.full);
+  item('hook.text', S.hook.text.join(' '), hookShown, hook.end, Math.min(hook.end - 2, hookShown + 12));
   ev(hook.start, 'impact');
   hook.pays.filter((p) => p.f >= hook.start).forEach((p) => ev(p.f, 'pay'));
   tl.scenes.hook = hook;
 
-  // ① punch — 음악이 멈추고 한 단어씩 쾅
+  // ① punch — 음악이 멈추고, 말하는 단어마다 쾅 (줄의 첫 단어에서 그 줄 전체가 떨어진다)
   const punch = { ...bounds.punch };
-  punch.words = wordsOf(S.punch.text).map((_, i) => F(S.punch.start + i * S.punch.wordEvery));
-  item('punch.text', S.punch.text.join(' '), punch.start, punch.end, punch.end - 2);
+  const words = wordsOf(S.punch.text);
+  const wordAt = S.punch.wordAt ?? words.map((_, i) => i * 0.25);
+  punch.wordT = words.map((_, i) => vAt('punch', wordAt[Math.min(i, wordAt.length - 1)]));
+  punch.words = punch.wordT.map(FV);
+  punch.lineFirst = [];
+  S.punch.text.reduce((n, line) => {
+    punch.lineFirst.push(n);
+    return n + wordsOf([line]).length;
+  }, 0);
+  const punchFull = punch.words[punch.lineFirst[punch.lineFirst.length - 1]];
+  item('punch.text', S.punch.text.join(' '), punchFull, punch.end, punch.end - 2);
+  // 화면에만 나오는 지출 목록: 둘째 줄이 박힌 뒤부터 하나씩, 조금 뒤부터 목록 전체가 위로 스크롤
+  const moreFrom = punchFull + 5;
+  const moreEvery = Math.max(1, F(S.punch.moreEvery ?? 0.13));
+  punch.more = (S.punch.more ?? []).map((_, k) => moreFrom + k * moreEvery).filter((f) => f < punch.end);
+  punch.scrollFrom = moreFrom + 6;
+  punch.more.forEach((f, k) => ev(f, 'tick', { index: k }));
   punch.words.forEach((f, i, all) => {
     const last = i === all.length - 1;
-    ev(f, 'hit', { big: last });
-    shake(f, last ? 24 : 11, last ? 9 : 5);
+    const lineHit = punch.lineFirst.includes(i);
+    ev(f, 'hit', { big: last, soft: !last && !lineHit, t: punch.wordT[i] });
+    shake(f, last ? 24 : lineHit ? 14 : 7, last ? 9 : 5);
   });
   tl.scenes.punch = punch;
 
-  // ① cause — 휩팬으로 내 계정 → 게시물 0 줌 펀치
-  const cause = { ...bounds.cause, textAt: bounds.cause.start + 3, zoomAt: bounds.cause.start + 9 };
+  // ① cause — 휩팬으로 내 계정 → 말에 맞춰 '게시물 0' 줌 펀치
+  const cause = { ...bounds.cause };
+  cause.reveal = reveal(S.cause.text, Math.max(cause.start + 3, FV(vAt('cause')) - 2), 2, 5);
+  cause.zoomT = vAt('cause', S.cause.zoomAt ?? 0.3);
+  cause.zoomAt = FV(cause.zoomT);
   ev(cause.start, 'whip');
-  ev(cause.zoomAt, 'thump');
+  ev(cause.zoomAt, 'thump', { t: cause.zoomT });
   shake(cause.zoomAt, 7, 5);
   tl.scenes.cause = cause;
 
@@ -60,52 +96,54 @@ export function buildTimeline(cfg) {
     lineDraw: [a0, a0 + 5],
     split: [a0 + 5, a0 + 17],
     morph: [a0 + 15, a0 + 28],
-    textAt: a0 + 8,
+    reveal: reveal(S.answer.text, a0 + 8, 2, 3),
   };
-  item('cause.text', S.cause.text.join(' '), cause.textAt, answer.split[0] + 4, a0 - 3);
-  item('answer.text', plainText(S.answer.text.join(' ')), answer.textAt, answer.end, answer.end - 3);
+  item('cause.text', S.cause.text.join(' '), cause.reveal.full, answer.split[0] + 4, a0 - 3);
+  item('answer.text', plainText(S.answer.text.join(' ')), answer.reveal.full, answer.end, answer.end - 3);
   ev(a0, 'drop');
   shake(a0, 14, 7);
   tl.scenes.answer = answer;
 
   // ③ show — 같은 계정이 정리되며 채워진다
-  const show = { ...bounds.show };
-  show.caps = S.show.captions.map((c) => ({ ...c, f: F(c.at) }));
-  show.caps.forEach((c, i) => {
-    const next = show.caps[i + 1]?.f ?? show.end;
-    item(`show.cap${i}`, plainText(c.text.join(' ')), c.f + 1, next, next - 3);
-  });
+  const show = { ...bounds.show, reveal: reveal(S.show.text, bounds.show.start + 1, 2, 4) };
+  item('show.text', plainText(S.show.text.join(' ')), show.reveal.full, show.end, show.end - 3);
   show.tiles = cfg.profile.tiles.map((_, i) => F(S.show.start + 0.1 + i * S.show.tileEvery));
   show.tiles.forEach((f, i) => ev(f, 'tile', { index: i }));
   tl.scenes.show = show;
 
-  // ④ heart — 강의 카드가 쌓이고 하나씩 '수강 완료'
+  // ④ heart — 강의 카드가 쌓이고 하나씩 '수강 완료' → CTA 직전에 위로 날아간다(꺼내기)
+  const c0 = bounds.cta.start;
   const n = Math.min(S.heart.cards, S.hook.payments.length);
-  const heart = { ...bounds.heart, textAt: bounds.heart.start + 3 };
+  const heart = { ...bounds.heart };
+  heart.reveal = reveal(S.heart.text, Math.max(heart.start + 2, FV(vAt('heart')) - 2), 3, 4, 6);
   heart.lands = Array.from({ length: n }, (_, i) => heart.start - 4 + i * 5); // 컷 직전부터 떨어지기 시작
   heart.stamps = Array.from({ length: n }, (_, i) => F(S.heart.start + 0.5 + i * 0.25));
-  item('heart.text', plainText(S.heart.text.join(' ')), heart.textAt, heart.end, heart.end - 3);
+  heart.flies = Array.from({ length: n }, (_, i) => c0 - 9 + i * 2);
+  item('heart.text', plainText(S.heart.text.join(' ')), heart.reveal.full, heart.end, heart.end - 3);
   heart.lands.forEach((f) => ev(f + 7, 'land')); // 카드가 닿는 순간
   heart.stamps.forEach((f, i) => ev(f, 'stamp', { index: i }));
+  ev(heart.flies[0], 'fly');
   tl.scenes.heart = heart;
 
-  // ④ push — 쌓인 카드가 하나씩 위로 날아간다
-  const push = { ...bounds.push, textAt: bounds.push.start + 3 };
-  push.flies = Array.from({ length: n }, (_, i) => F(S.push.start + 0.1 + i * 0.25));
-  item('push.text', plainText(S.push.text.join(' ')), push.textAt, push.end, push.end - 3);
-  push.flies.forEach((f) => ev(f, 'fly'));
-  tl.scenes.push = push;
-
-  // ⑤ cta — 로고가 꽝, 버튼, 안심 문구, 주소
-  const c0 = bounds.cta.start;
-  const cta = { ...bounds.cta, logoAt: c0, colonAt: c0 + 4, buttonAt: c0 + 10, noteAt: c0 + 16, urlAt: c0 + 20, pressAt: F(S.cta.pressAt) };
-  item('cta.logo', Object.values(S.cta.logo).join(''), cta.logoAt, total, cta.urlAt + 14);
-  item('cta.button', S.cta.button, cta.buttonAt, total, cta.urlAt + 14);
-  if (S.cta.note) item('cta.note', S.cta.note, cta.noteAt, total, cta.urlAt + 14);
-  item('cta.url', S.cta.url, cta.urlAt, total, cta.urlAt + 14);
+  // ⑤ cta — 로고가 꽝, 말에 맞춰 버튼 → 안심 문구 → 버튼 눌림 → 주소
+  const C = S.cta;
+  const cta = {
+    ...bounds.cta,
+    logoAt: c0,
+    colonAt: c0 + 4,
+    buttonAt: FV(vAt('cta', C.buttonAt ?? 0.33)),
+    noteAt: FV(vAt('cta', C.noteAt ?? 0.53)),
+    pressAt: FV(vAt('cta', C.pressAt ?? 1.2)),
+    urlAt: FV(vAt('cta', C.urlAt ?? 0.67)),
+  };
+  const ctaRest = Math.min(total - 1, cta.urlAt + 14);
+  item('cta.logo', Object.values(C.logo).join(''), cta.logoAt, total, ctaRest);
+  item('cta.button', C.button, cta.buttonAt, total, ctaRest);
+  if (C.note) item('cta.note', C.note, cta.noteAt, total, ctaRest);
+  item('cta.url', C.url, cta.urlAt, total, ctaRest);
   ev(c0, 'final');
   ev(cta.colonAt, 'chime');
-  ev(cta.pressAt, 'tap');
+  ev(cta.pressAt, 'tap', { t: vAt('cta', C.pressAt ?? 1.2) });
   shake(c0, 10, 6);
   tl.scenes.cta = cta;
 
@@ -116,7 +154,6 @@ export function buildTimeline(cfg) {
     build: sec(cause.start), // 빌드업
     drop: sec(answer.start), // 드롭
     breakdown: sec(heart.start), // 브레이크다운 (감정)
-    build2: sec(push.start), // 두 번째 빌드업
     final: sec(cta.start), // CTA 드롭
     end: total / fps,
   };
@@ -124,7 +161,7 @@ export function buildTimeline(cfg) {
   return tl;
 }
 
-// 노출 시간·장면 순서 검사
+// 노출 시간·장면 순서·내레이션 배치 검사
 export function validate(cfg, tl) {
   const minF = Math.round(cfg.rules.minReadSec * tl.fps);
   const errors = [];
@@ -138,5 +175,21 @@ export function validate(cfg, tl) {
     if (!(b.end > b.start)) errors.push(`장면 순서 오류: ${k} (${b.start}~${b.end}프레임)`);
   });
   if (tl.bounds.cta.end !== tl.total) errors.push('마지막 장면이 영상 길이와 맞지 않습니다');
-  return { rows, errors, ok: errors.length === 0 };
+
+  // 내레이션: 겹치지 않고, 영상 안에 있고, 자기 장면이 끝나기 전에 끝나야 한다 (자막이 말 도중에 바뀌지 않게)
+  const D = cfg.video.duration;
+  const voice = tl.voice.map((v) => {
+    const sceneEnd = tl.bounds[v.id].end / tl.fps;
+    const problems = [];
+    if (!(v.to > v.from)) problems.push('녹음 구간(from~to)이 비었습니다');
+    if (v.at < 0 || v.end > D + 1e-6) problems.push(`영상 밖(0~${D}초)으로 나갑니다`);
+    if (v.end > sceneEnd + 0.05) problems.push(`장면이 끝난 뒤(${sceneEnd.toFixed(2)}초)에도 말이 이어집니다`);
+    return { ...v, sceneEnd, problems };
+  });
+  [...voice].sort((a, b) => a.at - b.at).forEach((v, i, all) => {
+    const prev = all[i - 1];
+    if (prev && v.at < prev.end) v.problems.push(`앞 문장(${prev.id})과 ${(prev.end - v.at).toFixed(2)}초 겹칩니다`);
+  });
+  voice.forEach((v) => v.problems.forEach((p) => errors.push(`내레이션 ${v.id}: ${p}`)));
+  return { rows, voice, errors, ok: errors.length === 0 };
 }

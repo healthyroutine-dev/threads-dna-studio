@@ -71,8 +71,18 @@ body { width: 1080px; height: 1920px; overflow: hidden; }
 .cap.on-cream { color: var(--ink); }
 .hook-cap { top: 1100px; font-size: 118px; line-height: 1.16; }
 .learn-cap { top: 1140px; }
-.giant { left: 96px; top: 600px; font-size: 200px; font-weight: 900; line-height: 1.08; letter-spacing: -0.05em; color: var(--cream); }
-.answer-text { left: 96px; top: 540px; font-size: 128px; font-weight: 900; line-height: 1.2; letter-spacing: -0.045em; color: var(--ink); }
+.giant { left: 96px; top: 430px; font-size: 200px; font-weight: 900; line-height: 1.08; letter-spacing: -0.05em; color: var(--cream); }
+.giant .tb-line { transform-origin: 0 75%; }
+/* 정곡: 아래에서 계속 올라오는 지출 목록 + '아래에 더 있음' 표시 */
+.punch-col { position: absolute; inset: 0; }
+.more-item {
+  position: absolute; left: 96px; font-size: 80px; font-weight: 800; line-height: 1.2; letter-spacing: -0.04em;
+  color: var(--cream-92); white-space: nowrap; opacity: 0;
+}
+.more-cue { position: absolute; left: 50%; top: 1400px; font-size: 80px; color: var(--cream-70); opacity: 0; }
+.more-cue .ic { stroke-width: 3; }
+.giant .w { transform-origin: 25% 75%; }
+.answer-text { left: 96px; top: 470px; font-size: 184px; font-weight: 900; line-height: 1.16; letter-spacing: -0.045em; color: var(--ink); }
 
 /* 자막 뒤를 받쳐 주는 그라데이션 (같은 색의 투명도만 사용) */
 .scrim { position: absolute; left: 0; right: 0; bottom: 0; top: 1000px; pointer-events: none; }

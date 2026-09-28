@@ -1,12 +1,12 @@
-// BGM + 효과음을 코드로 합성합니다 (외부 음원·샘플 없음).
+// BGM + 효과음을 코드로 합성하고 내레이션(대표님 녹음)과 섞습니다 (외부 음원·샘플 없음).
 // 구간은 config.js → timeline 의 장면 시작 시간을 따라갑니다. 문구·타이밍을 바꾸면 소리도 같이 움직입니다.
 //   0초 ~ 정곡      : A단조 인트로. 0초 임팩트, 4박 킥·16분 하이햇·펄스 베이스, 결제 알림음
-//   정곡            : 스톱타임. 음악이 멈추고 단어마다 타격음 (마지막 단어는 크게)
-//   원인            : 빌드업. 휩 소리, 스네어 롤, 라이저 → 직전에 한 박 비움
+//   정곡            : 스톱타임. 음악이 멈추고 말하는 단어마다 타격음 (마지막 단어는 크게)
+//   원인            : 빌드업. 휩 소리, 드롭 박자에 맞춘 킥·스네어 롤·라이저 → 드롭 직전 잠깐 비움
 //   답(드롭)~       : A장조 드롭. 임팩트·크래시, 하우스 그루브(오프비트 베이스·코드 스탭), 타일마다 플럭
-//   마음            : 브레이크다운. 드럼이 빠지고 패드와 벨, 도장 소리
-//   행동            : 두 번째 빌드업. 킥·스네어 롤·라이저, 카드 날아가는 소리
+//   마음            : 브레이크다운. 드럼이 빠지고 패드와 벨, 도장 소리 → 한 박 빌드업
 //   CTA            : 마지막 드롭. 임팩트·차임·그루브 → 으뜸화음으로 마무리
+// 목소리가 나오는 동안 음악은 config.voice.duck 만큼 내려간다 (저음은 절반만: 리듬은 살리고 말소리 대역만 비킨다)
 // 단독 실행: `npm run audio` → out/audio.wav
 
 import { writeFile, mkdir } from 'node:fs/promises';
@@ -14,6 +14,10 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import config from '../config.js';
 import { buildTimeline } from '../src/timeline.js';
+import { biquad as makeBiquad, loudness, limiter, dbToGain } from './dsp.mjs';
+import { hasVoice, voiceTrack } from './voice.mjs';
+
+export { loudness };
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 
@@ -40,9 +44,10 @@ const CH = {
   D: ['D2', ['F#3', 'A3', 'D4']],
 };
 const DROP_CHORDS = ['A', 'E', 'Fsm', 'D']; // 드롭: 1초마다 한 코드 (I–V–vi–IV)
-const FINAL_CHORDS = ['A', 'D', 'E']; // CTA: 마지막은 A 로 도착
+const FINAL_CHORDS = ['A', 'E']; // CTA: I–V → 마지막 박에서 A 로 도착
 const TILE_NOTES = ['A5', 'C#6', 'E6', 'A6', 'C#7', 'E7']; // 타일이 뜰 때마다 한 칸씩 오름
 const STAMP_NOTES = ['A5', 'C#6', 'D6', 'F#6', 'A6']; // 도장이 찍힐 때마다
+const TICK_NOTES = ['A5', 'B5', 'C6', 'D6', 'E6', 'F6', 'G#6']; // 지출 목록 한 줄마다 (A단조로 불안하게 올라감)
 
 // 결정적 난수 (매번 같은 소리가 나오도록)
 function mulberry32(seed) {
@@ -55,7 +60,7 @@ function mulberry32(seed) {
   };
 }
 
-export function synthesize(cfg = config) {
+export function synthesize(cfg = config, { voice = false } = {}) {
   const tl = buildTimeline(cfg);
   const A = cfg.audio;
   const M = tl.music;
@@ -292,6 +297,15 @@ export function synthesize(cfg = config) {
       return Math.sin(ph) * Math.exp(-t / 0.45) * Math.min(1, t / 0.01);
     }, { gain: gain * vSfx });
   }
+  // 지출 목록이 한 줄씩 올라올 때: 짧은 단음 '띵' (한 줄마다 음이 올라간다)
+  function tick(t0, note, gain) {
+    let ph = 0;
+    const f = hz(note);
+    add(fx, t0, 0.1, (t) => {
+      ph += (2 * Math.PI * f) / SR;
+      return Math.sin(ph) * Math.exp(-t / 0.028) * Math.min(1, t / 0.002);
+    }, { gain: gain * vSfx, rev: 0.15, pan: 0.2 });
+  }
   // 카드 결제 알림음: 짧은 두 음 '삐빅'
   function payBlip(t0, gain) {
     for (const [dt, fq] of [[0, 1760], [0.07, 2350]]) {
@@ -353,22 +367,23 @@ export function synthesize(cfg = config) {
   }
 
   const S = A.sfx;
-  // ── ① 인트로 (A단조) — 첫 프레임부터 에너지 ─────────────────────────────────
+  // ── ① 인트로 (A단조) — 첫 프레임부터 에너지. 스톱타임 직전에 딱 끊는다 ────────────────
+  const beforeStop = (t) => t < M.stop - 0.01;
   if (S.impact) impact(0, 0.55);
-  for (let t = 0, b = 0; t < M.stop - 1e-6; t += BEAT, b++) {
+  for (let t = 0, b = 0; beforeStop(t); t += BEAT, b++) {
     kick(t, b === 0 ? 0.3 : 0.5);
-    for (let s = 0; s < 4; s++) hat(t + (s * BEAT) / 4, [0.06, 0.028, 0.045, 0.028][s], s % 2 ? 0.25 : -0.15);
+    for (let s = 0; s < 4; s++) if (beforeStop(t + (s * BEAT) / 4)) hat(t + (s * BEAT) / 4, [0.06, 0.028, 0.045, 0.028][s], s % 2 ? 0.25 : -0.15);
   }
-  for (let t = 0, k = 0; t < M.stop - 1e-6; t += BEAT / 2, k++) {
-    bass(t, BEAT * 0.38, 'A2', k % 2 === 0 ? 0.3 : 0.2, 0.6);
-    pluck(t + BEAT / 4, ['E5', 'A5', 'C6', 'A5'][k % 4], 0.07, k % 2 ? 0.35 : -0.35, 0.12);
+  for (let t = 0, k = 0; beforeStop(t); t += BEAT / 2, k++) {
+    bass(t, Math.min(BEAT * 0.38, M.stop - t), 'A2', k % 2 === 0 ? 0.3 : 0.2, 0.6);
+    if (beforeStop(t + BEAT / 4)) pluck(t + BEAT / 4, ['E5', 'A5', 'C6', 'A5'][k % 4], 0.07, k % 2 ? 0.35 : -0.35, 0.12);
   }
   pad(0, M.stop, CH.Am[1], 0.14, () => 1100, 0.3);
 
-  // ── ① 원인 → 빌드업 (드롭 직전 한 박을 비운다) ──────────────────────────────
+  // ── ① 원인 → 빌드업: 킥·스네어 롤은 드롭 박자에서 거꾸로 맞춘다 (드롭 직전 gap 만큼 비움) ─────
   const gap = 0.06;
-  for (let t = Math.ceil(M.build / BEAT) * BEAT; t < M.drop - 1e-6; t += BEAT) kick(t, 0.45);
-  snareRoll(M.build + BEAT / 2, M.drop - gap, 0.05, 0.26);
+  for (let t = M.drop - BEAT; t > M.build - 1e-6; t -= BEAT) kick(t, 0.45);
+  snareRoll(Math.max(M.build, M.drop - 3 * BEAT), M.drop - gap, 0.05, 0.26);
   noiseSweep(fx, M.build, M.drop - M.build - gap, { from: 300, to: 7500, peakAt: 0.97, Q: 1.4, gain: 0.32 * vMusic, curve: 2.3, rev: 0.1 });
   pad(M.build, M.drop - M.build - gap, CH.E7[1], 0.14, (t) => lerp(500, 3000, Math.min(1, (t - M.build) / (M.drop - M.build))), 0.2);
 
@@ -380,27 +395,24 @@ export function synthesize(cfg = config) {
   crash(M.drop, 0.16);
   groove(M.drop, M.breakdown, DROP_CHORDS);
 
-  // ── ④ 브레이크다운 (감정) — 드럼이 빠지고 패드와 벨 ─────────────────────────
-  pad(M.breakdown, (M.build2 - M.breakdown) / 2, CH.Fsm[1], 0.15, () => 1500, 0.45);
-  pad(M.breakdown + (M.build2 - M.breakdown) / 2, (M.build2 - M.breakdown) / 2, CH.D[1], 0.15, () => 1500, 0.45);
-  bass(M.breakdown, (M.build2 - M.breakdown) / 2, 'F#2', 0.1, 0.2);
-  bass(M.breakdown + (M.build2 - M.breakdown) / 2, (M.build2 - M.breakdown) / 2, 'D2', 0.1, 0.2);
-  crash(M.breakdown, 0.08);
-
-  // ── ④ 두 번째 빌드업 ─────────────────────────────────────────────────────
-  const mid2 = (M.build2 + M.final) / 2;
-  pad(M.build2, mid2 - M.build2, CH.A[1], 0.2, (t) => lerp(900, 2600, (t - M.build2) / (M.final - M.build2)), 0.3);
-  pad(mid2, M.final - mid2 - gap, CH.E[1], 0.2, (t) => lerp(900, 3000, (t - M.build2) / (M.final - M.build2)), 0.3);
-  for (let t = M.build2, b = 0; t < M.final - 1e-6; t += BEAT, b++) {
-    kick(t, lerp(0.3, 0.55, b / 4));
-    bass(t + BEAT / 2, BEAT * 0.4, b < 2 ? 'A2' : 'E2', 0.24, 0.8);
-    for (let s = 0; s < 2; s++) hat(t + (s * BEAT) / 2, 0.03, s ? 0.2 : -0.2);
+  // ── ④ 브레이크다운 (감정) — 드럼이 빠지고 패드와 벨 → 마지막 한 박은 빌드업 ────────────
+  const build2 = M.final - BEAT;
+  const split = Math.min(build2, M.breakdown + Math.max(BEAT, Math.round(((build2 - M.breakdown) * 2) / 3 / BEAT) * BEAT));
+  pad(M.breakdown, split - M.breakdown, CH.Fsm[1], 0.15, () => 1500, 0.45);
+  bass(M.breakdown, split - M.breakdown, 'F#2', 0.1, 0.2);
+  if (build2 > split) {
+    pad(split, build2 - split, CH.D[1], 0.15, () => 1500, 0.45);
+    bass(split, build2 - split, 'D2', 0.1, 0.2);
   }
-  snareRoll(mid2, M.final - gap, 0.05, 0.24);
-  noiseSweep(fx, mid2 - 0.25, M.final - mid2 + 0.25 - gap, { from: 400, to: 8000, peakAt: 0.97, Q: 1.3, gain: 0.3 * vMusic, curve: 2.2, rev: 0.1 });
+  crash(M.breakdown, 0.08);
+  pad(build2, M.final - build2 - gap, CH.E[1], 0.2, (t) => lerp(900, 3000, (t - build2) / (M.final - build2)), 0.3);
+  bass(build2 + BEAT / 2, BEAT * 0.4, 'E2', 0.22, 0.8);
+  kick(build2, 0.4);
+  snareRoll(build2, M.final - gap, 0.08, 0.24);
+  noiseSweep(fx, split, M.final - split - gap, { from: 400, to: 8000, peakAt: 0.97, Q: 1.3, gain: 0.26 * vMusic, curve: 2.2, rev: 0.1 });
 
-  // ── ⑤ CTA 드롭 → 으뜸화음으로 마무리 ──────────────────────────────────────
-  const lastHit = M.end - BEAT; // 마지막 박에서 리듬을 멈추고 A 화음만 남긴다
+  // ── ⑤ CTA 드롭 → 드롭 박자 위의 마지막 박에서 으뜸화음으로 마무리 ─────────────────────
+  const lastHit = M.final + Math.max(1, Math.floor((M.end - 0.55 - M.final) / BEAT)) * BEAT;
   if (S.impact) {
     impact(M.final, 0.55);
     subDrop(M.final, 0.35);
@@ -415,13 +427,16 @@ export function synthesize(cfg = config) {
 
   // ── 타임라인 이벤트 (화면과 프레임 단위로 일치) ─────────────────────────────
   for (const e of tl.events) {
-    const t = sec(e.f);
+    const t = e.t ?? sec(e.f); // 말에 맞춘 신호는 정확한 시각(초)으로
     switch (e.type) {
       case 'pay':
-        if (S.pay) payBlip(t, 0.16);
+        if (S.pay) payBlip(t, voice ? 0.1 : 0.16); // 목소리와 같은 2kHz 대역이라 목소리 버전에선 작게
+        break;
+      case 'tick':
+        if (S.pay) tick(t, TICK_NOTES[e.index % TICK_NOTES.length], voice ? 0.07 : 0.1);
         break;
       case 'hit':
-        if (S.impact) hit(t, e.big ? 0.72 : 0.42, e.big);
+        if (S.impact) hit(t, e.big ? 0.72 : e.soft ? 0.26 : 0.46, e.big);
         if (S.impact && e.big) subDrop(t, 0.2);
         break;
       case 'whip':
@@ -444,7 +459,7 @@ export function synthesize(cfg = config) {
         bell(music, t, STAMP_NOTES[e.index % STAMP_NOTES.length], 0.13, e.index % 2 ? 0.2 : -0.2);
         break;
       case 'fly':
-        if (S.whoosh) whooshUp(t, 0.2);
+        if (S.whoosh) whooshUp(t, 0.26);
         break;
       case 'chime':
         if (S.cta) for (const note of ['A5', 'C#6', 'E6']) bell(fx, t + 0.02, note, 0.1, 0, 2.2, vSfx);
@@ -461,22 +476,26 @@ export function synthesize(cfg = config) {
   const delay = pingPong(dlySend, Math.round(BEAT * 0.75 * SR), 0.3, 3500, N, SR);
   const reverb = freeverb(revSend, N, SR);
   const duck = sidechain(kicks, N, SR);
-  const L = new Float32Array(N);
-  const R = new Float32Array(N);
-  const hpL = biquad('hp', 32, 0.7);
-  const hpR = biquad('hp', 32, 0.7);
+  // 스템 두 개로 내보낸다: bed(음악 전체) · sfx(효과음). 목소리 버전에서 덕킹 양을 따로 준다
+  const bed = bus();
+  const sfx = bus();
+  const hp = [biquad('hp', 32, 0.7), biquad('hp', 32, 0.7), biquad('hp', 32, 0.7), biquad('hp', 32, 0.7)];
   for (let i = 0; i < N; i++) {
-    L[i] = hpL(music.L[i] * duck[i] + drums.L[i] + fx.L[i] + delay.L[i] * 0.5 + reverb.L[i] * 0.75);
-    R[i] = hpR(music.R[i] * duck[i] + drums.R[i] + fx.R[i] + delay.R[i] * 0.5 + reverb.R[i] * 0.75);
+    bed.L[i] = hp[0](music.L[i] * duck[i] + drums.L[i] + delay.L[i] * 0.5 + reverb.L[i] * 0.75);
+    bed.R[i] = hp[1](music.R[i] * duck[i] + drums.R[i] + delay.R[i] * 0.5 + reverb.R[i] * 0.75);
+    sfx.L[i] = hp[2](fx.L[i]);
+    sfx.R[i] = hp[3](fx.R[i]);
   }
   // 끝 0.45초 페이드아웃 (영상이 정확히 15초에서 끝나도 소리가 뚝 끊기지 않게)
   const fadeN = Math.round(0.45 * SR);
   for (let i = N - fadeN; i < N; i++) {
     const g = Math.pow((N - i) / fadeN, 1.6);
-    L[i] *= g;
-    R[i] *= g;
+    for (const b of [bed, sfx]) {
+      b.L[i] *= g;
+      b.R[i] *= g;
+    }
   }
-  return { L, R, SR, N };
+  return { bed, sfx, SR, N };
 }
 
 function pingPong(src, d, fb, lpHz, N, SR) {
@@ -542,82 +561,76 @@ function sidechain(kicks, N, SR) {
   return env;
 }
 
-// ── 음량: ITU-R BS.1770 적분 라우드니스 측정 → 목표 LUFS 로 맞추고 피크 리미터 ─────────
-export function loudness(L, R, SR) {
-  if (SR !== 48000) throw new Error('라우드니스 측정은 48kHz 기준입니다 (config.audio.sampleRate = 48000)');
-  const kw = (x) => {
-    const out = new Float64Array(x.length);
-    const stages = [
-      [[1.53512485958697, -2.69169618940638, 1.19839281085285], [-1.69065929318241, 0.73248077421585]],
-      [[1.0, -2.0, 1.0], [-1.99004745483398, 0.99007225036621]],
-    ];
-    let buf = Float64Array.from(x);
-    for (const [[b0, b1, b2], [a1, a2]] of stages) {
-      let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
-      for (let i = 0; i < buf.length; i++) {
-        const y = b0 * buf[i] + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
-        x2 = x1;
-        x1 = buf[i];
-        y2 = y1;
-        y1 = y;
-        out[i] = y;
-      }
-      buf = Float64Array.from(out);
-    }
-    return buf;
-  };
-  const kl = kw(L);
-  const kr = kw(R);
-  const block = Math.round(0.4 * SR);
-  const hop = Math.round(0.1 * SR);
-  const z = [];
-  for (let s = 0; s + block <= kl.length; s += hop) {
-    let sl = 0, sr = 0;
-    for (let i = s; i < s + block; i++) {
-      sl += kl[i] * kl[i];
-      sr += kr[i] * kr[i];
-    }
-    z.push((sl + sr) / block);
+// ── 음량: BS.1770 라우드니스를 목표 LUFS 로 맞추고 피크 리미터 (dsp.mjs) ────────────────
+export function master(L, R, SR, targetLufs, ceilingDb = -1.8) {
+  // 리미터가 피크를 누르면 음량이 조금 내려가므로, 목표에 0.1 LU 안으로 들어올 때까지 이득을 다시 맞춘다
+  let gainDb = targetLufs - loudness(L, R, SR);
+  let lim, lufs;
+  for (let pass = 0; pass < 4; pass++) {
+    const g = dbToGain(gainDb);
+    lim = limiter([L.map((v) => v * g), R.map((v) => v * g)], SR, dbToGain(ceilingDb));
+    lufs = loudness(lim.out[0], lim.out[1], SR);
+    if (Math.abs(lufs - targetLufs) < 0.1) break;
+    gainDb += targetLufs - lufs;
   }
-  const lufs = (v) => -0.691 + 10 * Math.log10(v);
-  const abs = z.filter((v) => lufs(v) > -70);
-  const mean = (a) => a.reduce((s, v) => s + v, 0) / a.length;
-  const rel = lufs(mean(abs)) - 10;
-  return lufs(mean(abs.filter((v) => lufs(v) > rel)));
+  const [outL, outR] = lim.out;
+  return { L: outL, R: outR, gainDb, limitDb: lim.reductionDb, lufs };
 }
 
-export function master(L, R, SR, targetLufs, ceilingDb = -1.8) {
-  const gain = Math.pow(10, (targetLufs - loudness(L, R, SR)) / 20);
-  const N = L.length;
-  const ceil = Math.pow(10, ceilingDb / 20);
-  const look = Math.round(0.004 * SR);
-  const need = new Float32Array(N);
+// ── 목소리 믹스 ──────────────────────────────────────────────────────────────
+// 목소리가 있는 정도 (0~1). 조금 앞을 내다봐서 말이 시작되기 직전에 음악이 먼저 비켜 준다
+function voicePresence(v, SR, { look = 0.05, attack = 0.03, release = 0.25, floor = -42, range = 12 } = {}) {
+  const N = v.length;
+  const decay = Math.exp(-1 / (0.01 * SR));
+  const env = new Float32Array(N);
+  for (let i = 0, e = 0; i < N; i++) env[i] = e = Math.max(Math.abs(v[i]), e * decay);
+  const la = Math.round(look * SR);
+  const aa = Math.exp(-1 / (attack * SR));
+  const rr = Math.exp(-1 / (release * SR));
+  const p = new Float32Array(N);
+  for (let i = 0, s = 0; i < N; i++) {
+    const db = 20 * Math.log10(env[Math.min(N - 1, i + la)] + 1e-9);
+    const target = Math.min(1, Math.max(0, (db - floor) / range));
+    s = target > s ? aa * s + (1 - aa) * target : rr * s + (1 - rr) * target;
+    p[i] = s;
+  }
+  return p;
+}
+
+// 음악(bed)·효과음(sfx)을 목소리 아래로. 저음(180Hz 아래)은 덕킹을 절반만, 효과음은 60%만
+export function mixVoice(song, voice, cfg = config) {
+  const { SR, N, bed, sfx } = song;
+  const V = cfg.voice;
+  const sumL = bed.L.map((v, i) => v + sfx.L[i]);
+  const sumR = bed.R.map((v, i) => v + sfx.R[i]);
+  const mg = dbToGain(V.music - loudness(sumL, sumR, SR));
+  const p = voicePresence(voice, SR);
+  const lo = [0, 1].map(() => [makeBiquad(SR, 'lp', 180), makeBiquad(SR, 'lp', 180)]);
+  const L = new Float32Array(N);
+  const R = new Float32Array(N);
+  const musicL = new Float32Array(N);
+  const musicR = new Float32Array(N);
   for (let i = 0; i < N; i++) {
-    const p = Math.max(Math.abs(L[i]), Math.abs(R[i])) * gain;
-    need[i] = p > ceil ? ceil / p : 1;
+    const d = p[i] * V.duck;
+    const gHigh = dbToGain(-d);
+    const gLow = dbToGain(-d * 0.5);
+    const gFx = dbToGain(-d * 0.6);
+    const lowL = lo[0][1](lo[0][0](bed.L[i]));
+    const lowR = lo[1][1](lo[1][0](bed.R[i]));
+    musicL[i] = mg * (lowL * gLow + (bed.L[i] - lowL) * gHigh + sfx.L[i] * gFx);
+    musicR[i] = mg * (lowR * gLow + (bed.R[i] - lowR) * gHigh + sfx.R[i] * gFx);
+    L[i] = musicL[i] + voice[i];
+    R[i] = musicR[i] + voice[i];
   }
-  // 앞을 내다보는 최소값 → 박스 평활 → 느린 릴리즈 (클릭 없이 피크만 누름)
-  const fwdMin = new Float32Array(N);
-  const dq = [];
-  for (let i = N - 1; i >= 0; i--) {
-    while (dq.length && need[dq[dq.length - 1]] >= need[i]) dq.pop();
-    dq.push(i);
-    while (dq[0] > i + look) dq.shift();
-    fwdMin[i] = need[dq[0]];
-  }
-  const rel = Math.exp(-1 / (0.06 * SR));
-  let acc = look; // 시작 전 구간은 이득 1로 채워진 것으로 본다
-  let g = 1;
-  const outL = new Float32Array(N);
-  const outR = new Float32Array(N);
-  for (let i = 0; i < N; i++) {
-    acc += fwdMin[i] - (i >= look ? fwdMin[i - look] : 1);
-    const box = Math.min(1, acc / look);
-    g = Math.min(box, g * rel + (1 - rel) * box);
-    outL[i] = L[i] * gain * g;
-    outR[i] = R[i] * gain * g;
-  }
-  return { L: outL, R: outR, gainDb: 20 * Math.log10(gain), lufs: loudness(outL, outR, SR) };
+  // 문장마다 목소리가 음악보다 몇 LU 위에 있는지 (8~12 LU 면 음악 위에서도 또렷함)
+  const tl = buildTimeline(cfg);
+  const lines = tl.voice.map((v) => {
+    const a = Math.round(v.at * SR);
+    const b = Math.min(N, Math.round(v.end * SR));
+    const vo = voice.subarray(a, b);
+    return { id: v.id, voice: loudness(vo, vo, SR), music: loudness(musicL.subarray(a, b), musicR.subarray(a, b), SR) };
+  });
+  return { L, R, lines };
 }
 
 export function wav16(L, R, SR) {
@@ -645,17 +658,28 @@ export function wav16(L, R, SR) {
   return buf;
 }
 
-// 합성 → 음량 맞춤 → WAV 저장
-export async function renderAudio(cfg = config, outPath = resolve(ROOT, 'out/audio.wav')) {
-  const { L, R, SR } = synthesize(cfg);
+// 합성 → (목소리 믹스) → 음량 맞춤 → WAV 저장. voice: 목소리를 넣을지 (기본: config 에서 켜져 있고 녹음 파일이 있으면)
+export async function renderAudio(cfg = config, outPath = resolve(ROOT, 'out/audio.wav'), { voice = hasVoice(cfg) } = {}) {
+  const song = synthesize(cfg, { voice });
+  const { SR } = song;
+  let L, R, lines = null, voiceStats = null;
+  if (voice) {
+    const v = await voiceTrack(cfg);
+    ({ L, R, lines } = mixVoice(song, v.track, cfg));
+    voiceStats = v.stats;
+  } else {
+    L = song.bed.L.map((x, i) => x + song.sfx.L[i]);
+    R = song.bed.R.map((x, i) => x + song.sfx.R[i]);
+  }
   const m = master(L, R, SR, cfg.audio.loudness);
   await mkdir(dirname(outPath), { recursive: true });
   await writeFile(outPath, wav16(m.L, m.R, SR));
-  return { path: outPath, lufs: m.lufs, gainDb: m.gainDb, seconds: L.length / SR };
+  return { path: outPath, lufs: m.lufs, gainDb: m.gainDb, limitDb: m.limitDb, seconds: L.length / SR, voice: !!voice, lines, voiceStats };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const t = Date.now();
   const r = await renderAudio();
-  console.log(`audio: ${r.path} · ${r.seconds.toFixed(3)}s · ${r.lufs.toFixed(1)} LUFS · ${((Date.now() - t) / 1000).toFixed(1)}s`);
+  console.log(`audio: ${r.path} · ${r.seconds.toFixed(3)}s · ${r.lufs.toFixed(1)} LUFS · 목소리 ${r.voice ? '있음' : '없음'} · ${((Date.now() - t) / 1000).toFixed(1)}s`);
+  r.lines?.forEach((l) => console.log(`  ${l.id.padEnd(7)} 목소리 ${l.voice.toFixed(1)} · 음악 ${l.music.toFixed(1)} LUFS → 목소리가 ${(l.voice - l.music).toFixed(1)} LU 위`));
 }
