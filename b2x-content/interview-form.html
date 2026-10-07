@@ -1,0 +1,355 @@
+<title>B2X 대표 인터뷰지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: one narrow reading column; a quiet sticky bar carries progress and save state; each topic is a section, each question a labelled textarea. */
+:root {
+  --bg: #F6F6F4;
+  --surface: #FFFFFF;
+  --fg: #16171A;
+  --muted: #62656C;
+  --line: #DEDFDB;
+  --accent: #C2185B;
+  --accent-soft: #FBE7EF;
+  --ok: #2E7D4F;
+  --warn: #A15C00;
+  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121315; --surface: #1B1C1F; --fg: #ECECEA; --muted: #A2A4AA; --line: #2E3035;
+    --accent: #F06292; --accent-soft: #3A1C28; --ok: #6FCF97; --warn: #F2B35B; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121315; --surface: #1B1C1F; --fg: #ECECEA; --muted: #A2A4AA; --line: #2E3035;
+  --accent: #F06292; --accent-soft: #3A1C28; --ok: #6FCF97; --warn: #F2B35B; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.65; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 96px; display: grid; gap: 40px; }
+h1, h2 { text-wrap: balance; line-height: 1.3; margin: 0; }
+h1 { font-size: 1.75rem; font-weight: 700; }
+h2 { font-size: 1.25rem; font-weight: 700; }
+p { margin: 0; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.intro { display: grid; gap: 14px; }
+.intro .lead { color: var(--muted); }
+.rules { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: grid; gap: 10px; }
+.rules strong { display: block; font-size: 0.95rem; }
+.rules ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.rules .eg { color: var(--muted); font-size: 0.9rem; }
+.rules .eg b { color: var(--fg); font-weight: 500; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar-in { max-width: 720px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 0.875rem; }
+.progress { flex: 1 1 200px; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.track { flex: 1; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.fill { height: 100%; width: 0; background: var(--accent); transition: width .3s ease; }
+.count { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.status { white-space: nowrap; color: var(--muted); }
+.status[data-state="saved"] { color: var(--ok); }
+.status[data-state="error"], .status[data-state="local"] { color: var(--warn); }
+
+.notice { border-radius: 10px; padding: 12px 16px; background: var(--accent-soft); font-size: 0.9rem; }
+
+section.topic { display: grid; gap: 20px; scroll-margin-top: 64px; }
+.topic-head { display: grid; gap: 6px; padding-bottom: 12px; border-bottom: 2px solid var(--fg); }
+.topic-head .why { color: var(--muted); font-size: 0.95rem; }
+.q { display: grid; gap: 8px; }
+.q label { font-weight: 500; }
+.q .opt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+.q .hint { color: var(--muted); font-size: 0.875rem; }
+textarea { width: 100%; min-height: 96px; resize: vertical; font: inherit; font-size: 1rem; line-height: 1.6; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+textarea::placeholder { color: var(--muted); opacity: .75; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; color: var(--fg); text-decoration: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 12px; }
+.toc a.done { border-color: var(--ok); color: var(--ok); }
+.toc a:focus-visible { outline: 2px solid var(--accent); }
+
+.end { display: grid; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.end .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+button { font: inherit; font-weight: 500; cursor: pointer; border-radius: 8px; padding: 10px 16px; border: 1px solid var(--fg); background: var(--fg); color: var(--bg); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#copyOut { display: none; width: 100%; min-height: 160px; font-size: 0.85rem; }
+#copyOut.show { display: block; }
+.small { color: var(--muted); font-size: 0.875rem; }
+@media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+</style>
+
+<div class="bar" role="region" aria-label="작성 상태">
+  <div class="bar-in">
+    <div class="progress"><div class="track"><div class="fill" id="fill"></div></div><span class="count" id="count">0 / 0</span></div>
+    <span class="status" id="status" data-state="idle" aria-live="polite">불러오는 중…</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <header class="intro">
+    <span class="eyebrow">B2X BUYERS CLUB · 대표 인터뷰</span>
+    <h1>채원 대표님 인터뷰지</h1>
+    <p class="lead">현장 영상 8편을 대표님 인터뷰로 만듭니다. 여기 적어주신 답을 바탕으로 영상 대본을 짜고, 촬영 날에는 그 대본을 대표님 말투로 말씀하시면 됩니다. 편한 말투로, 생각나는 만큼만 적어주세요.</p>
+    <div class="rules">
+      <strong>적을 때 세 가지만 부탁드려요</strong>
+      <ol>
+        <li>숫자는 대략이라도 꼭 적어주세요. <span class="eg">예: "많이" 대신 <b>"보통 500~1,000개"</b></span></li>
+        <li>실제 있었던 일을 하나씩 넣어주세요. 실명이나 업체 이름은 빼셔도 돼요.</li>
+        <li>문장이 길어도 괜찮아요. 다듬는 건 저희가 합니다.</li>
+      </ol>
+      <p class="small">적는 대로 자동 저장돼요. 중간에 닫았다가 다시 열어도 이어서 쓰실 수 있어요.</p>
+    </div>
+    <nav class="toc" id="toc" aria-label="주제 바로가기"></nav>
+  </header>
+
+  <div class="notice" id="notice" hidden></div>
+  <div id="form"></div>
+
+  <section class="end" aria-labelledby="endTitle">
+    <h2 id="endTitle">다 적으셨나요?</h2>
+    <p>따로 보내실 필요 없어요. 여기 저장된 답을 저희가 바로 확인합니다. 빈칸이 있어도 괜찮아요. 촬영 날 같이 채우면 됩니다.</p>
+    <p class="small">저장이 안 된다고 나오면 아래 버튼으로 전체 답을 복사해서 메신저로 보내주세요.</p>
+    <div class="row"><button type="button" id="copyBtn">답변 전체 복사</button><span class="small" id="copyMsg" aria-live="polite"></span></div>
+    <textarea id="copyOut" readonly aria-label="복사할 답변 전체"></textarea>
+  </section>
+</main>
+
+<script>
+const TOPICS = [
+  { id: "founder", label: "FOUNDER", title: "B2X는 어떤 회사인가요", why: "계정 첫인상 영상. \"브랜드가 아니라 한국에 있는 당신의 공급자\"를 30초 안에 보여줍니다.",
+    qs: [
+      { id: "founder_1", q: "B2X를 한 문장으로 소개한다면요?", hint: "브랜드 회사와 무엇이 다른지 들어가면 좋아요." },
+      { id: "founder_2", q: "주로 함께 일하는 셀러는 어떤 분들인가요?", hint: "나라, 판매 플랫폼(틱톡샵·아마존·인스타 등), 규모. 가장 작은 고객은 어느 정도인지도요." },
+      { id: "founder_3", q: "왓츠앱 클럽에 들어오면 매주 무엇을 받나요? 세 가지만 꼽아주세요." }
+    ] },
+  { id: "moq", label: "MOQ", title: "최소 주문 수량", why: "셀러가 제일 먼저 막히는 벽. \"1,000개가 아니라 10개부터\"를 숫자로 보여줍니다.",
+    qs: [
+      { id: "moq_1", q: "해외 셀러가 한국 브랜드에 직접 연락하면 보통 최소 몇 개를 사라고 하나요?", hint: "범위로 적어주세요. 가장 높았던 경우, 낮았던 경우도 있으면 좋아요." },
+      { id: "moq_2", q: "브랜드는 왜 그렇게 많이 사라고 하나요? 브랜드 입장에서 설명해주세요." },
+      { id: "moq_3", q: "B2X에서는 몇 개부터 살 수 있나요? 어떻게 가능한가요?", hint: "공동구매가 실제로 돌아가는 방식, 주문이 다 안 모이면 어떻게 되는지까지요." },
+      { id: "moq_4", q: "실제 예를 하나 들어주세요.", hint: "어떤 제품(종류만 적어도 돼요) · 혼자 사면 몇 개에 얼마 · 공동구매로 10개 사면 개당 얼마" }
+    ] },
+  { id: "sample", label: "SAMPLE", title: "샘플", why: "\"큰 주문 전에 1개부터 확인한다\"는 안심을 주는 영상입니다.",
+    qs: [
+      { id: "sample_1", q: "샘플은 어떤 조건으로 받을 수 있나요?", hint: "몇 개까지 · 비용 · 배송비는 누가 · 받기까지 며칠 · 가능한 나라 · 나중에 주문하면 샘플비를 빼주는지" },
+      { id: "sample_2", q: "샘플을 받으면 셀러가 꼭 확인해야 할 것 두세 가지는요?", hint: "대표님이 실제로 확인하는 순서대로 적어주세요." },
+      { id: "sample_3", q: "샘플 없이 바로 많이 샀다가 문제가 생긴 경우를 보셨나요?", optional: true }
+    ] },
+  { id: "first500", label: "$500", title: "500달러로 시작한다면", why: "\"뭘 사야 하지?\"에 대한 대표님의 구체적인 답. 화면에는 창고에서 그 제품을 집는 장면이 들어갑니다.",
+    qs: [
+      { id: "first500_1", q: "대표님이라면 지금 500달러로 무엇을 몇 개씩 사시겠어요? 제품 세 개와 고른 이유를 적어주세요.", hint: "제품명 · 개수 · 도매가 · 이유 한 줄. 촬영 날 이 세 제품을 손에 들고 말씀하시게 됩니다." },
+      { id: "first500_2", q: "처음 500달러로는 사지 말아야 할 것이 있다면요?" }
+    ] },
+  { id: "mistakes", label: "MISTAKES", title: "첫 수입 실수", why: "\"이것만 피하면 된다\" 3가지. 샘플 이야기는 위에서 다루니 빼고 적어주세요.",
+    qs: [
+      { id: "mistakes_1", q: "처음 수입하는 셀러들이 가장 많이 하는 실수 세 가지와, 각각 어떻게 하면 되는지 적어주세요.", hint: "예: 나라별 허가·등록 확인을 안 함, 배송 무게 계산을 안 함, 한 번에 종류를 너무 많이 삼…" },
+      { id: "mistakes_2", q: "그중 가장 비싸게 치르는 실수의 실제 사례가 있나요?", hint: "얼마를 손해 봤는지, 어떤 상황이었는지" }
+    ] },
+  { id: "fake", label: "FAKE", title: "가짜 공급처 구별법", why: "해외 셀러가 가장 무서워하는 것(사기·가품)을 한국 현지 공급자가 풀어주는 영상입니다.",
+    qs: [
+      { id: "fake_1", q: "해외 셀러가 '한국 공급처'에게 속는 경우는 주로 어떤 식인가요?", hint: "가품, 돈만 받고 연락 끊김, 유통기한 임박 제품 등" },
+      { id: "fake_2", q: "진짜 한국 공급처인지 셀러가 직접 확인하는 방법 두세 가지는요?", hint: "가격이 너무 싸면 의심해야 하는 기준이 있다면 그것도요." },
+      { id: "fake_3", q: "B2X는 셀러가 믿을 수 있게 무엇을 보여줄 수 있나요?", hint: "실제로 보여줄 수 있는 것만 적어주세요. 예: 사업자등록, 브랜드 거래 증빙, 창고 영상" }
+    ] },
+  { id: "never", label: "NEVER", title: "절대 안 파는 제품", why: "\"잘 팔려도 이건 안 떼온다\"는 기준으로 전문가다운 모습과 신뢰를 동시에 보여줍니다.",
+    qs: [
+      { id: "never_1", q: "잘 팔리는 걸 알지만 B2X에서는 다루지 않는 제품이나 카테고리가 있나요? 이유는요?", hint: "특정 브랜드 이름 대신 '이런 유형'으로 적어주셔도 돼요." },
+      { id: "never_2", q: "떼왔는데 생각보다 안 팔렸던 제품이 있나요? 거기서 배운 점은요?", hint: "몇 개 떼왔고 어떻게 처리했는지. 좋은 이야기면 이 편을 이 내용으로 바꿀 수도 있어요.", optional: true }
+    ] },
+  { id: "story", label: "STORY", title: "이 일을 시작한 이유", why: "해외 셀러가 \"이 사람은 나 같은 사람을 안다\"고 느끼게 하는 영상. 정보보다 장면이 중요해요.",
+    qs: [
+      { id: "story_1", q: "무역 일은 언제, 어떻게 시작하셨나요? 떠오르는 장면 하나로 적어주세요.", hint: "몇 년도, 몇 살, 어디서 뭘 하고 있었는지" },
+      { id: "story_2", q: "해외 셀러를 돕는 일은 왜 하게 되셨나요? 계기가 된 셀러나 사건이 있나요?", hint: "실명은 빼고, 그 셀러가 지금 어떻게 지내는지도 있으면 좋아요." },
+      { id: "story_3", q: "혼자 시작하려는 해외 셀러에게 한마디 한다면요?" }
+    ] },
+  { id: "extra", label: "+", title: "더 하고 싶은 이야기", why: "위 질문에 없었지만 영상으로 꼭 말하고 싶은 것이 있으면 적어주세요.",
+    qs: [ { id: "extra_1", q: "자유롭게 적어주세요.", optional: true } ] }
+];
+
+const ALL_QS = TOPICS.flatMap(t => t.qs.map(q => ({ ...q, topic: t })));
+const DOC_PATH = "interview/chaewon";
+const LS_KEY = "b2x-interview-draft";
+
+const answers = {};
+const dirty = new Set();
+let docRef = null, docExists = false, saving = false, saveAgain = false, timer = null, canWrite = true;
+
+const $ = id => document.getElementById(id);
+const statusEl = $("status");
+function setStatus(state, text) { statusEl.dataset.state = state; statusEl.textContent = text; }
+
+function render() {
+  const form = $("form"), toc = $("toc");
+  const frag = document.createDocumentFragment();
+  for (const t of TOPICS) {
+    const a = document.createElement("a");
+    a.href = "#" + t.id; a.textContent = t.label; a.dataset.topic = t.id;
+    toc.appendChild(a);
+
+    const s = document.createElement("section");
+    s.className = "topic"; s.id = t.id;
+    const head = document.createElement("div"); head.className = "topic-head";
+    const eb = document.createElement("span"); eb.className = "eyebrow"; eb.textContent = t.label;
+    const h = document.createElement("h2"); h.textContent = t.title;
+    const w = document.createElement("p"); w.className = "why"; w.textContent = t.why;
+    head.append(eb, h, w); s.appendChild(head);
+    for (const q of t.qs) {
+      const box = document.createElement("div"); box.className = "q";
+      const lab = document.createElement("label"); lab.htmlFor = q.id; lab.textContent = q.q;
+      if (q.optional) { const o = document.createElement("span"); o.className = "opt"; o.textContent = "선택"; lab.appendChild(o); }
+      box.appendChild(lab);
+      if (q.hint) { const hn = document.createElement("p"); hn.className = "hint"; hn.id = q.id + "_hint"; hn.textContent = q.hint; box.appendChild(hn); }
+      const ta = document.createElement("textarea"); ta.id = q.id; ta.name = q.id;
+      if (q.hint) ta.setAttribute("aria-describedby", q.id + "_hint");
+      ta.addEventListener("input", () => onInput(q.id, ta.value));
+      ta.addEventListener("blur", () => { if (dirty.size) { clearTimeout(timer); save(); } });
+      box.appendChild(ta); s.appendChild(box);
+    }
+    frag.appendChild(s);
+  }
+  form.appendChild(frag);
+}
+
+function updateProgress() {
+  const required = ALL_QS.filter(q => !q.optional);
+  const done = required.filter(q => (answers[q.id] || "").trim()).length;
+  $("fill").style.width = (required.length ? done / required.length * 100 : 0) + "%";
+  $("count").textContent = done + " / " + required.length;
+  for (const t of TOPICS) {
+    const req = t.qs.filter(q => !q.optional);
+    const complete = req.length > 0 && req.every(q => (answers[q.id] || "").trim());
+    const a = document.querySelector('.toc a[data-topic="' + t.id + '"]');
+    if (a) a.classList.toggle("done", complete);
+  }
+}
+
+function saveLocal() { try { localStorage.setItem(LS_KEY, JSON.stringify(answers)); } catch (e) {} }
+function loadLocal() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch (e) { return {}; } }
+
+function onInput(id, value) {
+  answers[id] = value;
+  dirty.add(id);
+  saveLocal();
+  updateProgress();
+  if (!docRef || !canWrite) { setStatus("local", "이 기기에만 임시 저장됨"); return; }
+  setStatus("idle", "입력 중…");
+  clearTimeout(timer);
+  timer = setTimeout(save, 1200);
+}
+
+async function save() {
+  if (!docRef || !canWrite || !dirty.size) return;
+  if (saving) { saveAgain = true; return; }
+  saving = true;
+  const keys = [...dirty]; dirty.clear();
+  const patch = {}; for (const k of keys) patch[k] = answers[k] || "";
+  setStatus("idle", "저장 중…");
+  try {
+    if (docExists) {
+      await docRef.update({ answers: patch, updatedAt: new Date().toISOString() });
+    } else {
+      await docRef.set({ answers: { ...answers }, updatedAt: new Date().toISOString() });
+      docExists = true;
+    }
+    setStatus("saved", "저장됨 " + new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }));
+  } catch (e) {
+    for (const k of keys) dirty.add(k);
+    const code = e && e.code;
+    if (code === "invalid_argument" && !docExists) {
+      canWrite = false;
+      showNotice("이 링크에서는 저장 권한이 없어요. 적으신 내용은 이 기기에 임시 저장되고 있으니, 다 쓰신 뒤 맨 아래 '답변 전체 복사'로 보내주세요.");
+      setStatus("local", "이 기기에만 임시 저장됨");
+    } else if (code === "invalid_argument" && docExists) {
+      docExists = false; saving = false; return save();
+    } else if (code === "unavailable") {
+      setStatus("error", "저장 재시도 중…");
+      saving = false;
+      setTimeout(save, 1500 + Math.random() * 1500);
+      return;
+    } else {
+      setStatus("error", "저장 안 됨 · 임시 저장 중");
+    }
+  }
+  saving = false;
+  if (saveAgain) { saveAgain = false; save(); }
+}
+
+function showNotice(text) { const n = $("notice"); n.textContent = text; n.hidden = false; }
+
+function applyRemote(remote) {
+  for (const q of ALL_QS) {
+    if (!(q.id in remote)) continue;
+    const ta = $(q.id);
+    if (dirty.has(q.id) || document.activeElement === ta) continue;
+    if (ta.value !== remote[q.id]) { ta.value = remote[q.id]; answers[q.id] = remote[q.id]; }
+  }
+  updateProgress();
+}
+
+function buildCopyText() {
+  const lines = ["[B2X 대표 인터뷰 답변]", ""];
+  for (const t of TOPICS) {
+    lines.push("■ " + t.label + " · " + t.title);
+    for (const q of t.qs) {
+      lines.push("Q. " + q.q);
+      lines.push("A. " + ((answers[q.id] || "").trim() || "(빈칸)"));
+      lines.push("");
+    }
+  }
+  return lines.join("\n");
+}
+
+$("copyBtn").addEventListener("click", () => {
+  const text = buildCopyText();
+  const out = $("copyOut"), msg = $("copyMsg");
+  const fallback = () => { out.value = text; out.classList.add("show"); out.focus(); out.select(); msg.textContent = "아래 글을 길게 눌러 전체 복사해주세요."; };
+  try {
+    navigator.clipboard.writeText(text).then(() => { msg.textContent = "복사됐어요. 메신저에 붙여넣어 보내주세요."; out.classList.remove("show"); }, fallback);
+  } catch (e) { fallback(); }
+});
+
+render();
+const draft = loadLocal();
+for (const q of ALL_QS) { if (draft[q.id]) { answers[q.id] = draft[q.id]; $(q.id).value = draft[q.id]; } }
+updateProgress();
+
+(async () => {
+  const c = window.claude;
+  const db = c && c.use ? await c.use("db") : null;
+  if (!db) {
+    setStatus("local", "이 기기에만 임시 저장됨");
+    showNotice("지금은 온라인 저장이 연결되지 않았어요. 로그인한 상태로 링크를 다시 열어주시거나, 다 쓰신 뒤 맨 아래 '답변 전체 복사'로 보내주세요.");
+    return;
+  }
+  const user = c.use ? await c.use("user") : null;
+  const w = user ? await user.can("data.write") : null;
+  if (w === false) {
+    canWrite = false;
+    setStatus("local", "이 기기에만 임시 저장됨");
+    showNotice("이 링크에서는 저장 권한이 없어요. 적으신 내용은 이 기기에 임시 저장되고 있으니, 다 쓰신 뒤 맨 아래 '답변 전체 복사'로 보내주세요.");
+  }
+  docRef = db.doc(DOC_PATH);
+  let first = true;
+  docRef.onSnapshot(snap => {
+    docExists = snap.exists;
+    const data = snap.exists ? snap.data() : null;
+    const remote = (data && data.answers) || {};
+    if (first) {
+      first = false;
+      // A local draft written before the store answered wins only where the store is empty.
+      for (const q of ALL_QS) {
+        const local = (answers[q.id] || "").trim();
+        if (local && !(remote[q.id] || "").trim()) dirty.add(q.id);
+      }
+      applyRemote(remote);
+      if (canWrite) setStatus(dirty.size ? "idle" : "saved", dirty.size ? "저장 대기" : "저장됨");
+      if (dirty.size) save();
+    } else {
+      applyRemote(remote);
+    }
+  }, () => { setStatus("error", "연결 끊김 · 임시 저장 중"); });
+})();
+</script>
