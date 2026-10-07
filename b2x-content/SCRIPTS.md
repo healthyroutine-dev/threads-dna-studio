@@ -1,18 +1,32 @@
-# B2X · K-Beauty Influencer Academy — 촬영 대본 v1 (24편)
+# B2X · K-Beauty Influencer Academy — 촬영 대본 v2 (24편)
 
 `CONTENT_PLAN.md` 9-2의 1차 초안(훅·본문 요점)을 **바로 읽고 찍을 수 있는 대본**으로 풀었다.
 제목·라벨은 썸네일 확정본(`b2x-thumbnail/episodes.json`)과 같다.
 
+## 언어 방침
+
+**말은 한국어 또는 영어, 화면 자막은 스페인어.**
+
+- 편마다 대표님이 편한 쪽으로 고른다. 대본에 두 언어를 다 적어 뒀다.
+- 한국어로 말하는 편이 더 유리할 수 있다. 시청자가 찾는 게 "한국 현지 공급자"라서, 한국어 자체가 진짜라는 신호가 된다(EP11 "la coreana lo prueba primero"와 같은 원리). 스페인어 자막 영상은 레퍼런스 시장에서 흔하지 않아 눈에 띄기도 한다.
+- 영어는 "직접 말 거는 느낌"이 더 산다. 숫자·계산이 많은 편(EP04·15·20)은 영어가 자막과 박자를 맞추기 쉽다.
+- 한 편 안에서 언어를 섞지 않는다. 고정 문장(INTRO·CTA)도 그 편 언어로.
+
 ## 읽는 법
 
-- 표 한 줄 = 한 컷. **대사(ES)** 는 그대로 읽는 문장, **뜻** 은 한국어 의미, **화면·자막** 은 편집 지시.
-- 시간은 스페인어 보통 말속도(초당 약 2.5단어) 기준 추정. 실제 길이는 15~40초 안에서 편집으로 맞춘다.
+- 표 한 줄 = 한 컷. **말(KO)** / **말(EN)** 중 하나를 읽고, **자막(ES)** 은 편집에서 그대로 올린다.
+- 스페인어 자막은 말보다 짧게 줄여 썼다(직역 아님). 상단 1~2줄, 큰 산세리프 대문자. 숫자는 반드시 자막에 넣는다.
 - `[ ]` = 촬영 전에 채울 값(제품명·가격·숫자). 숫자를 지어내지 않고 비워 뒀다.
-- `INTRO` / `CTA` 줄은 전 편 공통 문장이라 표에서 줄여 쓴다.
-  - INTRO (아카데미 16편만): *"Bienvenida a K-Beauty Influencer Academy. Soy Chaewon, tu proveedora en Corea."* — 케이뷰티 인플루언서 아카데미에 온 걸 환영해요. 한국에 있는 당신의 공급자 채원이에요.
-  - CTA (전 편): *"Comenta ACADEMY y te mando la lista de sourcing de esta semana."* — ACADEMY라고 댓글 달면 이번 주 소싱 리스트를 보내줄게요.
-- **다음 편 예고**는 말로 하지 않고 CTA 5초 동안 하단 자막으로만 띄운다 (`PRÓXIMO: …`). 마지막을 CTA로 끝내야 댓글 전환이 안 깎인다. 예고 대상은 **업로드 순서상 다음 편**(아래 표).
-- 스페인어 발음이 어려운 문장은 영어로 말하고 스페인어 자막으로 대체해도 된다(기획 규칙). 대표님 리딩 후 표시.
+- 시간은 추정치. 실제 길이는 15~40초 안에서 편집으로 맞춘다.
+- `INTRO` / `CTA` 는 전 편 공통이라 표에서 줄여 쓴다.
+
+| | 말 (KO) | 말 (EN) | 자막 (ES) |
+|---|---|---|---|
+| INTRO (아카데미 16편만) | 케이뷰티 인플루언서 아카데미에 오신 걸 환영해요. 한국에 있는 여러분의 공급자, 채원이에요. | Welcome to K-Beauty Influencer Academy. I'm Chaewon, your supplier in Korea. | BIENVENIDA A K-BEAUTY INFLUENCER ACADEMY. SOY CHAEWON, TU PROVEEDORA EN COREA. |
+| CTA (전 편) | 댓글에 ACADEMY 남겨주세요. 이번 주 소싱 리스트 보내드릴게요. | Comment ACADEMY and I'll send you this week's sourcing list. | COMENTA **ACADEMY** Y TE MANDO LA LISTA DE SOURCING DE ESTA SEMANA. |
+
+- CTA 키워드 **ACADEMY** 는 어느 언어로 말하든 영어 대문자 그대로 말하고 자막에서도 강조한다(DM 자동응답 키워드).
+- **다음 편 예고**는 말로 하지 않고 CTA 동안 하단 자막으로만 띄운다(`PRÓXIMO: …`). 예고 대상은 업로드 순서상 다음 편(아래 표).
 
 ## 업로드 순서와 예고 연결
 
@@ -35,9 +49,9 @@
 
 ## 번호 표기
 
-- 시청자에게 보이는 곳(썸네일·자막·대사)에는 **편 번호를 쓰지 않는다.** 업로드 순서가 EP 번호와 달라(EP08이 처음, EP01이 마지막) 번호가 보이면 "EP.08 다음에 EP.24"처럼 뒤죽박죽으로 읽힌다. 릴스는 한 편씩 따로 소비되니 번호가 "앞 편부터 봐야 하나?"라는 이탈 이유만 만든다.
+- 시청자에게 보이는 곳(썸네일·자막·대사)에는 **편 번호를 쓰지 않는다.** 업로드 순서가 EP 번호와 달라(EP08이 처음, EP01이 마지막) 번호가 보이면 뒤죽박죽으로 읽힌다. 릴스는 한 편씩 따로 소비되니 번호는 "앞 편부터 봐야 하나?"라는 이탈 이유만 만든다.
 - `EP01~24`는 파일명·대본·편집용 **내부 관리 번호**로만 남긴다.
-- 다음 편 예고(`PRÓXIMO`)는 번호 대신 제목으로 부른다(이미 그렇게 씀).
+- 다음 편 예고(`PRÓXIMO`)는 번호 대신 제목으로 부른다.
 - 썸네일 라벨은 `CLASS 3 · HOT ITEM · EP.17` → `CLASS 3 · HOT ITEM` 으로 바꿔야 한다(`b2x-thumbnail/make_thumb.py`). CLASS 1~4는 순서가 아니라 분류라 그대로 둔다.
 
 ## 확인 필요
@@ -62,181 +76,183 @@
 ## EP01 · FOUNDER — No soy una marca. Soy tu proveedora.
 현장 · 사무실 · 약 35초 · 업로드 24번째(마지막)
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | No tengo una marca. No soy influencer. | 저는 브랜드도 없고 인플루언서도 아니에요. | 정면 상반신. 제목 자막 |
-| 3–6 | Trabajo en Corea y consigo lo que tú vendes. | 한국에서 당신이 팔 물건을 구해요. | |
-| 6–12 | Compro K-beauty al mayor, directo de marcas coreanas. | 한국 브랜드에서 직접 도매로 사요. | B롤: 창고 박스 |
-| 12–16 | Y lo envío a vendedoras fuera de Corea. | 그리고 해외 셀러에게 보내요. | B롤: 송장·포장 |
-| 16–21 | ¿Vendes en TikTok Shop, Amazon o Instagram? Esto es para ti. | 틱톡샵·아마존·인스타에서 판다면, 이건 당신 얘기예요. | 플랫폼 3개 아이콘 |
-| 21–29 | Tenemos un club en WhatsApp: muestras, compras grupales y la lista semanal. | 왓츠앱 클럽이 있어요. 샘플, 공동구매, 주간 리스트. | 왓츠앱 그룹 화면 (이름 블러) |
-| 29–35 | CTA | | 하단: `BIENVENIDA AL CLUB B2X` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 저 브랜드 없어요. 인플루언서도 아니에요. | I don't have a brand. I'm not an influencer. | NO TENGO MARCA. NO SOY INFLUENCER. | 정면 상반신 |
+| 3–6 | 한국에서, 여러분이 팔 물건을 구해요. | I work in Korea, finding what you sell. | TRABAJO EN COREA Y CONSIGO LO QUE TÚ VENDES. | |
+| 6–12 | 한국 브랜드에서 직접, 도매로 사요. | I buy K-beauty wholesale, straight from Korean brands. | COMPRO AL MAYOR, DIRECTO DE MARCAS COREANAS. | B롤: 창고 박스 |
+| 12–16 | 그걸 해외 셀러분들께 보내요. | And I ship it to sellers outside Korea. | Y LO ENVÍO A VENDEDORAS FUERA DE COREA. | B롤: 송장·포장 |
+| 16–21 | 틱톡샵, 아마존, 인스타에서 파세요? 그럼 이건 여러분 얘기예요. | Selling on TikTok Shop, Amazon or Instagram? This is for you. | ¿VENDES EN TIKTOK SHOP, AMAZON O INSTAGRAM? ESTO ES PARA TI. | 플랫폼 아이콘 3개 |
+| 21–29 | 왓츠앱 클럽이 있어요. 샘플, 공동구매, 그리고 매주 리스트. | We have a WhatsApp club: samples, group buys, and a weekly list. | CLUB EN WHATSAPP: MUESTRAS, COMPRAS GRUPALES Y LISTA SEMANAL. | 왓츠앱 그룹 화면 (이름 블러) |
+| 29–35 | CTA | | | 하단: `BIENVENIDA AL CLUB B2X` |
 
 ## EP02 · WAREHOUSE — Así se ven $500 de K-beauty al mayor
 현장 · 창고 · 약 33초 · 업로드 20번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Esto es lo que compras con $500 en Corea. | 한국에서 500달러면 이만큼 사요. | 박스 여는 손부터 시작 |
-| 3–9 | [N] productos, [N] marcas. Todos originales. | 제품 [N]개, 브랜드 [N]개. 전부 정품. | 제품 펼치기 탑샷. 숫자 자막 |
-| 9–16 | Comprado en tiendas fuera de Corea, esto cuesta unos $[ ]. | 해외 매장에서 사면 약 [ ]달러예요. | `$500 → $[ ]` 대비 자막 |
-| 16–22 | ¿No necesitas tanto? Lo dividimos en lotes de 10. | 이렇게 많이는 필요 없다고요? 10개 단위로 나눠요. | 박스를 소분하는 손 |
-| 22–27 | Eso es la compra grupal del club. | 그게 클럽 공동구매예요. | |
-| 27–32 | CTA | | `PRÓXIMO: LO NUEVO DE COREA, ANTES QUE NADIE` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 한국에서 500달러면, 이만큼 사요. | This is what $500 buys you in Korea. | ESTO COMPRAS CON $500 EN COREA. | 박스 여는 손부터 |
+| 3–9 | 제품 [N]개, 브랜드 [N]개. 전부 정품이에요. | [N] products, [N] brands. All authentic. | [N] PRODUCTOS · [N] MARCAS · 100% ORIGINALES | 제품 펼치기 탑샷 |
+| 9–16 | 이걸 해외 매장에서 사면, 한 [ ]달러쯤 해요. | Buy the same in stores abroad: about $[ ]. | EN TIENDAS FUERA DE COREA: $[ ] | `$500 → $[ ]` 대비 |
+| 16–22 | 이렇게 많이는 필요 없다고요? 10개씩 나눠드려요. | Don't need this much? We split it into lots of 10. | ¿NO NECESITAS TANTO? LOTES DE 10. | 박스 소분하는 손 |
+| 22–27 | 그게 우리 클럽 공동구매예요. | That's the club's group buy. | ESO ES LA COMPRA GRUPAL DEL CLUB. | |
+| 27–32 | CTA | | | `PRÓXIMO: LO NUEVO DE COREA, ANTES QUE NADIE` |
 
 > 준비: 500달러어치 실물 구성표(품목·수량·해외 소매가). 숫자 자막은 이 표로 만든다.
 
 ## EP03 · SAMPLES — Muestras rumbo a México 📦
 현장 · 창고 테이블 · 약 32초 · 업로드 16번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Hoy empaco muestras para una vendedora en México. | 오늘은 멕시코 셀러에게 보낼 샘플을 싸요. | 손·테이블 클로즈업 |
-| 3–9 | Pidió [N] productos para probar antes de comprar. | 사기 전에 테스트하려고 [N]개를 요청했어요. | 패킹 빠른 컷 3~4개 |
-| 9–13 | Cuando te llegue una muestra, revisa dos cosas. | 샘플이 도착하면 두 가지를 보세요. | `2 COSAS` |
-| 13–18 | Uno: textura y olor. ¿Tu clienta lo usaría? | 하나, 제형과 향. 당신 고객이 쓸까요? | 제형 손등 테스트 |
-| 18–22 | Dos: el empaque. ¿Llegó sin daños? | 둘, 포장. 손상 없이 왔나요? | 박스 흔들기 |
-| 22–27 | ¿Quieres tus muestras? Las pides en el club. | 샘플 받고 싶으면 클럽에서 신청해요. | 송장에 `MÉXICO` (주소 블러) |
-| 27–32 | CTA | | `PRÓXIMO: TOP 3 EN TIKTOK SHOP` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 오늘은 멕시코 셀러분께 보낼 샘플을 싸요. | Today I'm packing samples for a seller in Mexico. | HOY EMPACO MUESTRAS PARA UNA VENDEDORA EN MÉXICO. | 손·테이블 클로즈업 |
+| 3–9 | 사기 전에 테스트해보고 싶다고 [N]개 요청하셨어요. | She asked for [N] products to test before buying. | PIDIÓ [N] PRODUCTOS PARA PROBAR ANTES DE COMPRAR. | 패킹 빠른 컷 3~4개 |
+| 9–13 | 샘플 받으면, 두 가지만 보세요. | When your samples arrive, check two things. | CUANDO LLEGUE TU MUESTRA, REVISA 2 COSAS. | |
+| 13–18 | 하나, 제형이랑 향. 내 고객이 쓸까? | One: texture and scent. Would your customer use it? | 1. TEXTURA Y OLOR. ¿TU CLIENTA LO USARÍA? | 손등 테스트 |
+| 18–22 | 둘, 포장. 안 깨지고 왔나? | Two: packaging. Did it arrive intact? | 2. EMPAQUE. ¿LLEGÓ SIN DAÑOS? | 박스 흔들기 |
+| 22–27 | 샘플 받고 싶으면, 클럽에서 신청하세요. | Want samples? Request them in the club. | ¿QUIERES MUESTRAS? PÍDELAS EN EL CLUB. | 송장에 `MÉXICO` (주소 블러) |
+| 27–32 | CTA | | | `PRÓXIMO: TOP 3 EN TIKTOK SHOP` |
 
-> 확인: 실제 멕시코 바이어 여부. 없으면 "una vendedora" 그대로 두고 국가만 실제로 바꾼다.
+> 확인: 실제 멕시코 바이어 여부. 없으면 국가만 실제로 바꾼다.
 
 ## EP04 · GROUP BUY — Precio mayorista desde 10 unidades
-현장 · 사무실 · 약 35초 · 업로드 15번째
+현장 · 사무실 · 약 35초 · 업로드 15번째 · 숫자 많음(영어 추천)
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Precio mayorista coreano. Con solo 10 unidades. | 한국 도매가를 단 10개로. | 제품 하나 들고 |
-| 3–8 | Normalmente una marca te pide mínimo [1,000] unidades. | 보통 브랜드는 최소 [1,000]개를 요구해요. | `MOQ: [1,000]` |
-| 8–13 | Para ellas, enviar poco no es negocio. | 브랜드 입장에선 조금 보내는 건 남는 게 없어요. | |
-| 13–19 | Nosotros juntamos pedidos de muchas vendedoras. | 우리는 여러 셀러의 주문을 모아요. | 아이콘 10개 → 1박스 애니 |
-| 19–24 | Tú pides 10, otras piden 10. Juntas llegamos al mínimo. | 당신이 10개, 다른 사람도 10개. 같이 최소 수량을 채워요. | `10 + 10 + 10… = [1,000]` |
-| 24–30 | Ejemplo: [producto], $[ ] por unidad al mayor. | 예를 들어 [제품], 개당 도매 [ ]달러. | 제품 + 가격 자막 |
-| 30–35 | CTA | | `PRÓXIMO: MUESTRAS RUMBO A MÉXICO` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 한국 도매가, 딱 10개로. | Korean wholesale price. Just 10 units. | PRECIO MAYORISTA COREANO. SOLO 10 UNIDADES. | 제품 하나 들고 |
+| 3–8 | 보통 브랜드는 최소 [1,000]개를 요구해요. | Brands usually ask for at least [1,000] units. | NORMALMENTE: MÍNIMO [1,000] UNIDADES. | `MOQ [1,000]` |
+| 8–13 | 조금 보내는 건, 브랜드 입장에선 남는 게 없거든요. | Small orders just don't pay for them. | PARA ELLAS, ENVIAR POCO NO ES NEGOCIO. | |
+| 13–19 | 그래서 저희는 여러 셀러 주문을 모아요. | So we pool orders from many sellers. | NOSOTROS JUNTAMOS PEDIDOS DE MUCHAS VENDEDORAS. | 아이콘 10개 → 1박스 애니 |
+| 19–24 | 나도 10개, 저 사람도 10개. 같이 최소 수량을 채워요. | You order 10, she orders 10. Together we hit the minimum. | TÚ 10 + ELLA 10 + … = [1,000] | 덧셈 자막 |
+| 24–30 | 예를 들면 [제품], 개당 도매 [ ]달러. | For example, [product]: $[ ] per unit. | EJEMPLO: [PRODUCTO] · $[ ] POR UNIDAD | 제품 + 가격 |
+| 30–35 | CTA | | | `PRÓXIMO: MUESTRAS RUMBO A MÉXICO` |
 
 ## EP05 · INSIDE — Así es una reunión de sourcing en Seúl
 현장 · 미팅룸 · 약 33초 · 업로드 11번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Así es una reunión de sourcing en Seúl. Ven conmigo. | 서울 소싱 미팅은 이래요. 같이 가요. | 걷는 셀피 or 건물 입구 |
-| 3–7 | En cada reunión pregunto tres cosas. | 미팅마다 세 가지를 물어요. | 미팅룸 와이드 (상대 얼굴 블러/뒷모습) |
-| 7–12 | Uno: ¿cuál es el pedido mínimo? | 하나, 최소 주문 수량은? | `1. MOQ` |
-| 12–17 | Dos: ¿en cuántos días está listo? | 둘, 며칠이면 준비되나요? | `2. TIEMPO` |
-| 17–23 | Tres: ¿tiene permisos para venderse en tu país? | 셋, 당신 나라에서 팔 수 있는 허가가 있나요? | `3. PERMISOS` |
-| 23–28 | Lo que consigo aquí, lo comparto primero en el club. | 여기서 얻은 건 클럽에 먼저 공유해요. | 노트 클로즈업 |
-| 28–33 | CTA | | `PRÓXIMO: "LA COREANA LO PRUEBA PRIMERO"` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 서울 소싱 미팅, 같이 가볼래요? | This is a sourcing meeting in Seoul. Come with me. | ASÍ ES UNA REUNIÓN DE SOURCING EN SEÚL. VEN CONMIGO. | 걷는 셀피 or 건물 입구 |
+| 3–7 | 미팅 때마다 꼭 세 가지를 물어요. | I always ask three things. | SIEMPRE PREGUNTO 3 COSAS. | 미팅룸 와이드 (상대 블러/뒷모습) |
+| 7–12 | 하나, 최소 주문 수량은요? | One: what's the minimum order? | 1. ¿PEDIDO MÍNIMO? | |
+| 12–17 | 둘, 며칠이면 준비돼요? | Two: how many days until it's ready? | 2. ¿EN CUÁNTOS DÍAS ESTÁ LISTO? | |
+| 17–23 | 셋, 그 나라에서 팔 수 있는 허가가 있나요? | Three: is it cleared to sell in your country? | 3. ¿TIENE PERMISOS PARA TU PAÍS? | |
+| 23–28 | 여기서 알아낸 건, 클럽에 제일 먼저 공유해요. | What I get here goes to the club first. | LO QUE CONSIGO AQUÍ, VA PRIMERO AL CLUB. | 노트 클로즈업 |
+| 28–33 | CTA | | | `PRÓXIMO: "LA COREANA LO PRUEBA PRIMERO"` |
 
 > 확인: 촬영 허락된 거래처. 상대 브랜드 로고 노출 동의 여부.
 
 ## EP06 · STORY — Por qué ayudo a vendedoras como tú
-현장 · 사무실(감성 톤, 느린 컷) · 약 35초 · 업로드 7번째
+현장 · 사무실(감성 톤, 느린 컷) · 약 35초 · 업로드 7번째 · 한국어 추천
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Hace [N] años, yo tampoco sabía por dónde empezar. | [N]년 전엔 저도 어디서 시작할지 몰랐어요. | 창가 측면, 따뜻한 색 |
-| 4–10 | Empecé en el comercio porque [계기 한 문장]. | [계기] 때문에 무역을 시작했어요. | 옛날 사진/서류 B롤 |
-| 10–14 | Y vi lo mismo una y otra vez. | 그리고 같은 장면을 계속 봤어요. | |
-| 14–22 | Vendedoras con ganas, pero con tres muros: idioma, pedidos enormes, proveedores falsos. | 의욕 있는 셀러들이 세 벽에 막혀요. 언어, 큰 최소 주문, 가짜 공급처. | 단어 3개 순서대로 자막 |
-| 22–29 | Por eso creé este club. Para que no lo hagas sola. | 그래서 이 클럽을 만들었어요. 혼자 하지 않도록. | 정면으로 전환 |
-| 29–35 | CTA | | `PRÓXIMO: OLIVE YOUNG: ASÍ EXPLOTA UN PRODUCTO` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | [N]년 전엔, 저도 어디서 시작할지 몰랐어요. | [N] years ago, I didn't know where to start either. | HACE [N] AÑOS, YO TAMPOCO SABÍA POR DÓNDE EMPEZAR. | 창가 측면, 따뜻한 색 |
+| 4–10 | [계기] 때문에 무역을 시작했어요. | I got into trade because [reason]. | EMPECÉ EN EL COMERCIO PORQUE [MOTIVO]. | 옛날 사진/서류 B롤 |
+| 10–14 | 그리고 같은 장면을 계속 봤어요. | And I kept seeing the same thing. | Y VI LO MISMO UNA Y OTRA VEZ. | |
+| 14–22 | 의욕은 있는데, 세 개의 벽에 막힌 셀러들. 언어, 큰 최소 주문, 가짜 공급처. | Sellers full of drive, stuck behind three walls: language, huge minimums, fake suppliers. | 3 MUROS: IDIOMA · PEDIDOS ENORMES · PROVEEDORES FALSOS | 단어 3개 순서대로 |
+| 22–29 | 그래서 이 클럽을 만들었어요. 혼자 하지 않도록. | That's why I built this club. So you don't do it alone. | POR ESO CREÉ ESTE CLUB. PARA QUE NO LO HAGAS SOLA. | 정면으로 전환 |
+| 29–35 | CTA | | | `PRÓXIMO: OLIVE YOUNG: ASÍ EXPLOTA UN PRODUCTO` |
 
 > 준비: 대표 인터뷰 10분 → `[계기]`·`[N]` 채움. 대본보다 실제 말이 좋으면 그걸 쓴다.
 
 ## EP07 · MISTAKES — 3 errores de tu primera importación
 현장 · 사무실 · 약 36초 · 업로드 6번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Tres errores que veo en cada primera importación. | 첫 수입 때마다 보는 실수 세 가지. | 손가락 3 |
-| 3–9 | Uno: comprar sin revisar los permisos de tu país. | 하나, 자기 나라 허가를 안 보고 사는 것. | `1` + 하단 작게 `EE.UU. FDA · MÉXICO COFEPRIS · ESPAÑA CPNP` |
-| 9–13 | Pregunta antes qué registro necesitas. | 어떤 등록이 필요한지 먼저 물어보세요. | |
-| 13–18 | Dos: no calcular el peso del envío. | 둘, 배송 무게를 계산 안 하는 것. | `2` |
-| 18–22 | Barato y pesado deja de ser negocio. | 싸도 무거우면 장사가 안 돼요. | 무거운 병 vs 가벼운 튜브 |
-| 22–26 | Tres: comprar mucho sin probar una muestra. | 셋, 샘플 없이 대량으로 사는 것. | `3` |
-| 26–31 | Primero diez unidades. Después, lo que se venda. | 먼저 10개. 그다음은 팔리는 것만. | |
-| 31–36 | CTA | | `PRÓXIMO: POR QUÉ AYUDO A VENDEDORAS COMO TÚ` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 첫 수입 때 다들 하는 실수, 세 가지. | Three mistakes I see in every first import. | 3 ERRORES DE TU PRIMERA IMPORTACIÓN | 손가락 3 |
+| 3–9 | 하나, 내 나라 허가를 안 보고 사는 거. | One: buying without checking your country's rules. | 1. COMPRAR SIN REVISAR LOS PERMISOS DE TU PAÍS | 하단 작게 `EE.UU. FDA · MÉXICO COFEPRIS · ESPAÑA CPNP` |
+| 9–13 | 어떤 등록이 필요한지 먼저 물어보세요. | Ask first what registration you need. | PREGUNTA ANTES QUÉ REGISTRO NECESITAS. | |
+| 13–18 | 둘, 배송 무게 계산 안 하는 거. | Two: not doing the shipping weight math. | 2. NO CALCULAR EL PESO DEL ENVÍO | |
+| 18–22 | 싸도 무거우면, 남는 게 없어요. | Cheap but heavy isn't a business. | BARATO Y PESADO = SIN NEGOCIO | 무거운 병 vs 가벼운 튜브 |
+| 22–26 | 셋, 샘플 없이 대량으로 사는 거. | Three: buying big without a sample. | 3. COMPRAR MUCHO SIN PROBAR UNA MUESTRA | |
+| 26–31 | 먼저 10개. 그다음엔 팔리는 것만. | Start with ten. Then only what sells. | PRIMERO 10. DESPUÉS, LO QUE SE VENDA. | |
+| 31–36 | CTA | | | `PRÓXIMO: POR QUÉ AYUDO A VENDEDORAS COMO TÚ` |
 
-> 검수: 국가별 규제 기관명(FDA·COFEPRIS·CPNP) 표기 확인. 법적 조언처럼 들리지 않게 "pregunta" 톤 유지.
+> 검수: 국가별 규제 기관명 표기 확인. 법적 조언처럼 들리지 않게 "물어보세요" 톤 유지.
 
 ## EP08 · SEOUL — Lo que Corea compra hoy
 현장 · 매장 · 약 38초 · 업로드 1번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Esto es lo que las coreanas compran esta semana. | 이번 주 한국 여자들이 사는 거예요. | 진열대 앞, 제품 하나 집으며 |
-| 3–10 | Uno: [producto]. Le doy un [N] de 10. [이유 한 줄]. | 하나, [제품]. 10점 만점에 [N]점. [이유]. | 점수 자막 크게 `[N]/10` |
-| 10–17 | Dos: [producto]. Un [N]. [이유 한 줄]. | 둘, [제품]. [N]점. [이유]. | |
-| 17–21 | El tercero me sorprendió. | 세 번째는 놀랐어요. | 잠깐 멈춤 |
-| 21–28 | [producto]. Un [N] de 10. [이유 한 줄]. | [제품]. [N]점. [이유]. | |
-| 28–33 | Los tres están en la lista de esta semana. | 셋 다 이번 주 리스트에 있어요. | 3개 나란히 |
-| 33–38 | CTA | | `PRÓXIMO: DE COREA A TIKTOK SHOP EN 6 MESES` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 이번 주 한국 여자들이 사는 거, 보여드릴게요. | This is what Korean women are buying this week. | ESTO COMPRAN LAS COREANAS ESTA SEMANA. | 진열대 앞, 제품 집으며 |
+| 3–10 | 첫 번째, [제품]. 10점 만점에 [N]점. [이유]. | One: [product]. [N] out of 10. [reason]. | [PRODUCTO] · [N]/10 · [MOTIVO] | 점수 자막 크게 |
+| 10–17 | 두 번째, [제품]. [N]점. [이유]. | Two: [product]. [N]. [reason]. | [PRODUCTO] · [N]/10 · [MOTIVO] | |
+| 17–21 | 세 번째는, 좀 놀랐어요. | The third one surprised me. | EL TERCERO ME SORPRENDIÓ. | 잠깐 멈춤 |
+| 21–28 | [제품]. [N]점. [이유]. | [product]. [N] out of 10. [reason]. | [PRODUCTO] · [N]/10 · [MOTIVO] | |
+| 28–33 | 셋 다 이번 주 리스트에 있어요. | All three are on this week's list. | LOS 3 ESTÁN EN LA LISTA DE ESTA SEMANA. | 3개 나란히 |
+| 33–38 | CTA | | | `PRÓXIMO: DE COREA A TIKTOK SHOP EN 6 MESES` |
 
-> 포맷: Jenny Liu MD 점수 매기기. 계정 첫 업로드라 가장 공들일 편.
+> 포맷: Jenny Liu MD 점수 매기기. 계정 첫 업로드라 가장 공들일 편. 한국 매장 + 한국어가 현지감을 가장 잘 살린다.
 > 확인: 매장 장소(올리브영 촬영 불가 시 대안), 제품 3개와 점수 이유.
 
 ---
 
 # Class 1 · 터진 영상 분석 (PiP: 분석 화면 메인 + 대표 원형)
 
+분석 대상이 스페인어 영상이라, 원본 음성은 줄이고 대표님 말 + 스페인어 자막을 올린다. 원본 자막과 겹치지 않게 B2X 자막은 상단에 둔다.
+
 ## EP09 · Por qué este video hizo 5M de vistas
 셀프 PiP · 약 40초 · 업로드 23번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Este video hizo [N] millones. Te digo por qué. | 이 영상은 [N]00만 뷰. 이유를 알려줄게요. | 분석 영상 정지 화면 + 조회수 |
-| 3–8 | INTRO | | |
-| 8–14 | Segundo cero: no dice hola. Muestra el resultado. | 0초: 인사 안 해요. 결과부터 보여줘요. | 0~3초 구간 재생, 빨간 박스 |
-| 14–20 | Después, la prueba: el producto en la cara, sin cortes. | 그다음 증명: 얼굴에 바르는 걸 컷 없이. | 시연 구간 재생 |
-| 20–25 | Al final, una sola pregunta para comentar. | 마지막엔 댓글 유도 질문 딱 하나. | CTA 구간 + 댓글 수 |
-| 25–35 | Tú haz lo mismo: resultado, prueba, una sola acción. | 당신도 똑같이: 결과, 증명, 행동 하나. | `RESULTADO → PRUEBA → 1 ACCIÓN` |
-| 35–40 | CTA | | `PRÓXIMO: NO SOY UNA MARCA` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 이 영상, [N]00만 뷰. 이유 알려드릴게요. | This video got [N] million views. Here's why. | ESTE VIDEO HIZO [N]M. TE DIGO POR QUÉ. | 분석 영상 정지 + 조회수 |
+| 3–8 | INTRO | | | |
+| 8–14 | 0초. 인사 안 해요. 결과부터 보여줘요. | Second zero: no hello. Result first. | SEGUNDO 0: SIN "HOLA". PRIMERO EL RESULTADO. | 0~3초 재생, 빨간 박스 |
+| 14–20 | 그다음 증명. 얼굴에 바르는 걸 컷 없이. | Then proof: product on the face, no cuts. | DESPUÉS, LA PRUEBA: EN LA CARA, SIN CORTES. | 시연 구간 |
+| 20–25 | 마지막엔 댓글 달 질문, 딱 하나. | At the end, one question to comment on. | AL FINAL: UNA SOLA PREGUNTA. | CTA 구간 + 댓글 수 |
+| 25–35 | 여러분도 똑같이. 결과, 증명, 행동 하나. | Do the same: result, proof, one action. | RESULTADO → PRUEBA → 1 ACCIÓN | 3단 자막 |
+| 35–40 | CTA | | | `PRÓXIMO: NO SOY UNA MARCA` |
 
-> 결정 필요: 분석 영상(위 "확인 필요" 1번). 0초/시연/CTA 대사는 고른 영상에 맞춰 고친다.
+> 결정 필요: 분석 영상(위 "확인 필요" 1번). 0초/시연/CTA 설명은 고른 영상에 맞춰 고친다.
 
 ## EP10 · El formato glass skin nunca muere
 셀프 PiP · 약 40초 · 업로드 18번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | El glass skin lleva años de moda. Y sigue vendiendo. | 글래스 스킨은 몇 년째 유행. 아직도 팔려요. | 글래스 스킨 영상 2~3개 분할 |
-| 3–8 | INTRO | | |
-| 8–13 | ¿Por qué? Antes y después en un solo plano. | 왜냐고요? 전후가 한 화면에 있어서. | 전후 비교 캡처 |
-| 13–17 | Si lo copias, cuida tres cosas. | 따라 할 거면 세 가지를 지켜요. | |
-| 17–21 | Luz de ventana, de frente. | 창문 빛, 정면으로. | `1. LUZ` |
-| 21–25 | Misma cámara, mismo ángulo. | 같은 카메라, 같은 각도. | `2. ÁNGULO` |
-| 25–30 | Un solo producto. Con cinco, nadie sabe qué comprar. | 제품은 하나만. 다섯 개면 뭘 사야 할지 몰라요. | `3. 1 PRODUCTO` |
-| 30–35 | ¿El error típico? El filtro. Si se nota, pierdes confianza. | 흔한 실수? 필터. 티 나면 신뢰를 잃어요. | 필터 예시 (`✕`) |
-| 35–40 | CTA | | `PRÓXIMO: POR QUÉ EN COREA SON 7 PASOS` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 글래스 스킨, 몇 년째 유행인데 아직도 팔려요. | Glass skin has been trending for years. It still sells. | EL GLASS SKIN LLEVA AÑOS DE MODA. Y SIGUE VENDIENDO. | 글래스 스킨 영상 2~3개 분할 |
+| 3–8 | INTRO | | | |
+| 8–13 | 왜냐면, 전후가 한 화면에 다 보이거든요. | Why? Before and after in one shot. | ¿POR QUÉ? ANTES Y DESPUÉS EN UN SOLO PLANO. | 전후 비교 |
+| 13–17 | 따라 할 거면 세 가지만 지키세요. | If you copy it, watch three things. | SI LO COPIAS, CUIDA 3 COSAS. | |
+| 17–21 | 창문 빛, 정면으로. | Window light, from the front. | 1. LUZ DE VENTANA, DE FRENTE | |
+| 21–25 | 같은 카메라, 같은 각도. | Same camera, same angle. | 2. MISMA CÁMARA, MISMO ÁNGULO | |
+| 25–30 | 제품은 하나만. 다섯 개 쓰면 뭘 사야 할지 몰라요. | One product only. With five, nobody knows what to buy. | 3. UN SOLO PRODUCTO | |
+| 30–35 | 제일 흔한 실수? 필터. 티 나면 신뢰 잃어요. | Most common mistake? Filters. If it shows, you lose trust. | ¿EL ERROR? EL FILTRO. SI SE NOTA, PIERDES CONFIANZA. | 필터 예시 `✕` |
+| 35–40 | CTA | | | `PRÓXIMO: POR QUÉ EN COREA SON 7 PASOS` |
 
 ## EP11 · "La coreana lo prueba primero"
-셀프 PiP · 약 38초 · 업로드 12번째
+셀프 PiP · 약 38초 · 업로드 12번째 · 한국어 추천(편 주제 자체가 "한국 사람이 써봤다")
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | La frase que más vende K-beauty: "la coreana ya lo probó". | 케이뷰티를 제일 잘 파는 말: "한국 사람이 이미 써봤다". | 해당 문구 들어간 영상 캡처 |
-| 4–9 | INTRO | | |
-| 9–14 | La gente no confía en anuncios. Confía en quien lo usa. | 사람들은 광고를 안 믿어요. 써본 사람을 믿어요. | |
-| 14–18 | Y Corea lo usa primero. | 그리고 한국이 먼저 써요. | |
-| 18–24 | Úsalo así: muestra el ranking coreano o reseñas reales. | 이렇게 쓰세요: 한국 랭킹이나 실제 리뷰를 보여줘요. | 올리브영 랭킹, 화해 리뷰 캡처 |
-| 24–29 | Pero nunca digas "número uno" si no lo es. | 하지만 1위가 아니면 1위라고 하지 마요. | `✕ "Nº1" FALSO` |
-| 29–33 | Las capturas reales te las paso en el club. | 실제 캡처는 클럽에서 줄게요. | |
-| 33–38 | CTA | | `PRÓXIMO: 3 COREANAS QUE DEBES ESTUDIAR` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 케이뷰티 제일 잘 파는 한마디. "한국 사람이 이미 써봤대." | The line that sells K-beauty best: "a Korean already tried it." | LA FRASE QUE MÁS VENDE: "LA COREANA YA LO PROBÓ". | 해당 문구 영상 캡처 |
+| 4–9 | INTRO | | | |
+| 9–14 | 사람들은 광고 안 믿어요. 써본 사람을 믿어요. | People don't trust ads. They trust users. | NO CONFÍAN EN ANUNCIOS. CONFÍAN EN QUIEN LO USA. | |
+| 14–18 | 그리고 한국이 제일 먼저 써요. | And Korea uses it first. | Y COREA LO USA PRIMERO. | |
+| 18–24 | 이렇게 쓰세요. 한국 랭킹이나 실제 리뷰를 보여주는 거예요. | Use it like this: show Korean rankings or real reviews. | MUESTRA EL RANKING COREANO O RESEÑAS REALES. | 올리브영 랭킹, 화해 리뷰 |
+| 24–29 | 근데 1위 아니면 1위라고 하면 안 돼요. | But never say "number one" if it isn't. | PERO NUNCA DIGAS "Nº1" SI NO LO ES. | `✕ FALSO` |
+| 29–33 | 진짜 캡처는 클럽에서 드릴게요. | I'll share the real screenshots in the club. | LAS CAPTURAS REALES, EN EL CLUB. | |
+| 33–38 | CTA | | | `PRÓXIMO: 3 COREANAS QUE DEBES ESTUDIAR` |
 
 ## EP12 · Mismo producto. 2M vs 2K vistas.
 셀프 PiP · 약 40초 · 업로드 5번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Mismo producto. Dos millones contra dos mil. La diferencia: tres segundos. | 같은 제품. 200만 대 2천. 차이는 3초. | 두 영상 좌우 분할, 조회수 |
-| 4–9 | INTRO | | |
-| 9–15 | Primer cuadro: uno muestra la cara; el otro, el logo. | 첫 화면: 하나는 얼굴, 하나는 로고. | 좌우 첫 프레임 |
-| 15–21 | Primera frase: uno pregunta; el otro se presenta. | 첫 문장: 하나는 질문, 하나는 자기소개. | 첫 문장 자막 비교 |
-| 21–27 | El producto: uno en el segundo uno; el otro, en el diez. | 제품 등장: 하나는 1초, 하나는 10초. | `1s` vs `10s` |
-| 27–35 | Para vender: cara, pregunta, producto. En tres segundos. | 팔려면: 얼굴, 질문, 제품. 3초 안에. | `CARA · PREGUNTA · PRODUCTO` |
-| 35–40 | CTA | | `PRÓXIMO: 3 ERRORES DE TU PRIMERA IMPORTACIÓN` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 같은 제품인데 200만 뷰, 2천 뷰. 차이는 3초예요. | Same product. 2 million vs 2 thousand. The difference: 3 seconds. | MISMO PRODUCTO. 2M VS 2K. LA DIFERENCIA: 3 SEGUNDOS. | 두 영상 좌우 분할 |
+| 4–9 | INTRO | | | |
+| 9–15 | 첫 화면. 하나는 얼굴, 하나는 로고. | First frame: one shows a face, the other a logo. | PRIMER CUADRO: CARA VS LOGO | 좌우 첫 프레임 |
+| 15–21 | 첫 마디. 하나는 질문, 하나는 자기소개. | First line: one asks, the other introduces herself. | PRIMERA FRASE: PREGUNTA VS PRESENTACIÓN | |
+| 21–27 | 제품 등장. 하나는 1초, 하나는 10초. | Product: one at second 1, the other at 10. | PRODUCTO: SEGUNDO 1 VS SEGUNDO 10 | `1s` vs `10s` |
+| 27–35 | 팔려면, 얼굴, 질문, 제품. 3초 안에. | To sell: face, question, product. In 3 seconds. | CARA · PREGUNTA · PRODUCTO. EN 3 SEGUNDOS. | |
+| 35–40 | CTA | | | `PRÓXIMO: 3 ERRORES DE TU PRIMERA IMPORTACIÓN` |
 
-> 준비: 같은 제품 영상 2개(조회수 차이 큰 것). 비교 포인트 3개는 실제 영상에 맞게 바꾼다.
+> 준비: 같은 제품 영상 2개(조회수 차이 큰 것). 비교 포인트는 실제 영상에 맞게 바꾼다.
 
 ---
 
@@ -245,65 +261,65 @@
 ## EP13 · Lo nuevo de Corea, antes que nadie
 셀프 PiP · 약 38초 · 업로드 21번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Lo que venderás en seis meses ya se vende en Corea. | 6개월 뒤 당신이 팔 물건은 이미 한국에서 팔려요. | |
-| 4–9 | INTRO | | |
-| 9–12 | Yo miro tres lugares cada semana. | 저는 매주 세 군데를 봐요. | |
-| 12–17 | Uno: el ranking semanal de Olive Young. | 하나, 올리브영 주간 랭킹. | 랭킹 화면 캡처 |
-| 17–22 | Dos: TikTok coreano. Busco en coreano, no en inglés. | 둘, 한국 틱톡. 영어 말고 한국어로 검색. | 한국어 검색 화면 |
-| 22–27 | Tres: Hwahae, la app de reseñas. Sección de novedades. | 셋, 리뷰 앱 화해의 신제품 탭. | 화해 신제품 탭 |
-| 27–33 | ¿No lees coreano? Te lo resumo cada semana. | 한국어 못 읽어요? 매주 요약해줄게요. | |
-| 33–38 | CTA | | `PRÓXIMO: COREA LO AGOTA CADA SEMANA` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 6개월 뒤에 여러분이 팔 물건, 지금 한국에서 팔리고 있어요. | What you'll sell in six months is selling in Korea now. | LO QUE VENDERÁS EN 6 MESES YA SE VENDE EN COREA. | |
+| 4–9 | INTRO | | | |
+| 9–12 | 저는 매주 세 군데를 봐요. | I check three places every week. | YO MIRO 3 LUGARES CADA SEMANA. | |
+| 12–17 | 하나, 올리브영 주간 랭킹. | One: Olive Young's weekly ranking. | 1. RANKING SEMANAL DE OLIVE YOUNG | 랭킹 캡처 |
+| 17–22 | 둘, 한국 틱톡. 영어 말고 한국어로 검색해요. | Two: Korean TikTok. I search in Korean, not English. | 2. TIKTOK COREANO, BUSCANDO EN COREANO | 한국어 검색 화면 |
+| 22–27 | 셋, 리뷰 앱 화해. 신제품 탭. | Three: Hwahae, the review app. New arrivals tab. | 3. HWAHAE, APP DE RESEÑAS: NOVEDADES | 화해 신제품 탭 |
+| 27–33 | 한국어 못 읽어도 괜찮아요. 제가 매주 요약해드려요. | Can't read Korean? I sum it up for you every week. | ¿NO LEES COREANO? TE LO RESUMO CADA SEMANA. | |
+| 33–38 | CTA | | | `PRÓXIMO: COREA LO AGOTA CADA SEMANA` |
 
 ## EP14 · ¿Moda o básico? No te equivoques
 셀프 PiP · 약 40초 · 업로드 14번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Hay productos que venden dos meses. Y otros, dos años. | 두 달 팔리는 제품이 있고, 2년 팔리는 제품이 있어요. | 제품 2개 양손에 |
-| 4–9 | INTRO | | |
-| 9–14 | Esto es moda: [producto]. Esto es básico: [producto]. | 이건 유행템 [제품]. 이건 스테디 [제품]. | 좌 `MODA` / 우 `BÁSICO` |
-| 14–17 | ¿Cómo saberlo? Tres preguntas. | 어떻게 아냐고요? 질문 세 개. | |
-| 17–21 | ¿La gente lo vuelve a comprar? | 사람들이 재구매하나요? | `1. RECOMPRA` |
-| 21–26 | ¿Es limpiador, hidratante o protector? Esos siempre se venden. | 클렌저·보습·선크림인가요? 그건 늘 팔려요. | `2. CATEGORÍA` |
-| 26–30 | ¿Depende del verano o de una sola tendencia? | 여름이나 유행 하나에 기대나요? | `3. TEMPORADA` |
-| 30–35 | Mi consejo: [70]% básicos, [30]% moda. | 제 조언: 스테디 [70]%, 유행 [30]%. | 파이 차트 |
-| 35–40 | CTA | | `PRÓXIMO: PRECIO MAYORISTA DESDE 10 UNIDADES` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 두 달 팔리는 제품이 있고, 2년 팔리는 제품이 있어요. | Some products sell for two months. Others, for two years. | UNOS VENDEN 2 MESES. OTROS, 2 AÑOS. | 제품 2개 양손에 |
+| 4–9 | INTRO | | | |
+| 9–14 | 이건 유행템, [제품]. 이건 스테디, [제품]. | This is a trend: [product]. This is a staple: [product]. | MODA: [PRODUCTO] · BÁSICO: [PRODUCTO] | 좌 `MODA` / 우 `BÁSICO` |
+| 14–17 | 구분법은 질문 세 개. | How to tell? Three questions. | ¿CÓMO SABERLO? 3 PREGUNTAS. | |
+| 17–21 | 재구매가 많나요? | Do people buy it again? | 1. ¿LO VUELVEN A COMPRAR? | |
+| 21–26 | 클렌저, 보습, 선크림인가요? 그건 늘 팔려요. | Is it a cleanser, moisturizer or sunscreen? Those always sell. | 2. ¿LIMPIADOR, HIDRATANTE O PROTECTOR? SIEMPRE SE VENDEN. | |
+| 26–30 | 여름이나 유행 하나에 기대고 있나요? | Does it depend on summer or one trend? | 3. ¿DEPENDE DEL VERANO O DE UNA MODA? | |
+| 30–35 | 제 조언은, 스테디 [70], 유행 [30]. | My advice: [70]% staples, [30]% trends. | MI CONSEJO: [70]% BÁSICOS · [30]% MODA | 파이 차트 |
+| 35–40 | CTA | | | `PRÓXIMO: PRECIO MAYORISTA DESDE 10 UNIDADES` |
 
 > 검수: 비율은 대표님 실제 기준으로.
 
 ## EP15 · Mi checklist de 5 antes de comprar
-셀프 PiP · 약 40초 · 업로드 9번째
+셀프 PiP · 약 40초 · 업로드 9번째 · 숫자 많음(영어 추천)
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Antes de comprar cualquier producto, reviso cinco cosas. | 어떤 제품이든 사기 전에 다섯 가지를 봐요. | 체크리스트 빈칸 5개 |
-| 3–8 | INTRO | | |
-| 8–13 | Uno: margen. Mínimo [tres] veces el costo. | 하나, 마진. 원가의 최소 [3]배. | `☑ MARGEN ×[3]` |
-| 13–17 | Dos: peso. Lo ligero viaja barato. | 둘, 무게. 가벼운 건 싸게 가요. | `☑ PESO` |
-| 17–22 | Tres: ingredientes. ¿Están permitidos en tu país? | 셋, 성분. 당신 나라에서 허용되나요? | `☑ INGREDIENTES` |
-| 22–26 | Cuatro: reseñas. Miles, no decenas. | 넷, 리뷰. 수십 개 말고 수천 개. | `☑ RESEÑAS` |
-| 26–31 | Cinco: TikTok Shop. ¿Cuántas ya lo venden? | 다섯, 틱톡샵. 벌써 몇 명이 팔고 있나요? | `☑ COMPETENCIA` |
-| 31–35 | Si falla uno, no lo compro. | 하나라도 안 맞으면 안 사요. | 5개 다 체크된 화면 |
-| 35–40 | CTA | | `PRÓXIMO: VIRAL EN COREA, AÚN NO EN TIKTOK SHOP` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 뭘 사든, 사기 전에 다섯 가지를 봐요. | Before I buy anything, I check five things. | ANTES DE COMPRAR, REVISO 5 COSAS. | 체크리스트 빈칸 5개 |
+| 3–8 | INTRO | | | |
+| 8–13 | 하나, 마진. 원가의 최소 [3]배. | One: margin. At least [3]x the cost. | ☑ MARGEN: MÍNIMO ×[3] | |
+| 13–17 | 둘, 무게. 가벼워야 싸게 가요. | Two: weight. Light ships cheap. | ☑ PESO: LIGERO = ENVÍO BARATO | |
+| 17–22 | 셋, 성분. 그 나라에서 허용되나요? | Three: ingredients. Allowed in your country? | ☑ INGREDIENTES: ¿PERMITIDOS EN TU PAÍS? | |
+| 22–26 | 넷, 리뷰. 수십 개 말고 수천 개. | Four: reviews. Thousands, not dozens. | ☑ RESEÑAS: MILES, NO DECENAS | |
+| 26–31 | 다섯, 틱톡샵. 벌써 몇 명이 팔고 있나요? | Five: TikTok Shop. How many already sell it? | ☑ TIKTOK SHOP: ¿CUÁNTAS YA LO VENDEN? | |
+| 31–35 | 하나라도 안 맞으면 안 사요. | If one fails, I don't buy. | SI FALLA UNA, NO LO COMPRO. | 5개 다 체크 |
+| 35–40 | CTA | | | `PRÓXIMO: VIRAL EN COREA, AÚN NO EN TIKTOK SHOP` |
 
 > 검수: 마진 배수·리뷰 기준 숫자는 대표님 실제 기준으로.
 
 ## EP16 · Cada muestra la pruebo yo primero
 셀프 · 손 클로즈업 or PiP · 약 35초 · 업로드 3번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Nada sale de aquí sin que yo lo pruebe. | 제가 안 써본 건 여기서 안 나가요. | 샘플 들고 정면 |
-| 3–8 | INTRO | | |
-| 8–14 | Primero, la textura. En mi mano y en mi cara. | 먼저 제형. 손에, 얼굴에. | 손등 → 얼굴 |
-| 14–20 | Segundo, el empaque. Lo agito, lo aprieto, lo dejo caer. | 둘째, 포장. 흔들고, 누르고, 떨어뜨려요. | 낙하 테스트 슬로모 |
-| 20–25 | Tercero, la etiqueta. Leo cada ingrediente. | 셋째, 라벨. 성분 하나하나 읽어요. | 성분표 매크로 |
-| 25–30 | Si falla una, no entra a la lista. | 하나라도 탈락이면 리스트에 안 올라가요. | `✕` 붙은 샘플 하나 |
-| 30–35 | CTA | | `PRÓXIMO: $5 → $20. LAS CUENTAS` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 제가 안 써본 건, 여기서 안 나가요. | Nothing leaves here until I've tried it. | NADA SALE DE AQUÍ SIN QUE YO LO PRUEBE. | 샘플 들고 정면 |
+| 3–8 | INTRO | | | |
+| 8–14 | 먼저 제형. 손에, 얼굴에. | First, texture. On my hand, on my face. | 1. TEXTURA: EN MI MANO Y EN MI CARA | 손등 → 얼굴 |
+| 14–20 | 둘째, 포장. 흔들고, 누르고, 떨어뜨려요. | Second, packaging. I shake it, squeeze it, drop it. | 2. EMPAQUE: LO AGITO, LO APRIETO, LO DEJO CAER | 낙하 테스트 슬로모 |
+| 20–25 | 셋째, 라벨. 성분 하나하나 다 읽어요. | Third, the label. I read every ingredient. | 3. ETIQUETA: LEO CADA INGREDIENTE | 성분표 매크로 |
+| 25–30 | 하나라도 걸리면, 리스트에 못 올라가요. | If one fails, it doesn't make the list. | SI FALLA UNA, NO ENTRA A LA LISTA. | `✕` 샘플 하나 |
+| 30–35 | CTA | | | `PRÓXIMO: $5 → $20. LAS CUENTAS` |
 
-> 확인: 실제로 하는 테스트만 찍는다(낙하 테스트 안 하면 그 컷 빼고 "lo agito y lo aprieto").
+> 확인: 실제로 하는 테스트만 찍는다(낙하 테스트 안 하면 그 컷과 "떨어뜨려요" 빼기).
 
 ---
 
@@ -312,61 +328,61 @@
 ## EP17 · Corea lo agota cada semana. ¿Y tú?
 셀프 · 제품 컷 · 약 35초 · 업로드 22번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | En Corea, este protector solar se agota cada semana. | 한국에서 이 선크림은 매주 품절돼요. | 제품 들고 시작 |
-| 3–8 | INTRO | | |
-| 8–13 | Es [producto]. Número uno en [ranking] desde [fecha]. | [제품]이에요. [언제]부터 [랭킹] 1위. | 랭킹 캡처 |
-| 13–18 | ¿Por qué? [이유 한 문장]. | 왜냐고요? [이유]. | 제형/발림 컷 |
-| 18–24 | En Corea cuesta $[ ]. Fuera de Corea, unos $[ ]. | 한국에선 [ ]달러, 해외에선 약 [ ]달러. | 가격 대비 자막 |
-| 24–30 | En el club, $[ ] al mayor. | 클럽에선 도매 [ ]달러. | 클럽가 강조 |
-| 30–35 | CTA | | `PRÓXIMO: POR QUÉ ESTE VIDEO HIZO 5M` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 한국에서 매주 품절되는 선크림이에요. | This sunscreen sells out every week in Korea. | EN COREA ESTE PROTECTOR SE AGOTA CADA SEMANA. | 제품 들고 |
+| 3–8 | INTRO | | | |
+| 8–13 | [제품]이에요. [언제]부터 [랭킹] 1위. | It's [product]. #1 on [ranking] since [date]. | [PRODUCTO] · Nº1 EN [RANKING] DESDE [FECHA] | 랭킹 캡처 |
+| 13–18 | 왜냐면, [이유]. | Why? [reason]. | ¿POR QUÉ? [MOTIVO] | 제형/발림 컷 |
+| 18–24 | 한국에선 [ ]달러. 해외에선 한 [ ]달러. | In Korea: $[ ]. Abroad: about $[ ]. | COREA: $[ ] · FUERA: $[ ] | 가격 대비 |
+| 24–30 | 클럽에선 도매로 [ ]달러예요. | In the club: $[ ] wholesale. | EN EL CLUB: $[ ] AL MAYOR | 클럽가 강조 |
+| 30–35 | CTA | | | `PRÓXIMO: POR QUÉ ESTE VIDEO HIZO 5M` |
 
 ## EP18 · Top 3 K-beauty en TikTok Shop hoy
 셀프 · 제품 컷 · 약 40초 · 업로드 17번째 · 포맷: Bad & Good / 10점
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Top 3 de K-beauty en TikTok Shop. Y uno no vale la pena. | 틱톡샵 케이뷰티 톱3. 그중 하나는 별로예요. | 제품 3개 테이블 |
-| 4–9 | INTRO | | |
-| 9–16 | Número tres: [producto]. Un [N]. [이유]. | 3위 [제품]. [N]점. [이유]. | `#3 · [N]/10` |
-| 16–23 | Número dos: [producto]. Un [N]. [이유]. | 2위 [제품]. [N]점. [이유]. | `#2 · [N]/10` |
-| 23–30 | Número uno: [producto]. Un [N]. [이유]. | 1위 [제품]. [N]점. [이유]. | `#1 · [N]/10` |
-| 30–35 | El que no vale la pena: [producto]. [이유]. | 별로인 건 [제품]. [이유]. | 해당 제품 `BAD` 도장 |
-| 35–40 | CTA | | `PRÓXIMO: EL FORMATO GLASS SKIN NUNCA MUERE` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 이번 주 틱톡샵 케이뷰티 톱3. 근데 하나는 별로예요. | This week's TikTok Shop K-beauty top 3. One isn't worth it. | TOP 3 K-BEAUTY EN TIKTOK SHOP. UNO NO VALE LA PENA. | 제품 3개 테이블 |
+| 4–9 | INTRO | | | |
+| 9–16 | 3위, [제품]. [N]점. [이유]. | Number three: [product]. [N]. [reason]. | #3 · [PRODUCTO] · [N]/10 | |
+| 16–23 | 2위, [제품]. [N]점. [이유]. | Number two: [product]. [N]. [reason]. | #2 · [PRODUCTO] · [N]/10 | |
+| 23–30 | 1위, [제품]. [N]점. [이유]. | Number one: [product]. [N]. [reason]. | #1 · [PRODUCTO] · [N]/10 | |
+| 30–35 | 별로인 건 [제품]. [이유]. | The one not worth it: [product]. [reason]. | NO VALE LA PENA: [PRODUCTO] | 해당 제품 `BAD` 도장 |
+| 35–40 | CTA | | | `PRÓXIMO: EL FORMATO GLASS SKIN NUNCA MUERE` |
 
-> 주의: "별로"는 제품 비방이 아니라 "셀러 입장에서 마진·경쟁 때문에 비추" 이유로. 예) "Se vende, pero ya hay 300 vendedoras."
+> 주의: "별로"는 제품 비방이 아니라 셀러 입장 이유로. 예) "잘 팔리긴 하는데, 벌써 파는 사람이 300명이에요."
 
 ## EP19 · Viral en Corea. Aún no en TikTok Shop.
 셀프 · 제품 컷 · 약 33초 · 업로드 10번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Esto es viral en Corea y todavía no está en TikTok Shop. | 한국에선 대박인데 틱톡샵엔 아직 없어요. | 제품 들고 |
-| 3–8 | INTRO | | |
-| 8–13 | Es [producto]. En Corea, [증거: 랭킹/조회수/판매량]. | [제품]. 한국에서 [증거]. | 증거 캡처 |
-| 13–18 | ¿Por qué explotó? [이유 한 문장]. | 왜 터졌냐면 [이유]. | 사용 컷 |
-| 18–23 | Quien lo trae primero, pone el precio. | 먼저 들여오는 사람이 가격을 정해요. | |
-| 23–28 | Esta semana hay stock para el club. | 이번 주 클럽용 재고가 있어요. | 박스 컷 |
-| 28–33 | CTA | | `PRÓXIMO: REUNIÓN DE SOURCING EN SEÚL` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 한국에선 난리인데, 틱톡샵엔 아직 없어요. | Viral in Korea. Not on TikTok Shop yet. | VIRAL EN COREA. AÚN NO EN TIKTOK SHOP. | 제품 들고 |
+| 3–8 | INTRO | | | |
+| 8–13 | [제품]이에요. 한국에서 [증거]. | It's [product]. In Korea, [proof]. | [PRODUCTO] · EN COREA: [DATO] | 증거 캡처 |
+| 13–18 | 왜 터졌냐면, [이유]. | Why it blew up: [reason]. | ¿POR QUÉ EXPLOTÓ? [MOTIVO] | 사용 컷 |
+| 18–23 | 먼저 들여오는 사람이 가격을 정해요. | Whoever brings it first sets the price. | QUIEN LO TRAE PRIMERO, PONE EL PRECIO. | |
+| 23–28 | 이번 주 클럽용 재고 있어요. | There's stock for the club this week. | ESTA SEMANA HAY STOCK PARA EL CLUB. | 박스 컷 |
+| 28–33 | CTA | | | `PRÓXIMO: REUNIÓN DE SOURCING EN SEÚL` |
 
-> 확인: 촬영 시점에 틱톡샵 미입점 재확인(업로드 직전에도). 재고 없으면 23–28 줄 삭제.
+> 확인: 촬영 시점·업로드 직전에 틱톡샵 미입점 재확인. 재고 없으면 23–28 줄 삭제.
 
 ## EP20 · $5 mayorista → $20 retail. Las cuentas.
-셀프 · 제품 + 숫자 자막 · 약 40초 · 업로드 4번째 · **클럽 CTA 가장 강하게**
+셀프 · 제품 + 숫자 자막 · 약 40초 · 업로드 4번째 · **클럽 CTA 가장 강하게** · 숫자 많음(영어 추천)
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | Cinco dólares al mayor. Veinte en tienda. Hagamos las cuentas. | 도매 5달러, 소매 20달러. 계산해볼게요. | 제품 + `$5 → $20` |
-| 4–9 | INTRO | | |
-| 9–12 | Producto: [producto]. Mayorista: $5. | 제품 [제품]. 도매가 5달러. | 계산서 자막 시작 `$5.00` |
-| 12–15 | Envío por unidad: $[ ]. | 개당 배송비 [ ]달러. | `+ $[ ]` |
-| 15–18 | Impuestos de importación: $[ ]. | 수입 관세 [ ]달러. | `+ $[ ]` |
-| 18–21 | Comisión de TikTok Shop: $[ ]. | 틱톡샵 수수료 [ ]달러. | `+ $[ ]` |
-| 21–25 | Lo vendes en $20. Te quedan $[ ] por unidad. | 20달러에 팔면 개당 [ ]달러 남아요. | `= $[ ]` 크게 |
-| 25–29 | Cien unidades: $[ ]. | 100개면 [ ]달러. | `×100 = $[ ]` |
-| 29–34 | Este precio mayorista solo existe dentro del club. | 이 도매가는 클럽 안에만 있어요. | 왓츠앱 클럽 화면 |
-| 34–40 | CTA | | `PRÓXIMO: MISMO PRODUCTO. 2M VS 2K` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 도매 5달러, 소매 20달러. 계산해볼게요. | Five dollars wholesale. Twenty retail. Let's do the math. | $5 AL MAYOR → $20 EN TIENDA. HAGAMOS LAS CUENTAS. | 제품 + `$5 → $20` |
+| 4–9 | INTRO | | | |
+| 9–12 | 제품은 [제품]. 도매가 5달러. | Product: [product]. Wholesale: $5. | MAYORISTA: $5.00 | 계산서 시작 |
+| 12–15 | 개당 배송비 [ ]달러. | Shipping per unit: $[ ]. | + ENVÍO: $[ ] | |
+| 15–18 | 관세 [ ]달러. | Import duties: $[ ]. | + IMPUESTOS: $[ ] | |
+| 18–21 | 틱톡샵 수수료 [ ]달러. | TikTok Shop fee: $[ ]. | + COMISIÓN TIKTOK SHOP: $[ ] | |
+| 21–25 | 20달러에 팔면, 개당 [ ]달러 남아요. | Sell at $20, keep $[ ] per unit. | VENDES A $20 → TE QUEDAN $[ ] | `= $[ ]` 크게 |
+| 25–29 | 100개면 [ ]달러. | A hundred units: $[ ]. | ×100 = $[ ] | |
+| 29–34 | 이 도매가는 클럽 안에만 있어요. | This wholesale price only exists inside the club. | ESTE PRECIO SOLO EXISTE DENTRO DEL CLUB. | 왓츠앱 클럽 화면 |
+| 34–40 | CTA | | | `PRÓXIMO: MISMO PRODUCTO. 2M VS 2K` |
 
 > 필수: 실제 단가·배송비·관세·수수료로 계산. 숫자가 $5/$20과 안 맞으면 제목 숫자를 실제로 바꾼다(썸네일 재출력). 과장 마진 금지.
 
@@ -377,63 +393,63 @@
 ## EP21 · Por qué en Corea son 7 pasos
 셀프 PiP · 약 38초 · 업로드 19번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | ¿Siete productos al día? En Corea, es normal. | 하루 일곱 개? 한국에선 평범해요. | 제품 7개 줄 세우기 |
-| 3–8 | INTRO | | |
-| 8–18 | Limpiador de aceite, limpiador de agua, tónico, esencia, sérum, crema y protector. | 오일 클렌저, 폼 클렌저, 토너, 에센스, 세럼, 크림, 선크림. | 하나씩 손으로 짚으며 1~7 번호 |
-| 18–24 | Para ti, eso son siete categorías para vender. | 셀러에겐 팔 카테고리 일곱 개란 뜻이에요. | `7 PASOS = 7 CATEGORÍAS` |
-| 24–30 | Empieza con tres: limpiador, tónico y protector. | 세 개로 시작해요: 클렌저, 토너, 선크림. | 3개만 남기기 |
-| 30–33 | Es el set que más se repite. | 재구매가 제일 많은 세트예요. | |
-| 33–38 | CTA | | `PRÓXIMO: $500 DE K-BEAUTY AL MAYOR` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 하루에 일곱 개? 한국에선 평범해요. | Seven products a day? In Korea, that's normal. | ¿7 PRODUCTOS AL DÍA? EN COREA, ES NORMAL. | 제품 7개 줄 세우기 |
+| 3–8 | INTRO | | | |
+| 8–18 | 오일 클렌저, 폼 클렌저, 토너, 에센스, 세럼, 크림, 선크림. | Oil cleanser, foam cleanser, toner, essence, serum, cream, sunscreen. | ACEITE · LIMPIADOR · TÓNICO · ESENCIA · SÉRUM · CREMA · PROTECTOR | 하나씩 짚으며 1~7 |
+| 18–24 | 셀러한테는, 팔 카테고리가 일곱 개라는 뜻이에요. | For you, that's seven categories to sell. | PARA TI: 7 PASOS = 7 CATEGORÍAS | |
+| 24–30 | 세 개로 시작하세요. 클렌저, 토너, 선크림. | Start with three: cleanser, toner, sunscreen. | EMPIEZA CON 3: LIMPIADOR, TÓNICO, PROTECTOR | 3개만 남기기 |
+| 30–33 | 재구매가 제일 많은 조합이에요. | The set people rebuy most. | EL SET QUE MÁS SE REPITE. | |
+| 33–38 | CTA | | | `PRÓXIMO: $500 DE K-BEAUTY AL MAYOR` |
 
 > 검수: 30–33 문장은 대표님 경험 기준으로 맞으면 유지, 아니면 삭제.
 
 ## EP22 · 3 coreanas que debes estudiar
 셀프 PiP · 약 38초 · 업로드 13번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–3 | Tres creadoras coreanas que deberías estudiar hoy. | 오늘 공부해야 할 한국 크리에이터 세 명. | 3명 계정 캡처 그리드 |
-| 3–8 | INTRO | | |
-| 8–16 | Una: [이름]. [스타일 한 줄]. Copia esto: [포인트]. | 하나, [이름]. [스타일]. 이걸 따라 해요: [포인트]. | 계정 캡처 + `COPIA:` 자막 |
-| 16–24 | Dos: [이름]. [스타일]. Copia esto: [포인트]. | | |
-| 24–32 | Tres: [이름]. [스타일]. Copia esto: [포인트]. | | |
-| 32–38 | CTA | | `PRÓXIMO: ¿MODA O BÁSICO?` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–3 | 지금 꼭 공부해야 할 한국 크리에이터, 세 명. | Three Korean creators you should study today. | 3 CREADORAS COREANAS QUE DEBES ESTUDIAR | 3명 계정 캡처 그리드 |
+| 3–8 | INTRO | | | |
+| 8–16 | 첫 번째, [이름]. [스타일]. 이건 따라 하세요, [포인트]. | One: [name]. [style]. Copy this: [point]. | @[HANDLE] · [ESTILO] · COPIA: [PUNTO] | 계정 캡처 |
+| 16–24 | 두 번째, [이름]. [스타일]. [포인트]. | Two: [name]. [style]. Copy this: [point]. | @[HANDLE] · [ESTILO] · COPIA: [PUNTO] | |
+| 24–32 | 세 번째, [이름]. [스타일]. [포인트]. | Three: [name]. [style]. Copy this: [point]. | @[HANDLE] · [ESTILO] · COPIA: [PUNTO] | |
+| 32–38 | CTA | | | `PRÓXIMO: ¿MODA O BÁSICO?` |
 
-> 결정 필요: 3명 선정. 캡처 사용은 계정 공개 게시물 + 출처 표기(@핸들)로.
+> 결정 필요: 3명 선정. 캡처는 공개 게시물 + 출처 표기(@핸들)로.
 
 ## EP23 · Olive Young: así explota un producto
 셀프 PiP · 약 36초 · 업로드 8번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | En Corea, un producto explota en Olive Young antes que en TikTok. | 한국에선 제품이 틱톡보다 올리브영에서 먼저 터져요. | 매장 B롤 |
-| 4–9 | INTRO | | |
-| 9–14 | Olive Young es la tienda de belleza más grande de Corea. | 올리브영은 한국에서 제일 큰 뷰티 매장이에요. | 로고·매장 외관 |
-| 14–21 | El camino: ranking de Olive Young, TikTok coreano, y después el mundo. | 경로: 올리브영 랭킹 → 한국 틱톡 → 그다음 세계. | 화살표 3단 자막 |
-| 21–26 | Mira su ranking semanal. Está en su web global. | 주간 랭킹을 보세요. 글로벌 웹에도 있어요. | 올리브영 글로벌 화면 |
-| 26–31 | Si sube tres semanas seguidas, presta atención. | 3주 연속 오르면 주목하세요. | 순위 상승 그래프 |
-| 31–36 | CTA | | `PRÓXIMO: MI CHECKLIST DE 5` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 한국에선, 틱톡보다 올리브영에서 먼저 터져요. | In Korea, products blow up at Olive Young before TikTok. | EN COREA, UN PRODUCTO EXPLOTA EN OLIVE YOUNG ANTES QUE EN TIKTOK. | 매장 B롤 |
+| 4–9 | INTRO | | | |
+| 9–14 | 올리브영은 한국에서 제일 큰 뷰티 매장이에요. | Olive Young is Korea's biggest beauty store. | OLIVE YOUNG: LA TIENDA DE BELLEZA MÁS GRANDE DE COREA | 로고·매장 외관 |
+| 14–21 | 순서는 올리브영 랭킹, 한국 틱톡, 그다음 전 세계. | The path: Olive Young ranking, Korean TikTok, then the world. | OLIVE YOUNG → TIKTOK COREANO → EL MUNDO | 화살표 3단 |
+| 21–26 | 주간 랭킹 보세요. 글로벌 사이트에도 있어요. | Check the weekly ranking. It's on their global site. | MIRA SU RANKING SEMANAL (WEB GLOBAL) | 올리브영 글로벌 화면 |
+| 26–31 | 3주 연속 오르면, 주목하세요. | If it climbs three weeks in a row, pay attention. | SI SUBE 3 SEMANAS SEGUIDAS, ATENCIÓN. | 순위 상승 그래프 |
+| 31–36 | CTA | | | `PRÓXIMO: MI CHECKLIST DE 5` |
 
-> 검수: "가장 큰" 표현과 글로벌 웹 랭킹 노출 여부 촬영 전 확인.
+> 검수: "제일 큰" 표현과 글로벌 사이트 랭킹 노출 여부 촬영 전 확인.
 
 ## EP24 · De Corea a TikTok Shop en 6 meses
 셀프 PiP · 약 40초 · 업로드 2번째
 
-| 시간 | 대사 (ES) | 뜻 | 화면·자막 |
-|---|---|---|---|
-| 0–4 | De Corea a TikTok Shop: seis meses. Si llegas antes, ganas. | 한국에서 틱톡샵까지 6개월. 먼저 오면 이겨요. | 타임라인 빈 바 |
-| 4–9 | INTRO | | |
-| 9–13 | Mes cero: sale en Corea. | 0개월: 한국 출시. | 타임라인 점 1 |
-| 13–17 | Mes uno o dos: sube en Olive Young. | 1~2개월: 올리브영 순위 상승. | 점 2 |
-| 17–21 | Mes tres: lo usan las creadoras coreanas. | 3개월: 한국 크리에이터가 써요. | 점 3 |
-| 21–25 | Mes cuatro o cinco: llega a TikTok fuera de Corea. | 4~5개월: 해외 틱톡 도착. | 점 4 |
-| 25–29 | Mes seis: TikTok Shop, con cientos de vendedoras. | 6개월: 틱톡샵, 셀러 수백 명. | 점 5, 빨간색 |
-| 29–34 | Yo te aviso en el mes uno. | 저는 1개월 차에 알려줘요. | 점 2에 하이라이트 `B2X` |
-| 34–40 | CTA | | `PRÓXIMO: CADA MUESTRA LA PRUEBO YO` |
+| 시간 | 말 (KO) | 말 (EN) | 자막 (ES) | 화면 |
+|---|---|---|---|---|
+| 0–4 | 한국에서 틱톡샵까지 6개월. 먼저 가는 사람이 이겨요. | Korea to TikTok Shop: six months. Get there first, you win. | DE COREA A TIKTOK SHOP: 6 MESES. SI LLEGAS ANTES, GANAS. | 타임라인 빈 바 |
+| 4–9 | INTRO | | | |
+| 9–13 | 0개월, 한국 출시. | Month zero: launch in Korea. | MES 0: SALE EN COREA | 점 1 |
+| 13–17 | 1~2개월, 올리브영 순위 상승. | Months one to two: climbs at Olive Young. | MES 1–2: SUBE EN OLIVE YOUNG | 점 2 |
+| 17–21 | 3개월, 한국 크리에이터들이 써요. | Month three: Korean creators use it. | MES 3: LO USAN LAS CREADORAS COREANAS | 점 3 |
+| 21–25 | 4~5개월, 해외 틱톡에 도착. | Months four to five: hits TikTok abroad. | MES 4–5: LLEGA A TIKTOK FUERA DE COREA | 점 4 |
+| 25–29 | 6개월, 틱톡샵. 셀러 수백 명. | Month six: TikTok Shop, hundreds of sellers. | MES 6: TIKTOK SHOP, CIENTOS DE VENDEDORAS | 점 5, 빨간색 |
+| 29–34 | 저는 1개월 차에 알려드려요. | I tell you at month one. | YO TE AVISO EN EL MES 1. | 점 2 하이라이트 `B2X` |
+| 34–40 | CTA | | | `PRÓXIMO: CADA MUESTRA LA PRUEBO YO` |
 
-> 검수: 개월 수는 실제 사례 1개로 뒷받침하면 좋다(가능하면 9–29 구간에 사례 제품 컷 삽입). 업로드 2번째라 "시리즈 마무리" 멘트는 뺐다.
+> 검수: 개월 수는 실제 사례 1개로 뒷받침하면 좋다(가능하면 사례 제품 컷 삽입).
 
 ---
 
@@ -443,10 +459,10 @@
 
 - [ ] 위 "확인 필요" 1~3 결정
 - [ ] 썸네일 라벨에서 `EP.xx` 제거 후 24장 재출력
-- [ ] 대표님 스페인어 리딩 1회 → 어려운 문장 표시(영어 대체 or 문장 교체)
+- [ ] 편별 말 언어(KO/EN) 정하기 — 대표님 리딩 후
 - [ ] EP06 대표 스토리 인터뷰 (`[계기]`, `[N]년`)
 - [ ] EP02 500달러 구성표, EP04 MOQ·단가 예시
 - [ ] EP09 분석 영상, EP12 비교 영상 2개
 - [ ] EP14 비율, EP15 마진·리뷰 기준 (대표님 실제 기준)
 - [ ] EP17~20 제품·가격, EP20 실제 원가 계산
-- [ ] 스페인어 원어민 검수 (24편 전체)
+- [ ] 스페인어 자막 원어민 검수 (24편 전체)
