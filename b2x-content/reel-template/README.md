@@ -1,0 +1,19 @@
+# K-Beauty que vende · 릴스 템플릿
+
+레퍼런스 영상을 전체 화면에 깔고, 분석 포인트마다 영상을 멈춰 그 위에 카드로 설명하는 포맷 (v2, 스페인어).
+
+| 파일 | 역할 |
+|---|---|
+| `overlay.html` | 상단 헤더(시리즈 번호·크리에이터·요인 칩 5개·원본 자막 번역) + 정지 카드 디자인. 칩 이름·번역 문구·크리에이터 정보는 여기서 바꾼다 |
+| `plan.json` | 카드 문구(`cards`)와 타임라인(`segs`: `play` 구간 재생 / `freeze` 정지 + 카드) |
+| `render2.mjs` | `plan.json`의 구간마다 오버레이 PNG를 그림 (Playwright) |
+| `build2.py` | 구간별로 영상을 자르고 오버레이를 얹어 하나로 이어 붙임 (ffmpeg) |
+
+만드는 순서
+1. 레퍼런스 영상을 `src_<id>.mp4`로 받고 `build2.py`의 `SRC`를 바꾼다.
+2. 장면 전환 시간 확인: `ffmpeg -i src.mp4 -vf "select='gt(scene,0.25)',showinfo" -f null - 2>&1 | grep pts_time`
+3. `overlay.html`, `plan.json` 문구와 시간을 바꾼다.
+4. 폰트(Pretendard woff2)를 이 폴더에 받는다 (`build.sh` 참고).
+5. `node render2.mjs && python3 build2.py`
+
+v1(`panel.html`·`render.mjs`·`build.sh`)은 원본을 아래로 내리고 위에 패널을 두는 이전 방식.

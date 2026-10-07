@@ -1,0 +1,21 @@
+{"cards":{
+ "c1":{"n":"01","h":"PROBLEMA PRIMERO","l1":"En el segundo 1 ya ves la piel con problemas, de frente.","l2":"Quieres ver el resultado, así que no deslizas."},
+ "c2":{"n":"02","h":"3 PALABRAS","l1":"Rojez, melasma, arrugas: el problema en tres palabras.","l2":"Quien tiene lo mismo siente que el video habla de ella."},
+ "c3":{"n":"03","h":"30 DÍAS","l1":"Un número concreto: 30 días.","l2":"Es un plazo que se puede copiar, así que lo guardas."},
+ "c4":{"n":"04","h":"SIN FILTRO","l1":"\"No filter\" en pantalla de principio a fin.","l2":"Quita la primera duda de todo antes y después."},
+ "c5":{"n":"05","h":"MISMO ÁNGULO","l1":"Antes y después con el mismo selfie de frente.","l2":"Se compara de un vistazo y, con 10 segundos, se repite."},
+ "c6":{"n":"PARA VENDER","h":"LA FÓRMULA","l1":"1 producto · 30 días · mismo ángulo · sin filtro.","l2":"Úsala tal cual con el producto que vendes.","cta":"Comenta ACADEMY y te mando la lista de sourcing de esta semana."}},
+"segs":[
+ {"t":"play","a":0,"b":1.2,"lit":[],"tr":"before"},
+ {"t":"freeze","at":1.2,"d":3.4,"lit":[1],"tr":"before","card":"c1"},
+ {"t":"play","a":1.2,"b":3.0,"lit":[1],"tr":"before"},
+ {"t":"freeze","at":3.0,"d":3.4,"lit":[1,2],"tr":"before","card":"c2"},
+ {"t":"play","a":3.0,"b":4.55,"lit":[1,2],"tr":"before"},
+ {"t":"play","a":4.55,"b":5.6,"lit":[1,2],"tr":"after"},
+ {"t":"freeze","at":5.6,"d":3.2,"lit":[1,2,3],"tr":"after","card":"c3"},
+ {"t":"play","a":5.6,"b":7.2,"lit":[1,2,3],"tr":"after"},
+ {"t":"freeze","at":7.2,"d":3.2,"lit":[1,2,3,4],"tr":"after","card":"c4"},
+ {"t":"play","a":7.2,"b":9.85,"lit":[1,2,3,4],"tr":"after"},
+ {"t":"freeze","at":9.85,"d":3.4,"lit":[1,2,3,4,5],"tr":"after","card":"c5"},
+ {"t":"freeze","at":9.85,"d":4.8,"lit":[1,2,3,4,5],"tr":"after","card":"c6"}
+]}
