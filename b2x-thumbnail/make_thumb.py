@@ -18,7 +18,7 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
   font-family:Pretendard,"NanumSquareRound","NanumGothic",sans-serif;color:#fff}}
 .bg{{position:absolute;inset:0;background:url({bg}) center top/cover no-repeat}}
 .ov{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 45%)}}
-.academy{{position:absolute;left:0;right:0;top:240px;transform:translateY(-50%);text-align:center;
+.academy{{position:absolute;left:0;right:0;top:278px;transform:translateY(-100%);text-align:center;
   font-weight:700;font-size:27px;letter-spacing:6px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
 .card{{position:absolute;left:76px;width:928px;top:326px;box-sizing:border-box;background:#0D0D0D;border-radius:14px;
   padding:26px 30px 28px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
