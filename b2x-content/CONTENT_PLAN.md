@@ -39,7 +39,7 @@
 
 - 길이 15~40초, 세로 9:16, 토킹헤드 + 손에 제품 + 폰 B롤
 - 구조 **후킹 3초 → 본문 20~30초 → CTA 5초**
-- 인트로 한 줄 고정 (아카데미편만, 말은 그 편 언어로): 자막 *"Bienvenida a K-Beauty Influencer Academy. Soy Chaewon, tu proveedora en Corea."*
+- 시그니처 한 줄 고정 (전 편, 훅 바로 다음): "케이뷰티 아카데미 원장, 채원이에요." / 자막 *"SOY CHAEWON, DIRECTORA DE K-BEAUTY ACADEMY"*
 - 자막: 스페인어 상단 1~2줄, 큰 산세리프 대문자. 영어는 작게 보조
 - 레퍼런스 공통점 (양PD 시트): 얼굴 정면 토킹헤드 + 제품 손에, 전문가 포지션이 조회수 상위, "한국 화장품" 키워드 자체가 후킹, Bad & Good / 10점 판정 포맷이 제품 소개에 잘 먹힘
 
