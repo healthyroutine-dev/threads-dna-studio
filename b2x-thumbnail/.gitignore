@@ -1,0 +1,3 @@
+out/*
+!out/sample_*
+backgrounds/
