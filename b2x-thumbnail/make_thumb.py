@@ -62,7 +62,7 @@ def render(spec: dict, browser) -> Path:
     label = f"{spec['label']} · EP.{int(spec['ep']):02d}"
     html = HTML.format(
         W=W, H=H, bg=data_uri(bg), color=COLORS[cat], academy=esc(spec.get("academy_text", "K-Beauty Influencer Academy")),
-        label=esc(label), title=esc(spec["title"]), sub=esc(spec.get("sub", "")),
+        label=esc(label), title=esc(spec["title"]).replace("|", "<br>"), sub=esc(spec.get("sub", "")),
         pip=data_uri(pip_path) if use_pip else "", pip_div='<div class="pip"></div>' if use_pip else "",
         brand=esc(spec.get("brand_text", "B2X")))
     out = Path(spec["out"]).expanduser()

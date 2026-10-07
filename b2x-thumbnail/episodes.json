@@ -1,26 +1,218 @@
 [
- {"ep": 1, "cat": "F", "label": "FOUNDER", "title": "No soy una marca. Soy tu proveedora en Corea.", "sub": "I'm not a brand. I'm your Korean trader.", "bg": "backgrounds/ep01.jpg", "out": "out/ep01.png"},
- {"ep": 2, "cat": "F", "label": "WAREHOUSE", "title": "Así se ven $500 de K-beauty al por mayor", "sub": "$500 of K-beauty wholesale, unboxed", "bg": "backgrounds/ep02.jpg", "out": "out/ep02.png"},
- {"ep": 3, "cat": "F", "label": "SAMPLES", "title": "Empacando muestras para México 📦", "sub": "Packing samples for a seller in Mexico", "bg": "backgrounds/ep03.jpg", "out": "out/ep03.png"},
- {"ep": 4, "cat": "F", "label": "GROUP BUY", "title": "Precio mayorista coreano desde 10 unidades", "sub": "Korean wholesale price at just 10 units", "bg": "backgrounds/ep04.jpg", "out": "out/ep04.png"},
- {"ep": 5, "cat": "F", "label": "INSIDE", "title": "Dentro de una reunión de sourcing en Seúl", "sub": "Inside a K-beauty sourcing meeting", "bg": "backgrounds/ep05.jpg", "out": "out/ep05.png"},
- {"ep": 6, "cat": "F", "label": "STORY", "title": "Por qué ayudo a vendedoras como tú", "sub": "Why I help sellers abroad sell K-beauty", "bg": "backgrounds/ep06.jpg", "out": "out/ep06.png"},
- {"ep": 7, "cat": "F", "label": "MISTAKES", "title": "3 errores de quien importa K-beauty por primera vez", "sub": "3 rookie K-beauty import mistakes", "bg": "backgrounds/ep07.jpg", "out": "out/ep07.png"},
- {"ep": 8, "cat": "F", "label": "SEOUL", "title": "Lo que Corea compra esta semana", "sub": "What Koreans actually buy this week", "bg": "backgrounds/ep08.jpg", "out": "out/ep08.png"},
- {"ep": 9, "cat": "C1", "label": "CLASS 1 · VIRAL", "title": "Por qué este video hizo 5M de vistas", "sub": "Why this video got 5M views", "bg": "backgrounds/ep09.jpg", "out": "out/ep09.png"},
- {"ep": 10, "cat": "C1", "label": "CLASS 1 · VIRAL", "title": "El formato glass skin nunca muere", "sub": "The glass-skin format never dies", "bg": "backgrounds/ep10.jpg", "out": "out/ep10.png"},
- {"ep": 11, "cat": "C1", "label": "CLASS 1 · VIRAL", "title": "\"La coreana lo prueba primero\"", "sub": "\"Korean girl tries it first\"", "bg": "backgrounds/ep11.jpg", "out": "out/ep11.png"},
- {"ep": 12, "cat": "C1", "label": "CLASS 1 · VIRAL", "title": "Mismo producto. 2M vs 2K vistas.", "sub": "Same product. 2M vs 2K views.", "bg": "backgrounds/ep12.jpg", "out": "out/ep12.png"},
- {"ep": 13, "cat": "C2", "label": "CLASS 2 · PICK", "title": "Tendencias que veo antes de que salgan de Corea", "sub": "Trends I catch before they leave Korea", "bg": "backgrounds/ep13.jpg", "out": "out/ep13.png"},
- {"ep": 14, "cat": "C2", "label": "CLASS 2 · PICK", "title": "Tendencia vs. básico: no compres el equivocado", "sub": "Trend vs Staple", "bg": "backgrounds/ep14.jpg", "out": "out/ep14.png"},
- {"ep": 15, "cat": "C2", "label": "CLASS 2 · PICK", "title": "Mi checklist de 5 puntos antes de comprar", "sub": "My 5-point checklist before I buy", "bg": "backgrounds/ep15.jpg", "out": "out/ep15.png"},
- {"ep": 16, "cat": "C2", "label": "CLASS 2 · PICK", "title": "Pruebo cada muestra antes que tú", "sub": "How I test samples before you see them", "bg": "backgrounds/ep16.jpg", "out": "out/ep16.png"},
- {"ep": 17, "cat": "C3", "label": "CLASS 3 · HOT", "title": "Corea lo agota cada semana. ¿Y tú?", "sub": "Korea's #1 sunscreen right now", "bg": "backgrounds/ep17.jpg", "out": "out/ep17.png"},
- {"ep": 18, "cat": "C3", "label": "CLASS 3 · HOT", "title": "Top 3 K-beauty en TikTok Shop esta semana", "sub": "TikTok Shop K-beauty Top 3", "bg": "backgrounds/ep18.jpg", "out": "out/ep18.png"},
- {"ep": 19, "cat": "C3", "label": "CLASS 3 · HOT", "title": "Viral en Corea. Aún no en TikTok Shop.", "sub": "Viral in Korea, not on TikTok Shop yet", "bg": "backgrounds/ep19.jpg", "out": "out/ep19.png"},
- {"ep": 20, "cat": "C3", "label": "CLASS 3 · HOT", "title": "$5 mayorista → $20 retail. Las cuentas.", "sub": "$5 wholesale → $20 retail", "bg": "backgrounds/ep20.jpg", "out": "out/ep20.png"},
- {"ep": 21, "cat": "C4", "label": "CLASS 4 · CULTURE", "title": "Por qué los coreanos hacen 7 pasos", "sub": "Why Koreans do a 7-step routine", "bg": "backgrounds/ep21.jpg", "out": "out/ep21.png"},
- {"ep": 22, "cat": "C4", "label": "CLASS 4 · CULTURE", "title": "3 creadoras coreanas que debes estudiar", "sub": "3 Korean beauty creators to study", "bg": "backgrounds/ep22.jpg", "out": "out/ep22.png"},
- {"ep": 23, "cat": "C4", "label": "CLASS 4 · CULTURE", "title": "Olive Young: así explota un producto", "sub": "How a product blows up at Olive Young", "bg": "backgrounds/ep23.jpg", "out": "out/ep23.png"},
- {"ep": 24, "cat": "C4", "label": "CLASS 4 · CULTURE", "title": "De Corea a TikTok Shop en 6 meses", "sub": "Korea → TikTok Shop in 6 months", "bg": "backgrounds/ep24.jpg", "out": "out/ep24.png"}
+ {
+  "ep": 1,
+  "cat": "F",
+  "label": "FOUNDER",
+  "title": "No soy una marca.|Soy tu proveedora.",
+  "sub": "I'm not a brand. I'm your Korean trader.",
+  "bg": "backgrounds/ep01.jpg",
+  "out": "out/ep01.png"
+ },
+ {
+  "ep": 2,
+  "cat": "F",
+  "label": "WAREHOUSE",
+  "title": "Así se ven $500 de|K-beauty al mayor",
+  "sub": "$500 of K-beauty wholesale, unboxed",
+  "bg": "backgrounds/ep02.jpg",
+  "out": "out/ep02.png"
+ },
+ {
+  "ep": 3,
+  "cat": "F",
+  "label": "SAMPLES",
+  "title": "Muestras rumbo a|México 📦",
+  "sub": "Packing samples for a seller in Mexico",
+  "bg": "backgrounds/ep03.jpg",
+  "out": "out/ep03.png"
+ },
+ {
+  "ep": 4,
+  "cat": "F",
+  "label": "GROUP BUY",
+  "title": "Precio mayorista|desde 10 unidades",
+  "sub": "Korean wholesale price at just 10 units",
+  "bg": "backgrounds/ep04.jpg",
+  "out": "out/ep04.png"
+ },
+ {
+  "ep": 5,
+  "cat": "F",
+  "label": "INSIDE",
+  "title": "Así es una reunión|de sourcing en Seúl",
+  "sub": "Inside a K-beauty sourcing meeting",
+  "bg": "backgrounds/ep05.jpg",
+  "out": "out/ep05.png"
+ },
+ {
+  "ep": 6,
+  "cat": "F",
+  "label": "STORY",
+  "title": "Por qué ayudo a|vendedoras como tú",
+  "sub": "Why I help sellers abroad sell K-beauty",
+  "bg": "backgrounds/ep06.jpg",
+  "out": "out/ep06.png"
+ },
+ {
+  "ep": 7,
+  "cat": "F",
+  "label": "MISTAKES",
+  "title": "3 errores de tu|primera importación",
+  "sub": "3 rookie K-beauty import mistakes",
+  "bg": "backgrounds/ep07.jpg",
+  "out": "out/ep07.png"
+ },
+ {
+  "ep": 8,
+  "cat": "F",
+  "label": "SEOUL",
+  "title": "Lo que Corea|compra esta semana",
+  "sub": "What Koreans actually buy this week",
+  "bg": "backgrounds/ep08.jpg",
+  "out": "out/ep08.png"
+ },
+ {
+  "ep": 9,
+  "cat": "C1",
+  "label": "CLASS 1 · VIRAL",
+  "title": "Por qué este video|hizo 5M de vistas",
+  "sub": "Why this video got 5M views",
+  "bg": "backgrounds/ep09.jpg",
+  "out": "out/ep09.png"
+ },
+ {
+  "ep": 10,
+  "cat": "C1",
+  "label": "CLASS 1 · VIRAL",
+  "title": "El formato glass|skin nunca muere",
+  "sub": "The glass-skin format never dies",
+  "bg": "backgrounds/ep10.jpg",
+  "out": "out/ep10.png"
+ },
+ {
+  "ep": 11,
+  "cat": "C1",
+  "label": "CLASS 1 · VIRAL",
+  "title": "\"La coreana lo|prueba primero\"",
+  "sub": "\"Korean girl tries it first\"",
+  "bg": "backgrounds/ep11.jpg",
+  "out": "out/ep11.png"
+ },
+ {
+  "ep": 12,
+  "cat": "C1",
+  "label": "CLASS 1 · VIRAL",
+  "title": "Mismo producto.|2M vs 2K vistas.",
+  "sub": "Same product. 2M vs 2K views.",
+  "bg": "backgrounds/ep12.jpg",
+  "out": "out/ep12.png"
+ },
+ {
+  "ep": 13,
+  "cat": "C2",
+  "label": "CLASS 2 · PICK",
+  "title": "Lo nuevo de Corea,|antes que nadie",
+  "sub": "Trends I catch before they leave Korea",
+  "bg": "backgrounds/ep13.jpg",
+  "out": "out/ep13.png"
+ },
+ {
+  "ep": 14,
+  "cat": "C2",
+  "label": "CLASS 2 · PICK",
+  "title": "¿Moda o básico?|No te equivoques",
+  "sub": "Trend vs Staple",
+  "bg": "backgrounds/ep14.jpg",
+  "out": "out/ep14.png"
+ },
+ {
+  "ep": 15,
+  "cat": "C2",
+  "label": "CLASS 2 · PICK",
+  "title": "Mi checklist de 5|antes de comprar",
+  "sub": "My 5-point checklist before I buy",
+  "bg": "backgrounds/ep15.jpg",
+  "out": "out/ep15.png"
+ },
+ {
+  "ep": 16,
+  "cat": "C2",
+  "label": "CLASS 2 · PICK",
+  "title": "Cada muestra la|pruebo yo primero",
+  "sub": "How I test samples before you see them",
+  "bg": "backgrounds/ep16.jpg",
+  "out": "out/ep16.png"
+ },
+ {
+  "ep": 17,
+  "cat": "C3",
+  "label": "CLASS 3 · HOT",
+  "title": "Corea lo agota cada|semana. ¿Y tú?",
+  "sub": "Korea's #1 sunscreen right now",
+  "bg": "backgrounds/ep17.jpg",
+  "out": "out/ep17.png"
+ },
+ {
+  "ep": 18,
+  "cat": "C3",
+  "label": "CLASS 3 · HOT",
+  "title": "Top 3 K-beauty en|TikTok Shop hoy",
+  "sub": "TikTok Shop K-beauty Top 3",
+  "bg": "backgrounds/ep18.jpg",
+  "out": "out/ep18.png"
+ },
+ {
+  "ep": 19,
+  "cat": "C3",
+  "label": "CLASS 3 · HOT",
+  "title": "Viral en Corea. Aún|no en TikTok Shop.",
+  "sub": "Viral in Korea, not on TikTok Shop yet",
+  "bg": "backgrounds/ep19.jpg",
+  "out": "out/ep19.png"
+ },
+ {
+  "ep": 20,
+  "cat": "C3",
+  "label": "CLASS 3 · HOT",
+  "title": "$5 mayorista → $20|retail. Las cuentas.",
+  "sub": "$5 wholesale → $20 retail",
+  "bg": "backgrounds/ep20.jpg",
+  "out": "out/ep20.png"
+ },
+ {
+  "ep": 21,
+  "cat": "C4",
+  "label": "CLASS 4 · CULTURE",
+  "title": "Por qué en Corea|son 7 pasos",
+  "sub": "Why Koreans do a 7-step routine",
+  "bg": "backgrounds/ep21.jpg",
+  "out": "out/ep21.png"
+ },
+ {
+  "ep": 22,
+  "cat": "C4",
+  "label": "CLASS 4 · CULTURE",
+  "title": "3 coreanas que|debes estudiar",
+  "sub": "3 Korean beauty creators to study",
+  "bg": "backgrounds/ep22.jpg",
+  "out": "out/ep22.png"
+ },
+ {
+  "ep": 23,
+  "cat": "C4",
+  "label": "CLASS 4 · CULTURE",
+  "title": "Olive Young: así|explota un producto",
+  "sub": "How a product blows up at Olive Young",
+  "bg": "backgrounds/ep23.jpg",
+  "out": "out/ep23.png"
+ },
+ {
+  "ep": 24,
+  "cat": "C4",
+  "label": "CLASS 4 · CULTURE",
+  "title": "De Corea a TikTok|Shop en 6 meses",
+  "sub": "Korea → TikTok Shop in 6 months",
+  "bg": "backgrounds/ep24.jpg",
+  "out": "out/ep24.png"
+ }
 ]
