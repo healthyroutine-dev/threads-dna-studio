@@ -1,21 +1,211 @@
-{"cards":{
- "c1":{"n":"01","h":"PROBLEMA PRIMERO","l1":"En el segundo 1 ya ves la piel con problemas, de frente.","l2":"Quieres ver el resultado, así que no deslizas."},
- "c2":{"n":"02","h":"3 PALABRAS","l1":"Rojez, melasma, arrugas: el problema en tres palabras.","l2":"Quien tiene lo mismo siente que el video habla de ella."},
- "c3":{"n":"03","h":"30 DÍAS","l1":"Un número concreto: 30 días.","l2":"Es un plazo que se puede copiar, así que lo guardas."},
- "c4":{"n":"04","h":"SIN FILTRO","l1":"\"No filter\" en pantalla de principio a fin.","l2":"Quita la primera duda de todo antes y después."},
- "c5":{"n":"05","h":"MISMO ÁNGULO","l1":"Antes y después con el mismo selfie de frente.","l2":"Se compara de un vistazo y, con 10 segundos, se repite."},
- "c6":{"n":"PARA VENDER","h":"LA FÓRMULA","l1":"1 producto · 30 días · mismo ángulo · sin filtro.","l2":"Úsala tal cual con el producto que vendes.","cta":"Comenta ACADEMY y te mando la lista de sourcing de esta semana."}},
-"segs":[
- {"t":"play","a":0,"b":1.2,"lit":[],"tr":"before"},
- {"t":"freeze","at":1.2,"d":3.4,"lit":[1],"tr":"before","card":"c1"},
- {"t":"play","a":1.2,"b":3.0,"lit":[1],"tr":"before"},
- {"t":"freeze","at":3.0,"d":3.4,"lit":[1,2],"tr":"before","card":"c2"},
- {"t":"play","a":3.0,"b":4.55,"lit":[1,2],"tr":"before"},
- {"t":"play","a":4.55,"b":5.6,"lit":[1,2],"tr":"after"},
- {"t":"freeze","at":5.6,"d":3.2,"lit":[1,2,3],"tr":"after","card":"c3"},
- {"t":"play","a":5.6,"b":7.2,"lit":[1,2,3],"tr":"after"},
- {"t":"freeze","at":7.2,"d":3.2,"lit":[1,2,3,4],"tr":"after","card":"c4"},
- {"t":"play","a":7.2,"b":9.85,"lit":[1,2,3,4],"tr":"after"},
- {"t":"freeze","at":9.85,"d":3.4,"lit":[1,2,3,4,5],"tr":"after","card":"c5"},
- {"t":"freeze","at":9.85,"d":4.8,"lit":[1,2,3,4,5],"tr":"after","card":"c6"}
-]}
+{
+ "cards": {
+  "c1": {
+   "n": "01",
+   "h": "PROBLEMA PRIMERO",
+   "l1": "En el segundo 1 ya ves la piel con problemas, de frente.",
+   "l2": "Quieres ver el resultado, así que no deslizas."
+  },
+  "c2": {
+   "n": "02",
+   "h": "3 PALABRAS",
+   "l1": "Rojez, melasma, arrugas: el problema en tres palabras.",
+   "l2": "Quien tiene lo mismo siente que el video habla de ella."
+  },
+  "c3": {
+   "n": "03",
+   "h": "30 DÍAS",
+   "l1": "Un número concreto: 30 días.",
+   "l2": "Es un plazo que se puede copiar, así que lo guardas."
+  },
+  "c4": {
+   "n": "04",
+   "h": "SIN FILTRO",
+   "l1": "\"No filter\" en pantalla de principio a fin.",
+   "l2": "Quita la primera duda de todo antes y después."
+  },
+  "c5": {
+   "n": "05",
+   "h": "MISMO ÁNGULO",
+   "l1": "Antes y después con el mismo selfie de frente.",
+   "l2": "Se compara de un vistazo y, con 10 segundos, se repite."
+  },
+  "c6": {
+   "n": "PARA VENDER",
+   "h": "LA FÓRMULA",
+   "l1": "1 producto · 30 días · mismo ángulo · sin filtro.",
+   "l2": "Úsala tal cual con el producto que vendes.",
+   "cta": "Comenta ACADEMY y te mando la lista de sourcing de esta semana."
+  },
+  "c0": {
+   "n": "001/100",
+   "h": "5,36 M DE VISTAS",
+   "l1": "¿Por qué funcionó? 5 claves.",
+   "l2": "Soy Chaewon, directora de K-Beauty Academy."
+  }
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 1.0,
+   "lit": [],
+   "tr": "before"
+  },
+  {
+   "t": "freeze",
+   "at": 1.0,
+   "lit": [],
+   "tr": "before",
+   "card": "c0",
+   "voice": "케이뷰티 아카데미 원장, 채원이에요. 536만 뷰, 비결은 다섯 개예요.",
+   "vo": "vo_01.mp3.wav.wav",
+   "d": 6.16
+  },
+  {
+   "t": "play",
+   "a": 1.0,
+   "b": 1.8,
+   "lit": [],
+   "tr": "before"
+  },
+  {
+   "t": "freeze",
+   "at": 1.8,
+   "lit": [
+    1
+   ],
+   "tr": "before",
+   "card": "c1",
+   "voice": "하나, 1초부터 문제 피부를 정면으로.",
+   "vo": "vo_03.mp3.wav.wav",
+   "d": 2.86
+  },
+  {
+   "t": "play",
+   "a": 1.8,
+   "b": 3.2,
+   "lit": [
+    1
+   ],
+   "tr": "before"
+  },
+  {
+   "t": "freeze",
+   "at": 3.2,
+   "lit": [
+    1,
+    2
+   ],
+   "tr": "before",
+   "card": "c2",
+   "voice": "둘, 홍조, 기미, 주름. 고민을 세 단어로.",
+   "vo": "vo_05.mp3.wav.wav",
+   "d": 4.84
+  },
+  {
+   "t": "play",
+   "a": 3.2,
+   "b": 4.55,
+   "lit": [
+    1,
+    2
+   ],
+   "tr": "before"
+  },
+  {
+   "t": "play",
+   "a": 4.55,
+   "b": 5.6,
+   "lit": [
+    1,
+    2
+   ],
+   "tr": "after"
+  },
+  {
+   "t": "freeze",
+   "at": 5.6,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "tr": "after",
+   "card": "c3",
+   "voice": "셋, 30일. 따라 할 수 있는 숫자.",
+   "vo": "vo_08.mp3.wav.wav",
+   "d": 2.96
+  },
+  {
+   "t": "play",
+   "a": 5.6,
+   "b": 7.2,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "tr": "after"
+  },
+  {
+   "t": "freeze",
+   "at": 7.2,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "tr": "after",
+   "card": "c4",
+   "voice": "넷, 노필터. 의심부터 지워요.",
+   "vo": "vo_10.mp3.wav.wav",
+   "d": 3.47
+  },
+  {
+   "t": "play",
+   "a": 7.2,
+   "b": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "tr": "after"
+  },
+  {
+   "t": "freeze",
+   "at": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "tr": "after",
+   "card": "c5",
+   "voice": "다섯, 전후 같은 앵글. 한눈에 비교돼요.",
+   "vo": "vo_12.mp3.wav.wav",
+   "d": 3.8
+  },
+  {
+   "t": "freeze",
+   "at": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "tr": "after",
+   "card": "c6",
+   "voice": "제품 하나, 30일, 같은 앵글, 노필터. 댓글에 아카데미 남기면 소싱 리스트 보내드려요.",
+   "vo": "vo_13.mp3.wav.wav",
+   "d": 7.35
+  }
+ ]
+}

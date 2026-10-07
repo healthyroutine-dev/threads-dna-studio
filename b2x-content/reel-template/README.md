@@ -17,3 +17,11 @@
 5. `node render2.mjs && python3 build2.py`
 
 v1(`panel.html`·`render.mjs`·`build.sh`)은 원본을 아래로 내리고 위에 패널을 두는 이전 방식.
+
+## v3: 더빙 (현재 기본)
+
+- `plan.json`의 카드마다 `voice`(한국어 내레이션 문장)를 넣는다.
+- `tts.py`: 무료 엣지 TTS(`ko-KR-SunHiNeural`)로 음성 생성. 정식본은 채원 대표 녹음으로 바꾼다.
+- `build3.py`: 음성 생성 → 앞뒤 무음 제거 → 말 길이에 맞춰 정지 시간 결정 → 오버레이 렌더 → 영상 합성 → 음성 믹스까지 한 번에.
+- 헤더는 검정 배경(높이 540)으로 영상 위를 덮는다. 정지 카드는 헤더 아래 영역에 뜬다.
+- 실행: `python3 build3.py` (`pip install edge-tts`, 폰트 woff2 필요)
