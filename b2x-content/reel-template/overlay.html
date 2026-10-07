@@ -28,6 +28,7 @@ html,body{width:1080px;height:1920px;background:transparent;color:#fff;font-fami
 .card .l1 span{background:rgba(0,0,0,.72);padding:3px 12px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .card .l2{display:none}
 .cta{display:none!important}
+.handle{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-weight:700;font-size:30px;color:#fff;-webkit-text-stroke:6px rgba(0,0,0,.85);paint-order:stroke fill}
 </style></head><body>
 <div class="dim" id="dim" style="display:none"></div>
 <div class="head">
@@ -36,11 +37,13 @@ html,body{width:1080px;height:1920px;background:transparent;color:#fff;font-fami
  <div class="chips" id="chips"></div>
  <div class="tr"><small>TEXTO ORIGINAL · TRADUCCIÓN</small><p id="tr"></p></div>
 </div>
+<p class="handle" id="handle"></p>
 <div class="card" id="card" style="display:none"><p class="n" id="n"></p><h2 id="h"></h2><p class="l1" id="l1"></p><p class="l2" id="l2"></p><div class="cta" id="cta" style="display:none"></div></div>
 <script>
 const L=["PROBLEMA","3 PALABRAS","30 DÍAS","SIN FILTRO","MISMO ÁNGULO"];
 const TR={before:"Sin filtro · Antes del skincare coreano<br>Rojez, melasma, arrugas",after:"Sin filtro · 30 días después del skincare coreano"};
 function render(s){
+ handle.textContent=s.handle||'';
  chips.innerHTML=L.map((l,i)=>`<div class="chip ${s.lit.includes(i+1)?'on':''}"><i>0${i+1}</i><span>${l}</span></div>`).join('');
  tr.innerHTML=TR[s.tr];
  if(s.card){dim.style.display='block';card.style.display='block';n.textContent=s.card.n;h.innerHTML='<span></span>';h.firstChild.textContent=(s.card.n&&/^\d+$/.test(s.card.n)?s.card.n+' · ':'')+s.card.h;l1.innerHTML='<span></span>';l1.firstChild.textContent=s.card.l1;l2.textContent=s.card.l2;
