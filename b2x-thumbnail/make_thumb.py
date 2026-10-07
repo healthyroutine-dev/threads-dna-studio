@@ -51,6 +51,23 @@ def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def check_fonts(browser):
+    """Pretendard Bold/Regular가 없으면 대체 폰트로 조용히 렌더링되므로 시작 전에 멈춘다."""
+    page = browser.new_page()
+    page.set_content('<style>@font-face{font-family:P4;src:local("Pretendard Regular"),local("Pretendard-Regular")}'
+                     '@font-face{font-family:P7;src:local("Pretendard Bold"),local("Pretendard-Bold")}</style>')
+    missing = page.evaluate("""() => {
+      const w = f => { const s = document.createElement('span'); s.style.font = f; s.textContent = 'Corea ¿Y tú? 0123';
+        document.body.appendChild(s); return s.offsetWidth; };
+      const base = w('40px __none__');
+      return ['P4', 'P7'].filter(f => w(`40px ${f}, __none__`) === base);
+    }""")
+    page.close()
+    if missing:
+        sys.exit("Pretendard 폰트(Bold/Regular)가 설치돼 있지 않습니다. 설치 후 다시 실행하세요: "
+                 "https://github.com/orioncactus/pretendard/releases")
+
+
 def render(spec: dict, browser) -> Path:
     cat = spec["cat"].upper()
     if cat not in COLORS:
@@ -114,6 +131,7 @@ def main():
         if a.chromium and Path(a.chromium).exists():
             launch["executable_path"] = a.chromium
         browser = p.chromium.launch(**launch)
+        check_fonts(browser)
         for s in specs:
             print("saved", render(s, browser))
         browser.close()

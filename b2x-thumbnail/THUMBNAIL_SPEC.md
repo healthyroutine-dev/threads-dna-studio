@@ -69,8 +69,9 @@
 
 ## 4. 폰트
 
-- 1순위 **Pretendard** (Bold 700 / Regular 400) — 한·영·스페인어 모두 깔끔
-- 대체: **NanumSquareRound** → `NanumGothic` → 시스템 sans-serif
+- **Pretendard 필수** (Bold 700 / Regular 400). 대체 폰트 사용 안 함 (2026-10 확정).
+- `make_thumb.py`는 Pretendard가 없으면 렌더링하지 않고 멈춘다. 설치: https://github.com/orioncactus/pretendard/releases
+- 참고: EP.01~24 1차본은 Pretendard 없이 나눔 계열로 렌더링된 것이라 글자 모양이 다르다 (재렌더링 안 함).
 - 스페인어 악센트(á é í ó ú ñ ¿ ¡) 렌더 확인 필수
 
 ---

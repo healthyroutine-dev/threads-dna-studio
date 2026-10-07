@@ -10,5 +10,6 @@ B2X · K-Beauty Influencer Academy 릴스 썸네일(9:16, 1080×1920) 생성 도
 
 ```bash
 pip install playwright pillow && playwright install chromium   # 최초 1회
+# Pretendard Bold/Regular 폰트 설치 필수 (없으면 실행이 멈춤)
 python3 make_thumb.py --batch episodes.json
 ```
