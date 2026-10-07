@@ -191,12 +191,12 @@ vibers 캡션 구조를 따른다.
 
 | EP | 역할 | 링크 | @크리에이터 | 제품 | 조회수 (확인일) | 상태 |
 |---|---|---|---|---|---|---|
-| 09 | 메인 | | | | | |
-| 10 | 메인 | | | | | |
-| 10 | 몽타주 ×2 | | | | | |
-| 11 | 메인 | | | | | |
-| 12 | REF-A (고조회) | | | | | |
-| 12 | REF-B (저조회) | | | | | |
+| 09 | 메인 | https://www.tiktok.com/@justtrendy31/video/7670790859826269453 | @justtrendy31 | medicube 세트 사용법 (85초) | 5,286,599 · 팔로워 대비 45배 (하입덕 10/07) | 후보 |
+| 10 | 메인 | https://www.tiktok.com/@kbeautywithelizabeth/video/7482942231217704238 | @kbeautywithelizabeth | 30일 K-스킨케어 전후 (10초) | 5,357,756 · 57배 (하입덕 10/07) | 후보 |
+| 10 | 몽타주 ×2 | https://www.tiktok.com/@itsedonna/video/7647568358941953301 · https://www.tiktok.com/@skinwithjen/video/7617034685616540948 | @itsedonna · @skinwithjen | 7일 기미 / 7일 토너 | 1,500,219 · 1,757,585 (하입덕 10/07) | 후보 |
+| 11 | 메인 | https://www.tiktok.com/@yunique_kbeauty/video/7643273596109982990 | @yunique_kbeauty | 한국 피부과 의사·약사가 함께 (11초) | 4,094,834 · 24배 (하입덕 10/07) | 후보 |
+| 12 | REF-A (고조회) | https://www.tiktok.com/@kaydabosse/video/7693273932794793247 | @kaydabosse | medicube 라인업 (파트너 영상) | 4,344,552 (하입덕 10/07) | 후보 · 같은 날 같은 브랜드 |
+| 12 | REF-B (저조회) | https://www.tiktok.com/@amb.byrd/video/7693336558832815374 | @amb.byrd | medicube (파트너 영상) | 191,341 (하입덕 10/07) | 후보 · 제품 일치 여부 확인 필요 |
 | 14 | REF-A (유행) | | | | | |
 | 14 | REF-B (스테디) | | | | | |
 | 15 | 메인 | | | | | |
@@ -209,6 +209,19 @@ vibers 캡션 구조를 따른다.
 | 24 | REF-B (미국) | | | | | |
 
 상태: `후보` → `확정` → `확보`(원본 파일 저장) → `편집 완료`
+
+### 추가 후보 (EP09~12, 하입덕 틱톡 검색 2026-10-07)
+
+전체 109개 목록: `research/tiktok_candidates_2026-10-07.csv` (조회수·팔로워·폭발배수·저장·공유·게시일 포함). 조회수는 하입덕 수집값이라 업로드 전 앱에서 다시 확인한다.
+
+| 쓸 곳 | 링크 | 조회수 · 배수 | 메모 |
+|---|---|---|---|
+| EP10 대체 | https://www.tiktok.com/@greta.cos/video/7655433455735524641 | 5,253,928 · 220배 | "glass skin girl" 고백형 반전 훅 |
+| EP11 대체 | https://www.tiktok.com/@kbeautydrx/video/7613564510779002142 | 3,947,968 · 49배 | 강남 약사가 바이럴 브랜드 평가 (46초) |
+| EP11 대체 | https://www.tiktok.com/@mindaylee_/video/7651994027121741074 | 4,746,693 · 3배 | 한국 사는 사람이 보는 올리브영 인기템 |
+| EP11·18 | https://www.tiktok.com/@kpharmacist_steve/video/7668566781891480845 | 2,374,094 · 152배 | 한국 약사의 바이럴 보습제 판정 → EP18 판정 포맷 참고 |
+| EP12 대체 | https://www.tiktok.com/@calllmehelen/video/7655443592177077536 | 1,317,851 · 158배 | medicube PDRN 젤 마스크 11초. 같은 제품 저조회 영상을 짝으로 찾으면 EP12 최적 |
+| EP18 참고 | https://www.tiktok.com/@drjennyliu/video/7587041392862563598 | 1,041,404 | Jenny Liu MD 점수 매기기 포맷 (기획 레퍼런스 시트에 있던 그 계정) |
 
 ## 6. 저작권·운영 원칙
 
