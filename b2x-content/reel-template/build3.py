@@ -1,5 +1,7 @@
 import json,subprocess
 plan=json.load(open('plan.json'))
+# 영상 세로 위치(px): 0=원본 그대로, 음수=위로, 양수=아래로. 헤더(0~575)에 가릴 부분과 하단 UI(약 1650~)를 보고 영상마다 정한다
+VY=int(plan.get('video_y',0))
 SRC='src_7482942231217704238.mp4'; VOICE='ko-KR-SunHiNeural'; RATE='+15%'
 dur=lambda f: float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f],capture_output=True,text=True).stdout)
 # 1) voice lines -> freeze durations
@@ -19,9 +21,9 @@ parts=[];t=0;cues=[]
 for i,s in enumerate(plan['segs']):
     ov=f'ov_{i:02d}.png'; out=f'seg_{i:02d}.mp4'
     if s['t']=='play':
-        cmd=['ffmpeg','-v','error','-y','-ss',str(s['a']),'-to',str(s['b']),'-i',SRC,'-i',ov,'-filter_complex','[0:v]fps=30,scale=1080:1920,crop=1080:1380:0:270,pad=1080:1920:0:540:black,setsar=1[v];[v][1:v]overlay=0:0[o]','-map','[o]']+enc+[out]
+        cmd=['ffmpeg','-v','error','-y','-ss',str(s['a']),'-to',str(s['b']),'-i',SRC,'-i',ov,'-filter_complex','[0:v]fps=30,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:'+str(VY)+'[v];[v][1:v]overlay=0:0[o]','-map','[o]']+enc+[out]
     else:
-        cmd=['ffmpeg','-v','error','-y','-ss',str(s['at']),'-i',SRC,'-i',ov,'-filter_complex',f"[0:v]trim=end_frame=1,scale=1080:1920,crop=1080:1380:0:270,pad=1080:1920:0:540:black,setsar=1,loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
+        cmd=['ffmpeg','-v','error','-y','-ss',str(s['at']),'-i',SRC,'-i',ov,'-filter_complex',f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
     subprocess.run(cmd,check=True); parts.append(out)
     if s.get('vo'): cues.append((s['vo'],t+0.15))
     t+=dur(out)
