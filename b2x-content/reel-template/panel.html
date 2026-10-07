@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:P;src:url(Pretendard-Medium.woff2);font-weight:500}
+@font-face{font-family:P;src:url(Pretendard-Bold.woff2);font-weight:700}
+@font-face{font-family:P;src:url(Pretendard-ExtraBold.woff2);font-weight:800}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:640px;background:#0D0D0F;color:#fff;font-family:P,sans-serif;overflow:hidden}
+.wrap{position:absolute;inset:0;padding:112px 56px 0}
+.top{display:flex;align-items:center;gap:16px}
+.brand{font-weight:800;font-size:26px;letter-spacing:2px;background:#fff;color:#0D0D0F;border-radius:8px;padding:4px 12px}
+.series{font-weight:800;font-size:44px;letter-spacing:-.5px}
+.series b{color:#FF4F8B;font-weight:800;margin-left:10px}
+.meta{margin-top:10px;font-weight:500;font-size:24px;color:#A7A7AD}
+.chips{margin-top:26px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.chip{border:2px solid #34343A;border-radius:14px;padding:10px 12px;color:#6E6E76;background:#16161A}
+.chip i{display:block;font-style:normal;font-weight:800;font-size:18px;letter-spacing:1px}
+.chip span{display:block;font-weight:700;font-size:25px;margin-top:2px;white-space:nowrap}
+.chip.on{border-color:#FF4F8B;background:#FF4F8B;color:#fff;box-shadow:0 6px 22px rgba(255,79,139,.45)}
+.chip.on i{color:#FFE3EC}
+.a{margin-top:28px}
+.a1{font-weight:800;font-size:38px;line-height:1.25;letter-spacing:-.5px}
+.a2{font-weight:500;font-size:29px;color:#D0D0D6;margin-top:6px}
+.t{position:absolute;left:56px;right:56px;bottom:22px;border-left:5px solid #FF4F8B;padding:4px 0 4px 16px}
+.t small{display:block;font-weight:700;font-size:18px;letter-spacing:1px;color:#8A8A92}
+.t p{font-weight:700;font-size:28px;color:#fff}
+.cta{position:absolute;left:56px;right:56px;bottom:22px;background:#FF4F8B;border-radius:14px;padding:14px 20px;font-weight:800;font-size:30px;text-align:center}
+</style></head><body><div class="wrap">
+<div class="top"><span class="brand">B2X</span><span class="series">K-Beauty que vende<b>001/100</b></span></div>
+<p class="meta">@kbeautywithelizabeth · 536만 조회 · 팔로워의 57배 · 10초</p>
+<div class="chips" id="chips"></div>
+<div class="a"><p class="a1" id="a1"></p><p class="a2" id="a2"></p></div>
+<div class="t" id="t"><small>원본 자막 · 번역</small><p id="t1"></p><p id="t2" style="font-size:24px;color:#CFCFD4"></p></div>
+<div class="cta" id="cta" style="display:none">분석 더 보기 → 댓글에 ACADEMY</div>
+</div>
+<script>
+const L=["문제 먼저","고민 3단어","30일 숫자","노필터","같은 정면"];
+function render(s){
+ document.getElementById('chips').innerHTML=L.map((l,i)=>`<div class="chip ${s.lit.includes(i+1)?'on':''}"><i>0${i+1}</i><span>${l}</span></div>`).join('');
+ a1.textContent=s.a1;a2.textContent=s.a2;
+ if(s.cta){t.style.display='none';cta.style.display='block'}else{t1.textContent=s.t1;t2.textContent=s.t2}
+}
+</script></body></html>
