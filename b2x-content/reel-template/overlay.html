@@ -19,13 +19,15 @@ html,body{width:1080px;height:1920px;background:transparent;color:#fff;font-fami
 .tr{margin-top:22px;border-left:6px solid #FF4F8B;padding:2px 0 2px 16px}
 .tr small{display:block;font-weight:800;font-size:22px;letter-spacing:1.5px;color:#FF9DBE}
 .tr p{font-weight:700;font-size:34px;line-height:1.3}
-.dim{position:absolute;left:0;right:0;top:575px;bottom:0;background:linear-gradient(rgba(0,0,0,0) 0%,rgba(0,0,0,.15) 45%,rgba(0,0,0,.7) 100%)}
-.card{position:absolute;left:60px;right:60px;bottom:330px;background:rgba(13,13,15,.92);border:3px solid #FF4F8B;border-radius:28px;padding:44px 46px 48px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.card .n{font-weight:800;font-size:30px;color:#FF4F8B;letter-spacing:2px}
-.card h2{font-weight:800;font-size:66px;line-height:1.05;margin-top:6px;letter-spacing:-1px}
-.card .l1{font-weight:800;font-size:44px;line-height:1.25;margin-top:26px;letter-spacing:-.5px}
-.card .l2{font-weight:500;font-size:36px;line-height:1.35;margin-top:16px;color:#D8D8DE}
-.cta{margin-top:32px;background:#FF4F8B;border-radius:16px;padding:20px 24px;font-weight:800;font-size:36px;line-height:1.25;text-align:center}
+.dim{position:absolute;left:0;right:0;top:575px;bottom:0;background:transparent}
+.card{position:absolute;left:48px;right:48px;top:600px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.card .n{display:none}
+.card h2{font-weight:800;font-size:40px;line-height:1.15;letter-spacing:-.5px}
+.card h2 span{background:#FF4F8B;color:#fff;padding:4px 14px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.card .l1{display:none;font-weight:700;font-size:34px;line-height:1.5;max-width:900px}
+.card .l1 span{background:rgba(0,0,0,.72);padding:3px 12px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.card .l2{display:none}
+.cta{display:none!important}
 </style></head><body>
 <div class="dim" id="dim" style="display:none"></div>
 <div class="head">
@@ -41,7 +43,7 @@ const TR={before:"Sin filtro · Antes del skincare coreano<br>Rojez, melasma, ar
 function render(s){
  chips.innerHTML=L.map((l,i)=>`<div class="chip ${s.lit.includes(i+1)?'on':''}"><i>0${i+1}</i><span>${l}</span></div>`).join('');
  tr.innerHTML=TR[s.tr];
- if(s.card){dim.style.display='block';card.style.display='block';n.textContent=s.card.n;h.textContent=s.card.h;l1.textContent=s.card.l1;l2.textContent=s.card.l2;
+ if(s.card){dim.style.display='block';card.style.display='block';n.textContent=s.card.n;h.innerHTML='<span></span>';h.firstChild.textContent=(s.card.n&&/^\d+$/.test(s.card.n)?s.card.n+' · ':'')+s.card.h;l1.innerHTML='<span></span>';l1.firstChild.textContent=s.card.l1;l2.textContent=s.card.l2;
   if(s.card.cta){cta.style.display='block';cta.textContent=s.card.cta}}
 }
 </script></body></html>

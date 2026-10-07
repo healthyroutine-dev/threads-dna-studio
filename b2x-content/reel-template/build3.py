@@ -17,7 +17,7 @@ json.dump(plan,open('plan.json','w'),ensure_ascii=False,indent=1)
 subprocess.run(['node','render2.mjs'],check=True)
 # 3) video segments
 enc=['-c:v','libx264','-pix_fmt','yuv420p','-crf','20','-preset','medium','-r','30','-an']
-parts=[];t=0;cues=[]
+parts=[];t=0;cues=[];subs=[]
 for i,s in enumerate(plan['segs']):
     ov=f'ov_{i:02d}.png'; out=f'seg_{i:02d}.mp4'
     if s['t']=='play':
@@ -25,10 +25,22 @@ for i,s in enumerate(plan['segs']):
     else:
         cmd=['ffmpeg','-v','error','-y','-ss',str(s['at']),'-i',SRC,'-i',ov,'-filter_complex',f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
     subprocess.run(cmd,check=True); parts.append(out)
-    if s.get('vo'): cues.append((s['vo'],t+0.15))
+    if s.get('vo'): cues.append((s['vo'],t+0.15)); subs.append((s['sub'],t+0.15,dur(s['vo'])))
     t+=dur(out)
 open('list.txt','w').write(''.join(f"file '{p}'\n" for p in parts))
-subprocess.run(['ffmpeg','-v','error','-y','-f','concat','-safe','0','-i','list.txt','-c','copy','video_only.mp4'],check=True)
+subprocess.run(['ffmpeg','-v','error','-y','-f','concat','-safe','0','-i','list.txt','-c','copy','video_nosub.mp4'],check=True)
+# 3b) Spanish subtitles of the narration, chunked by '|' and timed by length
+chunks=[]
+for text,st,d in subs:
+    parts_=[x.strip() for x in text.split('|')]; tot=sum(len(x) for x in parts_); c=st
+    for x in parts_:
+        dd=d*len(x)/tot; chunks.append((x,c,c+dd)); c+=dd
+json.dump([c[0] for c in chunks],open('subs.json','w'),ensure_ascii=False)
+subprocess.run(['node','render_subs.mjs'],check=True)
+ins=['-i','video_nosub.mp4'];fl=[];prev='0:v'
+for k,(x,a,e) in enumerate(chunks):
+    ins+=['-i',f'sub_{k:02d}.png']; fl.append(f"[{prev}][{k+1}:v]overlay=0:0:enable='between(t,{a:.2f},{e:.2f})'[s{k}]"); prev=f's{k}'
+subprocess.run(['ffmpeg','-v','error','-y']+ins+['-filter_complex',';'.join(fl),'-map',f'[{prev}]','-c:v','libx264','-pix_fmt','yuv420p','-crf','20','-preset','medium','video_only.mp4'],check=True)
 # 4) voice track
 ins=[];fl=[]
 for k,(f,st) in enumerate(cues):

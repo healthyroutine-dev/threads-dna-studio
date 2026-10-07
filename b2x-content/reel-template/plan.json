@@ -33,7 +33,7 @@
   "c6": {
    "n": "PARA VENDER",
    "h": "LA FÓRMULA",
-   "l1": "1 producto · 30 días · mismo ángulo · sin filtro.",
+   "l1": "1 producto · 30 días · mismo ángulo · sin filtro",
    "l2": "Úsala tal cual con el producto que vendes.",
    "cta": "Comenta ACADEMY y te mando la lista de sourcing de esta semana."
   },
@@ -59,6 +59,7 @@
    "tr": "before",
    "card": "c0",
    "voice": "케이뷰티 아카데미 원장, 채원이에요. 536만 뷰, 비결은 다섯 개예요.",
+   "sub": "Soy Chaewon, directora de K-Beauty Academy. | 5,36 M de vistas: cinco claves.",
    "vo": "vo_01.mp3.wav.wav",
    "d": 6.16
   },
@@ -78,6 +79,7 @@
    "tr": "before",
    "card": "c1",
    "voice": "하나, 1초부터 문제 피부를 정면으로.",
+   "sub": "Uno: piel con problemas, | de frente, desde el segundo 1.",
    "vo": "vo_03.mp3.wav.wav",
    "d": 2.86
   },
@@ -100,6 +102,7 @@
    "tr": "before",
    "card": "c2",
    "voice": "둘, 홍조, 기미, 주름. 고민을 세 단어로.",
+   "sub": "Dos: rojez, melasma, arrugas. | El problema en tres palabras.",
    "vo": "vo_05.mp3.wav.wav",
    "d": 4.84
   },
@@ -134,6 +137,7 @@
    "tr": "after",
    "card": "c3",
    "voice": "셋, 30일. 따라 할 수 있는 숫자.",
+   "sub": "Tres: 30 días. | Un número que puedes copiar.",
    "vo": "vo_08.mp3.wav.wav",
    "d": 2.96
   },
@@ -160,6 +164,7 @@
    "tr": "after",
    "card": "c4",
    "voice": "넷, 노필터. 의심부터 지워요.",
+   "sub": "Cuatro: sin filtro. | Primero quita la duda.",
    "vo": "vo_10.mp3.wav.wav",
    "d": 3.47
   },
@@ -188,6 +193,7 @@
    "tr": "after",
    "card": "c5",
    "voice": "다섯, 전후 같은 앵글. 한눈에 비교돼요.",
+   "sub": "Cinco: mismo ángulo antes y después. | Se compara de un vistazo.",
    "vo": "vo_12.mp3.wav.wav",
    "d": 3.8
   },
@@ -204,6 +210,7 @@
    "tr": "after",
    "card": "c6",
    "voice": "제품 하나, 30일, 같은 앵글, 노필터. 댓글에 아카데미 남기면 소싱 리스트 보내드려요.",
+   "sub": "Un producto, 30 días, mismo ángulo, sin filtro. | Comenta ACADEMY | y te mando la lista de sourcing.",
    "vo": "vo_13.mp3.wav.wav",
    "d": 7.35
   }
