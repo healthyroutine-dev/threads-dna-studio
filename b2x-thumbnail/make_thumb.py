@@ -19,18 +19,18 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
 .bg{{position:absolute;inset:0;background:url({bg}) center top/cover no-repeat}}
 .ov{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 45%)}}
 .academy{{position:absolute;left:0;right:0;top:278px;transform:translateY(-100%);text-align:center;
-  font-weight:700;font-size:27px;letter-spacing:6px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
-.card{{position:absolute;left:76px;width:928px;top:326px;box-sizing:border-box;background:#0D0D0D;border-radius:14px;
-  padding:26px 30px 28px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
-.bar{{position:absolute;left:0;top:0;bottom:0;width:10px;border-radius:14px 0 0 14px;background:{color}}}
-.label{{font-weight:700;font-size:21px;letter-spacing:3.5px;color:#BDBDBD;text-transform:uppercase}}
-.title{{font-weight:700;font-size:64px;line-height:1.12;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;
+  font-weight:700;font-size:39px;letter-spacing:8px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
+.card{{position:absolute;left:76px;width:928px;top:326px;box-sizing:border-box;background:#0D0D0D;border-radius:26px;
+  padding:40px 46px 42px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
+.bar{{position:absolute;left:0;top:0;bottom:0;width:13px;border-radius:26px 0 0 26px;background:{color}}}
+.label{{font-weight:700;font-size:36px;letter-spacing:6px;color:#BDBDBD;text-transform:uppercase}}
+.title{{font-weight:700;font-size:85px;line-height:1.08;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;
   -webkit-box-orient:vertical;overflow:hidden}}
-.sub{{font-weight:400;font-size:27px;color:#9A9A9A;margin-top:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
-.pip{{position:absolute;right:43px;bottom:336px;width:346px;height:346px;border-radius:50%;border:6px solid #fff;
+.sub{{font-weight:400;font-size:39px;color:#9A9A9A;margin-top:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+.pip{{position:absolute;right:43px;bottom:336px;width:346px;height:346px;border-radius:50%;border:16px solid #fff;
   box-sizing:border-box;background:url({pip}) center/cover;box-shadow:0 12px 32px rgba(0,0,0,.5)}}
 .brand{{position:absolute;left:0;right:0;top:1824px;transform:translateY(-50%);text-align:center;
-  font-weight:700;font-size:27px;letter-spacing:7px;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
+  font-weight:700;font-size:43px;letter-spacing:9px;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
 </style></head><body>
 <div class="bg"></div><div class="ov"></div>
 <div class="academy">{academy}</div>
