@@ -1,6 +1,6 @@
 <title>근황 썸네일 스튜디오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Myeongjo:wght@700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <style>
 /* Layout: 1280×720 canvas preview on the left, layered controls (배경 → 인물 → 텍스트 → 효과) on the right; stacks on phones. */
 :root{
@@ -118,18 +118,24 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
     <details open>
       <summary>③ 텍스트</summary>
       <div class="fields">
-        <label>훅 문구 (손글씨, 속마음) <input type="text" id="tKick" value="사업 다 말아먹은 썰…"></label>
+        <label>훅 문구 (속마음 한 줄) <input type="text" id="tKick" value="사업 다 말아먹은 썰…"></label>
         <label>윗줄 (상황 / 맥락) <input type="text" id="tTop" value="공기업 퇴사 후 2년 반"></label>
         <label>메인 (가장 크게, 감정 단어) <input type="text" id="tMain" value="솔직 근황"></label>
         <label>배지 (선택, 숫자나 결과) <input type="text" id="tBadge" value=""></label>
         <div class="two">
-          <label>메인 색 <input type="color" id="cMain" value="#ffd400"></label>
-          <label>강조 박스 <select id="mainStyle">
-            <option value="stroke">외곽선</option>
+          <label>메인 색 <input type="color" id="cMain" value="#f2c94c"></label>
+          <label>메인 강조 <select id="mainStyle">
+            <option value="none">글자색만</option>
+            <option value="marker">형광펜 밑줄</option>
             <option value="box">색 박스</option>
-            <option value="none">그림자만</option>
+            <option value="stroke">외곽선</option>
           </select></label>
         </div>
+        <label>글꼴 스타일 <select id="fontStyle">
+          <option value="modern">모던 고딕 (인터뷰·브랜드 채널)</option>
+          <option value="editorial">에디토리얼 명조 (고백·에세이)</option>
+          <option value="variety">예능 자막 (강한 자극)</option>
+        </select></label>
         <label>메인 글자 크기 <input type="range" id="mainSize" min="90" max="240" value="170"></label>
         <label>텍스트 정렬 <select id="align">
           <option value="left">왼쪽 (인물 오른쪽)</option>
@@ -174,14 +180,16 @@ const $ = id => document.getElementById(id);
 const toast = m => { $('toast').textContent = m; clearTimeout(toast.t); toast.t = setTimeout(() => $('toast').textContent = '', 3500); };
 
 let bgImg = null, pImg = null;
-const controls = ['bgBright','bgBlur','bgC1','bgC2','pX','pS','pFlip','pRim','tKick','tTop','tMain','tBadge','cMain','mainStyle','mainSize','align','vig','safe','grid'];
+const controls = ['bgBright','bgBlur','bgC1','bgC2','pX','pS','pFlip','pRim','tKick','tTop','tMain','tBadge','cMain','fontStyle','mainStyle','mainSize','align','vig','safe','grid'];
 let pY = 100; // person bottom anchor in % of height (100 = touches bottom)
 
 const PRESETS = [
-  { name:'근황 고백형', desc:'상황 + 감정 한 단어', v:{ tKick:'사업 다 말아먹은 썰…', tTop:'공기업 퇴사 후 2년 반', tMain:'솔직 근황', tBadge:'', cMain:'#ffd400', mainStyle:'stroke', mainSize:170, align:'left', pX:74, pS:112, pFlip:false } },
-  { name:'대비 충돌형', desc:'안정 vs 위험을 맞붙이기', v:{ tKick:'후회하냐고요?', tTop:'연봉 6천 공기업 → 사업', tMain:'결과는', tBadge:'?', cMain:'#ff4d3a', mainStyle:'box', mainSize:180, align:'left', pX:76, pS:112, pFlip:false } },
-  { name:'숫자 결과형', desc:'숫자 하나로 궁금증', v:{ tKick:'아무도 안 알려준 현실', tTop:'퇴사 2년 반, 통장 잔고', tMain:'-7,000만', tBadge:'', cMain:'#ffffff', mainStyle:'stroke', mainSize:150, align:'left', pX:76, pS:110, pFlip:false } },
-  { name:'인물 왼쪽형', desc:'얼굴이 글자 쪽을 보게', v:{ tKick:'이제야 말할 수 있다', tTop:'공기업 그만두고 깨달은 것', tMain:'딱 3가지', tBadge:'', cMain:'#7cf2c4', mainStyle:'stroke', mainSize:170, align:'right', pX:24, pS:112, pFlip:true } },
+  { name:'근황 고백형', desc:'상황 + 감정 한 단어', v:{ tKick:'사업 다 말아먹은 썰', tTop:'공기업 퇴사 후 2년 반', tMain:'솔직 근황', tBadge:'', cMain:'#f2c94c', fontStyle:'modern', mainStyle:'marker', mainSize:176, align:'left', pX:74, pS:112, pFlip:false } },
+  { name:'에세이 고백형', desc:'명조로 담담하게', v:{ tKick:'사업 다 말아먹고 알게 된 것', tTop:'공기업 퇴사 후 2년 반', tMain:'솔직한 근황', tBadge:'', cMain:'#ffffff', fontStyle:'editorial', mainStyle:'none', mainSize:150, align:'left', pX:74, pS:112, pFlip:false } },
+  { name:'대비 충돌형', desc:'안정 vs 위험을 맞붙이기', v:{ tKick:'후회하냐고요?', tTop:'연봉 6천 공기업 → 사업', tMain:'결과는', tBadge:'?', cMain:'#ff5a3c', fontStyle:'modern', mainStyle:'none', mainSize:190, align:'left', pX:76, pS:112, pFlip:false } },
+  { name:'숫자 결과형', desc:'숫자 하나로 궁금증', v:{ tKick:'아무도 안 알려준 현실', tTop:'퇴사 2년 반, 통장 잔고', tMain:'-7,000만', tBadge:'', cMain:'#ffffff', fontStyle:'modern', mainStyle:'none', mainSize:160, align:'left', pX:76, pS:110, pFlip:false } },
+  { name:'인물 왼쪽형', desc:'얼굴이 글자 쪽을 보게', v:{ tKick:'이제야 말할 수 있다', tTop:'공기업 그만두고 깨달은 것', tMain:'딱 3가지', tBadge:'', cMain:'#7cdcb4', fontStyle:'modern', mainStyle:'marker', mainSize:180, align:'right', pX:24, pS:112, pFlip:true } },
+  { name:'예능 자막형', desc:'기존 스타일 (비교용)', v:{ tKick:'사업 다 말아먹은 썰…', tTop:'공기업 퇴사 후 2년 반', tMain:'솔직 근황', tBadge:'', cMain:'#ffd400', fontStyle:'variety', mainStyle:'stroke', mainSize:170, align:'left', pX:74, pS:112, pFlip:false } },
 ];
 
 // ---------- state <-> controls ----------
@@ -280,71 +288,96 @@ function render(target = ctx, opts = {}){
   if (!opts.noGuides){ mctx.clearRect(0,0,mini.width,mini.height); mctx.drawImage(cv,0,0,mini.width,mini.height); }
 }
 
+// Type systems. "modern" = tight heavy gothic + soft shadow (EO / 인터뷰 채널 톤),
+// "editorial" = 명조 headline, "variety" = 예능 자막 (the old look, kept for contrast).
+const TYPE = {
+  modern:   { main:['900','"Noto Sans KR"',-.05], top:['700','"Noto Sans KR"',-.03], kick:['500','"Noto Sans KR"',-.01], kickStyle:'bar' },
+  editorial:{ main:['800','"Nanum Myeongjo"',-.04], top:['500','"Noto Sans KR"',-.02], kick:['700','"Nanum Myeongjo"',-.01], kickStyle:'quote' },
+  variety:  { main:['400','"Black Han Sans"',0], top:['400','"Black Han Sans"',0], kick:['400','"Nanum Pen Script"',0], kickStyle:'tag' },
+};
+function setFont([w,f,ls], size){ ctx.font = `${w} ${size}px ${f}`; if ('letterSpacing' in ctx) ctx.letterSpacing = `${(ls*size).toFixed(1)}px`; }
+function fitSpec(text, spec, maxSize, maxW){ let z = maxSize; setFont(spec, z); while (ctx.measureText(text).width > maxW && z > 20){ z -= 4; setFont(spec, z); } return z; }
+function softShadow(blur, a, y){ ctx.shadowColor = `rgba(0,0,0,${a})`; ctx.shadowBlur = blur; ctx.shadowOffsetY = y; }
+function noShadow(){ ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0; }
+
 function drawText(s){
-  const M = 64;
-  const textW = s.align === 'center' ? W - M*2 : W * .62 - M;
+  const T = TYPE[s.fontStyle] || TYPE.modern, variety = s.fontStyle === 'variety';
+  const M = 72;
+  const textW = s.align === 'center' ? W - M*2 : W * .6 - M;
   const x = s.align === 'right' ? W - M : s.align === 'center' ? W/2 : M;
   ctx.textAlign = s.align; ctx.textBaseline = 'alphabetic';
 
-  // main line
-  const mainSize = s.tMain ? fitFont(s.tMain, '"Black Han Sans"', 400, s.mainSize, textW) : 0;
-  const mainBase = H - 70;
-  // top line
-  const topSize = s.tTop ? fitFont(s.tTop, '"Black Han Sans"', 400, Math.round(mainSize * .5) || 80, textW) : 0;
-  const topBase = mainBase - mainSize * .98 - (s.mainStyle === 'box' ? 26 : 10);
+  const mainSize = s.tMain ? fitSpec(s.tMain, T.main, s.mainSize, textW) : 0;
+  const mainBase = H - 78;
+  const topSize = s.tTop ? fitSpec(s.tTop, T.top, Math.round((mainSize || 160) * (variety ? .5 : .36)), textW) : 0;
+  const topBase = mainBase - mainSize * (variety ? .98 : .92) - (s.mainStyle === 'box' ? 30 : 14);
 
   if (s.tTop){
-    ctx.font = `400 ${topSize}px "Black Han Sans"`;
-    ctx.lineJoin = 'round'; ctx.lineWidth = topSize * .16; ctx.strokeStyle = 'rgba(0,0,0,.9)';
-    ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6;
-    ctx.strokeText(s.tTop, x, topBase); ctx.shadowColor = 'transparent';
-    ctx.fillStyle = '#ffffff'; ctx.fillText(s.tTop, x, topBase);
+    setFont(T.top, topSize);
+    if (variety){ ctx.lineJoin='round'; ctx.lineWidth = topSize*.16; ctx.strokeStyle='rgba(0,0,0,.9)'; softShadow(18,.6,6); ctx.strokeText(s.tTop, x, topBase); noShadow(); }
+    else softShadow(24,.55,2);
+    ctx.fillStyle = variety ? '#ffffff' : 'rgba(255,255,255,.92)'; ctx.fillText(s.tTop, x, topBase); noShadow();
   }
 
   if (s.tMain){
-    ctx.font = `400 ${mainSize}px "Black Han Sans"`;
+    setFont(T.main, mainSize);
     const mw = ctx.measureText(s.tMain).width;
     const left = s.align === 'right' ? x - mw : s.align === 'center' ? x - mw/2 : x;
     if (s.mainStyle === 'box'){
-      ctx.save(); ctx.fillStyle = s.cMain; ctx.shadowColor='rgba(0,0,0,.5)'; ctx.shadowBlur=24; ctx.shadowOffsetY=8;
-      ctx.translate(left + mw/2, mainBase - mainSize*.36); ctx.rotate(-0.02);
-      roundRect(-mw/2 - 26, -mainSize*.58, mw + 52, mainSize*1.08, 14); ctx.fill(); ctx.restore();
+      ctx.save(); ctx.fillStyle = s.cMain; softShadow(30,.35,8);
+      ctx.translate(left + mw/2, mainBase - mainSize*.36); if (variety) ctx.rotate(-0.02);
+      const r = variety ? 14 : 4; roundRect(-mw/2 - 28, -mainSize*.6, mw + 56, mainSize*1.1, r); ctx.fill(); ctx.restore();
       ctx.fillStyle = idealInk(s.cMain); ctx.fillText(s.tMain, x, mainBase);
+    } else if (s.mainStyle === 'marker'){
+      // highlighter swipe under the lower part of the letters
+      ctx.save(); ctx.fillStyle = s.cMain; ctx.globalAlpha = .92;
+      ctx.fillRect(left - 10, mainBase - mainSize*.34, mw + 20, mainSize*.3); ctx.restore();
+      softShadow(36,.45,4); ctx.fillStyle = '#ffffff'; ctx.fillText(s.tMain, x, mainBase); noShadow();
+    } else if (s.mainStyle === 'stroke'){
+      ctx.lineJoin = 'round'; ctx.lineWidth = mainSize * (variety ? .2 : .08); ctx.strokeStyle = variety ? '#000' : 'rgba(0,0,0,.85)';
+      softShadow(26,.7,10); ctx.strokeText(s.tMain, x, mainBase); noShadow();
+      ctx.fillStyle = s.cMain; ctx.fillText(s.tMain, x, mainBase);
     } else {
-      ctx.lineJoin = 'round';
-      if (s.mainStyle === 'stroke'){
-        ctx.lineWidth = mainSize * .2; ctx.strokeStyle = '#000';
-        ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 10;
-        ctx.strokeText(s.tMain, x, mainBase); ctx.shadowColor = 'transparent';
-      } else { ctx.shadowColor = 'rgba(0,0,0,.85)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 8; }
-      ctx.fillStyle = s.cMain; ctx.fillText(s.tMain, x, mainBase); ctx.shadowColor = 'transparent';
+      softShadow(40,.5,4); ctx.fillStyle = s.cMain; ctx.fillText(s.tMain, x, mainBase); noShadow();
     }
-    // badge (e.g. "?" or a number) after the main line
     if (s.tBadge){
-      const bs = mainSize * .62; ctx.save(); ctx.font = `400 ${bs}px "Black Han Sans"`;
+      const bs = mainSize * .55; ctx.save(); setFont(T.main, bs);
       const bw = Math.max(ctx.measureText(s.tBadge).width + bs*.5, bs*1.05);
-      const bx = s.align === 'right' ? left - bw - 22 : left + mw + 22, by = mainBase - mainSize*.82;
-      ctx.translate(bx + bw/2, by + bs*.55); ctx.rotate(0.12);
-      ctx.fillStyle = '#ffffff'; ctx.shadowColor='rgba(0,0,0,.5)'; ctx.shadowBlur=20;
-      roundRect(-bw/2, -bs*.6, bw, bs*1.2, bs*.6); ctx.fill(); ctx.shadowColor='transparent';
-      ctx.fillStyle = '#e8261b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tBadge, 0, bs*.04);
+      const bx = s.align === 'right' ? left - bw - 24 : left + mw + 24, by = mainBase - mainSize*.8;
+      ctx.translate(bx + bw/2, by + bs*.55); if (variety) ctx.rotate(0.12);
+      ctx.fillStyle = variety ? '#ffffff' : s.cMain; softShadow(20,.35,4);
+      roundRect(-bw/2, -bs*.6, bw, bs*1.2, variety ? bs*.6 : 6); ctx.fill(); noShadow();
+      ctx.fillStyle = variety ? '#e8261b' : idealInk(s.cMain); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tBadge, 0, bs*.04);
       ctx.restore(); ctx.textAlign = s.align; ctx.textBaseline = 'alphabetic';
     }
   }
 
-  // kicker: handwritten inner voice, tilted, on a soft white tag above the copy
   if (s.tKick){
-    const ks = fitFont(s.tKick, '"Nanum Pen Script"', 400, 74, textW * .8);
-    ctx.save(); ctx.font = `400 ${ks}px "Nanum Pen Script"`;
-    const kw = ctx.measureText(s.tKick).width;
-    const ky = (s.tTop ? topBase - topSize : mainBase - mainSize) - 40;
-    const kx = s.align === 'right' ? x - kw/2 - 20 : s.align === 'center' ? x : x + kw/2 + 20;
-    ctx.translate(kx, ky); ctx.rotate(s.align === 'right' ? 0.06 : -0.06);
-    ctx.fillStyle = 'rgba(255,255,255,.94)'; ctx.shadowColor='rgba(0,0,0,.35)'; ctx.shadowBlur=16; ctx.shadowOffsetY=6;
-    roundRect(-kw/2 - 24, -ks*.62, kw + 48, ks*1.15, ks*.5); ctx.fill(); ctx.shadowColor='transparent';
-    ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tKick, 0, ks*.02);
-    ctx.restore();
+    const above = (s.tTop ? topBase - topSize : mainBase - mainSize);
+    ctx.save();
+    if (T.kickStyle === 'tag'){
+      const ks = fitSpec(s.tKick, T.kick, 74, textW * .8); setFont(T.kick, ks);
+      const kw = ctx.measureText(s.tKick).width, ky = above - 40;
+      const kx = s.align === 'right' ? x - kw/2 - 20 : s.align === 'center' ? x : x + kw/2 + 20;
+      ctx.translate(kx, ky); ctx.rotate(s.align === 'right' ? 0.06 : -0.06);
+      ctx.fillStyle = 'rgba(255,255,255,.94)'; softShadow(16,.35,6);
+      roundRect(-kw/2 - 24, -ks*.62, kw + 48, ks*1.15, ks*.5); ctx.fill(); noShadow();
+      ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tKick, 0, ks*.02);
+    } else {
+      const txt = T.kickStyle === 'quote' ? `“${s.tKick}”` : s.tKick;
+      const ks = fitSpec(txt, T.kick, 40, textW * .9); setFont(T.kick, ks);
+      const ky = above - 30; softShadow(18,.6,2);
+      if (T.kickStyle === 'bar'){
+        // short accent rule before the line, like a lower-third label
+        const kw = ctx.measureText(txt).width, bar = 34, gap = 14;
+        const start = s.align === 'right' ? x - kw - bar - gap : s.align === 'center' ? x - (kw + bar + gap)/2 : x;
+        ctx.fillStyle = s.cMain; ctx.fillRect(start, ky - ks*.42, bar, 5);
+        ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(255,255,255,.88)'; ctx.fillText(txt, start + bar + gap, ky);
+      } else { ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fillText(txt, x, ky); }
+    }
+    ctx.restore(); ctx.textAlign = s.align;
   }
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
 }
 function idealInk(hex){
   const n = parseInt(hex.slice(1),16), r=n>>16&255, g=n>>8&255, b=n&255;
@@ -420,13 +453,16 @@ $('btnLoadJson').onclick = () => {
 };
 
 // ---------- persistence (this browser only) ----------
-function persist(){ try { localStorage.setItem('thumb-studio-v1', JSON.stringify(read())); } catch(e){} }
-try { const saved = JSON.parse(localStorage.getItem('thumb-studio-v1') || 'null'); if (saved) write(saved); } catch(e){}
+function persist(){ try { localStorage.setItem('thumb-studio-v2', JSON.stringify(read())); } catch(e){} }
+write(PRESETS[0].v);
+try { const saved = JSON.parse(localStorage.getItem('thumb-studio-v2') || 'null'); if (saved) write(saved); } catch(e){}
 
 render();
 document.fonts && Promise.all([
   document.fonts.load('400 100px "Black Han Sans"', '근황'),
   document.fonts.load('400 60px "Nanum Pen Script"', '썰'),
+  document.fonts.load('900 100px "Noto Sans KR"', '솔직 근황'),
+  document.fonts.load('800 100px "Nanum Myeongjo"', '솔직한 근황'),
 ]).then(render).catch(render);
 // Korean glyphs arrive in unicode-range chunks; redraw whenever a new chunk lands
 if (document.fonts) document.fonts.addEventListener('loadingdone', () => render());
