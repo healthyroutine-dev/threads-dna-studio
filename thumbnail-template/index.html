@@ -1,0 +1,434 @@
+<title>근황 썸네일 스튜디오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 1280×720 canvas preview on the left, layered controls (배경 → 인물 → 텍스트 → 효과) on the right; stacks on phones. */
+:root{
+  --bg:#f3f1ee; --panel:#ffffff; --fg:#1d1b19; --muted:#6f6a64; --line:#e3ded7;
+  --accent:#ffd400; --accent-ink:#1d1b19; --focus:#2f6bff;
+  --f-display:"Black Han Sans","Noto Sans KR",sans-serif;
+  --f-body:"Noto Sans KR",system-ui,sans-serif;
+  --f-hand:"Nanum Pen Script","Noto Sans KR",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141312; --panel:#1e1c1a; --fg:#f2efea; --muted:#a59f97; --line:#34302c; --focus:#7fa2ff; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141312; --panel:#1e1c1a; --fg:#f2efea; --muted:#a59f97; --line:#34302c; --focus:#7fa2ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.wrap{max-width:1440px;margin:0 auto;padding-block:20px 40px;padding-inline:16px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+@media (max-width:980px){.wrap{grid-template-columns:minmax(0,1fr)}}
+header{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+h1{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0;letter-spacing:.01em}
+header p{margin:0;color:var(--muted)}
+.stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);display:flex;flex-direction:column;gap:12px;min-width:0}
+@media (max-width:980px){.stage{position:static}}
+canvas#cv{width:100%;max-width:100%;aspect-ratio:16/9;height:auto;display:block;border-radius:10px;background:#222;box-shadow:0 8px 30px rgba(0,0,0,.18);touch-action:none;cursor:grab}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hint{color:var(--muted);font-size:12.5px}
+.mini{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mini canvas{width:168px;max-width:100%;aspect-ratio:16/9;height:auto;border-radius:6px;border:1px solid var(--line)}
+.mini .cap{font-size:12px;color:var(--muted);max-width:240px}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 16px 16px;min-width:0}
+details{border-bottom:1px solid var(--line);padding-block:10px}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;font-weight:700;font-size:13px;letter-spacing:.04em;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"＋";color:var(--muted)}
+details[open] summary::after{content:"－"}
+.fields{display:grid;gap:10px;padding-top:10px}
+label{display:grid;gap:4px;font-size:12.5px;color:var(--muted)}
+input[type=text],select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+textarea{resize:vertical;min-height:40px}
+input[type=range]{width:100%}
+input[type=color]{width:44px;height:30px;border:1px solid var(--line);border-radius:6px;background:none;padding:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button,.btn{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:8px;padding:8px 12px;cursor:pointer}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.presets{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.presets button{text-align:left;font-weight:500;font-size:12.5px;line-height:1.35}
+.presets button b{display:block;font-size:13px}
+.presets button[aria-pressed=true]{border-color:var(--fg)}
+.file{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.file input{font-size:12px;max-width:100%}
+.check{display:flex;gap:8px;align-items:center;color:var(--fg)}
+.tips{font-size:12.5px;color:var(--muted);margin:0;padding-left:18px;display:grid;gap:4px}
+.tips b{color:var(--fg)}
+#out{display:none;max-width:100%;border-radius:8px;border:1px solid var(--line)}
+.toast{font-size:12.5px;color:var(--muted);min-height:1.2em}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>근황 썸네일 스튜디오</h1>
+    <p>1280×720 · 배경 / 인물 컷아웃 / 텍스트 3레이어 템플릿</p>
+  </header>
+
+  <section class="stage" aria-label="미리보기">
+    <canvas id="cv" width="1280" height="720" aria-label="썸네일 미리보기"></canvas>
+    <div class="row">
+      <button class="primary" id="btnSave">PNG 저장 (1280×720)</button>
+      <button id="btnJson">설정 복사(JSON)</button>
+      <button id="btnLoadJson">설정 붙여넣기</button>
+      <span class="toast" id="toast" role="status"></span>
+    </div>
+    <p class="hint">미리보기에서 인물을 드래그하면 위치가, 휠로 크기가 바뀝니다. 아래는 유튜브 피드 실제 크기(168px) 미리보기예요. 이 크기에서 글자가 읽히는지 꼭 확인하세요.</p>
+    <div class="mini">
+      <canvas id="mini" width="336" height="189" aria-label="피드 크기 미리보기"></canvas>
+      <span class="cap">휴대폰 피드에서는 이 정도 크기로 보입니다. 메인 문구는 7자 안팎, 2줄 이하가 가장 잘 읽혀요.</span>
+    </div>
+    <img id="out" alt="저장용 썸네일 이미지 (길게 누르거나 우클릭으로 저장)">
+  </section>
+
+  <aside class="panel" aria-label="편집">
+    <details open>
+      <summary>레이아웃 프리셋</summary>
+      <div class="fields">
+        <div class="presets" id="presets"></div>
+        <p class="hint">프리셋은 문구와 배치를 바꾸고, 올린 사진은 그대로 둡니다.</p>
+      </div>
+    </details>
+
+    <details open>
+      <summary>① 배경</summary>
+      <div class="fields">
+        <div class="file"><input type="file" id="bgFile" accept="image/*"><button id="bgClear">지우기</button></div>
+        <label>배경 밝기 <input type="range" id="bgBright" min="30" max="130" value="85"></label>
+        <label>배경 흐림 (인물 강조) <input type="range" id="bgBlur" min="0" max="16" value="3"></label>
+        <label>배경 이미지가 없을 때 색
+          <span class="row"><input type="color" id="bgC1" value="#2a3a3a"><input type="color" id="bgC2" value="#c98a4a"></span>
+        </label>
+      </div>
+    </details>
+
+    <details open>
+      <summary>② 인물 (배경 제거된 PNG 권장)</summary>
+      <div class="fields">
+        <div class="file"><input type="file" id="pFile" accept="image/*"><button id="pClear">지우기</button></div>
+        <div class="two">
+          <label>가로 위치 <input type="range" id="pX" min="-20" max="120" value="74"></label>
+          <label>크기 <input type="range" id="pS" min="40" max="220" value="112"></label>
+        </div>
+        <label class="check"><input type="checkbox" id="pFlip"> 좌우 반전 (시선이 글자 쪽을 보게)</label>
+        <label class="check"><input type="checkbox" id="pRim" checked> 인물 테두리 빛 (배경과 분리)</label>
+      </div>
+    </details>
+
+    <details open>
+      <summary>③ 텍스트</summary>
+      <div class="fields">
+        <label>훅 문구 (손글씨, 속마음) <input type="text" id="tKick" value="사업 다 말아먹은 썰…"></label>
+        <label>윗줄 (상황 / 맥락) <input type="text" id="tTop" value="공기업 퇴사 후 2년 반"></label>
+        <label>메인 (가장 크게, 감정 단어) <input type="text" id="tMain" value="솔직 근황"></label>
+        <label>배지 (선택, 숫자나 결과) <input type="text" id="tBadge" value=""></label>
+        <div class="two">
+          <label>메인 색 <input type="color" id="cMain" value="#ffd400"></label>
+          <label>강조 박스 <select id="mainStyle">
+            <option value="stroke">외곽선</option>
+            <option value="box">색 박스</option>
+            <option value="none">그림자만</option>
+          </select></label>
+        </div>
+        <label>메인 글자 크기 <input type="range" id="mainSize" min="90" max="240" value="170"></label>
+        <label>텍스트 정렬 <select id="align">
+          <option value="left">왼쪽 (인물 오른쪽)</option>
+          <option value="right">오른쪽 (인물 왼쪽)</option>
+          <option value="center">가운데 하단</option>
+        </select></label>
+      </div>
+    </details>
+
+    <details>
+      <summary>④ 효과</summary>
+      <div class="fields">
+        <label>하단 어둡게 (글자 가독성) <input type="range" id="vig" min="0" max="100" value="70"></label>
+        <label class="check"><input type="checkbox" id="safe" checked> 재생시간 표시 위치 보기 (저장엔 안 나옴)</label>
+        <label class="check"><input type="checkbox" id="grid"> 3분할 가이드 보기 (저장엔 안 나옴)</label>
+      </div>
+    </details>
+
+    <details>
+      <summary>클릭을 부르는 장치 체크리스트</summary>
+      <div class="fields">
+        <ul class="tips">
+          <li><b>궁금증 공백</b>: 결과는 숨기고 상황만 보여주기. “2년 반”은 말하고, 어떻게 됐는지는 말하지 않기.</li>
+          <li><b>대비</b>: 안정(공기업) vs 위험(사업 실패)처럼 두 단어가 부딪히게.</li>
+          <li><b>속마음 훅</b>: 손글씨 한 줄은 친구에게 털어놓는 말투로. “썰”, “솔직히”, “…”.</li>
+          <li><b>표정이 메인 카피와 같은 감정</b>: 담담한 고백이면 정면 응시, 반전이면 놀란 표정.</li>
+          <li><b>한 화면 한 메시지</b>: 글자 크기 3단계(훅 &lt; 맥락 &lt; 메인)만 쓰기.</li>
+          <li><b>얼굴은 화면의 30~40%</b>, 시선은 카메라나 글자 쪽.</li>
+          <li><b>제목과 겹치지 않게</b>: 제목이 설명이면 썸네일은 감정을 맡기.</li>
+        </ul>
+      </div>
+    </details>
+  </aside>
+</div>
+
+<script>
+(() => {
+const W = 1280, H = 720;
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const mini = document.getElementById('mini'), mctx = mini.getContext('2d');
+const $ = id => document.getElementById(id);
+const toast = m => { $('toast').textContent = m; clearTimeout(toast.t); toast.t = setTimeout(() => $('toast').textContent = '', 3500); };
+
+let bgImg = null, pImg = null;
+const controls = ['bgBright','bgBlur','bgC1','bgC2','pX','pS','pFlip','pRim','tKick','tTop','tMain','tBadge','cMain','mainStyle','mainSize','align','vig','safe','grid'];
+let pY = 100; // person bottom anchor in % of height (100 = touches bottom)
+
+const PRESETS = [
+  { name:'근황 고백형', desc:'상황 + 감정 한 단어', v:{ tKick:'사업 다 말아먹은 썰…', tTop:'공기업 퇴사 후 2년 반', tMain:'솔직 근황', tBadge:'', cMain:'#ffd400', mainStyle:'stroke', mainSize:170, align:'left', pX:74, pS:112, pFlip:false } },
+  { name:'대비 충돌형', desc:'안정 vs 위험을 맞붙이기', v:{ tKick:'후회하냐고요?', tTop:'연봉 6천 공기업 → 사업', tMain:'결과는', tBadge:'?', cMain:'#ff4d3a', mainStyle:'box', mainSize:180, align:'left', pX:76, pS:112, pFlip:false } },
+  { name:'숫자 결과형', desc:'숫자 하나로 궁금증', v:{ tKick:'아무도 안 알려준 현실', tTop:'퇴사 2년 반, 통장 잔고', tMain:'-7,000만', tBadge:'', cMain:'#ffffff', mainStyle:'stroke', mainSize:150, align:'left', pX:76, pS:110, pFlip:false } },
+  { name:'인물 왼쪽형', desc:'얼굴이 글자 쪽을 보게', v:{ tKick:'이제야 말할 수 있다', tTop:'공기업 그만두고 깨달은 것', tMain:'딱 3가지', tBadge:'', cMain:'#7cf2c4', mainStyle:'stroke', mainSize:170, align:'right', pX:24, pS:112, pFlip:true } },
+];
+
+// ---------- state <-> controls ----------
+function read(){
+  const s = {};
+  for (const id of controls){ const el = $(id); s[id] = el.type === 'checkbox' ? el.checked : (el.type === 'range' ? +el.value : el.value); }
+  s.pY = pY; return s;
+}
+function write(v){
+  for (const [k,val] of Object.entries(v)){ const el = $(k); if (!el) { if (k==='pY') pY = val; continue; } if (el.type === 'checkbox') el.checked = !!val; else el.value = val; }
+}
+
+// ---------- helpers ----------
+function cover(img, x, y, w, h){
+  const r = Math.max(w / img.width, h / img.height);
+  const iw = img.width * r, ih = img.height * r;
+  ctx.drawImage(img, x + (w - iw) / 2, y + (h - ih) / 2, iw, ih);
+}
+function fitFont(text, family, weight, maxSize, maxW){
+  let size = maxSize;
+  ctx.font = `${weight} ${size}px ${family}`;
+  while (ctx.measureText(text).width > maxW && size > 20){ size -= 4; ctx.font = `${weight} ${size}px ${family}`; }
+  return size;
+}
+function roundRect(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+
+function drawPlaceholderBg(s){
+  const g = ctx.createLinearGradient(0,0,W,H);
+  g.addColorStop(0, s.bgC1); g.addColorStop(1, s.bgC2);
+  ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+  // soft window light + bokeh so the empty template still reads as a room
+  const rg = ctx.createRadialGradient(W*.32,H*.3,40,W*.32,H*.3,W*.6);
+  rg.addColorStop(0,'rgba(255,235,200,.45)'); rg.addColorStop(1,'rgba(255,235,200,0)');
+  ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+  const dots = [[.12,.22,46],[.2,.6,30],[.45,.18,38],[.55,.5,24],[.88,.2,52],[.66,.32,20]];
+  for (const [x,y,r] of dots){ ctx.fillStyle='rgba(255,226,170,.16)'; ctx.beginPath(); ctx.arc(x*W,y*H,r,0,Math.PI*2); ctx.fill(); }
+}
+function drawPlaceholderPerson(cx, base, scale, s){
+  // silhouette so layout can be judged before a photo is uploaded
+  const k = scale / 112;
+  ctx.save(); ctx.translate(cx, base); ctx.scale(k,k);
+  ctx.fillStyle = 'rgba(20,20,22,.72)';
+  ctx.beginPath(); ctx.ellipse(0,-430,108,132,0,0,Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-250,0); ctx.quadraticCurveTo(-240,-250,-70,-290); ctx.lineTo(70,-290); ctx.quadraticCurveTo(240,-250,250,0); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,.75)'; ctx.font = `500 26px ${getComputedStyle(document.documentElement).getPropertyValue('--f-body')}`;
+  ctx.textAlign = 'center'; ctx.fillText('인물 PNG를 올려주세요', 0, -120);
+  ctx.restore();
+}
+
+// ---------- render ----------
+let personBox = null;
+function render(target = ctx, opts = {}){
+  const s = read();
+  ctx.save(); ctx.clearRect(0,0,W,H);
+
+  // 1. background
+  ctx.save();
+  ctx.filter = `brightness(${s.bgBright}%) blur(${bgImg ? s.bgBlur : 0}px)`;
+  if (bgImg){ const pad = s.bgBlur * 3; cover(bgImg, -pad, -pad, W + pad*2, H + pad*2); }
+  else { ctx.filter = `brightness(${s.bgBright}%)`; drawPlaceholderBg(s); }
+  ctx.restore();
+
+  // 2. readability gradient on the text side + bottom
+  const a = s.vig / 100;
+  const side = s.align === 'right' ? ctx.createLinearGradient(W,0,W*.35,0) : s.align === 'left' ? ctx.createLinearGradient(0,0,W*.65,0) : null;
+  if (side){ side.addColorStop(0,`rgba(0,0,0,${.55*a})`); side.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle = side; ctx.fillRect(0,0,W,H); }
+  const bot = ctx.createLinearGradient(0,H*.45,0,H);
+  bot.addColorStop(0,'rgba(0,0,0,0)'); bot.addColorStop(1,`rgba(0,0,0,${.85*a})`);
+  ctx.fillStyle = bot; ctx.fillRect(0,0,W,H);
+
+  // 3. person
+  const cx = s.pX / 100 * W, base = s.pY / 100 * H;
+  if (pImg){
+    const h = H * s.pS / 100, w = pImg.width * h / pImg.height;
+    personBox = { x: cx - w/2, y: base - h, w, h };
+    ctx.save();
+    if (s.pFlip){ ctx.translate(cx*2, 0); ctx.scale(-1,1); }
+    if (s.pRim){ ctx.shadowColor = 'rgba(255,240,210,.85)'; ctx.shadowBlur = 28; }
+    ctx.drawImage(pImg, cx - w/2, base - h, w, h);
+    ctx.restore();
+  } else if (!bgImg) {
+    personBox = { x: cx - 260 * s.pS/112, y: base - 570 * s.pS/112, w: 520 * s.pS/112, h: 570 * s.pS/112 };
+    drawPlaceholderPerson(cx, base, s.pS, s);
+  }
+
+  // 4. text
+  drawText(s);
+
+  // 5. safe zone (YouTube duration stamp sits bottom-right)
+  if (!opts.noGuides){
+    if (s.safe){ ctx.save(); ctx.fillStyle='rgba(0,0,0,.78)'; roundRect(W-150,H-66,126,46,6); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='700 28px "Noto Sans KR",sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText('17:24', W-87, H-43); ctx.restore(); }
+    if (s.grid){ ctx.save(); ctx.strokeStyle='rgba(255,255,255,.35)'; ctx.setLineDash([8,8]); ctx.lineWidth=2; for (const t of [1/3,2/3]){ ctx.beginPath(); ctx.moveTo(W*t,0); ctx.lineTo(W*t,H); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,H*t); ctx.lineTo(W,H*t); ctx.stroke(); } ctx.restore(); }
+  }
+  ctx.restore();
+  if (!pImg && bgImg) personBox = null;
+  if (!opts.noGuides){ mctx.clearRect(0,0,mini.width,mini.height); mctx.drawImage(cv,0,0,mini.width,mini.height); }
+}
+
+function drawText(s){
+  const M = 64;
+  const textW = s.align === 'center' ? W - M*2 : W * .62 - M;
+  const x = s.align === 'right' ? W - M : s.align === 'center' ? W/2 : M;
+  ctx.textAlign = s.align; ctx.textBaseline = 'alphabetic';
+
+  // main line
+  const mainSize = s.tMain ? fitFont(s.tMain, '"Black Han Sans"', 400, s.mainSize, textW) : 0;
+  const mainBase = H - 70;
+  // top line
+  const topSize = s.tTop ? fitFont(s.tTop, '"Black Han Sans"', 400, Math.round(mainSize * .5) || 80, textW) : 0;
+  const topBase = mainBase - mainSize * .98 - (s.mainStyle === 'box' ? 26 : 10);
+
+  if (s.tTop){
+    ctx.font = `400 ${topSize}px "Black Han Sans"`;
+    ctx.lineJoin = 'round'; ctx.lineWidth = topSize * .16; ctx.strokeStyle = 'rgba(0,0,0,.9)';
+    ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6;
+    ctx.strokeText(s.tTop, x, topBase); ctx.shadowColor = 'transparent';
+    ctx.fillStyle = '#ffffff'; ctx.fillText(s.tTop, x, topBase);
+  }
+
+  if (s.tMain){
+    ctx.font = `400 ${mainSize}px "Black Han Sans"`;
+    const mw = ctx.measureText(s.tMain).width;
+    const left = s.align === 'right' ? x - mw : s.align === 'center' ? x - mw/2 : x;
+    if (s.mainStyle === 'box'){
+      ctx.save(); ctx.fillStyle = s.cMain; ctx.shadowColor='rgba(0,0,0,.5)'; ctx.shadowBlur=24; ctx.shadowOffsetY=8;
+      ctx.translate(left + mw/2, mainBase - mainSize*.36); ctx.rotate(-0.02);
+      roundRect(-mw/2 - 26, -mainSize*.58, mw + 52, mainSize*1.08, 14); ctx.fill(); ctx.restore();
+      ctx.fillStyle = idealInk(s.cMain); ctx.fillText(s.tMain, x, mainBase);
+    } else {
+      ctx.lineJoin = 'round';
+      if (s.mainStyle === 'stroke'){
+        ctx.lineWidth = mainSize * .2; ctx.strokeStyle = '#000';
+        ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 10;
+        ctx.strokeText(s.tMain, x, mainBase); ctx.shadowColor = 'transparent';
+      } else { ctx.shadowColor = 'rgba(0,0,0,.85)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 8; }
+      ctx.fillStyle = s.cMain; ctx.fillText(s.tMain, x, mainBase); ctx.shadowColor = 'transparent';
+    }
+    // badge (e.g. "?" or a number) after the main line
+    if (s.tBadge){
+      const bs = mainSize * .62; ctx.save(); ctx.font = `400 ${bs}px "Black Han Sans"`;
+      const bw = Math.max(ctx.measureText(s.tBadge).width + bs*.5, bs*1.05);
+      const bx = s.align === 'right' ? left - bw - 22 : left + mw + 22, by = mainBase - mainSize*.82;
+      ctx.translate(bx + bw/2, by + bs*.55); ctx.rotate(0.12);
+      ctx.fillStyle = '#ffffff'; ctx.shadowColor='rgba(0,0,0,.5)'; ctx.shadowBlur=20;
+      roundRect(-bw/2, -bs*.6, bw, bs*1.2, bs*.6); ctx.fill(); ctx.shadowColor='transparent';
+      ctx.fillStyle = '#e8261b'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tBadge, 0, bs*.04);
+      ctx.restore(); ctx.textAlign = s.align; ctx.textBaseline = 'alphabetic';
+    }
+  }
+
+  // kicker: handwritten inner voice, tilted, on a soft white tag above the copy
+  if (s.tKick){
+    const ks = fitFont(s.tKick, '"Nanum Pen Script"', 400, 74, textW * .8);
+    ctx.save(); ctx.font = `400 ${ks}px "Nanum Pen Script"`;
+    const kw = ctx.measureText(s.tKick).width;
+    const ky = (s.tTop ? topBase - topSize : mainBase - mainSize) - 40;
+    const kx = s.align === 'right' ? x - kw/2 - 20 : s.align === 'center' ? x : x + kw/2 + 20;
+    ctx.translate(kx, ky); ctx.rotate(s.align === 'right' ? 0.06 : -0.06);
+    ctx.fillStyle = 'rgba(255,255,255,.94)'; ctx.shadowColor='rgba(0,0,0,.35)'; ctx.shadowBlur=16; ctx.shadowOffsetY=6;
+    roundRect(-kw/2 - 24, -ks*.62, kw + 48, ks*1.15, ks*.5); ctx.fill(); ctx.shadowColor='transparent';
+    ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.tKick, 0, ks*.02);
+    ctx.restore();
+  }
+}
+function idealInk(hex){
+  const n = parseInt(hex.slice(1),16), r=n>>16&255, g=n>>8&255, b=n&255;
+  return (r*299 + g*587 + b*114)/1000 > 150 ? '#111111' : '#ffffff';
+}
+
+// ---------- presets ----------
+const pWrap = $('presets');
+PRESETS.forEach((p,i) => {
+  const b = document.createElement('button'); b.type='button';
+  b.innerHTML = `<b>${p.name}</b>${p.desc}`; b.setAttribute('aria-pressed', i===0);
+  b.onclick = () => { write(p.v); pY = 100; [...pWrap.children].forEach(c => c.setAttribute('aria-pressed', c===b)); persist(); render(); };
+  pWrap.appendChild(b);
+});
+
+// ---------- inputs ----------
+for (const id of controls){ const el = $(id); el.addEventListener('input', () => { persist(); render(); }); el.addEventListener('change', () => { persist(); render(); }); }
+function loadFile(input, cb){
+  const f = input.files && input.files[0]; if (!f) return;
+  const url = URL.createObjectURL(f); const img = new Image();
+  img.onload = () => { cb(img); render(); }; img.onerror = () => toast('이미지를 읽지 못했어요. PNG나 JPG로 다시 올려주세요.'); img.src = url;
+}
+$('bgFile').onchange = e => loadFile(e.target, i => bgImg = i);
+$('pFile').onchange = e => loadFile(e.target, i => { pImg = i; if (!hasAlpha(i)) toast('배경이 있는 사진이에요. 배경을 지운 PNG를 쓰면 훨씬 깔끔해요.'); });
+$('bgClear').onclick = () => { bgImg = null; $('bgFile').value=''; render(); };
+$('pClear').onclick = () => { pImg = null; $('pFile').value=''; render(); };
+function hasAlpha(img){
+  try { const c = document.createElement('canvas'); c.width = 40; c.height = 40; const x = c.getContext('2d'); x.drawImage(img,0,0,40,40);
+    const d = x.getImageData(0,0,40,40).data; for (let i=3;i<d.length;i+=4) if (d[i] < 250) return true; } catch(e){ return true; }
+  return false;
+}
+
+// drag + wheel on the person
+let drag = null;
+const toCanvas = e => { const r = cv.getBoundingClientRect(); return { x:(e.clientX - r.left) * W / r.width, y:(e.clientY - r.top) * H / r.height }; };
+cv.addEventListener('pointerdown', e => { const p = toCanvas(e); if (!personBox) return;
+  if (p.x > personBox.x && p.x < personBox.x + personBox.w && p.y > personBox.y && p.y < personBox.y + personBox.h){
+    drag = { sx:p.x, sy:p.y, x0:+$('pX').value, y0:pY }; cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing'; } });
+cv.addEventListener('pointermove', e => { if (!drag) return; const p = toCanvas(e);
+  $('pX').value = Math.round(drag.x0 + (p.x - drag.sx) / W * 100);
+  pY = Math.min(160, Math.max(60, drag.y0 + (p.y - drag.sy) / H * 100)); render(); });
+const end = () => { if (drag){ drag = null; cv.style.cursor='grab'; persist(); } };
+cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+cv.addEventListener('wheel', e => { e.preventDefault(); const el = $('pS'); el.value = Math.min(220, Math.max(40, +el.value - Math.sign(e.deltaY) * 4)); persist(); render(); }, { passive:false });
+
+// ---------- save ----------
+let downloads = null;
+if (window.claude?.use) window.claude.use('downloads').then(d => downloads = d).catch(() => {});
+$('btnSave').onclick = async () => {
+  render(ctx, { noGuides:true });
+  const name = `thumbnail_${($('tMain').value || 'untitled').replace(/[\\/:*?"<>|\s]+/g,'_')}.png`;
+  const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+  render();
+  if (!blob){ toast('이미지를 만들지 못했어요.'); return; }
+  if (downloads){
+    try { await downloads.save({ filename:name, data:blob }); toast('저장했어요.'); return; }
+    catch(err){ if (err && err.code === 'declined') { toast('저장을 취소했어요.'); return; } }
+  } else if (!window.claude){
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click(); toast('저장했어요.'); return;
+  }
+  const out = $('out'); out.src = URL.createObjectURL(blob); out.style.display = 'block';
+  toast('아래 이미지를 길게 누르거나 우클릭해서 저장하세요.');
+};
+$('btnJson').onclick = async () => {
+  const txt = JSON.stringify(read(), null, 2);
+  try { await navigator.clipboard.writeText(txt); toast('설정을 복사했어요. 다음 영상에서 붙여넣으면 같은 스타일로 시작해요.'); }
+  catch(e){ toast('복사가 막혀 있어요. 브라우저 권한을 확인해주세요.'); }
+};
+$('btnLoadJson').onclick = () => {
+  toast('Ctrl+V(⌘V)로 설정 JSON을 붙여넣으세요.');
+  const once = e => { try { write(JSON.parse(e.clipboardData.getData('text'))); persist(); render(); toast('설정을 불러왔어요.'); } catch(_) { toast('설정 형식이 맞지 않아요.'); } };
+  document.addEventListener('paste', once, { once:true });
+};
+
+// ---------- persistence (this browser only) ----------
+function persist(){ try { localStorage.setItem('thumb-studio-v1', JSON.stringify(read())); } catch(e){} }
+try { const saved = JSON.parse(localStorage.getItem('thumb-studio-v1') || 'null'); if (saved) write(saved); } catch(e){}
+
+render();
+document.fonts && Promise.all([
+  document.fonts.load('400 100px "Black Han Sans"', '근황'),
+  document.fonts.load('400 60px "Nanum Pen Script"', '썰'),
+]).then(render).catch(render);
+// Korean glyphs arrive in unicode-range chunks; redraw whenever a new chunk lands
+if (document.fonts) document.fonts.addEventListener('loadingdone', () => render());
+})();
+</script>
