@@ -15,7 +15,7 @@
 1. 레퍼런스 영상을 `src_<id>.mp4`로 받고 `build2.py`의 `SRC`를 바꾼다.
 2. 장면 전환 시간 확인: `ffmpeg -i src.mp4 -vf "select='gt(scene,0.25)',showinfo" -f null - 2>&1 | grep pts_time`
 3. `overlay.html`, `plan.json` 문구와 시간을 바꾼다.
-4. 폰트(Pretendard woff2)를 이 폴더에 받는다 (`build.sh` 참고).
+4. 폰트를 받는다: `./fonts.sh`
 5. `node render2.mjs && python3 build2.py`
 
 v1(`panel.html`·`render.mjs`·`build.sh`)은 원본을 아래로 내리고 위에 패널을 두는 이전 방식.

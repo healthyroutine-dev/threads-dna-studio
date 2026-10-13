@@ -2,51 +2,48 @@
 @font-face{font-family:P;src:url(Pretendard-Medium.woff2);font-weight:500}
 @font-face{font-family:P;src:url(Pretendard-Bold.woff2);font-weight:700}
 @font-face{font-family:P;src:url(Pretendard-ExtraBold.woff2);font-weight:800}
+@font-face{font-family:AB;src:url(ArchivoBlack-400.ttf)}
+@font-face{font-family:SM;src:url(SpaceMono-400.ttf);font-weight:400}
+@font-face{font-family:SM;src:url(SpaceMono-700.ttf);font-weight:700}
+:root{--bg:#09090B;--card:#17171B;--line:#2A2A30;--ink:#FFFFFF;--quiet:#A1A1AA;--dim:#71717A;--point:#DB3D5A}
 *{box-sizing:border-box;margin:0}
-html,body{width:1080px;height:1920px;background:transparent;color:#fff;font-family:P,sans-serif;overflow:hidden}
-.head{position:absolute;left:0;right:0;top:0;height:575px;padding:100px 48px 0;background:#0D0D0D}
-.top{display:flex;align-items:center;gap:16px}
-.brand{font-weight:800;font-size:34px;letter-spacing:2px;background:#fff;color:#0D0D0F;border-radius:10px;padding:4px 14px}
-.series{font-weight:800;font-size:60px;letter-spacing:-.5px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
-.series b{color:#FF4F8B;margin-left:10px}
-.meta{margin-top:12px;font-weight:500;font-size:32px;color:#D2D2D8}
-.chips{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
-.chip{display:flex;align-items:baseline;gap:10px;border:3px solid rgba(255,255,255,.3);border-radius:14px;padding:8px 18px;color:rgba(255,255,255,.55);background:#1A1A1E}
-.chip i{font-style:normal;font-weight:800;font-size:24px;letter-spacing:1px}
-.chip span{font-weight:800;font-size:32px;white-space:nowrap;letter-spacing:-.3px}
-.chip.on{border-color:#FF4F8B;background:#FF4F8B;color:#fff}
-.chip.on i{color:#FFE3EC}
-.tr{margin-top:22px;border-left:6px solid #FF4F8B;padding:2px 0 2px 16px}
-.tr small{display:block;font-weight:800;font-size:22px;letter-spacing:1.5px;color:#FF9DBE}
-.tr p{font-weight:700;font-size:34px;line-height:1.3}
-.dim{position:absolute;left:0;right:0;top:575px;bottom:0;background:transparent}
-.card{position:absolute;left:48px;right:48px;top:600px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-.card .n{display:none}
-.card h2{font-weight:800;font-size:40px;line-height:1.15;letter-spacing:-.5px}
-.card h2 span{background:#FF4F8B;color:#fff;padding:4px 14px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.card .l1{display:none;font-weight:700;font-size:34px;line-height:1.5;max-width:900px}
-.card .l1 span{background:rgba(0,0,0,.72);padding:3px 12px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.card .l2{display:none}
-.cta{display:none!important}
-.handle{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-weight:700;font-size:30px;color:#fff;-webkit-text-stroke:6px rgba(0,0,0,.85);paint-order:stroke fill}
+html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);font-family:P,sans-serif;overflow:hidden}
+.head{position:absolute;left:0;right:0;top:0;height:600px;padding:96px 52px 0;background:var(--bg)}
+.lab{display:flex;justify-content:space-between;font-family:SM;font-weight:700;font-size:24px;letter-spacing:5px;color:var(--quiet);text-transform:uppercase}
+.lab b{color:var(--point)}
+.hl{margin-top:22px;font-family:AB;font-size:86px;line-height:.95;letter-spacing:-2px;text-transform:uppercase}
+.hl .l2{color:var(--point)}
+.stats{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--line);padding-top:16px}
+.stats>div{padding-left:20px;border-left:2px solid var(--line)}
+.stats>div:first-child{padding-left:0;border-left:0}
+.stats .k{font-family:SM;font-size:19px;letter-spacing:3px;color:var(--quiet);text-transform:uppercase}
+.stats .v{font-family:AB;font-size:46px;letter-spacing:-1px;margin-top:2px}
+.prog{position:absolute;left:52px;right:52px;top:528px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.prog div{height:44px;border:2px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:SM;font-weight:700;font-size:22px;letter-spacing:2px;color:var(--dim);background:var(--card)}
+.prog div.on{background:var(--point);border-color:var(--point);color:#fff}
+.prog div.now{outline:4px solid #fff;outline-offset:2px}
+.pause{position:absolute;left:52px;top:630px;font-family:SM;font-weight:700;font-size:26px;letter-spacing:4px;color:#fff;background:var(--point);padding:6px 14px;border-radius:4px}
+.handle{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-family:SM;font-weight:700;font-size:26px;letter-spacing:3px;color:#fff;-webkit-text-stroke:6px rgba(0,0,0,.85);paint-order:stroke fill}
 </style></head><body>
-<div class="dim" id="dim" style="display:none"></div>
 <div class="head">
- <div class="top"><span class="brand">B2X</span><span class="series">K-Beauty que vende<b>001/100</b></span></div>
- <p class="meta">@kbeautywithelizabeth · 5,36 M de vistas · 57× sus seguidores</p>
- <div class="chips" id="chips"></div>
- <div class="tr"><small>TEXTO ORIGINAL · TRADUCCIÓN</small><p id="tr"></p></div>
+ <div class="lab"><span>B2X · K-Beauty que vende</span><span><b id="no">001</b>/100</span></div>
+ <div class="hl"><div id="h1"></div><div class="l2" id="h2"></div></div>
+ <div class="stats">
+  <div><p class="k">Vistas</p><p class="v" id="s1"></p></div>
+  <div><p class="k">vs seguidores</p><p class="v" id="s2"></p></div>
+  <div><p class="k">Duración</p><p class="v" id="s3"></p></div>
+ </div>
 </div>
+<div class="prog" id="prog"></div>
+<div class="pause" id="pause" style="display:none"></div>
 <p class="handle" id="handle"></p>
-<div class="card" id="card" style="display:none"><p class="n" id="n"></p><h2 id="h"></h2><p class="l1" id="l1"></p><p class="l2" id="l2"></p><div class="cta" id="cta" style="display:none"></div></div>
 <script>
-const L=["PROBLEMA","3 PALABRAS","30 DÍAS","SIN FILTRO","MISMO ÁNGULO"];
-const TR={before:"Sin filtro · Antes del skincare coreano<br>Rojez, melasma, arrugas",after:"Sin filtro · 30 días después del skincare coreano"};
 function render(s){
+ const m=s.meta||{};
+ no.textContent=m.no||'001'; s1.textContent=m.views||''; s2.textContent=m.mult||''; s3.textContent=m.dur||'';
+ h1.textContent=s.h1||''; h2.textContent=s.h2||'';
+ prog.innerHTML=[1,2,3,4,5].map(i=>`<div class="${s.lit.includes(i)?'on':''} ${s.now===i?'now':''}">0${i}</div>`).join('');
+ if(s.pause){pause.style.display='block';pause.textContent='❚❚ '+s.pause}
  handle.textContent=s.handle||'';
- chips.innerHTML=L.map((l,i)=>`<div class="chip ${s.lit.includes(i+1)?'on':''}"><i>0${i+1}</i><span>${l}</span></div>`).join('');
- tr.innerHTML=TR[s.tr];
- if(s.card){dim.style.display='block';card.style.display='block';n.textContent=s.card.n;h.innerHTML='<span></span>';h.firstChild.textContent=(s.card.n&&/^\d+$/.test(s.card.n)?s.card.n+' · ':'')+s.card.h;l1.innerHTML='<span></span>';l1.firstChild.textContent=s.card.l1;l2.textContent=s.card.l2;
-  if(s.card.cta){cta.style.display='block';cta.textContent=s.card.cta}}
 }
 </script></body></html>

@@ -5,13 +5,17 @@ VY=int(plan.get('video_y',0))
 SRC='src_7482942231217704238.mp4'; VOICE='ko-KR-SunHiNeural'; RATE='+15%'
 dur=lambda f: float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f],capture_output=True,text=True).stdout)
 # 1) voice lines -> freeze durations
+import os
+TRIM='silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse'
 for i,s in enumerate(plan['segs']):
     if s.get('voice'):
-        f=f'vo_{i:02d}.mp3'
-        subprocess.run(['python3','tts.py',VOICE,s['voice'],f,RATE],check=True)
-        subprocess.run(['ffmpeg','-v','error','-y','-i',f,'-af','silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse',f+'.wav'],check=True); f=f+'.wav'
-        subprocess.run(['ffmpeg','-v','error','-y','-i',f,'-af','silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse',f+'.wav'],check=True); f=f+'.wav'
-        s['vo']=f; s['d']=round(max(2.6,dur(f)+0.45),2)
+        raw=f'vo_{i:02d}.mp3'; wav=f'vo_{i:02d}.wav'; txt=f'vo_{i:02d}.txt'
+        cached=os.path.exists(wav) and os.path.exists(txt) and open(txt).read()==VOICE+RATE+s['voice']
+        if not cached:  # 문장이 바뀐 구간만 다시 합성
+            subprocess.run(['python3','tts.py',VOICE,s['voice'],raw,RATE],check=True)
+            subprocess.run(['ffmpeg','-v','error','-y','-i',raw,'-af',TRIM,wav],check=True)
+            open(txt,'w').write(VOICE+RATE+s['voice'])
+        s['vo']=wav; s['d']=round(max(2.6,dur(wav)+0.45),2)
 json.dump(plan,open('plan.json','w'),ensure_ascii=False,indent=1)
 # 2) overlays
 subprocess.run(['node','render2.mjs'],check=True)
