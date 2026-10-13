@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>B2X 바이어스 클럽 기획안</title>
+<style>
+  :root {
+    --bg: #09090B; --card: #17171B; --line: #2A2A30;
+    --ink: #FFFFFF; --quiet: #A1A1AA; --dim: #71717A;
+    --point: #DB3D5A; --point-tint: rgba(219, 61, 90, 0.14);
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Pretendard', sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 15mm 14mm; position: relative; overflow: hidden; page-break-after: always; background: var(--bg); }
+  .page:last-child { page-break-after: auto; }
+
+  .top { position: absolute; top: 0; left: 0; right: 0; height: 11mm; display: flex; align-items: center; justify-content: space-between; padding: 0 15mm; border-bottom: 1px solid var(--line); }
+  .brand { font-family: 'Archivo Black', 'Pretendard', sans-serif; font-size: 9pt; letter-spacing: -0.2pt; }
+  .brand b { color: var(--point); font-weight: 400; }
+  .label, .top .pg { font-family: 'Space Mono', monospace; font-size: 6.6pt; letter-spacing: 1.6pt; color: var(--quiet); text-transform: uppercase; }
+  .foot { position: absolute; bottom: 7mm; left: 15mm; right: 15mm; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 6pt; letter-spacing: 1.2pt; color: var(--dim); }
+
+  .display { font-family: 'Archivo Black', 'Pretendard', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: -1.5pt; line-height: 0.92; }
+  .pt { color: var(--point); }
+
+  h2 { display: flex; align-items: baseline; gap: 4mm; margin: 9mm 0 3.5mm; }
+  h2 .no { font-family: 'Archivo Black', sans-serif; font-weight: 400; color: var(--point); font-size: 20pt; letter-spacing: -1pt; }
+  h2 .t { font-weight: 800; font-size: 15pt; letter-spacing: -0.4pt; }
+  .page > h2:first-of-type { margin-top: 6mm; }
+  .lead { font-size: 10.6pt; font-weight: 500; color: var(--ink); margin-bottom: 3.5mm; }
+  .lead b { color: var(--point); font-weight: 700; }
+  p.note { color: var(--quiet); font-size: 8.4pt; margin-top: 2.5mm; }
+  p.note a { color: var(--quiet); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  th { font-family: 'Space Mono', monospace; font-weight: 400; font-size: 6.4pt; letter-spacing: 1.2pt; text-transform: uppercase; color: var(--quiet); text-align: left; padding: 0 2.5mm 2mm 0; border-bottom: 1px solid var(--point); }
+  td { padding: 2.3mm 2.5mm 2.3mm 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { font-weight: 700; }
+  td .hl { color: var(--point); font-weight: 700; }
+
+  ul.dot { list-style: none; }
+  ul.dot li { position: relative; padding-left: 4.5mm; margin: 1.4mm 0; }
+  ul.dot li::before { content: ''; position: absolute; left: 0; top: 2.1mm; width: 1.8mm; height: 1.8mm; background: var(--point); }
+  ul.dot li b { font-weight: 700; }
+
+  /* cover */
+  .cover { display: flex; flex-direction: column; }
+  .cover .label { margin-top: 44mm; }
+  .cover .display { font-size: 58pt; margin-top: 6mm; }
+  .cover .sub { font-size: 13pt; font-weight: 500; color: var(--quiet); margin-top: 10mm; max-width: 150mm; line-height: 1.6; }
+  .cover .sub b { color: var(--ink); font-weight: 700; }
+  .cover .meta { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); padding-top: 5mm; }
+  .stat { border-left: 1.5px solid var(--point); padding: 0.5mm 0 0.5mm 4mm; }
+  .stat .k { font-family: 'Space Mono', monospace; font-size: 6.4pt; letter-spacing: 1.4pt; color: var(--quiet); text-transform: uppercase; }
+  .stat .v { font-family: 'Archivo Black', 'Pretendard', sans-serif; font-size: 17pt; margin-top: 1.5mm; letter-spacing: -0.5pt; }
+  .stat .v.kr { font-family: 'Pretendard'; font-weight: 800; font-size: 13pt; }
+
+  /* flow */
+  .flow { background: var(--card); padding: 5mm 5mm 4mm; margin: 4mm 0 2mm; }
+  .flow svg { width: 100%; display: block; }
+
+  /* type cards */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+  .card { background: var(--card); padding: 5mm 5mm 4.5mm; position: relative; }
+  .card .tag { position: absolute; top: 4mm; right: 4mm; font-family: 'Space Mono', monospace; font-size: 5.8pt; letter-spacing: 1.4pt; text-transform: uppercase; color: var(--ink); background: #000; border: 1px solid var(--line); padding: 1mm 2mm; }
+  .card .tag.new { background: var(--point); border-color: var(--point); }
+  .card h3 { font-family: 'Archivo Black', 'Pretendard', sans-serif; font-weight: 400; font-size: 14pt; letter-spacing: -0.5pt; text-transform: uppercase; margin-top: 3mm; }
+  .card h3 small { display: block; font-family: 'Pretendard'; font-weight: 700; font-size: 10.5pt; letter-spacing: 0; text-transform: none; margin-top: 1mm; }
+  .card p { color: var(--quiet); font-size: 8.5pt; margin-top: 2mm; min-height: 11mm; }
+  .card .metrics { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 3.5mm; border-top: 1px solid var(--line); padding-top: 3mm; }
+  .card .metrics > div { border-left: 1px solid var(--point); padding-left: 2.5mm; }
+  .card .metrics .k { font-family: 'Space Mono', monospace; font-size: 5.6pt; letter-spacing: 1pt; color: var(--quiet); text-transform: uppercase; line-height: 1.35; min-height: 5mm; }
+  .card .metrics .v { font-weight: 800; font-size: 9.5pt; margin-top: 1mm; line-height: 1.3; }
+  .card .read { font-family: 'Space Mono', monospace; font-size: 6.2pt; letter-spacing: 1.6pt; color: var(--point); margin-top: 3.5mm; text-transform: uppercase; }
+
+  pre { background: var(--card); border-left: 2px solid var(--point); padding: 4mm 5mm; font-family: 'Pretendard'; font-size: 8.4pt; line-height: 1.75; white-space: pre-wrap; color: var(--ink); }
+  pre .k { font-family: 'Space Mono', monospace; color: var(--point); font-size: 7.4pt; }
+  pre i { color: var(--quiet); font-style: normal; }
+
+  .member { max-width: 88mm; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+
+  ol.weeks { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 2mm; }
+  ol.weeks li { background: var(--card); padding: 4mm; border-top: 2px solid var(--line); }
+  ol.weeks li.goal { border-top-color: var(--point); }
+  ol.weeks .d { font-family: 'Archivo Black', sans-serif; font-size: 12pt; letter-spacing: -0.4pt; }
+  ol.weeks li.goal .d { color: var(--point); }
+  ol.weeks .x { color: var(--quiet); font-size: 8.3pt; margin-top: 1.5mm; }
+
+  ul.check { list-style: none; margin-top: 2mm; }
+  ul.check li { display: flex; gap: 3.5mm; padding: 2.6mm 0; border-bottom: 1px solid var(--line); font-size: 9.4pt; }
+  ul.check li::before { content: ''; flex: none; width: 3.6mm; height: 3.6mm; border: 1.3px solid var(--point); margin-top: 0.9mm; }
+  ul.check li b { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- 1. COVER -->
+<section class="page cover">
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">RE:WORK STUDIO</span></div>
+  <div class="label">THE B2X PLAN · 기획안 v1</div>
+  <div class="display">WE DON'T<br>SEED.<br><span class="pt">WE GATHER.</span></div>
+  <div class="sub">시딩 업체는 브랜드 돈으로 인플루언서에게 제품을 <b>보낸다.</b><br>B2X는 인플루언서·셀러를 <b>모아서</b> 직접 사서 팔게 한다.<br>커뮤니티 + 공동구매 기획안</div>
+  <div class="meta">
+    <div class="stat"><div class="k">Deliverable</div><div class="v">24 REELS</div></div>
+    <div class="stat"><div class="k">Delivery</div><div class="v">2026.11.10</div></div>
+    <div class="stat"><div class="k">Meeting</div><div class="v kr">10/16 (금) 검토용</div></div>
+  </div>
+  <div class="foot"><span>정세연 · RE:WORK STUDIO</span><span>2026-10-13</span></div>
+</section>
+
+<!-- 2. SUMMARY + BENCHMARK -->
+<section class="page">
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">01 — 02</span></div>
+  <h2><span class="no">01</span><span class="t">한 줄 요약</span></h2>
+  <p class="lead">콘텐츠로 스페인어권 셀러·뷰티 인플루언서를 <b>왓츠앱 바이어스 클럽</b>에 모으고, <b>10개 단위 공동구매</b>로 한국 도매가 소싱을 연결한다.</p>
+  <ul class="dot">
+    <li><b>누구를</b> — 북미·중남미·스페인의 소규모 셀러, 틱톡샵·아마존·인스타 셀러, 수익화하려는 뷰티 인플루언서. 소비자가 아니라 파는 사람.</li>
+    <li><b>무엇으로 버나</b> — 공동구매 마진(1차), 클럽 멤버를 원하는 브랜드의 입점·시딩 제안(2차).</li>
+    <li><b>포지션</b> — 브랜드도 크리에이터도 아닌 "한국에 있는 당신의 소싱 파트너" (채원 대표).</li>
+  </ul>
+  <div class="flow">
+    <svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" font-family="Pretendard" font-size="13">
+      <defs>
+        <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#71717A"/></marker>
+        <marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#DB3D5A"/></marker>
+      </defs>
+      <text x="16" y="26" font-size="15" font-weight="700" fill="#fff">콘텐츠로 셀러를 모으고, 공동구매 후기가 다시 콘텐츠가 된다</text>
+      <g fill="none" stroke="#71717A" stroke-width="1.25">
+        <path d="M144 96H166" marker-end="url(#a)"/><path d="M290 96H312" marker-end="url(#a)"/>
+        <path d="M436 96H458" marker-end="url(#a)"/><path d="M582 96H604" marker-end="url(#a)"/>
+      </g>
+      <path d="M668 124V170H80V124" fill="none" stroke="#DB3D5A" stroke-width="2" marker-end="url(#p)"/>
+      <g fill="none" stroke="#3F3F46" stroke-width="1.25">
+        <rect x="16" y="68" width="128" height="56"/><rect x="166" y="68" width="124" height="56"/>
+        <rect x="312" y="68" width="124" height="56"/><rect x="604" y="68" width="128" height="56"/>
+      </g>
+      <rect x="458" y="68" width="124" height="56" fill="rgba(219,61,90,0.16)" stroke="#DB3D5A" stroke-width="2"/>
+      <g text-anchor="middle" font-weight="700" fill="#fff">
+        <text x="80" y="92">릴스 콘텐츠</text><text x="228" y="92">댓글 ACADEMY</text>
+        <text x="374" y="92">DM 자동응답</text><text x="520" y="92">왓츠앱 클럽</text><text x="668" y="92">공동구매</text>
+      </g>
+      <g text-anchor="middle" font-size="11.5" fill="#A1A1AA">
+        <text x="80" y="111">분석·소싱·현장</text><text x="228" y="111">키워드 하나로 통일</text>
+        <text x="374" y="111">소싱 리스트 전달</text><text x="520" y="111" fill="#fff">셀러 커뮤니티</text><text x="668" y="111">10개 단위 도매가</text>
+      </g>
+      <text x="374" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#DB3D5A">멤버 판매 후기 → 다음 콘텐츠 (④ 커뮤니티 전환형)</text>
+    </svg>
+  </div>
+  <p class="note">시딩은 캠페인이 끝나면 관계도 끝나지만, 이 구조는 멤버의 판매 후기가 다음 모집 콘텐츠가 되어 계속 돈다.</p>
+
+  <h2><span class="no">02</span><span class="t">벤치마크 — 시딩 업체 vs B2X</span></h2>
+  <p class="lead">남미 풀을 가진 업체는 전부 "브랜드가 고객"인 시딩·광고 대행이다. 인플루언서를 <b>고객으로 모으는 곳</b>은 찾지 못했고, 이 빈자리가 B2X의 자리다.</p>
+  <table>
+    <tr><th style="width:24%">구분</th><th style="width:38%">시딩 업체 (TikCle, Creators Brazil 등)</th><th>B2X 바이어스 클럽</th></tr>
+    <tr><td>돈 내는 사람</td><td>브랜드 (캠페인비)</td><td><span class="hl">인플루언서·셀러</span> (공동구매 대금)</td></tr>
+    <tr><td>인플루언서 역할</td><td>제품 받고 홍보하는 매체</td><td>직접 사서 파는 사업자</td></tr>
+    <tr><td>관계</td><td>캠페인 단위, 끝나면 끝</td><td>커뮤니티 멤버, 매주 소싱 리스트</td></tr>
+    <tr><td>보유 자산</td><td>크리에이터 DB</td><td>활동하는 셀러 커뮤니티 + 구매 데이터</td></tr>
+    <tr><td>남미 풀</td><td>Creators Brazil 1만+ · LMG Media 남미 1,700+</td><td>0에서 시작, 콘텐츠로 모음</td></tr>
+  </table>
+  <p class="note">출처: TikCle 스페인어권 플레이북 · creators-brazil.com · lmg.media · Influencer Marketing Hub(FLUVIP). 2026-10-13 검색 기준.</p>
+  <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>2</span></div>
+</section>
+
+<!-- 3. CONTENT TYPES -->
+<section class="page">
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">03</span></div>
+  <h2><span class="no">03</span><span class="t">콘텐츠 유형</span></h2>
+  <p class="lead">타 업체는 <b>브랜드 목적</b>으로 나누고(필터형 유가협업 / 소재수급형 / 오프라인 방문형), 우리는 같은 3축을 <b>셀러가 얻는 것</b> 기준으로 바꾼다. 여기에 커뮤니티 전환형을 더한다.</p>
+  <div class="grid2">
+    <div class="card"><span class="tag">필터형 유가협업</span>
+      <h3>① ANALYSIS<small>분석형 · K-Beauty que vende</small></h3>
+      <p>터진 영상을 깔고 성공 요인 5개마다 멈춰 짚는다. 말은 한국어, 화면 글자는 스페인어.</p>
+      <div class="metrics"><div><div class="k">Episodes</div><div class="v">12편</div></div><div><div class="k">Length</div><div class="v">30–40초</div></div><div><div class="k">Get</div><div class="v">성공 요인</div></div></div>
+      <div class="read">EP09–12 · 14–16 · 18–20 · 22 · 24 →</div></div>
+    <div class="card"><span class="tag">소재수급형</span>
+      <h3>② SOURCING<small>소싱 정보형</small></h3>
+      <p>이번 주 핫템, 마진 계산, 고르는 기준. 토킹헤드 + 제품 손에 + 숫자 자막.</p>
+      <div class="metrics"><div><div class="k">Episodes</div><div class="v">분석형과 겹침</div></div><div><div class="k">Length</div><div class="v">15–40초</div></div><div><div class="k">Get</div><div class="v">핫템·마진</div></div></div>
+      <div class="read">EP15 · 17 · 18 · 19 · 20 →</div></div>
+    <div class="card"><span class="tag">오프라인 방문형</span>
+      <h3>③ ON SITE<small>현장형</small></h3>
+      <p>창고·샘플·미팅·올리브영·성수·다이소. "한국에서 진짜 유명하다"는 확신과 공급처 신뢰.</p>
+      <div class="metrics"><div><div class="k">Episodes</div><div class="v">8 + 4편</div></div><div><div class="k">Shoot</div><div class="v">촬영지원</div></div><div><div class="k">Get</div><div class="v">신뢰</div></div></div>
+      <div class="read">EP01–08 · 13 · 17 · 21 · 23 →</div></div>
+    <div class="card"><span class="tag new">NEW</span>
+      <h3>④ COMMUNITY<small>커뮤니티 전환형</small></h3>
+      <p>공동구매 오픈, 멤버 판매 후기, 멤버 인터뷰. 시딩 업체엔 없는, "모으는" 모델을 보여주는 유일한 유형.</p>
+      <div class="metrics"><div><div class="k">Episodes</div><div class="v">납품 후 운영</div></div><div><div class="k">Format</div><div class="v">왓츠앱+인터뷰</div></div><div><div class="k">Get</div><div class="v">동료의 성과</div></div></div>
+      <div class="read">미팅에서 24편 포함 여부 결정 →</div></div>
+  </div>
+  <p class="note">모든 유형은 같은 CTA로 끝난다 — "Comenta ACADEMY y te mando la lista de sourcing de esta semana."</p>
+
+  <h2><span class="no">04</span><span class="t">주제 라인업 (24편)</span></h2>
+  <table>
+    <tr><th style="width:23%">축</th><th style="width:11%">편</th><th>대표 주제</th></tr>
+    <tr><td>현장 (촬영지원)</td><td>EP01–08</td><td>소싱 파트너 선언 · $500 도매 언박싱 · 멕시코행 샘플 · <span class="hl">10개부터 도매가(공동구매)</span> · 서울 소싱 미팅 · 창업 스토리 · 첫 수입 실수 3 · 한국이 지금 사는 것</td></tr>
+    <tr><td>Class 1 · 터진 영상 분석</td><td>EP09–12</td><td>500만 뷰 해부 · 글래스 스킨 포맷 · "한국인이 먼저 쓴다" · 같은 제품 200만 vs 2천</td></tr>
+    <tr><td>Class 2 · 핫템 고르는 법</td><td>EP13–16</td><td>한국 트렌드 먼저 보기 · 유행 vs 스테디 · 사기 전 체크리스트 5 · 샘플 테스트</td></tr>
+    <tr><td>Class 3 · 이번 주 핫템</td><td>EP17–20</td><td>한국 1위 선크림 · 틱톡샵 톱 3 · 한국엔 터졌는데 틱톡샵엔 없는 것 · <span class="hl">$5 도매 → $20 소매 마진</span></td></tr>
+    <tr><td>Class 4 · K-뷰티 문화</td><td>EP21–24</td><td>7단계 루틴 · 공부할 한국 크리에이터 3 · 올리브영에서 뜨는 경로 · 한국→틱톡샵 6개월</td></tr>
+  </table>
+  <p class="note">분홍 2편(EP04, EP20)이 공동구매로 바로 이어지는 핵심 편. CTA를 가장 강하게 건다.</p>
+  <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>3</span></div>
+</section>
+
+<!-- 4. REFERENCES + TEMPLATES -->
+<section class="page">
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">05 — 06</span></div>
+  <h2><span class="no">05</span><span class="t">레퍼런스</span></h2>
+  <p class="lead">스페인어권 틱톡은 <b>얼굴 정면 + 제품 손에 + 전문가 포지션</b>이 조회수 상위다.</p>
+  <table>
+    <tr><th style="width:27%">레퍼런스</th><th style="width:20%">숫자</th><th>가져올 점</th><th style="width:14%">쓸 곳</th></tr>
+    <tr><td>@alvaroplaton</td><td>3,570만 뷰</td><td>남자 뷰티, 터진 영상 분석 대상</td><td>EP09·12</td></tr>
+    <tr><td>@farmaciasenante</td><td>2,040만 뷰</td><td>약사 = 전문가 포지션</td><td>EP09·11</td></tr>
+    <tr><td>@albadlcruz</td><td>975만 뷰</td><td>GRWM·결과 반전</td><td>Class 1</td></tr>
+    <tr><td>Rani / Jenny Liu MD</td><td>–</td><td>Bad &amp; Good, 10점 판정 포맷</td><td>EP08·18</td></tr>
+    <tr><td>Chingu Amiga</td><td>YT 1,640만 · TT 2,850만</td><td>멕시코 거주 한국인, 팬덤 → K-뷰티 스토어</td><td>EP22 · 모델</td></tr>
+    <tr><td>Liah Yoo</td><td>YT 119만</td><td>"틱톡샵 1시간 3,000병" 셀러 시점</td><td>EP16·22</td></tr>
+    <tr><td>인스타 성장 릴스 20건</td><td>–</td><td>댓글 키워드 → DM 자동화 CTA</td><td>ACADEMY</td></tr>
+    <tr><td>Creators Brazil 케이스</td><td>49M+ · CPV $0.0075</td><td>태그 + 제목 + 숫자 3개 카드 → 멤버 카드</td><td>④ · 포트폴리오</td></tr>
+  </table>
+  <p class="note">수치는 2026-10-07 기준(양PD 큐레이팅 시트, 채널 페이지). 업로드 전 재확인.</p>
+
+  <h2><span class="no">06</span><span class="t">템플릿</span></h2>
+  <div class="two">
+    <div>
+      <div class="label" style="margin-bottom:2mm">Script · 15–40s · 9:16</div>
+<pre><span class="k">HOOK 0–3s</span>  화면 자막 = 썸네일 제목. 말은 한 번 비튼다. 제품은 손에 들고 시작.
+<span class="k">INTRO</span>  <i>Bienvenida a K-Beauty Influencer Academy. Soy Chaewon, tu proveedora en Corea.</i>
+<span class="k">BODY 20–30s</span>  포인트 3개 이내. 주장 1문장 + 증거(제품·화면·숫자) 1개.
+<span class="k">CTA 5s</span>  <i>Comenta ACADEMY y te mando la lista de sourcing de esta semana.</i></pre>
+      <div class="label" style="margin:4mm 0 2mm">Analysis screen · K-Beauty que vende 001/100</div>
+      <ul class="dot" style="font-size:8.5pt">
+        <li>검정 헤더: 시리즈 번호 · @크리에이터 · 조회수 · 요인 칩 5개</li>
+        <li>요인 말할 때마다 정지 + 분홍 라벨 <b class="pt">01 · PROBLEMA PRIMERO</b></li>
+        <li>reel-template 스크립트 한 번으로 완성본</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom:2mm">Member card · ④ 커뮤니티 전환형</div>
+      <div class="card member"><span class="tag">MEXICO</span>
+        <h3>[SELLER NAME]<small>[한 줄 성과 — 예: 첫 공동구매로 틱톡샵 입점]</small></h3>
+        <div class="metrics"><div><div class="k">Group buy<br>units</div><div class="v">[수량]</div></div><div><div class="k">Sales /<br>margin</div><div class="v">[금액]</div></div><div><div class="k">Days to<br>1st sale</div><div class="v">[일수]</div></div></div>
+        <div class="read">Read the case →</div></div>
+      <p class="note">Creators Brazil 케이스 카드 틀. 브랜드 대신 멤버(셀러)를 주인공으로. 숫자는 실제 멤버 데이터로 채운다.</p>
+    </div>
+  </div>
+  <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>4</span></div>
+</section>
+
+<!-- 5. GROUP BUY + SCHEDULE + AGENDA -->
+<section class="page">
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">07 — 08</span></div>
+  <h2><span class="no">07</span><span class="t">공동구매 운영 틀 <span style="color:var(--quiet);font-weight:500;font-size:10pt">(제안 · 미팅에서 확정)</span></span></h2>
+  <table>
+    <tr><th style="width:22%">단계</th><th style="width:20%">언제</th><th>하는 일</th><th style="width:24%">채널</th></tr>
+    <tr><td>1. 소싱 리스트</td><td>매주 월</td><td>이번 주 핫템 3–5개, 도매가 범위</td><td>왓츠앱 클럽 + DM</td></tr>
+    <tr><td>2. 수요 조사</td><td>월–수</td><td>"몇 개 가져갈래요?" 투표</td><td>왓츠앱 투표</td></tr>
+    <tr><td>3. 오픈</td><td>모인 수량 ≥ MOQ</td><td>단가 확정, 선입금</td><td>왓츠앱 공지</td></tr>
+    <tr><td>4. 발송</td><td>마감 후</td><td>샘플 테스트 → 패킹 → 국가별 발송</td><td>현장 콘텐츠로 재활용</td></tr>
+    <tr><td>5. 후기</td><td>판매 후</td><td>멤버 판매 결과 인터뷰</td><td><span class="hl">④ 멤버 카드</span></td></tr>
+  </table>
+
+  <h2><span class="no">08</span><span class="t">실행 일정 · 금요일 미팅 안건</span></h2>
+  <p class="lead">24편 납품은 <b>2026-11-10</b>, 업로드는 10/15부터 주 3회. 공동구매 1회차는 납품 전에 한 번 돌려보는 것을 제안한다.</p>
+  <ol class="weeks">
+    <li><div class="d">10/13–17</div><div class="x">촬영지원 1차 EP01·02·03·06 + 셀프 4편, 업로드 시작</div></li>
+    <li><div class="d">10/20–24</div><div class="x">촬영지원 2차 EP04·05·07·08 + 셀프 6편</div></li>
+    <li><div class="d">10/27–31</div><div class="x">셀프 6편, 편집 마무리</div></li>
+    <li class="goal"><div class="d">11/10</div><div class="x">24편 납품 (사업 종료 11/13)</div></li>
+  </ol>
+  <div class="label" style="margin-top:7mm">Decide on Friday · 10/16</div>
+  <ul class="check">
+    <li><span><b>포지션 확정</b> — "시딩 대행"이 아니라 "셀러·인플루언서 커뮤니티 + 공동구매"로 간다</span></li>
+    <li><span><b>④ 커뮤니티 전환형</b>을 24편 안에 넣을지, 납품 후 운영 콘텐츠로 둘지</span></li>
+    <li><span><b>공동구매 1회차</b> 제품·MOQ·단가 (EP04·EP20에 들어갈 실제 숫자)</span></li>
+    <li><span><b>왓츠앱 클럽</b> 운영 주체와 DM 자동응답 세팅 일정</span></li>
+    <li><span><b>타깃 국가</b> 우선순위 — 멕시코(스페인어) 먼저? 브라질은 현지 업체 제휴 후?</span></li>
+    <li><span><b>멕시코 발송</b> 시 COFEPRIS 신고·스페인어 라벨 책임 주체</span></li>
+    <li><span><b>촬영 확인</b> — 올리브영 촬영 가능 여부, EP05 거래처 미팅 촬영 허락</span></li>
+  </ul>
+  <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>5</span></div>
+</section>
+
+</body>
+</html>
