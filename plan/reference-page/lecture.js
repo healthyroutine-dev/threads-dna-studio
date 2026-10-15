@@ -85,22 +85,22 @@ window.LECTURE = {
    5.5,
    "03 · EL DOBLE",
    "",
-   "Tres: separa un pad en dos. Si rinde el doble, ¿cómo no vas a querer verlo?",
-   "셋째, 패드 한 장을 두 장으로 갈라요. 두 배로 쓸 수 있다는데, 안 궁금할 수가 없잖아요."
+   "Tres: separa un pad en dos. Si un frasco te rinde el doble, ¿cómo no vas a querer verlo?",
+   "셋째, 패드 한 장을 두 장으로 갈라서 써요. 한 통을 두 배로 쓸 수 있다니까, 안 궁금할 수가 없죠."
   ],
   [
    9.2,
    "04 · TU TIP",
    "",
-   "Busca un truco para que tu producto rinda más. Con 12 segundos es suficiente.",
-   "여러분도 지금 쓰는 제품으로, 더 오래 쓰는 방법 하나만 찾아보세요. 12초면 충분해요."
+   "Busca una forma de que tu producto dure más y grábala. No tiene que ser largo: 12 segundos bastan.",
+   "여러분도 지금 쓰는 제품을 더 오래 쓰는 방법 하나만 찾아서 찍어보세요. 길 필요 없이 12초면 돼요."
   ],
   [
    11.1,
    "05 · ASÍ SE VENDE",
    "",
-   "Los pads son baratos y se acaban rápido. Por eso son perfectos para tu primera venta.",
-   "이런 패드는 값이 싸고 금방 다 써요. 그래서 첫 판매 상품으로 시작하기 딱 좋아요."
+   "Los pads son baratos y se acaban rápido, así que la gente vuelve a comprar. Por eso son perfectos para tu primera venta.",
+   "패드는 가격 부담이 적고 금방 다 써서 또 사게 돼요. 그래서 처음 팔아보는 상품으로 딱이에요."
   ],
   [
    12,
@@ -143,8 +143,8 @@ window.LECTURE = {
    27,
    "03 · EN ORDEN",
    "",
-   "Tres: muestra los cinco productos en el orden de uso. Al final, quieres el set completo.",
-   "셋째, 제품 다섯 개를 쓰는 순서대로 하나씩 들어요. 보다 보면 세트로 다 사고 싶어지거든요."
+   "Tres: muestra los cinco productos en el orden de uso. Al verlos en orden, sientes que no basta con comprar uno.",
+   "셋째, 제품 다섯 개를 쓰는 순서대로 하나씩 보여줘요. 순서대로 보다 보면 하나만 사면 안 될 것 같거든요."
   ],
   [
    62.5,
@@ -171,8 +171,8 @@ window.LECTURE = {
    84,
    "CTA · 엔드카드",
    "",
-   "¿Los sets que más se venden? Comenta ACADEMY.",
-   "잘 팔리는 세트 구성, 댓글에 'ACADEMY' 남기면 보내드려요."
+   "Responde un comentario, muestra primero el resultado, sigue el orden y vende el set. Usa este orden tal cual.",
+   "댓글에 답하고, 결과부터 보여주고, 순서대로, 세트로. 이 흐름 그대로 써보세요."
   ]
  ],
  "004": [
@@ -194,29 +194,29 @@ window.LECTURE = {
    6.0,
    "02 · DEMO RÁPIDA",
    "",
-   "Dos: no explica mucho, lo aplica directo. Cinco toques en la cara y es suficiente.",
-   "둘째, 길게 설명하지 않고 바로 발라서 보여줘요. 얼굴에 톡톡 다섯 번이면 충분하거든요."
+   "Dos: no explica mucho, lo aplica directo. Con verlo, ya sabes cómo se usa.",
+   "둘째, 길게 설명하지 않고 바로 발라서 보여줘요. 보는 순간 어떻게 쓰는지 알 수 있죠."
   ],
   [
    24.6,
    "03 · AGOTADO",
    "",
-   "Tres: 'se agotó la semana pasada'. Con eso sientes que tienes que comprarlo ya.",
-   "셋째, '지난주에 품절됐었다'는 한마디. 이 말 들으면 지금 사야 할 것 같잖아요."
+   "Tres: al final dice 'se agotó la semana pasada'. Al oírlo, sientes que si no compras ya, llegas tarde.",
+   "셋째, 마지막에 '지난주에 품절됐었다'고 말해요. 그 말을 들으면 지금 안 사면 늦을 것 같거든요."
   ],
   [
    26.0,
    "04 · TU TIP",
    "",
-   "Busca qué producto coreano usa de verdad una famosa de tu país. Solo si es cierto.",
-   "여러분 나라 연예인이 진짜 쓰는 K-뷰티 제품이 있는지 찾아보세요. 꼭 사실인 것만이요."
+   "Busca qué producto coreano usa de verdad una famosa de tu país. Eso sí: solo información comprobada.",
+   "여러분 나라 연예인이 실제로 쓰는 K-뷰티 제품을 찾아보세요. 단, 꼭 확인된 사실만 쓰셔야 해요."
   ],
   [
    26.5,
    "05 · ASÍ SE VENDE",
    "",
-   "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop EE. UU. Si llegas primero a un lanzamiento, la oportunidad es grande.",
-   "이 세럼은 미국 틱톡샵에 나온 첫 달에만 156만 달러가 팔렸어요. 이런 신제품을 먼저 잡으면 기회가 커요."
+   "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop EE. UU. Si llegas primero a un lanzamiento así, tu oportunidad de vender también crece.",
+   "이 세럼은 미국 틱톡샵에 나온 첫 달에만 156만 달러어치가 팔렸어요. 이렇게 뜨는 신제품을 먼저 잡으면, 그만큼 팔 기회도 커져요."
   ],
   [
    27,
@@ -229,8 +229,8 @@ window.LECTURE = {
    27,
    "CTA · 엔드카드",
    "",
-   "¿Lo nuevo que está explotando en Corea? Comenta ACADEMY.",
-   "한국에서 막 뜨는 신제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
+   "Un nombre famoso, una demo corta y un 'se agotó'. Si es verdad, no hay mejor gancho.",
+   "유명인 이름, 짧은 시연, 그리고 품절 한마디. 사실이기만 하면 이만한 후킹이 없어요."
   ]
  ],
  "005": [
@@ -273,8 +273,8 @@ window.LECTURE = {
    10.5,
    "05 · ASÍ SE VENDE",
    "",
-   "Este video no vende nada. La venta está en la segunda parte: tu rutina para recuperarte.",
-   "이 영상 자체는 아무것도 안 팔아요. 대신 다음 편 '회복 루틴'에서 파는 거예요."
+   "En este video no vende nada. En la segunda parte cuenta 'así me recuperé' y ahí presenta los productos.",
+   "이 영상에서는 아무것도 팔지 않아요. 대신 다음 편에서 '이렇게 회복했어요' 하면서 제품을 소개하는 거예요."
   ],
   [
    11,
@@ -317,15 +317,15 @@ window.LECTURE = {
    6.0,
    "03 · DEBATE",
    "",
-   "Tres: 414 comentarios. 'A mí también me pasó', 'lo usaste mal'. Ese debate sube las vistas.",
-   "셋째, 댓글이 414개예요. '나도 그랬어', '그건 잘못 쓴 거야.' 이런 토론이 조회수를 올려요."
+   "Tres: tiene 414 comentarios. 'A mí también', 'lo usaste mal'… mientras discuten, las vistas siguen subiendo.",
+   "셋째, 댓글이 414개나 달렸어요. '나도 그랬어', '그건 잘못 쓴 거야' 하면서 서로 얘기하다 보니 조회수가 계속 올라가요."
   ],
   [
    9.0,
    "04 · TU TIP",
    "",
-   "Tú graba 'antes de comprar, mira esto' y muestra una prueba de parche.",
-   "여러분은 '사기 전에 이것부터 보세요' 하고 패치 테스트하는 걸 보여주세요."
+   "Tú graba 'antes de comprar, mira esto' mientras haces una prueba de parche.",
+   "여러분은 '사기 전에 이것부터 보세요' 하면서 패치 테스트하는 모습을 찍어보세요."
   ],
   [
    12.0,
@@ -375,22 +375,22 @@ window.LECTURE = {
    13.0,
    "03 · EL CAMBIO EN VIVO",
    "",
-   "Tres: con un solo toque, el blanco se vuelve su tono de piel. Se ve, así que no hace falta explicar.",
-   "셋째, 하얀 게 한 번 문지르니까 피부색으로 바뀌어요. 눈으로 보이니까 설명이 필요 없어요."
+   "Tres: la base blanca se vuelve su tono de piel con un solo toque. Lo ves frente a ti, así que no hace falta explicar.",
+   "셋째, 하얀 파운데이션이 한 번 문지르면 피부색으로 바뀌어요. 눈앞에서 바로 보이니까 따로 설명할 필요가 없죠."
   ],
   [
    64.0,
    "04 · TU TIP",
    "",
-   "Pon las ventas o el ranking del producto en tu primera frase. Solo números comprobados.",
-   "여러분도 제품 판매량이나 순위를 첫 문장에 넣어보세요. 숫자는 꼭 확인된 것만이요."
+   "Pon las ventas o el ranking en tu primera frase. Si el número es real, eso solo ya es un gancho.",
+   "여러분도 첫 문장에 판매량이나 순위를 넣어보세요. 확인된 숫자라면 그것만으로 후킹이 돼요."
   ],
   [
    69.0,
    "05 · ASÍ SE VENDE",
    "",
-   "Al final, 'se puede agotar' y dónde está el carrito. Así se cierra la venta.",
-   "마지막엔 '품절될 수도 있어요', 그리고 장바구니 위치. 이걸로 판매가 마무리돼요."
+   "Al final dice 'se puede agotar' y muestra dónde está el carrito. Así quien lo ve va a comprar en ese momento.",
+   "마지막에는 '품절될 수도 있어요' 하면서 장바구니 위치를 알려줘요. 그래야 보던 사람이 바로 사러 가거든요."
   ],
   [
    71,
@@ -433,22 +433,22 @@ window.LECTURE = {
    16.5,
    "03 · RITMO",
    "",
-   "Tres: uno o dos segundos por marca. Va tan rápido que no da tiempo de aburrirse.",
-   "셋째, 브랜드 하나에 1, 2초씩. 템포가 빠르니까 지루할 틈이 없어요."
+   "Tres: solo uno o dos segundos por marca. Va tan rápido que no da tiempo de aburrirse.",
+   "셋째, 브랜드 하나에 1, 2초씩만 써요. 템포가 빠르니까 지루할 틈이 없죠."
   ],
   [
    39.0,
    "04 · TU TIP",
    "",
-   "Elige cinco productos que hayas probado y dales un sí o un no. Una razón por cada uno.",
-   "여러분이 써본 제품 다섯 개를 예스, 노로 골라보세요. 이유는 한 줄이면 돼요."
+   "Juzga cinco productos que hayas probado con un sí o un no. Basta con una razón para cada uno.",
+   "여러분도 써본 제품 다섯 개를 예스, 노로 판정해보세요. 이유는 한 줄씩만 붙이면 돼요."
   ],
   [
    44.5,
    "05 · ASÍ SE VENDE",
    "",
-   "Y los que reciben un 'sí' se vuelven tu lista para vender.",
-   "그리고 예스 받은 제품이 그대로 여러분 판매 리스트가 되는 거예요."
+   "Y los productos con 'sí' se vuelven tu lista para vender. Como los probaste tú, tu recomendación pesa más.",
+   "그리고 예스를 준 제품은 그대로 여러분 판매 리스트가 돼요. 직접 써보고 고른 거니까 추천에도 힘이 실리고요."
   ],
   [
    45,
@@ -498,15 +498,15 @@ window.LECTURE = {
    71.6,
    "04 · TU TIP",
    "",
-   "En tu primera frase, llama a tu público por edad o problema. Y usa solo tres productos de una misma línea.",
-   "여러분도 첫 문장에서 나이나 고민으로 볼 사람을 불러보세요. 제품은 같은 라인으로 세 개만요."
+   "En tu primera frase, llama a tu público por edad o problema de piel. Y elige solo tres productos de la misma línea.",
+   "여러분도 첫 문장에서 나이나 피부 고민으로 볼 사람을 불러보세요. 제품은 같은 라인에서 세 개만 고르시고요."
   ],
   [
    80.0,
    "05 · ASÍ SE VENDE",
    "",
-   "Tres pasos son un set. Es lo que más compran quienes empiezan.",
-   "세 단계면 그대로 세트 하나예요. 처음 시작하는 사람들이 제일 많이 사는 게 이거예요."
+   "Tres productos de una línea ya son un set. Quienes empiezan son las que más compran este tipo de set.",
+   "같은 라인 세 개면 그대로 세트 하나가 돼요. 처음 시작하는 사람들은 이런 세트를 제일 많이 사요."
   ],
   [
    84,
@@ -556,15 +556,15 @@ window.LECTURE = {
    66.0,
    "04 · TU TIP",
    "",
-   "Luz de noche, cámara fija y el micrófono cerca del producto. En pantalla, solo el nombre de cada paso.",
-   "밤 조명에 카메라는 고정하고, 마이크는 제품 가까이 두세요. 자막은 단계 이름만이면 돼요."
+   "Graba con luz de noche, la cámara fija y el micrófono cerca del producto. En pantalla, solo el nombre de cada paso.",
+   "여러분도 밤 조명에 카메라를 고정하고, 마이크는 제품 가까이 두고 찍어보세요. 자막은 단계 이름만 넣으면 돼요."
   ],
   [
    75.0,
    "05 · ASÍ SE VENDE",
    "",
-   "Eso sí: el sonido trae vistas, pero la voz vende. Al final, di qué es en una frase.",
-   "다만 소리는 조회수를 주고, 파는 건 목소리예요. 마지막에 이게 뭔지 한마디만 해주세요."
+   "Eso sí: el sonido solo te da vistas. Para vender, al final di qué producto es.",
+   "다만 소리만으로는 조회수까지예요. 팔려면 마지막에 어떤 제품인지 한마디는 꼭 해주세요."
   ],
   [
    76,
@@ -665,8 +665,8 @@ window.LECTURE = {
    24.0,
    "03 · 3 TIPS",
    "",
-   "Tres: solo tres tips. Te da una razón para guardarlo, y ya tiene más de 30 mil guardados.",
-   "셋째, 팁이 딱 세 개예요. 저장해둘 이유가 생기니까 저장이 3만 개가 넘었어요."
+   "Tres: da solo tres tips. La gente lo guarda para usarlo después, y ya tiene más de 30 mil guardados.",
+   "셋째, 팁을 딱 세 개만 알려줘요. 나중에 써먹으려고 저장하다 보니 저장이 3만 개가 넘었어요."
   ],
   [
    38.0,
@@ -679,8 +679,8 @@ window.LECTURE = {
    52.2,
    "05 · ASÍ SE VENDE",
    "",
-   "Y pon tu código de descuento en el caption. Con precio del club, te queda más ganancia.",
-   "그리고 캡션에 할인 코드를 넣어요. 클럽 가격으로 시작하면 남는 게 더 많고요."
+   "Y gana dinero con el código de descuento del caption. Si empiezas con precio del club, te queda todavía más.",
+   "그리고 캡션에 할인 코드를 넣어서 수익을 내요. 클럽 가격으로 시작하면 여러분은 더 많이 남길 수 있고요."
   ],
   [
    57,
