@@ -11,7 +11,8 @@ narration/output/ 에 만들어진다. 이미 만들어진 파일은 건너뛰�
   python narration/tts.py --force 03_hook # 특정 대본 다시 생성
 
 환경변수:
-  ELEVENLABS_API_KEY   (필수)
+  ELEVENLABS_API_KEY   (선택 — Claude Code 클라우드 환경의 '네트워크 시크릿'으로
+                        api.elevenlabs.io 에 xi-api-key 헤더를 등록했다면 불필요)
   ELEVENLABS_VOICE_ID  (생성 시 필수, `voices` 로 확인)
   ELEVENLABS_MODEL_ID  (기본: eleven_multilingual_v2 — 한국어 지원)
 """
@@ -39,16 +40,23 @@ VOICE_SETTINGS = {
 }
 
 
-def api_key():
+def auth_headers():
+    # 키가 없으면 헤더를 비워 둔다. 네트워크 시크릿을 쓰는 환경에서는
+    # 프록시가 xi-api-key 헤더를 대신 붙여 준다.
     key = os.environ.get("ELEVENLABS_API_KEY")
-    if not key:
-        sys.exit("ELEVENLABS_API_KEY 환경변수가 설정되지 않았습니다.")
-    return key
+    return {"xi-api-key": key} if key else {}
+
+
+def check(r):
+    if r.status_code == 401:
+        sys.exit("인증 실패(401): ELEVENLABS_API_KEY 환경변수나 네트워크 시크릿을 확인하세요.")
+    if not r.ok:
+        raise RuntimeError(f"{r.status_code} {r.text[:300]}")
 
 
 def list_voices():
-    r = requests.get(f"{API}/voices", headers={"xi-api-key": api_key()}, timeout=30)
-    r.raise_for_status()
+    r = requests.get(f"{API}/voices", headers=auth_headers(), timeout=30)
+    check(r)
     for v in r.json()["voices"]:
         labels = ", ".join(f"{k}={val}" for k, val in (v.get("labels") or {}).items())
         print(f"{v['voice_id']}  {v['name']:<20} {labels}")
@@ -65,12 +73,11 @@ def synthesize(text, voice_id, model_id):
     r = requests.post(
         f"{API}/text-to-speech/{voice_id}",
         params={"output_format": "mp3_44100_128"},
-        headers={"xi-api-key": api_key(), "Content-Type": "application/json"},
+        headers={**auth_headers(), "Content-Type": "application/json"},
         json={"text": text, "model_id": model_id, "voice_settings": VOICE_SETTINGS},
         timeout=120,
     )
-    if not r.ok:
-        raise RuntimeError(f"{r.status_code} {r.text[:300]}")
+    check(r)
     return r.content
 
 
