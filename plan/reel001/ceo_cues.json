@@ -3,56 +3,63 @@
   "seg": 1,
   "pause": "HOOK",
   "start": 0.5,
-  "end": 6.57,
+  "end": 6.43,
+  "say_es": "Cero palabras. 5,4 millones de vistas. Mira lo que le falta.",
   "say_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
-  "sub_es": "Cero palabras. 5,4 millones de vistas. Esto es lo que hizo bien, y lo que le falta."
+  "sub_es": "Cero palabras. 5,4 millones de vistas. Mira lo que le falta."
  },
  {
   "seg": 3,
   "pause": "01",
-  "start": 7.57,
-  "end": 13.03,
+  "start": 7.43,
+  "end": 11.67,
+  "say_es": "Uno: 'sin filtro' todo el tiempo. Adiós a la duda.",
   "say_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
-  "sub_es": "Uno: 'sin filtro' en pantalla todo el tiempo. La duda desaparece antes de empezar."
+  "sub_es": "Uno: 'sin filtro' todo el tiempo. Adiós a la duda."
  },
  {
   "seg": 5,
   "pause": "02",
-  "start": 14.53,
-  "end": 20.93,
+  "start": 13.17,
+  "end": 20.83,
+  "say_es": "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas.",
   "say_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
-  "sub_es": "Dos: el problema, por escrito. Rojez, manchas, arrugas. Si eres tú, te detienes."
+  "sub_es": "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas."
  },
  {
   "seg": 7,
   "pause": "03",
-  "start": 23.53,
-  "end": 28.43,
+  "start": 23.43,
+  "end": 28.57,
+  "say_es": "Tres: solo antes y después. Diez segundos: lo ven dos veces.",
   "say_en": "Three: just before and after. Ten seconds, so people watch it twice.",
-  "sub_es": "Tres: solo antes y después. Diez segundos, así que lo ven dos veces."
+  "sub_es": "Tres: solo antes y después. Diez segundos: lo ven dos veces."
  },
  {
   "seg": 9,
   "pause": "04",
-  "start": 30.33,
-  "end": 36.87,
+  "start": 30.47,
+  "end": 37.0,
+  "say_es": "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué.",
   "say_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
-  "sub_es": "Tu turno: copia el antes y después, pero agrega tu voz. Mira a la cámara y di qué usaste y por qué."
+  "sub_es": "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué."
  },
  {
   "seg": 11,
   "pause": "05",
-  "start": 38.37,
-  "end": 47.67,
+  "start": 38.5,
+  "end": 47.43,
+  "say_es": "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
   "say_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
-  "sub_es": "Vistas no son ventas. Los videos donde hablas venden. Una creadora con 5.300 seguidores vendió entre 25 y 60 mil dólares en TikTok Shop."
+  "sub_es": "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop."
  },
  {
   "seg": 13,
   "pause": "FÓRMULA",
-  "start": 48.53,
-  "end": 56.5,
+  "start": 48.3,
+  "end": 57.23,
+  "say_es": "Sin filtro, problema primero, y tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de esta semana.",
   "say_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
-  "sub_es": "Sin filtro, problema primero, y luego tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de sourcing de esta semana."
+  "sub_es": "Sin filtro, problema primero, y tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de esta semana."
  }
 ]

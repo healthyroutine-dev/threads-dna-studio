@@ -6,49 +6,49 @@ window.LECTURE = {
    0.5,
    "5,4 M · 0 PALABRAS",
    "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
-   "Cero palabras. 5,4 millones de vistas. Esto es lo que hizo bien, y lo que le falta.",
+   "Cero palabras. 5,4 millones de vistas. Mira lo que le falta.",
    "말 0마디. 540만 뷰. 잘한 것과 빠진 것을 볼게요."
   ],
   [
    1.5,
    "01 · SIN FILTRO",
    "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
-   "Uno: 'sin filtro' en pantalla todo el tiempo. La duda desaparece antes de empezar.",
+   "Uno: 'sin filtro' todo el tiempo. Adiós a la duda.",
    "하나, 'No filter'가 끝까지 떠 있어요. 의심이 생기기 전에 막아요."
   ],
   [
    3.0,
    "02 · EL PROBLEMA PRIMERO",
    "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
-   "Dos: el problema, por escrito. Rojez, manchas, arrugas. Si eres tú, te detienes.",
+   "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas.",
    "둘, 고민을 글자로. 붉은 기, 기미, 주름. 내 얘기면 멈춰요."
   ],
   [
    5.6,
    "03 · ANTES / DESPUÉS",
    "Three: just before and after. Ten seconds, so people watch it twice.",
-   "Tres: solo antes y después. Diez segundos, así que lo ven dos veces.",
+   "Tres: solo antes y después. Diez segundos: lo ven dos veces.",
    "셋, 전후만. 10초라서 두 번 봐요."
   ],
   [
    7.5,
    "04 · TU TURNO: TU VOZ",
    "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
-   "Tu turno: copia el antes y después, pero agrega tu voz. Mira a la cámara y di qué usaste y por qué.",
+   "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué.",
    "여러분 차례: 전후는 따라 하되 목소리를 넣으세요. 카메라 보고 뭘 왜 썼는지 말하기."
   ],
   [
    9.0,
    "05 · VISTAS ≠ VENTAS",
    "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
-   "Vistas no son ventas. Los videos donde hablas venden. Una creadora con 5.300 seguidores vendió entre 25 y 60 mil dólares en TikTok Shop.",
+   "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
    "조회수는 매출이 아니에요. 말하는 영상이 팔려요. 팔로워 5,300명 크리에이터가 틱톡샵에서 2만 5천~6만 달러."
   ],
   [
    10,
    "LA FÓRMULA",
    "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
-   "Sin filtro, problema primero, y luego tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de sourcing de esta semana.",
+   "Sin filtro, problema primero, y tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de esta semana.",
    "필터 없이, 고민 먼저, 그리고 내 목소리. 서울의 채원이에요. 댓글에 ACADEMY 남기면 이번 주 소싱 리스트 보내드려요."
   ]
  ],

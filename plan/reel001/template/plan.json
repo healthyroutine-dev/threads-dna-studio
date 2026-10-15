@@ -20,10 +20,11 @@
    "now": 0,
    "pause": "HOOK",
    "pip": true,
-   "voice": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
-   "sub": "Cero palabras. 5,4 millones de vistas. | Esto es lo que hizo bien, | y lo que le falta.",
+   "voice": "Cero palabras. 5,4 millones de vistas. Mira lo que le falta.",
+   "sub": "Cero palabras. 5,4 millones de vistas. | Mira lo que le falta.",
    "vo": "vo_01.wav",
-   "d": 6.06
+   "d": 5.93,
+   "voice_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing."
   },
   {
    "t": "play",
@@ -47,10 +48,11 @@
    "now": 1,
    "pause": "01",
    "pip": true,
-   "voice": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
-   "sub": "Uno: 'sin filtro' en pantalla todo el tiempo. | La duda desaparece antes de empezar.",
+   "voice": "Uno: 'sin filtro' todo el tiempo. Adiós a la duda.",
+   "sub": "Uno: 'sin filtro' todo el tiempo. | Adiós a la duda.",
    "vo": "vo_03.wav",
-   "d": 5.48
+   "d": 4.22,
+   "voice_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts."
   },
   {
    "t": "play",
@@ -77,10 +79,11 @@
    "now": 2,
    "pause": "02",
    "pip": true,
-   "voice": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
-   "sub": "Dos: el problema, por escrito. | Rojez, manchas, arrugas. | Si eres tú, te detienes.",
+   "voice": "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas.",
+   "sub": "Dos: el problema, escrito. | Rojez, manchas, arrugas. | Si eres tú, te quedas.",
    "vo": "vo_05.wav",
-   "d": 6.39
+   "d": 7.67,
+   "voice_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop."
   },
   {
    "t": "play",
@@ -109,10 +112,11 @@
    "now": 3,
    "pause": "03",
    "pip": true,
-   "voice": "Three: just before and after. Ten seconds, so people watch it twice.",
-   "sub": "Tres: solo antes y después. | Diez segundos, así que lo ven dos veces.",
+   "voice": "Tres: solo antes y después. Diez segundos: lo ven dos veces.",
+   "sub": "Tres: solo antes y después. | Diez segundos: lo ven dos veces.",
    "vo": "vo_07.wav",
-   "d": 4.9
+   "d": 5.14,
+   "voice_en": "Three: just before and after. Ten seconds, so people watch it twice."
   },
   {
    "t": "play",
@@ -143,10 +147,11 @@
    "now": 4,
    "pause": "04",
    "pip": true,
-   "voice": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
-   "sub": "Tu turno: copia el antes y después, | pero agrega tu voz. | Mira a la cámara y di qué usaste y por qué.",
+   "voice": "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué.",
+   "sub": "Tu turno: copia el antes y después, | pero con tu voz. | Mira a la cámara: qué usaste y por qué.",
    "vo": "vo_09.wav",
-   "d": 6.52
+   "d": 6.52,
+   "voice_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why."
   },
   {
    "t": "play",
@@ -179,10 +184,11 @@
    "now": 5,
    "pause": "05",
    "pip": true,
-   "voice": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
-   "sub": "Vistas no son ventas. | Los videos donde hablas venden. | Una creadora con 5.300 seguidores | vendió entre 25 y 60 mil dólares en TikTok Shop.",
+   "voice": "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
+   "sub": "Vistas no son ventas. | Hablar vende. | Una creadora con 5.300 seguidores | vendió hasta 60 mil dólares en TikTok Shop.",
    "vo": "vo_11.wav",
-   "d": 9.3
+   "d": 8.94,
+   "voice_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop."
   },
   {
    "t": "play",
@@ -216,10 +222,11 @@
    "now": 0,
    "pause": "FÓRMULA",
    "pip": true,
-   "voice": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
-   "sub": "Sin filtro, problema primero, y luego tu voz. | Soy Chaewon, desde Seúl. | Comenta ACADEMY | y te mando la lista de sourcing de esta semana.",
+   "voice": "Sin filtro, problema primero, y tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de esta semana.",
+   "sub": "Sin filtro, problema primero, y tu voz. | Soy Chaewon, desde Seúl. | Comenta ACADEMY | y te mando la lista de esta semana.",
    "vo": "vo_13.wav",
-   "d": 7.94
+   "d": 8.93,
+   "voice_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list."
   }
  ],
  "video_y": 70,

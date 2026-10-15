@@ -2,7 +2,7 @@ import json,subprocess
 plan=json.load(open('plan.json'))
 # 영상 세로 위치(px): 0=원본 그대로, 음수=위로, 양수=아래로. 헤더(0~575)에 가릴 부분과 하단 UI(약 1650~)를 보고 영상마다 정한다
 VY=int(plan.get('video_y',0))
-SRC='src_7482942231217704238.mp4'; VOICE='en-US-AvaNeural'; RATE='+5%'  # 임시 AI 음성. 정식본은 채원 대표 녹음(영어)으로 교체
+SRC='src_7482942231217704238.mp4'; VOICE='es-MX-DaliaNeural'; RATE='+12%'  # 임시 스페인어 AI 음성. 정식본은 대표 영상의 스페인어 립싱크 더빙으로 교체
 dur=lambda f: float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f],capture_output=True,text=True).stdout)
 # 1) voice lines -> freeze durations
 import os
@@ -51,12 +51,12 @@ for k,(f,st) in enumerate(cues):
     ins+=['-i',f]; ms=int(st*1000); fl.append(f'[{k}:a]aresample=48000,adelay={ms}|{ms}[a{k}]')
 fl.append(''.join(f'[a{k}]' for k in range(len(cues)))+f'amix=inputs={len(cues)}:normalize=0,apad,atrim=0:{t:.2f},loudnorm=I=-16:TP=-1.5[a]')
 subprocess.run(['ffmpeg','-v','error','-y']+ins+['-filter_complex',';'.join(fl),'-map','[a]','-ac','2','voice.wav'],check=True)
-subprocess.run(['ffmpeg','-v','error','-y','-i','video_only.mp4','-i','voice.wav','-c:v','copy','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart','b2x_kbeauty_que_vende_001_en_es.mp4'],check=True)
+subprocess.run(['ffmpeg','-v','error','-y','-i','video_only.mp4','-i','voice.wav','-c:v','copy','-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart','b2x_kbeauty_que_vende_001_es_dub.mp4'],check=True)
 # 5) 대표 영상 삽입 큐시트: 최종 영상 기준 정지 구간 = 원형 PiP 자리
 cue=[];tt=0
 for i,s in enumerate(plan['segs']):
     d_=dur(f'seg_{i:02d}.mp4')
-    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_en':s['voice'],'sub_es':s['sub'].replace(' | ',' ')})
+    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_es':s['voice'],'say_en':s.get('voice_en',''),'sub_es':s['sub'].replace(' | ',' ')})
     tt+=d_
 json.dump(cue,open('ceo_cues.json','w'),ensure_ascii=False,indent=1)
 print('total',round(t,2))
