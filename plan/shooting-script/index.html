@@ -178,7 +178,9 @@
       const dw = el("div", "done-wrap"); const lb = el("label"); const cb = el("input"); cb.type = "checkbox"; cb.id = "done-" + key; cb.checked = ok;
       cb.addEventListener("change", () => { store.set(key, cb.checked); li.classList.toggle("ok", cb.checked); upd(); rail(); });
       lb.append(cb, document.createTextNode("촬영 완료")); dw.append(lb);
-      body.append(top, el("p", "ko", ln[1]), el("p", "es", ln[2]), dw);
+      body.append(top, el("p", "ko", ln[1]), el("p", "es", ln[2]));
+      if (/^CTA/.test(ln[0]) && s.items) body.append(el("p", "es", "엔드카드: Comenta ACADEMY · " + s.items.join(" · ")));
+      body.append(dw);
       li.append(el("span", "num", k === 0 ? "H" : (/^CTA/.test(ln[0]) ? "C" : (/RECUERDA|FÓRMULA/.test(ln[0]) ? "F" : String(k).padStart(2, "0")))), body);
       ol.append(li);
     });

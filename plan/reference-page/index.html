@@ -254,7 +254,7 @@
       const li = el("li", "lrow" + (r.k === 0 ? " sig" : "") + (r.last ? " fin" : ""));
       const ts = el("button", "ts", fmt(r.t)); ts.type = "button"; ts.setAttribute("aria-label", fmt(r.t) + " 장면에서 멈춤");
       const body = el("div"); const head = el("div"); head.append(el("span", "chipl", r.label)); if (r.k === 0) head.append(el("span", "hooktag", "HOOK · 첫 문장"));
-      body.append(head, el("p", "env", r.es), el("p", "esv", r.en), el("p", "kov", r.ko));
+      body.append(head, el("p", "env", r.es)); if (r.en) body.append(el("p", "esv", r.en)); body.append(el("p", "kov", r.ko));
       li.append(ts, body);
       li.addEventListener("click", () => { vid.pause(); vid.currentTime = Math.min(r.t, (vid.duration || r.t) - 0.05); syncNext(); nextP = r.k + 1; showOv(r.k); });
       r.node = li; lc.append(li);
