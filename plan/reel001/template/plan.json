@@ -20,11 +20,12 @@
    "now": 0,
    "pause": "HOOK",
    "pip": true,
-   "voice": "Cero palabras. 5,4 millones de vistas. Mira lo que le falta.",
-   "sub": "Cero palabras. 5,4 millones de vistas. | Mira lo que le falta.",
+   "voice": "Ni una sola palabra y 5,4 millones de vistas. El secreto son tres cosas.",
+   "sub": "Ni una sola palabra | y 5,4 millones de vistas. | El secreto son tres cosas.",
    "vo": "vo_01.wav",
-   "d": 5.93,
-   "voice_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing."
+   "d": 5.78,
+   "voice_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
+   "ko": "말 한마디 없는데 조회수가 540만이에요. 비결은 딱 세 가지예요."
   },
   {
    "t": "play",
@@ -48,11 +49,12 @@
    "now": 1,
    "pause": "01",
    "pip": true,
-   "voice": "Uno: 'sin filtro' todo el tiempo. Adiós a la duda.",
-   "sub": "Uno: 'sin filtro' todo el tiempo. | Adiós a la duda.",
+   "voice": "Uno: escribió 'sin filtro' desde el inicio. Así nadie duda si está editado.",
+   "sub": "Uno: escribió 'sin filtro' desde el inicio. | Así nadie duda si está editado.",
    "vo": "vo_03.wav",
-   "d": 4.22,
-   "voice_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts."
+   "d": 5.77,
+   "voice_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
+   "ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 그러니까 보정했나 의심을 안 하게 되죠."
   },
   {
    "t": "play",
@@ -79,11 +81,12 @@
    "now": 2,
    "pause": "02",
    "pip": true,
-   "voice": "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas.",
-   "sub": "Dos: el problema, escrito. | Rojez, manchas, arrugas. | Si eres tú, te quedas.",
+   "voice": "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes.",
+   "sub": "Dos: rojez, manchas, arrugas. | Muestra el problema tal cual. | Si tienes lo mismo, te detienes.",
    "vo": "vo_05.wav",
-   "d": 7.67,
-   "voice_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop."
+   "d": 7.88,
+   "voice_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
+   "ko": "둘째, 홍조, 기미, 주름. 피부 고민을 그대로 보여줘요. 같은 고민이면 멈출 수밖에 없어요."
   },
   {
    "t": "play",
@@ -112,11 +115,12 @@
    "now": 3,
    "pause": "03",
    "pip": true,
-   "voice": "Tres: solo antes y después. Diez segundos: lo ven dos veces.",
-   "sub": "Tres: solo antes y después. | Diez segundos: lo ven dos veces.",
+   "voice": "Tres: sin explicar, solo antes y después. Dura diez segundos, lo ves otra vez, y eso suma vistas.",
+   "sub": "Tres: sin explicar, solo antes y después. | Dura diez segundos, lo ves otra vez, | y eso suma vistas.",
    "vo": "vo_07.wav",
-   "d": 5.14,
-   "voice_en": "Three: just before and after. Ten seconds, so people watch it twice."
+   "d": 7.49,
+   "voice_en": "Three: just before and after. Ten seconds, so people watch it twice.",
+   "ko": "셋째, 설명 없이 전후만 보여줘요. 10초라서 한 번 더 보게 되고, 그게 다 조회수가 되는 거예요."
   },
   {
    "t": "play",
@@ -142,16 +146,17 @@
     3,
     4
    ],
-   "h1": "04 · Tu turno:",
-   "h2": "tu voz",
+   "h1": "04 · Tu",
+   "h2": "tip",
    "now": 4,
    "pause": "04",
    "pip": true,
-   "voice": "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué.",
-   "sub": "Tu turno: copia el antes y después, | pero con tu voz. | Mira a la cámara: qué usaste y por qué.",
+   "voice": "Cuando grabes, haz una cosa más: al final, di qué producto usaste.",
+   "sub": "Cuando grabes, haz una cosa más: | al final, di qué producto usaste.",
    "vo": "vo_09.wav",
-   "d": 6.52,
-   "voice_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why."
+   "d": 4.36,
+   "voice_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
+   "ko": "여러분이 찍을 때는 하나만 더 해보세요. 마지막에 어떤 제품을 썼는지 한마디 해주는 거예요."
   },
   {
    "t": "play",
@@ -163,8 +168,8 @@
     3,
     4
    ],
-   "h1": "04 · Tu turno:",
-   "h2": "tu voz",
+   "h1": "04 · Tu",
+   "h2": "tip",
    "now": 0,
    "pause": null,
    "pip": false
@@ -179,16 +184,17 @@
     4,
     5
    ],
-   "h1": "05 · Vistas",
-   "h2": "≠ ventas",
+   "h1": "05 · Así",
+   "h2": "se vende",
    "now": 5,
    "pause": "05",
    "pip": true,
-   "voice": "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
-   "sub": "Vistas no son ventas. | Hablar vende. | Una creadora con 5.300 seguidores | vendió hasta 60 mil dólares en TikTok Shop.",
+   "voice": "Para comprar, tienen que saber qué usaste. Una creadora con unos 5.000 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
+   "sub": "Para comprar, tienen que saber qué usaste. | Una creadora con unos 5.000 seguidores | vendió hasta 60 mil dólares en TikTok Shop.",
    "vo": "vo_11.wav",
-   "d": 8.94,
-   "voice_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop."
+   "d": 8.42,
+   "voice_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
+   "ko": "보는 사람이 뭘 썼는지 알아야 사잖아요. 실제로 팔로워 5천 명 정도인 크리에이터도 틱톡샵에서 6만 달러까지 팔았어요."
   },
   {
    "t": "play",
@@ -201,8 +207,8 @@
     4,
     5
    ],
-   "h1": "05 · Vistas",
-   "h2": "≠ ventas",
+   "h1": "05 · Así",
+   "h2": "se vende",
    "now": 0,
    "pause": null,
    "pip": false
@@ -217,16 +223,44 @@
     4,
     5
    ],
-   "h1": "La",
-   "h2": "fórmula",
+   "h1": "Recuerda",
+   "h2": "esto",
    "now": 0,
-   "pause": "FÓRMULA",
+   "pause": "RECUERDA",
    "pip": true,
-   "voice": "Sin filtro, problema primero, y tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de esta semana.",
-   "sub": "Sin filtro, problema primero, y tu voz. | Soy Chaewon, desde Seúl. | Comenta ACADEMY | y te mando la lista de esta semana.",
+   "voice": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
+   "sub": "Sin filtro, el problema primero, | antes y después, y al final, el producto. | ¡Recuerda esto!",
    "vo": "vo_13.wav",
-   "d": 8.93,
-   "voice_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list."
+   "d": 6.3,
+   "voice_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
+   "ko": "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!"
+  },
+  {
+   "t": "freeze",
+   "at": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "endcard": true,
+   "sub": "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje.",
+   "voice": "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje.",
+   "ko": "전후 영상 찍을 때 쓰는 촬영 체크리스트랑, 이번 주 한국 인기템 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요.",
+   "vo": "vo_14.wav",
+   "d": 7.74,
+   "items": [
+    "Checklist de antes y después",
+    "Lo más vendido en Corea",
+    "Lista de sourcing de la semana"
+   ]
   }
  ],
  "video_y": 70,

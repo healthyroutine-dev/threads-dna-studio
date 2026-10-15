@@ -29,7 +29,9 @@ for i,s in enumerate(plan['segs']):
     else:
         cmd=['ffmpeg','-v','error','-y','-ss',str(s['at']),'-i',SRC,'-i',ov,'-filter_complex',f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
     subprocess.run(cmd,check=True); parts.append(out)
-    if s.get('vo'): cues.append((s['vo'],t+0.15)); subs.append((s['sub'],t+0.15,dur(s['vo'])))
+    if s.get('vo'):
+        cues.append((s['vo'],t+0.15))
+        if not s.get('endcard'): subs.append((s['sub'],t+0.15,dur(s['vo'])))
     t+=dur(out)
 open('list.txt','w').write(''.join(f"file '{p}'\n" for p in parts))
 subprocess.run(['ffmpeg','-v','error','-y','-f','concat','-safe','0','-i','list.txt','-c','copy','video_nosub.mp4'],check=True)
@@ -56,7 +58,7 @@ subprocess.run(['ffmpeg','-v','error','-y','-i','video_only.mp4','-i','voice.wav
 cue=[];tt=0
 for i,s in enumerate(plan['segs']):
     d_=dur(f'seg_{i:02d}.mp4')
-    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_es':s['voice'],'say_en':s.get('voice_en',''),'sub_es':s['sub'].replace(' | ',' ')})
+    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_es':s['voice'],'say_en':s.get('voice_en',''),'sub_es':s['sub'].replace(' | ',' '),'say_ko':s.get('ko','')})
     tt+=d_
 json.dump(cue,open('ceo_cues.json','w'),ensure_ascii=False,indent=1)
 print('total',round(t,2))

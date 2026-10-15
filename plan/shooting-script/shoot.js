@@ -1,19 +1,11 @@
 // 촬영 대본: 편마다 [화면 라벨, 대표가 말할 한국어(구어체), 스페인어 더빙·자막]
 // 마지막 공통 CTA는 따로 한 번만 촬영한다
 window.CTA = {
-  ko: "서울에서 채원이었어요. 댓글에 ACADEMY 남겨주시면, 이번 주 소싱 리스트 보내드릴게요.",
-  es: "Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de sourcing de esta semana."
+  ko: "소싱 리스트, 촬영 팁, 요즘 한국 인기템까지 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요.",
+  es: "¿Quieres la lista de sourcing, tips de grabación y lo más vendido en Corea? Comenta ACADEMY y te lo mando por mensaje."
 };
 window.SHOOT = [
-{ no: "001", title: "30일 전후", ref: "@kbeautywithelizabeth", lines: [
-  ["HOOK", "말 한마디 없는 영상인데, 540만 뷰가 나왔어요. 근데 이 영상, 빠진 게 하나 있어요.", "Cero palabras. 5,4 millones de vistas. Mira lo que le falta."],
-  ["01 · SIN FILTRO", "첫째, '노필터'를 처음부터 끝까지 띄워놨어요. 보는 사람 의심이 아예 안 생겨요.", "Uno: 'sin filtro' todo el tiempo. Adiós a la duda."],
-  ["02 · EL PROBLEMA PRIMERO", "둘째, 고민을 글자로 박았어요. 붉은 기, 기미, 주름. 내 얘기다 싶으면 멈추게 돼요.", "Dos: el problema, escrito. Rojez, manchas, arrugas. Si eres tú, te quedas."],
-  ["03 · ANTES / DESPUÉS", "셋째, 전이랑 후만 보여줘요. 10초밖에 안 되니까, 두 번씩 돌려 봐요.", "Tres: solo antes y después. Diez segundos: lo ven dos veces."],
-  ["04 · TU TURNO: TU VOZ", "이제 여러분 차례예요. 전후는 그대로 따라 하되, 목소리를 꼭 넣으세요. 카메라 보고, 뭘 썼는지, 왜 썼는지.", "Tu turno: copia el antes y después, pero con tu voz. Mira a la cámara: qué usaste y por qué."],
-  ["05 · VISTAS ≠ VENTAS", "조회수가 곧 매출은 아니에요. 말하는 영상이 팔려요. 팔로워 5천3백 명인 크리에이터가 틱톡샵에서 6만 달러까지 팔았어요.", "Vistas no son ventas. Hablar vende. Una creadora con 5.300 seguidores vendió hasta 60 mil dólares en TikTok Shop."],
-  ["LA FÓRMULA", "노필터, 고민 먼저, 그리고 내 목소리. 이 세 가지예요.", "Sin filtro, problema primero, y tu voz."]
-]},
+{ no: "001", title: "30일 전후", ref: "@kbeautywithelizabeth", lines: [["HOOK", "말 한마디 없는데 조회수가 540만이에요. 비결은 딱 세 가지예요.", "Ni una sola palabra y 5,4 millones de vistas. El secreto son tres cosas."], ["01 · SIN FILTRO", "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 그러니까 보정했나 의심을 안 하게 되죠.", "Uno: escribió 'sin filtro' desde el inicio. Así nadie duda si está editado."], ["02 · EL PROBLEMA PRIMERO", "둘째, 홍조, 기미, 주름. 피부 고민을 그대로 보여줘요. 같은 고민이면 멈출 수밖에 없어요.", "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes."], ["03 · ANTES / DESPUÉS", "셋째, 설명 없이 전후만 보여줘요. 10초라서 한 번 더 보게 되고, 그게 다 조회수가 되는 거예요.", "Tres: sin explicar, solo antes y después. Dura diez segundos, lo ves otra vez, y eso suma vistas."], ["04 · TU TIP", "여러분이 찍을 때는 하나만 더 해보세요. 마지막에 어떤 제품을 썼는지 한마디 해주는 거예요.", "Cuando grabes, haz una cosa más: al final, di qué producto usaste."], ["05 · ASÍ SE VENDE", "보는 사람이 뭘 썼는지 알아야 사잖아요. 실제로 팔로워 5천 명 정도인 크리에이터도 틱톡샵에서 6만 달러까지 팔았어요.", "Para comprar, tienen que saber qué usaste. Una creadora con unos 5.000 seguidores vendió hasta 60 mil dólares en TikTok Shop."], ["RECUERDA ESTO", "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!", "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!"], ["CTA · 엔드카드", "전후 영상 찍을 때 쓰는 촬영 체크리스트랑, 이번 주 한국 인기템 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요.", "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje."]]},
 { no: "002", title: "12초 사용 꿀팁", ref: "@elvinasworld", lines: [
   ["HOOK", "팔로워 311명인 계정이 190만 뷰를 찍었어요. 12초짜리 요령 하나로요.", "311 seguidores. 1,9 millones de vistas. Este es el truco de 12 segundos."],
   ["01 · UNA FRASE", "첫째, 화면에 글자는 딱 한 줄이에요. '토너패드 꿀팁', 그게 다예요.", "Uno: una sola frase en pantalla. 'Truco de toner pad'. Nada más."],
