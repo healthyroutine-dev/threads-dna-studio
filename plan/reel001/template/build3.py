@@ -28,6 +28,8 @@ for i,s in enumerate(plan['segs']):
         cmd=['ffmpeg','-v','error','-y','-ss',str(s['a']),'-to',str(s['b']),'-i',SRC,'-i',ov,'-filter_complex','[0:v]fps=30,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:'+str(VY)+'[v];[v][1:v]overlay=0:0[o]','-map','[o]']+enc+[out]
     else:
         cmd=['ffmpeg','-v','error','-y','-ss',str(s['at']),'-i',SRC,'-i',ov,'-filter_complex',f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
+        if s.get('endcard'):  # 엔드카드: 댓글 버튼 쪽을 가리키는 손 일러스트가 좌우로 톡톡 움직임
+            cmd=cmd[:cmd.index('-filter_complex')]+['-i','hand.png','-filter_complex',cmd[cmd.index('-filter_complex')+1].replace('[o]','[o0]')+";[o0][2:v]overlay=x='720+34*abs(sin(PI*1.5*t))':y=1420:eval=frame[o]",'-map','[o]','-t',str(s['d'])]+enc+[out]
     subprocess.run(cmd,check=True); parts.append(out)
     if s.get('vo'):
         cues.append((s['vo'],t+0.15))
