@@ -1,0 +1,254 @@
+<title>K-Beauty que vende 레퍼런스</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  /* Layout: episode rail on top, then three columns — video | script | analysis — that stack on narrow screens.
+     Single dark look (B2X house style, point color #DB3D5A). */
+  :root {
+    --bg: #09090B; --panel: #131317; --panel-2: #1B1B21; --line: #2A2A31;
+    --ink: #F7F7F8; --quiet: #A1A1AA; --dim: #6E6E78;
+    --point: #DB3D5A; --point-tint: rgba(219, 61, 90, 0.14); --point-ink: #FF7A93;
+    --f-display: "Archivo Black", "Noto Sans KR", system-ui, sans-serif;
+    --f-body: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+    --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6; margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--point); outline-offset: 2px; }
+  .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1480px; margin: 0 auto; }
+
+  header.top { border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+  .brand { font-family: var(--f-display); font-size: 15px; letter-spacing: -0.2px; }
+  .brand b { color: var(--point); font-weight: 400; }
+  .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--quiet); }
+
+  .intro .wrap { padding-block: 28px 18px; display: grid; gap: 10px; }
+  .intro h1 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 5.2vw, 58px); line-height: 0.95; letter-spacing: -1.5px; margin: 0; text-wrap: balance; }
+  .intro h1 span { color: var(--point); }
+  .intro p { margin: 0; color: var(--quiet); max-width: 68ch; }
+  .intro p b { color: var(--ink); }
+
+  /* episode rail */
+  nav.rail { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-block: 1px solid var(--line); }
+  nav.rail .wrap { display: flex; gap: 8px; overflow-x: auto; padding-block: 10px; scrollbar-width: thin; }
+  .chip { flex: none; display: grid; grid-template-columns: 34px auto; gap: 8px; align-items: center; background: var(--panel); border: 1px solid var(--line); color: var(--ink); padding: 5px 12px 5px 5px; cursor: pointer; text-align: left; font: inherit; }
+  .chip img { width: 34px; height: 46px; object-fit: cover; display: block; }
+  .chip .n { font-family: var(--f-mono); font-size: 11px; color: var(--quiet); display: block; line-height: 1.2; }
+  .chip .t { font-size: 13px; font-weight: 700; white-space: nowrap; line-height: 1.3; }
+  .chip[aria-current="true"] { border-color: var(--point); background: var(--point-tint); }
+  .chip[aria-current="true"] .n { color: var(--point-ink); }
+
+  /* main three columns */
+  main .wrap { padding-block: 22px 48px; }
+  .grid { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr) minmax(0, 1.05fr); gap: 22px; align-items: start; }
+  @media (max-width: 1180px) { .grid { grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); } .col-sum { grid-column: 1 / -1; } }
+  @media (max-width: 720px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+  .col-video { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); display: grid; gap: 12px; }
+  @media (max-width: 720px) { .col-video { position: static; } }
+  .player { background: #000; aspect-ratio: 9 / 16; max-width: 100%; width: 100%; max-height: 72vh; margin: 0 auto; }
+  .player video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+  .who { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .who a { font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--line); }
+  .who a:hover { border-color: var(--point); }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .stat { background: var(--panel); padding: 10px 12px; border-left: 2px solid transparent; }
+  .stat.hot { border-left-color: var(--point); }
+  .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--quiet); }
+  .stat .v { font-family: var(--f-display); font-size: 21px; letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+  .stat.hot .v { color: var(--point-ink); }
+  .nav2 { display: flex; gap: 8px; }
+  .nav2 button { flex: 1; background: var(--panel); border: 1px solid var(--line); color: var(--ink); padding: 9px; font: 500 13px var(--f-body); cursor: pointer; }
+  .nav2 button:hover { border-color: var(--point); }
+
+  .colhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--point); margin-bottom: 4px; }
+  .colhead h2 { font-family: var(--f-display); font-weight: 400; font-size: 20px; text-transform: uppercase; letter-spacing: -0.4px; margin: 0; }
+
+  /* script */
+  .script { list-style: none; margin: 0; padding: 0; }
+  .line { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; padding: 10px 6px; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .line:hover { background: var(--panel); }
+  .line.on { background: var(--point-tint); box-shadow: inset 2px 0 0 var(--point); }
+  .ts { font-family: var(--f-mono); font-size: 12px; color: var(--point-ink); background: none; border: 0; padding: 2px 0 0; text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+  .orig { margin: 0; font-size: 14.5px; }
+  .ko { margin: 3px 0 0; font-size: 13.5px; color: var(--quiet); }
+  .tag-text { display: inline-block; font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 1px; color: var(--bg); background: var(--quiet); padding: 1px 5px; margin-right: 6px; vertical-align: 2px; }
+  .hint { color: var(--dim); font-size: 12.5px; margin: 8px 0 0; }
+
+  /* summary */
+  .point { display: grid; gap: 6px; padding: 14px 0 6px; }
+  .point .big { font-family: var(--f-display); font-size: 30px; line-height: 1; letter-spacing: -1px; }
+  .pill { justify-self: start; font-family: var(--f-mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; border: 1px solid var(--point); color: var(--point-ink); padding: 2px 8px; }
+  .sec { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .sec h3 { margin: 0 0 8px; font-size: 12px; font-family: var(--f-mono); font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--quiet); }
+  .sec h3 em { font-style: normal; color: var(--point-ink); }
+  .sec p { margin: 0; max-width: 68ch; }
+  .beats { display: grid; gap: 6px; }
+  .beat { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 10px; font-size: 14px; }
+  .beat span:first-child { font-family: var(--f-mono); font-size: 12px; color: var(--quiet); padding-top: 2px; }
+  ul.dots { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+  ul.dots li { position: relative; padding-left: 16px; }
+  ul.dots li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; background: var(--point); }
+  ol.steps { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  ol.steps li::marker { color: var(--point-ink); font-family: var(--f-mono); font-size: 12px; }
+  .es { margin-top: 12px; background: var(--panel-2); border: 1px solid var(--line); padding: 10px 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+  .es q { font-size: 15px; font-weight: 700; quotes: "“" "”"; }
+  .es .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 1.2px; color: var(--quiet); display: block; margin-bottom: 2px; }
+  .es button { background: var(--point); color: #fff; border: 0; padding: 7px 12px; font: 700 12px var(--f-body); cursor: pointer; }
+  .money { background: var(--point-tint); border-left: 3px solid var(--point); padding: 12px 14px; }
+  .money p + p { margin-top: 8px; color: var(--quiet); font-size: 13.5px; }
+
+  footer .wrap { padding-block: 20px 36px; border-top: 1px solid var(--line); color: var(--dim); font-size: 12.5px; display: grid; gap: 4px; }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="top"><div class="wrap">
+  <span class="brand">B2X <b>BUYERS CLUB</b></span>
+  <span class="label">① 분석편 · K-Beauty que vende 001–012</span>
+</div></header>
+
+<section class="intro"><div class="wrap">
+  <span class="label">Reference library · 2026-10-15</span>
+  <h1>WHAT SOLD,<br><span>AND HOW TO COPY IT.</span></h1>
+  <p>잘 된 K-뷰티 영상 12개. 왼쪽에서 원본을 재생하고, 가운데 스크립트 줄을 누르면 그 장면으로 이동합니다. 오른쪽은 <b>왜 터졌나 → 너는 이렇게 → 이걸로 돈 버는 법</b> 순서로 정리했습니다.</p>
+</div></section>
+
+<nav class="rail" aria-label="레퍼런스 목록"><div class="wrap" id="rail"></div></nav>
+
+<main><div class="wrap">
+  <div class="grid">
+    <section class="col-video" aria-label="원본 영상">
+      <div class="who"><a id="handle" href="#" target="_blank" rel="noopener"></a><span class="label" id="meta"></span></div>
+      <div class="player"><video id="vid" controls playsinline preload="metadata"></video></div>
+      <div class="stats" id="stats"></div>
+      <div class="nav2"><button id="prev" type="button">← 이전</button><button id="next" type="button">다음 →</button></div>
+    </section>
+
+    <section class="col-script" aria-label="스크립트">
+      <div class="colhead"><h2>Script</h2><span class="label">원문 · 한국어</span></div>
+      <ol class="script" id="script"></ol>
+      <p class="hint">대사는 TikTok 자동자막과 음성 인식으로 받아 적고 다듬었습니다. <span class="tag-text">화면</span>표시는 화면에 뜬 자막입니다.</p>
+    </section>
+
+    <section class="col-sum" aria-label="내용 정리">
+      <div class="colhead"><h2>Breakdown</h2><span class="label" id="posted"></span></div>
+      <div class="point"><span class="label" id="no"></span><div class="big" id="pointTitle"></div><span class="pill" id="hookType"></span></div>
+      <div class="sec"><h3>후킹 <em>0–3초</em></h3><p id="hook"></p></div>
+      <div class="sec"><h3>구조</h3><div class="beats" id="beats"></div></div>
+      <div class="sec"><h3>01 · 왜 터졌나</h3><ul class="dots" id="why"></ul></div>
+      <div class="sec"><h3>02 · 너는 이렇게 <em>이번 주에 찍을 것</em></h3>
+        <ol class="steps" id="apply"></ol>
+        <div class="es"><div><span class="k">첫 문장 예시 (ES)</span><q id="lineEs"></q></div><button type="button" id="copy">복사</button></div>
+      </div>
+      <div class="sec"><h3>03 · 이걸로 돈 버는 법</h3>
+        <div class="money"><p id="money"></p><p id="evidence"></p></div>
+      </div>
+    </section>
+  </div>
+</div></main>
+
+<footer><div class="wrap">
+  <span>조회수·팔로워·좋아요·저장은 2026-10-15 각 TikTok 영상 페이지의 공식 수치. 배수 = 조회수 ÷ 팔로워. 저장률 = 저장 ÷ 조회수.</span>
+  <span>제품 판매액은 공개된 제품 단위 자료(NetInfluencer, 2026년 7월·2025년 11월). 영상별 판매액은 TikTok이 공개하지 않습니다.</span>
+  <span>내부 분석용. 원본 영상의 권리는 각 크리에이터에게 있습니다.</span>
+</div></footer>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  const E = window.EPISODES || [];
+  const $ = (id) => document.getElementById(id);
+  const vid = $("vid");
+  let cur = 0, lines = [];
+
+  const fmt = (t) => { const s = Math.floor(t); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+  function buildRail() {
+    const rail = $("rail");
+    E.forEach((e, i) => {
+      const b = el("button", "chip"); b.type = "button"; b.id = "chip-" + e.no;
+      const img = el("img"); img.src = "v/" + e.id + ".jpg"; img.alt = ""; img.loading = "lazy";
+      const tx = el("span"); tx.append(el("span", "n", e.no), el("span", "t", e.point));
+      b.append(img, tx);
+      b.addEventListener("click", () => show(i, true));
+      rail.append(b);
+    });
+  }
+
+  function statTile(k, v, hot) { const d = el("div", "stat" + (hot ? " hot" : "")); d.append(el("div", "k", k), el("div", "v", v)); return d; }
+
+  function show(i, play) {
+    cur = (i + E.length) % E.length;
+    const e = E[cur];
+    document.querySelectorAll(".chip").forEach((c, j) => c.setAttribute("aria-current", j === cur ? "true" : "false"));
+    const chip = $("chip-" + e.no); if (chip) chip.scrollIntoView({ block: "nearest", inline: "center" });
+
+    vid.pause(); vid.src = "v/" + e.id + ".mp4"; vid.poster = "v/" + e.id + ".jpg";
+    if (play) vid.play().catch(() => {});
+
+    const h = $("handle"); h.textContent = "@" + e.handle; h.href = "https://www.tiktok.com/@" + e.handle + "/video/" + e.id;
+    $("meta").textContent = e.lang + " · " + e.dur + "초";
+    const st = $("stats"); st.replaceChildren();
+    st.append(statTile("조회수", e.stats.views, false), statTile("팔로워 대비", e.stats.mult, true), statTile("팔로워", e.stats.followers, false));
+    if (e.stats.saves) st.append(statTile("저장", e.stats.saves, false)); else st.append(statTile("좋아요", e.stats.likes, false));
+
+    const sc = $("script"); sc.replaceChildren();
+    lines = e.script.map((r, k) => ({ t: r[0], o: r[1], ko: r[2], kind: r[3], k })).sort((a, b) => a.t - b.t || a.k - b.k);
+    lines.forEach((r) => {
+      const li = el("li", "line");
+      const ts = el("button", "ts", fmt(r.t)); ts.type = "button"; ts.setAttribute("aria-label", fmt(r.t) + "부터 재생");
+      const body = el("div");
+      const o = el("p", "orig");
+      if (r.kind === "text") o.append(el("span", "tag-text", "화면"));
+      o.append(document.createTextNode(r.o));
+      body.append(o);
+      if (r.ko) body.append(el("p", "ko", r.ko));
+      li.append(ts, body);
+      li.addEventListener("click", () => { vid.currentTime = r.t; vid.play().catch(() => {}); });
+      r.node = li; sc.append(li);
+    });
+
+    $("posted").textContent = "게시 " + e.posted;
+    $("no").textContent = "K-Beauty que vende " + e.no + "/100";
+    $("pointTitle").textContent = e.point;
+    $("hookType").textContent = e.hookType;
+    $("hook").textContent = e.hook;
+    const bt = $("beats"); bt.replaceChildren();
+    e.beats.forEach((b) => { const r = el("div", "beat"); r.append(el("span", null, b[0]), el("span", null, b[1])); bt.append(r); });
+    const why = $("why"); why.replaceChildren(); e.why.forEach((w) => why.append(el("li", null, w)));
+    const ap = $("apply"); ap.replaceChildren(); e.apply.forEach((w) => ap.append(el("li", null, w)));
+    $("lineEs").textContent = e.line_es;
+    $("money").textContent = e.money;
+    $("evidence").textContent = "제품 · 근거: " + e.evidence;
+    $("copy").textContent = "복사";
+
+    try { history.replaceState(null, "", "#" + e.no); } catch (_) {}
+  }
+
+  vid.addEventListener("timeupdate", () => {
+    const t = vid.currentTime; let on = -1;
+    lines.forEach((r, k) => { if (r.kind !== "text" && r.t <= t + 0.15) on = k; });
+    if (on < 0) lines.forEach((r, k) => { if (r.t <= t + 0.15) on = k; });
+    lines.forEach((r, k) => r.node.classList.toggle("on", k === on));
+  });
+
+  $("prev").addEventListener("click", () => show(cur - 1, true));
+  $("next").addEventListener("click", () => show(cur + 1, true));
+  $("copy").addEventListener("click", () => {
+    const txt = $("lineEs").textContent, btn = $("copy");
+    const done = () => { btn.textContent = "복사됨"; };
+    try {
+      navigator.clipboard.writeText(txt).then(done, () => { const r = document.createRange(); r.selectNodeContents($("lineEs")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "선택됨"; });
+    } catch (_) { const r = document.createRange(); r.selectNodeContents($("lineEs")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+
+  buildRail();
+  const start = Math.max(0, E.findIndex((e) => "#" + e.no === location.hash));
+  show(start, false);
+})();
+</script>
