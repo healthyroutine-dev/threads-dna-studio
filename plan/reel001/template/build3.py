@@ -60,7 +60,7 @@ subprocess.run(['ffmpeg','-v','error','-y','-i','video_only.mp4','-i','voice.wav
 cue=[];tt=0
 for i,s in enumerate(plan['segs']):
     d_=dur(f'seg_{i:02d}.mp4')
-    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_es':s['voice'],'say_en':s.get('voice_en',''),'sub_es':s['sub'].replace(' | ',' '),'say_ko':s.get('ko','')})
+    if s.get('pip'): cue.append({'seg':i,'pause':s['pause'],'start':round(tt,2),'end':round(tt+d_,2),'say_es':s['voice'],'say_en':s.get('voice_en',''),'sub_es':s['sub'].replace(' | ',' '),'say_ko':s.get('ko',''),'quote_es':s.get('quote','')})
     tt+=d_
 json.dump(cue,open('ceo_cues.json','w'),ensure_ascii=False,indent=1)
 print('total',round(t,2))

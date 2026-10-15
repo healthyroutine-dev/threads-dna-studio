@@ -81,12 +81,13 @@
    "now": 2,
    "pause": "02",
    "pip": true,
-   "voice": "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes.",
-   "sub": "Dos: rojez, manchas, arrugas. | Muestra el problema tal cual. | Si tienes lo mismo, te detienes.",
+   "voice": "Dos: en pantalla escribió tres palabras: rojez, manchas, arrugas. Si es tu problema, dejas de deslizar.",
+   "sub": "Dos: en pantalla escribió tres palabras: | rojez, manchas, arrugas. | Si es tu problema, dejas de deslizar.",
    "vo": "vo_05.wav",
-   "d": 7.88,
-   "voice_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
-   "ko": "둘째, 홍조, 기미, 주름. 피부 고민을 그대로 보여줘요. 같은 고민이면 멈출 수밖에 없어요."
+   "d": 7.75,
+   "voice_en": "Two: three words on screen. Redness, melasma, wrinkles. If that's your problem, you stop scrolling.",
+   "ko": "둘째, 화면에 '홍조, 기미, 주름' 세 단어를 적어뒀어요. 내 고민이랑 같으면 손가락이 멈추죠.",
+   "quote": "«Redness, melasma, wrinkles»"
   },
   {
    "t": "play",

@@ -26,6 +26,8 @@ html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);fon
 .pip{position:absolute;left:691px;top:640px;width:346px;height:346px;border-radius:50%;border:8px dashed rgba(255,255,255,.95);background:rgba(13,13,13,.55);display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.5)}
 .pip b{font-family:SM;font-weight:700;font-size:26px;letter-spacing:3px;color:#fff}
 .pip span{font-family:P;font-weight:800;font-size:30px;color:var(--point)}
+.quote{position:absolute;left:52px;top:700px;max-width:610px;padding:18px 24px;background:rgba(9,9,11,.88);border-left:8px solid var(--point);border-radius:6px;font-family:P;font-weight:800;font-size:44px;line-height:1.15;color:#fff;display:none}
+.quote small{display:block;font-family:SM;font-weight:700;font-size:20px;letter-spacing:3px;color:var(--point);margin-bottom:6px}
 .handle{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-family:SM;font-weight:700;font-size:26px;letter-spacing:3px;color:#fff;-webkit-text-stroke:6px rgba(0,0,0,.85);paint-order:stroke fill}
 </style></head><body>
 <div class="head">
@@ -40,6 +42,7 @@ html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);fon
 <div class="prog" id="prog"></div>
 <div class="pause" id="pause" style="display:none"></div>
 <div class="pip" id="pip"><b>CEO VIDEO</b><span>대표 영상 삽입</span><b style="font-size:20px;color:#BDBDBD">346 × 346 · 원형</b></div>
+<div class="quote" id="quote"><small>EN EL VIDEO</small><span id="qt"></span></div>
 <p class="handle" id="handle"></p>
 <script>
 function render(s){
@@ -49,6 +52,7 @@ function render(s){
  prog.innerHTML=[1,2,3,4,5].map(i=>`<div class="${s.lit.includes(i)?'on':''} ${s.now===i?'now':''}">0${i}</div>`).join('');
  if(s.pause){pause.style.display='block';pause.textContent='❚❚ '+s.pause}
  handle.textContent=s.handle||'';
+ if(s.quote){quote.style.display='block';qt.textContent=s.quote}
  pip.style.display=s.pip?'flex':'none';
 }
 </script></body></html>

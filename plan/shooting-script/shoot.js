@@ -27,8 +27,9 @@ window.SHOOT = [
    ],
    [
     "02 · EL PROBLEMA PRIMERO",
-    "둘째, 홍조, 기미, 주름. 피부 고민을 그대로 보여줘요. 같은 고민이면 멈출 수밖에 없어요.",
-    "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes."
+    "둘째, 화면에 '홍조, 기미, 주름' 세 단어를 적어뒀어요. 내 고민이랑 같으면 손가락이 멈추죠.",
+    "Dos: en pantalla escribió tres palabras: rojez, manchas, arrugas. Si es tu problema, dejas de deslizar.",
+    "«Redness, melasma, wrinkles»"
    ],
    [
     "03 · ANTES / DESPUÉS",
@@ -131,8 +132,9 @@ window.SHOOT = [
    ],
    [
     "02 · EL RESULTADO PRIMERO",
-    "둘째, 결과 사진부터 보여줘요. 말 시작하기도 전에 '어떻게 한 거지?' 싶어지죠.",
-    "Dos: primero muestra el resultado. Antes de que hable, ya te preguntas cómo lo hizo."
+    "둘째, 화면 위에 '온몸 착색을 이렇게 잡았다'는 문장이 먼저 떠요. 말 시작하기도 전에 '어떻게 한 거지?' 싶어지죠.",
+    "Dos: arriba aparece primero 'así traté las manchas de todo mi cuerpo'. Antes de que hable, ya te preguntas cómo lo hizo.",
+    "«Así traté las manchas de todo mi cuerpo»"
    ],
    [
     "03 · EN ORDEN",
@@ -146,8 +148,9 @@ window.SHOOT = [
    ],
    [
     "05 · ASÍ SE VENDE",
-    "그리고 마지막에 세트 링크를 걸어두세요. 세트는 하나만 팔아도 낱개보다 훨씬 많이 남거든요.",
-    "Y al final, deja el link del set. Un solo set te deja mucho más que productos sueltos."
+    "마지막에 '5종 세트 딜이 미쳤어요, 링크 걸어둘게요' 하고 끝내요. 세트는 하나만 팔아도 낱개보다 훨씬 많이 남거든요.",
+    "Termina con 'la oferta del set de cinco está increíble, te dejo el link'. Un solo set te deja mucho más que productos sueltos.",
+    "«La oferta del set de cinco está increíble»"
    ],
    [
     "RECUERDA ESTO",
@@ -178,8 +181,9 @@ window.SHOOT = [
    ],
    [
     "01 · UN NOMBRE FAMOSO",
-    "첫째, 누구나 아는 유명인 이름으로 시작해요. 그 사람이 직접 쓰는 장면까지 보여주니까 믿을 수밖에 없죠.",
-    "Uno: empieza con el nombre de una famosa que todos conocen, y muestra cuando ella lo usa. Así es imposible no creerle."
+    "첫째, 첫마디가 '조지나가 이 세럼 얘기를 했대요'예요. 아는 이름이 나오니까 일단 끝까지 듣게 되죠.",
+    "Uno: lo primero que dice es 'Georgina habló de este sérum'. Escuchas un nombre conocido y te quedas hasta el final.",
+    "«Georgina habló de este sérum»"
    ],
    [
     "02 · DEMO RÁPIDA",
@@ -188,8 +192,9 @@ window.SHOOT = [
    ],
    [
     "03 · AGOTADO",
-    "셋째, 마지막에 '지난주에 품절됐었다'고 말해요. 그 말을 들으면 지금 안 사면 늦을 것 같거든요.",
-    "Tres: al final dice 'se agotó la semana pasada'. Al oírlo, sientes que si no compras ya, llegas tarde."
+    "셋째, 마지막에 '지난주엔 스페인 전역에서 품절됐었어요'라고 말해요. 그 말을 들으면 지금 안 사면 늦을 것 같거든요.",
+    "Tres: al final dice 'la semana pasada se agotó en toda España'. Al oírlo, sientes que si no compras ya, llegas tarde.",
+    "«La semana pasada se agotó en toda España»"
    ],
    [
     "04 · TU TIP",
@@ -230,8 +235,9 @@ window.SHOOT = [
    ],
    [
     "01 · AL REVÉS",
-    "첫째, 전후를 거꾸로 보여줘요. 좋아질 줄 알았는데 반대니까, '어?' 하고 멈추게 되죠.",
-    "Uno: el antes y después va al revés. Esperas una mejora, pasa lo contrario, y te detienes."
+    "첫째, '이랬던 피부가… 이렇게 됐다'는 자막으로 전후를 거꾸로 보여줘요. 좋아질 줄 알았는데 반대니까, '어?' 하고 멈추게 되죠.",
+    "Uno: con el texto 'el dolor de pasar de esto… a esto', muestra el antes y después al revés. Esperas una mejora, pasa lo contrario, y te detienes.",
+    "«El dolor de pasar de esto… a esto»"
    ],
    [
     "02 · LUZ REAL",
@@ -282,13 +288,15 @@ window.SHOOT = [
    ],
    [
     "01 · LA MARCA ARRIBA",
-    "첫째, 첫 줄에 누구나 아는 제품 이름이 나와요. 내가 아는 제품이니까 일단 멈추게 되죠.",
-    "Uno: en la primera línea aparece un producto que todos conocen. Como lo conoces, te detienes."
+    "첫째, 첫 줄이 '메디큐브 제로 모공 패드를 한 번 썼을 때'예요. 내가 아는 제품이니까 일단 멈추게 되죠.",
+    "Uno: la primera línea dice 'cuando usas los pads Zero Pore de Medicube una vez'. Conoces el producto, y te detienes.",
+    "«Cuando usas los pads de Medicube una vez»"
    ],
    [
     "02 · REACCIÓN",
-    "둘째, 설명 없이 표정만 보여줘요. 무슨 일이 있었는지 궁금해서 계속 보게 돼요.",
-    "Dos: no explica nada, solo muestra su cara. Quieres saber qué pasó y sigues mirando."
+    "둘째, 설명 없이 '이게 뭐야?' 한마디만 계속 반복해요. 무슨 일이 있었는지 궁금해서 계속 보게 돼요.",
+    "Dos: no explica nada, solo repite '¿qué es esto?'. Quieres saber qué pasó y sigues mirando.",
+    "«¿Qué es esto?»"
    ],
    [
     "03 · DEBATE",
@@ -354,8 +362,9 @@ window.SHOOT = [
    ],
    [
     "05 · ASÍ SE VENDE",
-    "마지막에는 '품절될 수도 있어요' 하면서 장바구니 위치를 알려줘요. 그래야 보던 사람이 바로 사러 가거든요.",
-    "Al final dice 'se puede agotar' y muestra dónde está el carrito. Así quien lo ve va a comprar en ese momento."
+    "마지막에 '주황색 장바구니가 보이면 아직 재고가 있는 거예요'라고 해요. 그래야 보던 사람이 바로 사러 가거든요.",
+    "Al final dice 'si ves el carrito naranja, todavía hay stock'. Así quien lo ve va a comprar en ese momento.",
+    "«Si ves el carrito naranja, todavía hay»"
    ],
    [
     "RECUERDA ESTO",
@@ -391,8 +400,9 @@ window.SHOOT = [
    ],
    [
     "02 · SÍ O NO",
-    "둘째, 브랜드마다 예스, 노로 답해요. 다음 브랜드는 뭐라고 할지 궁금해서 끝까지 보게 돼요.",
-    "Dos: a cada marca le dice sí o no. Quieres saber qué dirá de la siguiente y lo ves hasta el final."
+    "둘째, '조선미녀? 음… 노.' 다들 좋아하는 브랜드를 바로 떨어뜨려요. 그러니 다음 브랜드는 뭐라고 할지 궁금해지죠.",
+    "Dos: '¿Beauty of Joseon? Mmm… no.' Descarta una marca que todos aman. Por eso quieres saber qué dirá de la siguiente.",
+    "«¿Beauty of Joseon? Mmm… no.»"
    ],
    [
     "03 · RITMO",
@@ -542,8 +552,9 @@ window.SHOOT = [
    ],
    [
     "01 · UN CHISME",
-    "첫째, 제품 얘기가 아니라 썰로 시작해요. 사람들은 이야기를 들으러 오거든요.",
-    "Uno: empieza con una historia, no con el producto. La gente viene por la historia."
+    "첫째, '브랜드랑 싸운 썰'로 시작해요. 제품 얘기가 아니라 이야기를 들으러 오는 거죠.",
+    "Uno: empieza con 'cómo me peleé con una marca'. La gente no viene por el producto, viene por la historia.",
+    "«Cómo me peleé con una marca»"
    ],
    [
     "02 · PRODUCTO DE FONDO",
@@ -604,8 +615,9 @@ window.SHOOT = [
    ],
    [
     "03 · 3 TIPS",
-    "셋째, 팁을 딱 세 개만 알려줘요. 나중에 써먹으려고 저장하다 보니 저장이 3만 개가 넘었어요.",
-    "Tres: da solo tres tips. La gente lo guarda para usarlo después, y ya tiene más de 30 mil guardados."
+    "셋째, '지금 얼굴 만지면서 보고 있죠? 안 돼요!' 하고 보는 사람을 콕 집어요. 뜨끔해서 끝까지 보고, 팁이 세 개라 저장까지 해요.",
+    "Tres: '¿lo estás viendo tocándote la cara? ¡No!' Te señala directo. Te quedas hasta el final, y con tres tips, lo guardas.",
+    "«¿Lo estás viendo tocándote la cara? ¡No!»"
    ],
    [
     "04 · TU TIP",

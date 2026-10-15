@@ -70,6 +70,7 @@
   .ko { margin: 0; font-size: clamp(19px, 2.3vw, 23px); font-weight: 700; line-height: 1.5; text-wrap: pretty; }
   .es { margin: 6px 0 0; font-size: 13px; color: var(--dim); }
   .es::before { content: "ES "; font-family: var(--f-mono); font-size: 10px; }
+  .quote { margin: 8px 0 0; display: inline-block; font-size: 14px; font-weight: 700; color: var(--ink); border-left: 3px solid var(--point); background: var(--point-tint); padding: 3px 10px; }
   .done-wrap { margin-top: 10px; }
   .done-wrap label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--quiet); cursor: pointer; }
   .done-wrap input { accent-color: var(--ok); width: 18px; height: 18px; }
@@ -175,6 +176,7 @@
       cb.addEventListener("change", () => { store.set(key, cb.checked); li.classList.toggle("ok", cb.checked); upd(); rail(); });
       lb.append(cb, document.createTextNode("촬영 완료")); dw.append(lb);
       body.append(top, el("p", "ko", ln[1]), el("p", "es", ln[2]));
+      if (ln[3]) body.append(el("p", "quote", "화면 인용 " + ln[3]));
       if (/^CTA/.test(ln[0]) && s.items) body.append(el("p", "es", "엔드카드: Comenta ACADEMY · " + s.items.join(" · ")));
       body.append(dw);
       li.append(el("span", "num", k === 0 ? "H" : (/^CTA/.test(ln[0]) ? "C" : (/RECUERDA|FÓRMULA/.test(ln[0]) ? "F" : String(k).padStart(2, "0")))), body);

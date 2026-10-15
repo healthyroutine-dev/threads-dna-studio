@@ -7,7 +7,8 @@
   "say_es": "Ni una sola palabra y 5,4 millones de vistas. El secreto son tres cosas.",
   "say_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
   "sub_es": "Ni una sola palabra y 5,4 millones de vistas. El secreto son tres cosas.",
-  "say_ko": "말 한마디 없는데 조회수가 540만이에요. 비결은 딱 세 가지예요."
+  "say_ko": "말 한마디 없는데 조회수가 540만이에요. 비결은 딱 세 가지예요.",
+  "quote_es": ""
  },
  {
   "seg": 3,
@@ -17,66 +18,73 @@
   "say_es": "Uno: escribió 'sin filtro' desde el inicio. Responde la duda antes de que aparezca.",
   "say_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
   "sub_es": "Uno: escribió 'sin filtro' desde el inicio. Responde la duda antes de que aparezca.",
-  "say_ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 보는 사람이 의심하기 전에, 먼저 답을 준 거죠."
+  "say_ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 보는 사람이 의심하기 전에, 먼저 답을 준 거죠.",
+  "quote_es": ""
  },
  {
   "seg": 5,
   "pause": "02",
   "start": 14.67,
-  "end": 22.53,
-  "say_es": "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes.",
-  "say_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
-  "sub_es": "Dos: rojez, manchas, arrugas. Muestra el problema tal cual. Si tienes lo mismo, te detienes.",
-  "say_ko": "둘째, 홍조, 기미, 주름. 피부 고민을 그대로 보여줘요. 같은 고민이면 멈출 수밖에 없어요."
+  "end": 22.43,
+  "say_es": "Dos: en pantalla escribió tres palabras: rojez, manchas, arrugas. Si es tu problema, dejas de deslizar.",
+  "say_en": "Two: three words on screen. Redness, melasma, wrinkles. If that's your problem, you stop scrolling.",
+  "sub_es": "Dos: en pantalla escribió tres palabras: rojez, manchas, arrugas. Si es tu problema, dejas de deslizar.",
+  "say_ko": "둘째, 화면에 '홍조, 기미, 주름' 세 단어를 적어뒀어요. 내 고민이랑 같으면 손가락이 멈추죠.",
+  "quote_es": "«Redness, melasma, wrinkles»"
  },
  {
   "seg": 7,
   "pause": "03",
-  "start": 25.13,
-  "end": 32.63,
+  "start": 25.03,
+  "end": 32.53,
   "say_es": "Tres: sin explicar, solo antes y después. Dura diez segundos, lo ves otra vez, y eso suma vistas.",
   "say_en": "Three: just before and after. Ten seconds, so people watch it twice.",
   "sub_es": "Tres: sin explicar, solo antes y después. Dura diez segundos, lo ves otra vez, y eso suma vistas.",
-  "say_ko": "셋째, 설명 없이 전후만 보여줘요. 10초라서 한 번 더 보게 되고, 그게 다 조회수가 되는 거예요."
+  "say_ko": "셋째, 설명 없이 전후만 보여줘요. 10초라서 한 번 더 보게 되고, 그게 다 조회수가 되는 거예요.",
+  "quote_es": ""
  },
  {
   "seg": 9,
   "pause": "04",
-  "start": 34.53,
-  "end": 38.9,
+  "start": 34.43,
+  "end": 38.8,
   "say_es": "Cuando grabes, haz una cosa más: al final, di qué producto usaste.",
   "say_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
   "sub_es": "Cuando grabes, haz una cosa más: al final, di qué producto usaste.",
-  "say_ko": "여러분이 찍을 때는 하나만 더 해보세요. 마지막에 어떤 제품을 썼는지 한마디 해주는 거예요."
+  "say_ko": "여러분이 찍을 때는 하나만 더 해보세요. 마지막에 어떤 제품을 썼는지 한마디 해주는 거예요.",
+  "quote_es": ""
  },
  {
   "seg": 11,
   "pause": "05",
-  "start": 40.4,
-  "end": 48.83,
+  "start": 40.3,
+  "end": 48.73,
   "say_es": "Para comprar, tienen que saber qué usaste. Una creadora con unos 5.000 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
   "say_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
   "sub_es": "Para comprar, tienen que saber qué usaste. Una creadora con unos 5.000 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
-  "say_ko": "보는 사람이 뭘 썼는지 알아야 사잖아요. 실제로 팔로워 5천 명 정도인 크리에이터도 틱톡샵에서 6만 달러까지 팔았어요."
+  "say_ko": "보는 사람이 뭘 썼는지 알아야 사잖아요. 실제로 팔로워 5천 명 정도인 크리에이터도 틱톡샵에서 6만 달러까지 팔았어요.",
+  "quote_es": ""
  },
  {
   "seg": 13,
   "pause": "RECUERDA",
-  "start": 49.7,
-  "end": 56.0,
+  "start": 49.6,
+  "end": 55.9,
   "say_es": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
   "say_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
   "sub_es": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
-  "say_ko": "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!"
+  "say_ko": "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!",
+  "quote_es": ""
  },
  {
   "seg": 14,
   "pause": "CTA",
-  "start": 56.0,
-  "end": 59.83,
+  "start": 55.9,
+  "end": 59.73,
   "say_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
   "say_en": "",
   "sub_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
-  "say_ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
+  "say_ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
+  "quote_es": ""
  }
 ]
