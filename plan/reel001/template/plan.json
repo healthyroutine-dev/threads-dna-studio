@@ -49,12 +49,12 @@
    "now": 1,
    "pause": "01",
    "pip": true,
-   "voice": "Uno: escribió 'sin filtro' desde el inicio. Así nadie duda si está editado.",
-   "sub": "Uno: escribió 'sin filtro' desde el inicio. | Así nadie duda si está editado.",
+   "voice": "Uno: escribió 'sin filtro' desde el inicio. Responde la duda antes de que aparezca.",
+   "sub": "Uno: escribió 'sin filtro' desde el inicio. | Responde la duda antes de que aparezca.",
    "vo": "vo_03.wav",
-   "d": 5.77,
+   "d": 5.9,
    "voice_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
-   "ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 그러니까 보정했나 의심을 안 하게 되죠."
+   "ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 보는 사람이 의심하기 전에, 먼저 답을 준 거죠."
   },
   {
    "t": "play",
@@ -251,11 +251,11 @@
    "pause": "CTA",
    "pip": true,
    "endcard": true,
-   "sub": "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje.",
-   "voice": "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje.",
-   "ko": "전후 영상 찍을 때 쓰는 촬영 체크리스트랑, 이번 주 한국 인기템 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요.",
+   "sub": "¿Mi checklist de antes y después? Comenta ACADEMY.",
+   "voice": "¿Mi checklist de antes y después? Comenta ACADEMY.",
+   "ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
    "vo": "vo_14.wav",
-   "d": 7.74,
+   "d": 3.82,
    "items": [
     "Checklist de antes y después",
     "Lo más vendido en Corea",

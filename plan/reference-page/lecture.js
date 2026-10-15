@@ -13,8 +13,8 @@ window.LECTURE = {
    1.5,
    "01 · SIN FILTRO",
    "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
-   "Uno: escribió 'sin filtro' desde el inicio. Así nadie duda si está editado.",
-   "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 그러니까 보정했나 의심을 안 하게 되죠."
+   "Uno: escribió 'sin filtro' desde el inicio. Responde la duda antes de que aparezca.",
+   "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 보는 사람이 의심하기 전에, 먼저 답을 준 거죠."
   ],
   [
    3.0,
@@ -55,8 +55,8 @@ window.LECTURE = {
    9.85,
    "CTA · 엔드카드",
    "",
-   "¿Quieres mi checklist para grabar tu antes y después, y lo más vendido en Corea esta semana? Comenta ACADEMY y te lo mando por mensaje.",
-   "전후 영상 찍을 때 쓰는 촬영 체크리스트랑, 이번 주 한국 인기템 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Mi checklist de antes y después? Comenta ACADEMY.",
+   "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "002": [
@@ -113,8 +113,8 @@ window.LECTURE = {
    12,
    "CTA · 엔드카드",
    "",
-   "¿Quieres los pads que probé y elegí en Corea, con precio mayorista? Comenta ACADEMY y te lo mando por mensaje.",
-   "제가 직접 써보고 고른 패드 리스트랑 도매가 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Los pads que elegí en Corea? Comenta ACADEMY.",
+   "제가 직접 고른 패드 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "003": [
@@ -171,8 +171,8 @@ window.LECTURE = {
    84,
    "CTA · 엔드카드",
    "",
-   "¿Quieres los sets que más se venden ahora, con precio mayorista? Comenta ACADEMY y te lo mando por mensaje.",
-   "요즘 잘 나가는 세트 구성이랑 도매가 정리해둔 거 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Los sets que más se venden? Comenta ACADEMY.",
+   "잘 팔리는 세트 구성, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "004": [
@@ -180,8 +180,8 @@ window.LECTURE = {
    0.5,
    "HOOK",
    "",
-   "9 mil seguidores y 4,2 millones de vistas. Todo gracias a un nombre famoso.",
-   "팔로워 9천 명인데 420만 뷰가 나왔어요. 유명인 이름 하나 덕분이에요."
+   "9 mil seguidores y 4,2 millones de vistas. Mira lo que hizo en los primeros 3 segundos.",
+   "팔로워 9천 명인데 420만 뷰가 나왔어요. 첫 3초에 뭘 했는지 보세요."
   ],
   [
    1.6,
@@ -229,8 +229,8 @@ window.LECTURE = {
    27,
    "CTA · 엔드카드",
    "",
-   "¿Quieres la lista de lanzamientos que están empezando a explotar en Corea? Comenta ACADEMY y te la mando por mensaje.",
-   "요즘 한국에서 막 뜨기 시작한 신제품 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Lo nuevo que está explotando en Corea? Comenta ACADEMY.",
+   "한국에서 막 뜨는 신제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "005": [
@@ -287,8 +287,8 @@ window.LECTURE = {
    11,
    "CTA · 엔드카드",
    "",
-   "¿Quieres la lista de productos calmantes para recuperar tu piel? Comenta ACADEMY y te la mando por mensaje.",
-   "피부 회복할 때 쓰기 좋은 진정 라인 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Mi lista de productos calmantes? Comenta ACADEMY.",
+   "피부 진정 라인 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "006": [
@@ -345,8 +345,8 @@ window.LECTURE = {
    13,
    "CTA · 엔드카드",
    "",
-   "¿Quieres productos para piel sensible y cómo hacer la prueba de parche? Comenta ACADEMY y te lo mando por mensaje.",
-   "민감한 피부에도 쓰기 좋은 제품 리스트랑 패치 테스트 방법 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Productos para piel sensible? Comenta ACADEMY.",
+   "민감 피부용 제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "007": [
@@ -354,8 +354,8 @@ window.LECTURE = {
    0.5,
    "HOOK",
    "",
-   "Solo se pintó líneas blancas en la cara, y nadie pudo pasarlo: 1,5 millones de vistas.",
-   "얼굴에 하얀 줄을 그었을 뿐인데, 다들 못 넘기고 150만 번이나 봤어요."
+   "Se llenó la cara de líneas blancas, y tiene 1,5 millones de vistas.",
+   "얼굴에 하얀 줄을 잔뜩 그었는데, 조회수가 150만이에요."
   ],
   [
    1.2,
@@ -403,8 +403,8 @@ window.LECTURE = {
    71,
    "CTA · 엔드카드",
    "",
-   "¿Quieres el ranking de Olive Young de esta semana y los números de ventas? Comenta ACADEMY y te lo mando por mensaje.",
-   "이번 주 올리브영 순위랑 판매량 숫자 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿El ranking de Olive Young de esta semana? Comenta ACADEMY.",
+   "이번 주 올리브영 순위, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "008": [
@@ -461,8 +461,8 @@ window.LECTURE = {
    45,
    "CTA · 엔드카드",
    "",
-   "¿Quieres la lista de marcas que de verdad usan en Corea? Comenta ACADEMY y te la mando por mensaje.",
-   "한국 사람들이 실제로 많이 쓰는 브랜드 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Las marcas que de verdad usan en Corea? Comenta ACADEMY.",
+   "한국 사람들이 진짜 쓰는 브랜드 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "009": [
@@ -470,8 +470,8 @@ window.LECTURE = {
    0.5,
    "HOOK",
    "",
-   "Con su primera frase eligió a su público. Por eso tiene 10 millones de vistas.",
-   "첫 문장 하나로 볼 사람을 딱 골랐어요. 그래서 조회수가 천만이에요."
+   "Una rutina común de 3 pasos, y 10 millones de vistas. Mira qué hizo diferente.",
+   "흔한 3단계 루틴 영상인데, 조회수가 천만이에요. 뭐가 달랐는지 보세요."
   ],
   [
    3.0,
@@ -519,8 +519,8 @@ window.LECTURE = {
    84,
    "CTA · 엔드카드",
    "",
-   "¿Quieres sets de 3 pasos para quienes empiezan? Comenta ACADEMY y te los mando por mensaje.",
-   "처음 시작하는 분들한테 맞는 3단계 세트 구성 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿El set de 3 pasos para empezar? Comenta ACADEMY.",
+   "입문자용 3단계 세트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "010": [
@@ -577,8 +577,8 @@ window.LECTURE = {
    76,
    "CTA · 엔드카드",
    "",
-   "¿Quieres productos con texturas que se ven increíbles en video? Comenta ACADEMY y te los mando por mensaje.",
-   "제형이 예뻐서 영상에 잘 나오는 제품 리스트 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Productos que se ven increíbles en video? Comenta ACADEMY.",
+   "영상에 예쁘게 나오는 제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "011": [
@@ -635,8 +635,8 @@ window.LECTURE = {
    124,
    "CTA · 엔드카드",
    "",
-   "¿Quieres una rutina de 3 pasos para hacer mientras cuentas tu chisme? Comenta ACADEMY y te la mando por mensaje.",
-   "수다 떨면서 쓰기 좋은 3단계 루틴 제품 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿Una rutina de 3 pasos para tu chisme? Comenta ACADEMY.",
+   "말하면서 하기 좋은 3단계 루틴, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ],
  "012": [
@@ -644,8 +644,8 @@ window.LECTURE = {
    0.5,
    "HOOK",
    "",
-   "Con este video ya está ganando dinero. El secreto está en el caption.",
-   "이 영상 하나로 이미 돈을 벌고 있어요. 비밀은 캡션에 있어요."
+   "909 mil vistas, y este video ya le está generando dinero. Mira cómo lo hace.",
+   "조회수는 91만인데, 이 영상은 이미 돈을 벌고 있어요. 어떻게 하는 건지 보세요."
   ],
   [
    1.5,
@@ -693,8 +693,8 @@ window.LECTURE = {
    57,
    "CTA · 엔드카드",
    "",
-   "¿Quieres 30 temas para tu serie y el precio de miembro? Comenta ACADEMY y te lo mando por mensaje.",
-   "30일 시리즈로 쓸 수 있는 주제 리스트랑 멤버 가격 받고 싶으시면 댓글에 'ACADEMY'라고 남겨주세요. 메시지로 보내드릴게요."
+   "¿30 temas para tu serie? Comenta ACADEMY.",
+   "30일 시리즈 주제 리스트, 댓글에 'ACADEMY' 남기면 보내드려요."
   ]
  ]
 };
