@@ -1,112 +1,112 @@
-// 대표 강의 스크립트: [정지 시점(초), 정지 라벨(ES), 채원 대표 더빙(KO), 스페인어 자막]
-// 첫 줄 = 시그니처(숫자), 01–03 = 왜 터졌나, 04 = 너는 이렇게, 05 = 수익화, 마지막 = LA FÓRMULA + CTA
+// 대표 강의 스크립트: [정지 시점(초), 정지 라벨(ES), 대표 음성(EN), 화면 자막(ES), 참고 번역(KO)]
+// 첫 줄 = 후킹(숫자 + 반전, 자기소개 없음), 01–03 = 왜 터졌나, 04 = 너는 이렇게, 05 = 돈 버는 법, 마지막 = LA FÓRMULA + CTA
 window.LECTURE = {
 "001": [
-  [0.8, "5,4 M DE VISTAS", "케이뷰티 아카데미 원장, 채원이에요. 10초짜리 영상이 540만 뷰. 비결 다섯 개 볼게요.", "Soy Chaewon, de K-Beauty Academy. Un video de 10 segundos: 5,4 millones de vistas. Veamos las 5 claves."],
-  [1.5, "01 · SIN FILTRO", "하나, 'No filter'를 처음부터 끝까지 띄워요. 의심을 먼저 막는 거예요.", "Uno: 'sin filtro' en pantalla todo el tiempo. Así quitas la duda."],
-  [3.0, "02 · EL PROBLEMA PRIMERO", "둘, 고민을 글자로 박아요. 붉은 기, 기미, 주름. 같은 고민인 사람이 멈춰요.", "Dos: escribe el problema. Rojez, manchas, arrugas. Quien lo tiene, se detiene."],
-  [5.6, "03 · ANTES / DESPUÉS", "셋, 말 없이 전후만. 10초라서 두 번, 세 번 다시 봐요.", "Tres: solo antes y después, sin hablar. En 10 segundos, lo ven dos o tres veces."],
-  [7.5, "04 · TU TURNO", "넷, 오늘 창가에서 민낯 3초만 찍어두세요. 30일 뒤에 같은 자리에서 또.", "Cuatro: hoy graba 3 segundos sin maquillaje junto a la ventana. En 30 días, en el mismo lugar."],
-  [9.0, "05 · 30 DÍAS = RECOMPRA", "다섯, 30일이면 한 통을 다 써요. 그때가 재구매 타이밍이에요.", "Cinco: en 30 días se acaba el producto. Ahí está tu recompra."],
-  [10, "LA FÓRMULA", "필터 없이, 고민 먼저, 전후만. 30일 루틴 세트, 클럽에서 같이 시작해요. 댓글에 ACADEMY 남겨주세요.", "Sin filtro, problema primero, antes y después. Empecemos juntas la rutina de 30 días: comenta ACADEMY."]
+  [0.5, "5,4 M · 0 PALABRAS", "This video has zero words. And 5.4 million views.", "Este video no tiene ni una palabra. Y tiene 5,4 millones de vistas.", "이 영상엔 말이 한마디도 없어요. 그런데 540만 뷰예요."],
+  [1.5, "01 · SIN FILTRO", "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.", "Uno: 'sin filtro' en pantalla todo el tiempo. La duda desaparece antes de empezar.", "하나, 'No filter'가 끝까지 떠 있어요. 의심이 생기기 전에 막아요."],
+  [3.0, "02 · EL PROBLEMA PRIMERO", "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.", "Dos: el problema, por escrito. Rojez, manchas, arrugas. Si eres tú, te detienes.", "둘, 고민을 글자로. 붉은 기, 기미, 주름. 내 얘기면 멈춰요."],
+  [5.6, "03 · ANTES / DESPUÉS", "Three: just before and after. Ten seconds, so people watch it twice.", "Tres: solo antes y después. Diez segundos, así que lo ven dos veces.", "셋, 전후만. 10초라서 두 번 봐요."],
+  [7.5, "04 · TU TURNO", "Your turn: film three seconds by the window today. Same spot in thirty days.", "Tu turno: graba tres segundos junto a la ventana hoy. Mismo lugar en treinta días.", "여러분 차례: 오늘 창가에서 3초. 30일 뒤 같은 자리에서."],
+  [9.0, "05 · 30 DÍAS = RECOMPRA", "Thirty days is one bottle. That's exactly when your followers buy again.", "Treinta días es un frasco. Justo ahí tus seguidoras vuelven a comprar.", "30일이면 한 통이에요. 딱 그때 팔로워가 다시 사요."],
+  [10, "LA FÓRMULA", "No filter, problem first, before and after. I'm Chaewon in Seoul. Comment ACADEMY and start the 30-day routine with us.", "Sin filtro, problema primero, antes y después. Soy Chaewon, desde Seúl. Comenta ACADEMY y empieza la rutina de 30 días con nosotras.", "필터 없이, 고민 먼저, 전후만. 서울의 채원이에요. 댓글에 ACADEMY, 30일 루틴 같이 시작해요."]
 ],
 "002": [
-  [0.6, "1,9 M DE VISTAS · 311 SEGUIDORES", "케이뷰티 아카데미 원장, 채원이에요. 팔로워 311명인데 190만 뷰예요. 계정이 작아도 터져요.", "Soy Chaewon, de K-Beauty Academy. 311 seguidores y 1,9 millones de vistas. Una cuenta pequeña también explota."],
-  [1.2, "01 · UNA FRASE", "하나, 자막은 딱 한 줄. 'toner pad life hack'.", "Uno: una sola frase. 'Truco de toner pad'."],
-  [3.0, "02 · SOLO MANOS", "둘, 얼굴 대신 손. 뭘 하는지 궁금해서 끝까지 봐요.", "Dos: solo manos. La curiosidad te hace verlo hasta el final."],
-  [5.5, "03 · EL DOBLE", "셋, 한 장을 두 장으로. '두 배로 쓴다'가 바로 가성비예요.", "Tres: un pad se vuelve dos. 'Rinde el doble' es lo que vende."],
-  [9.2, "04 · TU TURNO", "넷, 지금 가진 제품으로 '오래 쓰는 법' 하나만 찾아서 12초로 찍으세요.", "Cuatro: busca un truco para que tu producto rinda más. Grábalo en 12 segundos."],
-  [11.1, "05 · TU PRIMERA VENTA", "다섯, 패드는 싸고 빨리 떨어져요. 작은 계정의 첫 판매 상품으로 딱이에요.", "Cinco: los pads son baratos y se acaban rápido. Perfectos para tu primera venta."],
-  [12, "LA FÓRMULA", "한 줄, 손만, 두 배. 패드 묶음 공동구매 열어둘게요. 댓글에 ACADEMY.", "Una frase, solo manos, el doble. Abro la compra grupal de pads: comenta ACADEMY."]
+  [0.5, "311 SEGUIDORES → 1,9 M", "311 followers. 1.9 million views. Here's the 12-second trick.", "311 seguidores. 1,9 millones de vistas. Este es el truco de 12 segundos.", "팔로워 311명. 190만 뷰. 12초짜리 그 요령이에요."],
+  [1.2, "01 · UNA FRASE", "One: a single line on screen. 'Toner pad life hack.' That's it.", "Uno: una sola frase en pantalla. 'Truco de toner pad'. Nada más.", "하나, 화면에 한 줄. 'toner pad life hack'. 그게 다예요."],
+  [3.0, "02 · SOLO MANOS", "Two: hands, not a face. You keep watching to see what she's doing.", "Dos: manos, no cara. Sigues mirando para ver qué hace.", "둘, 얼굴 대신 손. 뭘 하는지 보려고 계속 봐요."],
+  [5.5, "03 · EL DOBLE", "Three: one pad becomes two. 'It lasts twice as long' is what sells.", "Tres: un pad se vuelve dos. 'Te rinde el doble' es lo que vende.", "셋, 한 장이 두 장. '두 배 오래 쓴다'가 팔려요."],
+  [9.2, "04 · TU TURNO", "Your turn: find one way to make your product last longer. Film it in twelve seconds.", "Tu turno: encuentra una forma de que tu producto rinda más. Grábalo en doce segundos.", "여러분 차례: 제품 오래 쓰는 법 하나. 12초로 찍으세요."],
+  [11.1, "05 · TU PRIMERA VENTA", "Pads are cheap and run out fast. The perfect first product to sell.", "Los pads son baratos y se acaban rápido. El primer producto perfecto para vender.", "패드는 싸고 빨리 떨어져요. 첫 판매 상품으로 딱이에요."],
+  [12, "LA FÓRMULA", "One line, just hands, twice the value. I'm Chaewon in Seoul. Comment ACADEMY for the pad group buy.", "Una frase, solo manos, el doble. Soy Chaewon, desde Seúl. Comenta ACADEMY para la compra grupal de pads.", "한 줄, 손만, 두 배. 서울의 채원이에요. 패드 공동구매는 댓글에 ACADEMY."]
 ],
 "003": [
-  [1.0, "6,8 M DE VISTAS · 99 K GUARDADOS", "케이뷰티 아카데미 원장, 채원이에요. 680만 뷰에 저장이 9만 9천. 저장한 사람은 나중에 살 사람이에요.", "Soy Chaewon, de K-Beauty Academy. 6,8 millones de vistas y 99 mil guardados. Quien guarda, va a comprar."],
-  [2.5, "01 · RESPONDE UN COMENTARIO", "하나, 댓글에 영상으로 답해요. 보는 사람이 다 '내 질문'처럼 봐요.", "Uno: responde un comentario con video. Todos sienten que es su pregunta."],
-  [3.6, "02 · EL RESULTADO ARRIBA", "둘, 화면 위에 결과 문장이랑 전 사진. 말 시작하기 전에 이미 설득해요.", "Dos: el resultado y la foto de antes arriba. Convence antes de hablar."],
-  [27, "03 · EN ORDEN", "셋, 제품 5개를 쓰는 순서대로. 왜 세트로 사야 하는지 저절로 설명돼요.", "Tres: los 5 productos en orden. Así se explica por qué comprar el set."],
-  [62.5, "04 · TU TURNO", "넷, 여러분 영상에 달린 '어떻게 써요?' 댓글을 골라서, 순서대로 보여주세요.", "Cuatro: elige el comentario '¿cómo se usa?' y muéstralo paso a paso."],
-  [80, "05 · EL SET", "다섯, 마지막엔 세트 링크. 세트는 한 번에 많이 남아요.", "Cinco: al final, el link del set. Un set deja más ganancia por venta."],
-  [84, "LA FÓRMULA", "댓글 답장, 결과 먼저, 순서대로, 세트로. 세트 공동구매는 클럽에서 열어요. 댓글에 ACADEMY.", "Responde, resultado primero, en orden, en set. El set va por compra grupal: comenta ACADEMY."]
+  [0.6, "99 K GUARDADOS", "99,000 people saved this video. That's 99,000 people about to buy.", "99 mil personas guardaron este video. Son 99 mil personas a punto de comprar.", "9만 9천 명이 이 영상을 저장했어요. 곧 살 사람 9만 9천 명이에요."],
+  [2.5, "01 · RESPONDE UN COMENTARIO", "One: she answers a comment with a video. Everyone feels it's their question.", "Uno: responde un comentario con un video. Todas sienten que es su pregunta.", "하나, 댓글에 영상으로 답해요. 다들 내 질문처럼 느껴요."],
+  [3.6, "02 · EL RESULTADO ARRIBA", "Two: the result and the 'before' photo sit on top. She's convincing you before she talks.", "Dos: el resultado y la foto de antes arriba. Te convence antes de hablar.", "둘, 결과 문장과 전 사진이 위에. 말하기 전에 이미 설득해요."],
+  [27, "03 · EN ORDEN", "Three: five products, in the order you use them. That's why people buy the set.", "Tres: cinco productos, en el orden de uso. Por eso compran el set.", "셋, 제품 5개를 쓰는 순서대로. 그래서 세트로 사요."],
+  [62.5, "04 · TU TURNO", "Your turn: pick the 'how do I use this?' comment on your video. Answer it step by step.", "Tu turno: elige el comentario '¿cómo se usa?' en tu video. Respóndelo paso a paso.", "여러분 차례: '어떻게 써요?' 댓글을 골라 순서대로 답하세요."],
+  [80, "05 · EL SET", "And end with the set link. One set sale earns more than five single ones.", "Y termina con el link del set. Una venta de set deja más que cinco sueltas.", "끝은 세트 링크. 세트 하나가 낱개 다섯 개보다 남아요."],
+  [84, "LA FÓRMULA", "Answer, result first, in order, sell the set. I'm Chaewon in Seoul. Comment ACADEMY for the set group buy.", "Responde, resultado primero, en orden, vende el set. Soy Chaewon, desde Seúl. Comenta ACADEMY para la compra grupal del set.", "답장, 결과 먼저, 순서대로, 세트로. 서울의 채원이에요. 세트 공동구매는 댓글에 ACADEMY."]
 ],
 "004": [
-  [0.8, "4,2 M DE VISTAS · 429×", "케이뷰티 아카데미 원장, 채원이에요. 팔로워의 429배, 420만 뷰. 셀럽 이름 하나가 첫 3초를 열었어요.", "Soy Chaewon, de K-Beauty Academy. 4,2 millones, 429 veces sus seguidores. Un nombre famoso abrió los primeros 3 segundos."],
-  [1.6, "01 · UN NOMBRE FAMOSO", "하나, 아는 사람 이름으로 시작하고, 그 장면을 작게 띄워서 증거로 써요.", "Uno: empieza con un nombre conocido y muestra la prueba en pequeño."],
-  [6.0, "02 · DEMO RÁPIDA", "둘, 바르는 곳을 손가락으로 다섯 번. 설명보다 시연이 빨라요.", "Dos: cinco toques en la cara. Mostrar es más rápido que explicar."],
-  [13.5, "03 · MARCA N.º 1", "셋, 성분 한 줄, 브랜드 한 줄. '한국 1위 브랜드'가 신뢰를 줘요.", "Tres: un ingrediente, una marca. 'La número 1 en Corea' da confianza."],
-  [24.6, "04 · AGOTADO", "넷, '지난주에 품절됐었다'. 지금 사야 할 이유를 줘요.", "Cuatro: 'se agotó la semana pasada'. Le das una razón para comprar ya."],
-  [26.5, "05 · TU TURNO", "다섯, 여러분 나라 셀럽이 실제로 쓴 K-뷰티를 찾아보세요. 사실인 것만이요.", "Cinco: busca qué K-beauty usa una famosa de tu país. Solo lo que sea verdad."],
-  [27, "LA FÓRMULA", "이 세럼, 미국 틱톡샵에서 데뷔한 달에 156만 달러 팔렸어요. 신제품 뜨는 달, 클럽에서 같이 열어요. 댓글에 ACADEMY.", "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop EE. UU. Lo abrimos en el club: comenta ACADEMY."]
+  [0.5, "9 K SEGUIDORES → 4,2 M", "He has 9,000 followers. One famous name got him 4.2 million views.", "Tiene 9 mil seguidores. Un nombre famoso le dio 4,2 millones de vistas.", "팔로워 9천 명. 유명인 이름 하나로 420만 뷰."],
+  [1.6, "01 · UN NOMBRE FAMOSO", "One: he opens with a name you know, and shows the proof in a small window.", "Uno: abre con un nombre que conoces y muestra la prueba en una ventanita.", "하나, 아는 이름으로 열고, 증거를 작은 화면으로."],
+  [6.0, "02 · DEMO RÁPIDA", "Two: five taps on the face. Showing is faster than explaining.", "Dos: cinco toques en la cara. Mostrar es más rápido que explicar.", "둘, 얼굴에 다섯 번 톡톡. 설명보다 시연이 빨라요."],
+  [13.5, "03 · MARCA N.º 1", "Three: one ingredient, one brand. 'Number one in Korea' builds trust.", "Tres: un ingrediente, una marca. 'La número uno en Corea' da confianza.", "셋, 성분 하나, 브랜드 하나. '한국 1위'가 신뢰예요."],
+  [24.6, "04 · AGOTADO", "Four: 'it sold out last week.' Now you have a reason to buy today.", "Cuatro: 'se agotó la semana pasada'. Ahora tienes una razón para comprar hoy.", "넷, '지난주 품절'. 오늘 살 이유가 생겨요."],
+  [26.5, "05 · TU TURNO", "Your turn: find a K-beauty product a celebrity in your country really uses. Only if it's true.", "Tu turno: busca un producto coreano que use de verdad una famosa de tu país. Solo si es cierto.", "여러분 차례: 우리 나라 셀럽이 진짜 쓰는 K-뷰티. 사실일 때만."],
+  [27, "LA FÓRMULA", "This serum made 1.56 million dollars in its first month on TikTok Shop US. I'm Chaewon in Seoul. Comment ACADEMY and we open it in the club.", "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop EE. UU. Soy Chaewon, desde Seúl. Comenta ACADEMY y lo abrimos en el club.", "이 세럼, 미국 틱톡샵 첫 달에 156만 달러. 서울의 채원이에요. 댓글에 ACADEMY, 클럽에서 열어요."]
 ],
 "005": [
-  [0.6, "5,3 M DE VISTAS · 357 K LIKES", "케이뷰티 아카데미 원장, 채원이에요. 530만 뷰, 좋아요 35만. 좋아진 얘기가 아니라 나빠진 얘기예요.", "Soy Chaewon, de K-Beauty Academy. 5,3 millones y 357 mil likes. No es una mejora: es al revés."],
-  [1.2, "01 · AL REVÉS", "하나, 전후를 거꾸로. 예상을 깨니까 멈춰요.", "Uno: antes y después al revés. Rompe lo esperado y se detienen."],
-  [3.4, "02 · LUZ REAL", "둘, 바깥 자연광에서 피부 결을 그대로. 안 숨기는 게 신뢰예요.", "Dos: luz natural, textura real. No esconder es lo que da confianza."],
-  [6.5, "03 · EMPATÍA", "셋, 완벽해 보이던 사람이 약점을 보이면 '나도 그래' 댓글이 몰려요.", "Tres: cuando alguien 'perfecta' muestra su piel real, llegan los 'a mí también'."],
-  [8.8, "04 · TU TURNO", "넷, 피부 안 좋았던 시기 사진 있죠? '이랬던 내가 이렇게'로 올려보세요.", "Cuatro: ¿tienes fotos de cuando tu piel estaba mal? Súbelas así: 'de esto… a esto'."],
-  [10.5, "05 · LA SEGUNDA PARTE", "다섯, 이 편은 팔지 않아요. 다음 편 '회복 루틴'에서 팔아요.", "Cinco: este video no vende. Vende la segunda parte: tu rutina para recuperarte."],
-  [11, "LA FÓRMULA", "거꾸로, 그대로, 공감. 회복 루틴용 진정 라인은 클럽에서 준비해둘게요. 댓글에 ACADEMY.", "Al revés, sin filtro, empatía. Te preparo la línea calmante en el club: comenta ACADEMY."]
+  [0.5, "357 K LIKES", "She showed her skin getting worse. And got 357,000 likes.", "Mostró cómo su piel empeoró. Y ganó 357 mil likes.", "피부가 나빠진 걸 보여줬어요. 그리고 좋아요 35만 7천."],
+  [1.2, "01 · AL REVÉS", "One: the before-and-after goes backwards. It breaks what you expect, so you stop.", "Uno: el antes y después va al revés. Rompe lo que esperas, y te detienes.", "하나, 전후가 거꾸로. 예상을 깨서 멈춰요."],
+  [3.4, "02 · LUZ REAL", "Two: daylight, real texture. Not hiding is what builds trust.", "Dos: luz natural, textura real. No esconder es lo que da confianza.", "둘, 자연광, 진짜 결. 안 숨기는 게 신뢰예요."],
+  [6.5, "03 · EMPATÍA", "Three: the 'glass skin girl' shows her real skin. The comments fill with 'me too.'", "Tres: la 'chica glass skin' muestra su piel real. Los comentarios se llenan de 'yo también'.", "셋, '글래스 스킨 걸'이 진짜 피부를. 댓글이 '나도'로 가득."],
+  [8.8, "04 · TU TURNO", "Your turn: you have photos from a bad skin month. Post them: 'from this… to this.'", "Tu turno: tienes fotos de un mes malo de tu piel. Súbelas: 'de esto… a esto'.", "여러분 차례: 피부 안 좋던 때 사진, 있죠. '이랬던 게 이렇게'로."],
+  [10.5, "05 · LA SEGUNDA PARTE", "This video doesn't sell. Part two does: the routine that fixed it.", "Este video no vende. Vende la segunda parte: la rutina que lo arregló.", "이 편은 안 팔아요. 2편 '회복 루틴'이 팔아요."],
+  [11, "LA FÓRMULA", "Backwards, real light, empathy. I'm Chaewon in Seoul. Comment ACADEMY for the calming line for part two.", "Al revés, luz real, empatía. Soy Chaewon, desde Seúl. Comenta ACADEMY para la línea calmante de la segunda parte.", "거꾸로, 진짜 빛, 공감. 서울의 채원이에요. 2편용 진정 라인은 댓글에 ACADEMY."]
 ],
 "006": [
-  [0.6, "2,2 M DE VISTAS · 414 COMENTARIOS", "케이뷰티 아카데미 원장, 채원이에요. 부정적인 후기인데 220만 뷰, 댓글이 414개예요.", "Soy Chaewon, de K-Beauty Academy. Una reseña negativa: 2,2 millones de vistas y 414 comentarios."],
-  [1.0, "01 · LA MARCA ARRIBA", "하나, 유명 제품 이름을 첫 줄에. 아는 제품이라 멈춰요.", "Uno: el nombre del producto famoso en la primera línea."],
-  [3.2, "02 · REACCIÓN", "둘, 설명 대신 표정. 리액션 하나로 궁금하게 만들어요.", "Dos: una reacción en vez de explicar. Genera curiosidad."],
-  [6.0, "03 · DEBATE", "셋, 댓글에서 토론이 붙어요. '나도 그랬다', '이렇게 써야 해'. 댓글이 조회수를 올려요.", "Tres: los comentarios debaten. Eso sube las vistas."],
-  [9.0, "04 · TU TURNO", "넷, '사기 전에 이것부터' 패치 테스트를 보여주세요. 경고도 저장되는 정보예요.", "Cuatro: graba 'antes de comprar, mira esto' con una prueba de parche."],
-  [12.0, "05 · MENOS DEVOLUCIONES", "다섯, 주의사항을 먼저 말하는 셀러가 신뢰받고, 반품도 줄어요.", "Cinco: quien avisa primero gana confianza y tiene menos devoluciones."],
-  [13, "LA FÓRMULA", "제품 이름, 리액션, 토론. 민감 피부용 라인은 클럽에서 따로 열어요. 댓글에 ACADEMY.", "Producto, reacción, debate. Abro una línea para piel sensible: comenta ACADEMY."]
+  [0.5, "2,2 M · RESEÑA NEGATIVA", "A bad review of a top K-beauty brand. 2.2 million views.", "Una mala reseña de una marca coreana top. 2,2 millones de vistas.", "K-뷰티 1등 브랜드의 나쁜 후기. 220만 뷰."],
+  [1.0, "01 · LA MARCA ARRIBA", "One: the famous product name is the first line. You know it, so you stop.", "Uno: el nombre del producto famoso es la primera línea. Lo conoces, te detienes.", "하나, 유명 제품 이름이 첫 줄. 아는 거라 멈춰요."],
+  [3.2, "02 · REACCIÓN", "Two: a face, not an explanation. One reaction makes you curious.", "Dos: una cara, no una explicación. Una reacción te da curiosidad.", "둘, 설명 대신 표정. 리액션 하나로 궁금하게."],
+  [6.0, "03 · DEBATE", "Three: 414 comments arguing. 'Same here' versus 'you used it wrong.' Comments push views.", "Tres: 414 comentarios discutiendo. 'A mí también' contra 'lo usaste mal'. Los comentarios suben las vistas.", "셋, 댓글 414개가 토론. '나도' vs '잘못 썼네'. 댓글이 뷰를 올려요."],
+  [9.0, "04 · TU TURNO", "Your turn: film 'before you buy, watch this' with a patch test.", "Tu turno: graba 'antes de comprar, mira esto' con una prueba de parche.", "여러분 차례: '사기 전에 이것부터' 패치 테스트."],
+  [12.0, "05 · MENOS DEVOLUCIONES", "Sellers who warn first get trusted, and get fewer returns.", "Quien avisa primero gana confianza, y tiene menos devoluciones.", "먼저 경고하는 셀러가 신뢰받고 반품도 줄어요."],
+  [13, "LA FÓRMULA", "Name, reaction, debate. I'm Chaewon in Seoul. Comment ACADEMY for our sensitive-skin line.", "Nombre, reacción, debate. Soy Chaewon, desde Seúl. Comenta ACADEMY para la línea de piel sensible.", "이름, 리액션, 토론. 서울의 채원이에요. 민감 피부 라인은 댓글에 ACADEMY."]
 ],
 "007": [
-  [0.8, "1,5 M DE VISTAS", "케이뷰티 아카데미 원장, 채원이에요. 150만 뷰. 첫 화면부터 이상하죠. 얼굴에 하얀 줄.", "Soy Chaewon, de K-Beauty Academy. 1,5 millones. La primera imagen es rara: líneas blancas en la cara."],
-  [1.2, "01 · IMAGEN RARA", "하나, 이상한 첫 화면. '뭐지?' 하고 멈춰요.", "Uno: una imagen rara al inicio. '¿Qué es eso?' y se detienen."],
-  [3.0, "02 · UN NÚMERO", "둘, 첫 문장에 숫자. '1,000만 개 팔렸다'. 의심보다 궁금증이 커요.", "Dos: un número en la primera frase: '10 millones vendidos'."],
-  [13.0, "03 · EL CAMBIO EN VIVO", "셋, 흰색이 한 번에 피부색으로. 눈으로 보이는 증거예요.", "Tres: de blanco a tu tono en un segundo. Una prueba que se ve."],
-  [64.0, "04 · AGOTADO", "넷, '품절될 수 있어요'와 장바구니 위치. 지금 사게 만들어요.", "Cuatro: 'se puede agotar' y dónde está el carrito."],
-  [69.0, "05 · TU TURNO", "다섯, 여러분은 제품의 진짜 숫자를 첫 문장에 넣으세요. 숫자는 저희가 드려요.", "Cinco: pon el número real del producto en tu primera frase. Los datos te los damos nosotros."],
-  [71, "LA FÓRMULA", "이상한 화면, 숫자, 변화, 품절. 올리브영 랭킹 숫자는 클럽에서 매주 드려요. 댓글에 ACADEMY.", "Imagen rara, número, cambio, agotado. Cada semana te damos el ranking de Olive Young: comenta ACADEMY."]
+  [0.5, "1,5 M · LÍNEAS BLANCAS", "She drew white lines on her face. Nobody could scroll past.", "Se pintó líneas blancas en la cara. Nadie pudo pasar de largo.", "얼굴에 하얀 줄을 그었어요. 아무도 못 넘겼어요."],
+  [1.2, "01 · IMAGEN RARA", "One: a weird first frame. Your brain asks 'what is that?' and stops.", "Uno: una primera imagen rara. Tu cerebro pregunta '¿qué es eso?' y se detiene.", "하나, 이상한 첫 화면. '저게 뭐지?' 하고 멈춰요."],
+  [3.0, "02 · UN NÚMERO", "Two: a number in the first sentence. 'Ten million sold.' Curiosity beats doubt.", "Dos: un número en la primera frase. 'Diez millones vendidos'. La curiosidad gana a la duda.", "둘, 첫 문장에 숫자. '1,000만 개'. 의심보다 궁금증."],
+  [13.0, "03 · EL CAMBIO EN VIVO", "Three: white turns into her skin tone in one swipe. Proof you can see.", "Tres: de blanco a su tono en un solo toque. Una prueba que se ve.", "셋, 한 번에 흰색이 피부색으로. 눈에 보이는 증거."],
+  [64.0, "04 · AGOTADO", "Four: 'it might sell out' and where the cart is. That's the close.", "Cuatro: 'se puede agotar' y dónde está el carrito. Así se cierra la venta.", "넷, '품절될 수도'와 장바구니 위치. 그게 마무리예요."],
+  [69.0, "05 · TU TURNO", "Your turn: put the product's real number in your first sentence. We'll give you the numbers.", "Tu turno: pon el número real del producto en tu primera frase. Los datos te los damos nosotras.", "여러분 차례: 진짜 숫자를 첫 문장에. 숫자는 저희가 드려요."],
+  [71, "LA FÓRMULA", "Weird frame, a number, live change, sold out. I'm Chaewon in Seoul. Comment ACADEMY for this week's Olive Young ranking.", "Imagen rara, un número, cambio en vivo, agotado. Soy Chaewon, desde Seúl. Comenta ACADEMY para el ranking de Olive Young de esta semana.", "이상한 화면, 숫자, 변화, 품절. 서울의 채원이에요. 이번 주 올리브영 랭킹은 댓글에 ACADEMY."]
 ],
 "008": [
-  [0.8, "4 M DE VISTAS · 89 K GUARDADOS", "케이뷰티 아카데미 원장, 채원이에요. 400만 뷰, 저장 8만 9천. 쇼핑 리스트로 저장됐어요.", "Soy Chaewon, de K-Beauty Academy. 4 millones de vistas y 89 mil guardados: la guardan como lista de compras."],
-  [3.2, "01 · AUTORIDAD", "하나, 약사 가운에 한국 드럭스토어. 누가 말하는지가 먼저 보여요.", "Uno: bata de farmacéutica y tienda coreana. Primero se ve quién habla."],
-  [9.5, "02 · SÍ O NO", "둘, 예스 노 게임. 다음 브랜드가 궁금해서 끝까지 봐요.", "Dos: el juego de sí o no. Quieres saber la siguiente marca."],
-  [16.5, "03 · RITMO", "셋, 브랜드마다 1~2초. 빠른 리듬이 이탈을 막아요.", "Tres: 1 o 2 segundos por marca. El ritmo evita que se vayan."],
-  [39.0, "04 · TU TURNO", "넷, 여러분이 써본 제품 5개를 예스 노로. 이유는 한 줄씩.", "Cuatro: tus 5 productos, sí o no. Una razón por cada uno."],
-  [44.5, "05 · LOS 'SÍ' SE VENDEN", "다섯, 예스 받은 제품이 곧 여러분의 판매 리스트예요.", "Cinco: tus 'sí' son tu lista para vender."],
-  [45, "LA FÓRMULA", "권위, 게임, 리듬. 예스 제품은 클럽에서 도매가로 열어요. 댓글에 ACADEMY.", "Autoridad, juego, ritmo. Tus 'sí' los abrimos a precio mayorista: comenta ACADEMY."]
+  [0.5, "89 K GUARDADOS", "A pharmacist said 'no' to brands everyone loves. 89,000 people saved it.", "Una farmacéutica dijo 'no' a marcas que todas aman. 89 mil personas lo guardaron.", "약사가 다들 좋아하는 브랜드에 '노'라고 했어요. 8만 9천 명이 저장했어요."],
+  [3.2, "01 · AUTORIDAD", "One: a pharmacist's coat in a Korean store. You see who's talking before she talks.", "Uno: bata de farmacéutica en una tienda coreana. Ves quién habla antes de que hable.", "하나, 한국 매장에 약사 가운. 말하기 전에 누군지 보여요."],
+  [9.5, "02 · SÍ O NO", "Two: a yes-or-no game. You stay to hear the next brand.", "Dos: un juego de sí o no. Te quedas para oír la siguiente marca.", "둘, 예스 노 게임. 다음 브랜드가 궁금해서 남아요."],
+  [16.5, "03 · RITMO", "Three: one or two seconds per brand. The speed keeps people from leaving.", "Tres: uno o dos segundos por marca. La velocidad hace que nadie se vaya.", "셋, 브랜드당 1~2초. 속도가 이탈을 막아요."],
+  [39.0, "04 · TU TURNO", "Your turn: five products you've tried. Yes or no, one reason each.", "Tu turno: cinco productos que probaste. Sí o no, una razón por cada uno.", "여러분 차례: 써본 제품 5개, 예스 노, 이유 하나씩."],
+  [44.5, "05 · LOS 'SÍ' SE VENDEN", "Your 'yes' list is your selling list.", "Tu lista de 'sí' es tu lista para vender.", "예스 리스트가 곧 판매 리스트예요."],
+  [45, "LA FÓRMULA", "Authority, a game, speed. I'm Chaewon in Seoul. Comment ACADEMY and we open your 'yes' products at wholesale.", "Autoridad, juego, velocidad. Soy Chaewon, desde Seúl. Comenta ACADEMY y abrimos tus 'sí' a precio mayorista.", "권위, 게임, 속도. 서울의 채원이에요. 댓글에 ACADEMY, 예스 제품 도매가로 열어요."]
 ],
 "009": [
-  [0.8, "10,1 M DE VISTAS", "케이뷰티 아카데미 원장, 채원이에요. 1,010만 뷰. 첫 문장이 시청자를 불러요.", "Soy Chaewon, de K-Beauty Academy. 10,1 millones. La primera frase llama a su público."],
-  [3.0, "01 · LLAMA A TU PÚBLICO", "하나, '25살 넘었는데 루틴 없는 사람'. 딱 그 사람이 멈춰요.", "Uno: 'si tienes más de 25 y no tienes rutina'. Esa persona se detiene."],
-  [9.8, "02 · SOLO 3 PASOS", "둘, 단계는 3개. '나도 할 수 있겠다'는 자신감을 줘요.", "Dos: solo 3 pasos. 'Yo también puedo'."],
-  [46.0, "03 · TEXTURA", "셋, 제형 클로즈업. 써본 느낌을 화면으로 줘요.", "Tres: textura en primer plano. Se siente sin tocarla."],
-  [71.6, "04 · TU TURNO", "넷, 첫 문장에 나이나 고민으로 타깃을 부르고, 같은 라인 3개만 쓰세요.", "Cuatro: llama a tu público por edad o problema, y usa solo 3 productos de una línea."],
-  [80.0, "05 · 3 PASOS = 1 SET", "다섯, 3단계는 그대로 3개 세트예요. 입문자가 제일 많이 사요.", "Cinco: 3 pasos son 1 set. Es lo que más compran quienes empiezan."],
-  [84, "LA FÓRMULA", "부르고, 줄이고, 보여주기. 3단계 세트, 클럽에서 같이 열어요. 댓글에 ACADEMY.", "Llama, simplifica, muestra. Abrimos el set de 3 pasos en el club: comenta ACADEMY."]
+  [0.5, "10,1 M VISTAS", "Her first sentence chose her audience. 10 million views.", "Su primera frase eligió a su público. 10 millones de vistas.", "첫 문장이 시청자를 골랐어요. 1,000만 뷰."],
+  [3.0, "01 · LLAMA A TU PÚBLICO", "One: 'If you're over 25 and still have no routine.' That exact person stops.", "Uno: 'si tienes más de 25 y todavía no tienes rutina'. Esa persona exacta se detiene.", "하나, '25살 넘었는데 루틴 없다면'. 딱 그 사람이 멈춰요."],
+  [9.8, "02 · SOLO 3 PASOS", "Two: only three steps. Everyone thinks 'I can do that.'", "Dos: solo tres pasos. Todas piensan 'eso sí lo puedo hacer'.", "둘, 3단계만. '나도 하겠다' 싶어요."],
+  [46.0, "03 · TEXTURA", "Three: texture close-ups. You can almost feel it.", "Tres: textura en primer plano. Casi la puedes sentir.", "셋, 제형 클로즈업. 느낌이 전해져요."],
+  [71.6, "04 · TU TURNO", "Your turn: call your audience by age or problem, then use three products from one line.", "Tu turno: llama a tu público por edad o problema, y usa tres productos de una misma línea.", "여러분 차례: 나이나 고민으로 부르고, 한 라인 3개만."],
+  [80.0, "05 · 3 PASOS = 1 SET", "Three steps is one set. Beginners buy the most.", "Tres pasos son un set. Las principiantes son las que más compran.", "3단계 = 세트 하나. 입문자가 제일 많이 사요."],
+  [84, "LA FÓRMULA", "Call, simplify, show. I'm Chaewon in Seoul. Comment ACADEMY for the 3-step set.", "Llama, simplifica, muestra. Soy Chaewon, desde Seúl. Comenta ACADEMY para el set de 3 pasos.", "부르고, 줄이고, 보여주기. 서울의 채원이에요. 3단계 세트는 댓글에 ACADEMY."]
 ],
 "010": [
-  [0.8, "1,9 M DE VISTAS · SIN HABLAR", "케이뷰티 아카데미 원장, 채원이에요. 190만 뷰. 그런데 한마디도 안 해요.", "Soy Chaewon, de K-Beauty Academy. 1,9 millones de vistas. Sin decir una palabra."],
-  [2.0, "01 · AMBIENTE", "하나, 첫 화면이 분위기예요. 밤 조명, 필기체 타이틀.", "Uno: la primera imagen es ambiente. Luz de noche y un título bonito."],
-  [22.0, "02 · SONIDO", "둘, 펌프, 거품, 톡톡. 소리가 끝까지 보게 해요.", "Dos: el sonido. Bomba, espuma, toquecitos. Te quedas hasta el final."],
-  [44.0, "03 · SIN IDIOMA", "셋, 말이 없으니 어느 나라에서든 봐요.", "Tres: sin hablar, funciona en cualquier país."],
-  [66.0, "04 · TU TURNO", "넷, 밤 조명, 고정 앵글, 마이크는 제품 가까이. 자막은 단계 이름만.", "Cuatro: luz de noche, cámara fija, micrófono cerca. Solo el nombre de cada paso."],
-  [75.0, "05 · TEXTURAS QUE VENDEN", "다섯, 제형이 예쁜 제품을 고르세요. 오일, 폼, 젤.", "Cinco: elige productos con textura bonita: aceite, espuma, gel."],
-  [76, "LA FÓRMULA", "분위기, 소리, 언어 없이. 남미 어느 나라든 같은 영상으로 팔 수 있어요. 댓글에 ACADEMY.", "Ambiente, sonido, sin idioma. Un video para vender en toda Latinoamérica: comenta ACADEMY."]
+  [0.5, "1,9 M · 0 PALABRAS", "1.9 million views. She never says a word.", "1,9 millones de vistas. Nunca dice una palabra.", "190만 뷰. 한마디도 안 해요."],
+  [2.0, "01 · AMBIENTE", "One: the first frame is a mood. Night light, a pretty title.", "Uno: la primera imagen es un ambiente. Luz de noche, un título bonito.", "하나, 첫 화면이 분위기. 밤 조명, 예쁜 타이틀."],
+  [22.0, "02 · SONIDO", "Two: sound. The pump, the foam, the tapping. It keeps you to the end.", "Dos: el sonido. La bomba, la espuma, los toquecitos. Te quedas hasta el final.", "둘, 소리. 펌프, 거품, 톡톡. 끝까지 보게 해요."],
+  [44.0, "03 · SIN IDIOMA", "Three: no words means no language barrier. Any country can watch.", "Tres: sin palabras no hay idioma. Cualquier país lo puede ver.", "셋, 말이 없으니 언어 장벽도 없어요."],
+  [66.0, "04 · TU TURNO", "Your turn: night light, fixed camera, mic close to the product. Only step names on screen.", "Tu turno: luz de noche, cámara fija, micrófono cerca del producto. Solo el nombre de cada paso.", "여러분 차례: 밤 조명, 고정 앵글, 마이크는 제품 가까이. 자막은 단계 이름만."],
+  [75.0, "05 · TEXTURAS QUE VENDEN", "Pick products with beautiful textures. Oil, foam, gel.", "Elige productos con texturas bonitas. Aceite, espuma, gel.", "제형이 예쁜 제품을 고르세요. 오일, 폼, 젤."],
+  [76, "LA FÓRMULA", "Mood, sound, no language. One video sells in all of Latin America. I'm Chaewon in Seoul. Comment ACADEMY.", "Ambiente, sonido, sin idioma. Un video que vende en toda Latinoamérica. Soy Chaewon, desde Seúl. Comenta ACADEMY.", "분위기, 소리, 언어 없이. 영상 하나로 남미 전체에. 서울의 채원이에요. 댓글에 ACADEMY."]
 ],
 "011": [
-  [1.0, "7,6 M DE VISTAS · 1,1 M LIKES", "케이뷰티 아카데미 원장, 채원이에요. 760만 뷰, 좋아요 110만. 근데 스킨케어 얘기는 거의 없어요.", "Soy Chaewon, de K-Beauty Academy. 7,6 millones y 1,1 millones de likes. Casi no habla de skincare."],
-  [3.0, "01 · UN CHISME", "하나, 썰로 시작해요. 사람들은 이야기를 들으러 와요.", "Uno: empieza con un chisme. La gente viene por la historia."],
-  [53.0, "02 · PRODUCTO DE FONDO", "둘, 말하는 동안 손은 루틴. 광고 티가 안 나요.", "Dos: mientras habla, sus manos hacen la rutina. No parece anuncio."],
-  [89.0, "03 · HASTA EL FINAL", "셋, 결말이 궁금해서 2분을 다 봐요. 제품도 2분 내내 보이고요.", "Tres: quieres saber el final y ves 2 minutos. El producto, también."],
-  [107.0, "04 · TU TURNO", "넷, 요즘 있었던 일 하나를 수다로. 손은 3단계 루틴.", "Cuatro: cuenta algo que te pasó mientras haces 3 pasos de tu rutina."],
-  [122.0, "05 · LA LISTA EN EL CAPTION", "다섯, 제품 이름은 캡션에. 팔로워는 언니가 쓰는 걸 사요.", "Cinco: los productos en el caption. Tus seguidoras compran lo que tú usas."],
-  [124, "LA FÓRMULA", "썰, 배경 제품, 캡션 리스트. 영상 속 3개, 클럽에서 같이 열어요. 댓글에 ACADEMY.", "Chisme, producto de fondo, lista en el caption. Esos 3 productos los abrimos en el club: comenta ACADEMY."]
+  [0.6, "1,1 M LIKES · CHISME", "Two minutes of gossip. 1.1 million likes. And skincare in her hands the whole time.", "Dos minutos de chisme. 1,1 millones de likes. Y skincare en sus manos todo el tiempo.", "2분짜리 수다. 좋아요 110만. 그리고 내내 손엔 스킨케어."],
+  [3.0, "01 · UN CHISME", "One: she opens with a story, not a product. People come for the story.", "Uno: abre con una historia, no con un producto. La gente viene por la historia.", "하나, 제품 말고 썰로 시작. 사람들은 이야기를 보러 와요."],
+  [53.0, "02 · PRODUCTO DE FONDO", "Two: while she talks, her hands do the routine. It never feels like an ad.", "Dos: mientras habla, sus manos hacen la rutina. Nunca parece anuncio.", "둘, 말하는 동안 손은 루틴. 광고 같지 않아요."],
+  [89.0, "03 · HASTA EL FINAL", "Three: you stay two minutes for the ending. The products stay on screen just as long.", "Tres: te quedas dos minutos por el final. Los productos se ven igual de tiempo.", "셋, 결말 때문에 2분을 다 봐요. 제품도 그만큼 보여요."],
+  [107.0, "04 · TU TURNO", "Your turn: tell something that happened to you this week while you do three steps.", "Tu turno: cuenta algo que te pasó esta semana mientras haces tres pasos.", "여러분 차례: 이번 주에 있었던 일을 말하면서 3단계."],
+  [122.0, "05 · LA LISTA EN EL CAPTION", "Product names go in the caption. Your followers buy what you use.", "Los productos van en el caption. Tus seguidoras compran lo que tú usas.", "제품명은 캡션에. 팔로워는 내가 쓰는 걸 사요."],
+  [124, "LA FÓRMULA", "A story, products in the background, a list in the caption. I'm Chaewon in Seoul. Comment ACADEMY for those three products.", "Una historia, productos de fondo, la lista en el caption. Soy Chaewon, desde Seúl. Comenta ACADEMY para esos tres productos.", "썰, 배경 제품, 캡션 리스트. 서울의 채원이에요. 그 3개는 댓글에 ACADEMY."]
 ],
 "012": [
-  [0.8, "909 K VISTAS · 31 K GUARDADOS", "케이뷰티 아카데미 원장, 채원이에요. 91만 뷰, 저장 3만 1천. 12편 중에 저장률이 제일 높아요.", "Soy Chaewon, de K-Beauty Academy. 909 mil vistas y 31 mil guardados. El más guardado de los 12."],
-  [1.5, "01 · UNA PREGUNTA", "하나, 질문으로 시작해요. '모공 넓어요?'", "Uno: empieza con una pregunta. '¿Tienes poros abiertos?'"],
-  [3.0, "02 · DÍA 13", "둘, '13일째'. 시리즈라서 다음 편을 기다려요.", "Dos: 'Día 13'. Es una serie: esperan el siguiente."],
-  [24.0, "03 · 3 TIPS = GUARDAR", "셋, 팁 3개. 저장할 이유가 생겨요.", "Tres: 3 tips. Una razón para guardarlo."],
-  [38.0, "04 · TU TURNO", "넷, '1일차' 시리즈를 시작하세요. 고민 하나에 팁 3개, 팁마다 제품 하나.", "Cuatro: empieza tu 'Día 1'. Un problema, 3 tips, un producto por tip."],
-  [52.2, "05 · TU CÓDIGO", "다섯, 캡션의 할인코드로 이미 돈을 벌어요. 클럽 가격이면 마진이 더 남아요.", "Cinco: su código de descuento ya genera dinero. Con precio del club, ganas más."],
-  [57, "LA FÓRMULA", "질문, 시리즈, 팁 세 개, 코드. 멤버 전용 가격은 클럽에서 드려요. 댓글에 ACADEMY.", "Pregunta, serie, 3 tips, código. Precio exclusivo para miembros: comenta ACADEMY."]
+  [0.5, "YA GANA DINERO", "She's already making money from this video. Look at the caption.", "Ella ya gana dinero con este video. Mira el caption.", "이 영상으로 이미 돈 벌고 있어요. 캡션을 보세요."],
+  [1.5, "01 · UNA PREGUNTA", "One: she opens with a question. 'Do you have open pores?'", "Uno: abre con una pregunta. '¿Tienes poros abiertos?'", "하나, 질문으로 시작. '모공 넓어요?'"],
+  [3.0, "02 · DÍA 13", "Two: 'Day 13.' It's a series, so people wait for the next one.", "Dos: 'Día 13'. Es una serie, y esperan el siguiente.", "둘, '13일째'. 시리즈라 다음 편을 기다려요."],
+  [24.0, "03 · 3 TIPS = GUARDAR", "Three: three tips. That's a reason to save it. 31,000 people did.", "Tres: tres tips. Eso es una razón para guardarlo. 31 mil lo hicieron.", "셋, 팁 3개. 저장할 이유. 3만 1천 명이 저장했어요."],
+  [38.0, "04 · TU TURNO", "Your turn: start your own 'Day 1.' One problem, three tips, one product per tip.", "Tu turno: empieza tu 'Día 1'. Un problema, tres tips, un producto por tip.", "여러분 차례: '1일차' 시작. 고민 하나, 팁 셋, 팁마다 제품 하나."],
+  [52.2, "05 · TU CÓDIGO", "Her discount code earns her money. With club prices, you keep a bigger margin.", "Su código de descuento le genera dinero. Con precio del club, tu margen es mayor.", "할인코드로 돈 벌어요. 클럽 가격이면 마진이 더 커요."],
+  [57, "LA FÓRMULA", "A question, a series, three tips, a code. I'm Chaewon in Seoul. Comment ACADEMY for member prices.", "Una pregunta, una serie, tres tips, un código. Soy Chaewon, desde Seúl. Comenta ACADEMY para precios de miembro.", "질문, 시리즈, 팁 셋, 코드. 서울의 채원이에요. 멤버 가격은 댓글에 ACADEMY."]
 ]
 };
