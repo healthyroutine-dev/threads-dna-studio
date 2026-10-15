@@ -1,3 +1,6 @@
 narration/output/
 .env
 __pycache__/
+dub/work/
+*.mp4
+*.mov
