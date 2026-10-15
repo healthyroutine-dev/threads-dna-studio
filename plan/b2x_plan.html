@@ -93,6 +93,13 @@
   ul.check li { display: flex; gap: 3.5mm; padding: 2.6mm 0; border-bottom: 1px solid var(--line); font-size: 9.4pt; }
   ul.check li::before { content: ''; flex: none; width: 3.6mm; height: 3.6mm; border: 1.3px solid var(--point); margin-top: 0.9mm; }
   ul.check li b { font-weight: 700; }
+  .card.pillar { padding: 6mm 5.5mm 5mm; }
+  .card .big { font-family: 'Archivo Black', sans-serif; font-size: 34pt; color: var(--point); line-height: 1; letter-spacing: -1.5pt; }
+  .card.pillar h3 { font-size: 17pt; margin-top: 2mm; }
+  .card.pillar p { min-height: 0; }
+  ul.eps { list-style: none; margin-top: 3.5mm; font-size: 8.6pt; }
+  ul.eps li { display: flex; justify-content: space-between; padding: 1.6mm 0; border-bottom: 1px solid var(--line); color: var(--quiet); }
+  ul.eps li b { color: var(--ink); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -143,10 +150,10 @@
         <text x="374" y="92">DM 자동응답</text><text x="520" y="92">왓츠앱 클럽</text><text x="668" y="92">공동구매</text>
       </g>
       <g text-anchor="middle" font-size="11.5" fill="#A1A1AA">
-        <text x="80" y="111">분석·소싱·현장</text><text x="228" y="111">키워드 하나로 통일</text>
+        <text x="80" y="111">① 분석 · ② 현장</text><text x="228" y="111">키워드 하나로 통일</text>
         <text x="374" y="111">소싱 리스트 전달</text><text x="520" y="111" fill="#fff">셀러 커뮤니티</text><text x="668" y="111">10개 단위 도매가</text>
       </g>
-      <text x="374" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#DB3D5A">멤버 판매 후기 → 다음 콘텐츠 (④ 커뮤니티 전환형)</text>
+      <text x="374" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#DB3D5A">멤버 판매 후기·판매금액 → 다음 ① 분석 콘텐츠</text>
     </svg>
   </div>
   <p class="note">시딩은 캠페인이 끝나면 관계도 끝나지만, 이 구조는 멤버의 판매 후기가 다음 모집 콘텐츠가 되어 계속 돈다.</p>
@@ -165,45 +172,50 @@
   <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>2</span></div>
 </section>
 
-<!-- 3. CONTENT TYPES -->
+<!-- 3. CONTENT DIRECTIONS -->
 <section class="page">
-  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">03</span></div>
-  <h2><span class="no">03</span><span class="t">콘텐츠 유형</span></h2>
-  <p class="lead">타 업체는 <b>브랜드 목적</b>으로 나누고(필터형 유가협업 / 소재수급형 / 오프라인 방문형), 우리는 같은 3축을 <b>셀러가 얻는 것</b> 기준으로 바꾼다. 여기에 커뮤니티 전환형을 더한다.</p>
+  <div class="top"><span class="brand">B2X <b>BUYERS CLUB</b></span><span class="pg">03 — 04</span></div>
+  <h2><span class="no">03</span><span class="t">콘텐츠 방향 — 두 축</span></h2>
+  <p class="lead">24편을 <b>두 축, 12편씩</b>으로 나눈다. ①은 "왜 팔렸나"를 숫자로, ②는 "한국에서 진짜 뜨는 것"을 현장에서 보여준다. 둘 다 같은 CTA(ACADEMY)로 공동구매에 연결된다.</p>
   <div class="grid2">
-    <div class="card"><span class="tag">필터형 유가협업</span>
-      <h3>① ANALYSIS<small>분석형 · K-Beauty que vende</small></h3>
-      <p>터진 영상을 깔고 성공 요인 5개마다 멈춰 짚는다. 말은 한국어, 화면 글자는 스페인어.</p>
-      <div class="metrics"><div><div class="k">Episodes</div><div class="v">12편</div></div><div><div class="k">Length</div><div class="v">30–40초</div></div><div><div class="k">Get</div><div class="v">성공 요인</div></div></div>
-      <div class="read">EP09–12 · 14–16 · 18–20 · 22 · 24 →</div></div>
-    <div class="card"><span class="tag">소재수급형</span>
-      <h3>② SOURCING<small>소싱 정보형</small></h3>
-      <p>이번 주 핫템, 마진 계산, 고르는 기준. 토킹헤드 + 제품 손에 + 숫자 자막.</p>
-      <div class="metrics"><div><div class="k">Episodes</div><div class="v">분석형과 겹침</div></div><div><div class="k">Length</div><div class="v">15–40초</div></div><div><div class="k">Get</div><div class="v">핫템·마진</div></div></div>
-      <div class="read">EP15 · 17 · 18 · 19 · 20 →</div></div>
-    <div class="card"><span class="tag">오프라인 방문형</span>
-      <h3>③ ON SITE<small>현장형</small></h3>
-      <p>창고·샘플·미팅·올리브영·성수·다이소. "한국에서 진짜 유명하다"는 확신과 공급처 신뢰.</p>
-      <div class="metrics"><div><div class="k">Episodes</div><div class="v">8 + 4편</div></div><div><div class="k">Shoot</div><div class="v">촬영지원</div></div><div><div class="k">Get</div><div class="v">신뢰</div></div></div>
-      <div class="read">EP01–08 · 13 · 17 · 21 · 23 →</div></div>
-    <div class="card"><span class="tag new">NEW</span>
-      <h3>④ COMMUNITY<small>커뮤니티 전환형</small></h3>
-      <p>공동구매 오픈, 멤버 판매 후기, 멤버 인터뷰. 시딩 업체엔 없는, "모으는" 모델을 보여주는 유일한 유형.</p>
-      <div class="metrics"><div><div class="k">Episodes</div><div class="v">납품 후 운영</div></div><div><div class="k">Format</div><div class="v">왓츠앱+인터뷰</div></div><div><div class="k">Get</div><div class="v">동료의 성과</div></div></div>
-      <div class="read">미팅에서 24편 포함 여부 결정 →</div></div>
+    <div class="card pillar"><span class="tag">필터형 유가협업</span>
+      <div class="big">01</div>
+      <h3>WHAT SOLD<small>잘된 콘텐츠 분석 · 조회수 / 판매금액</small></h3>
+      <p>터진 K-뷰티 영상을 깔고, 성공 요인 5개마다 멈춰 짚는다. 말은 한국어(채원 원장), 화면 글자는 스페인어. 시리즈명 <b class="pt">K-Beauty que vende 001/100</b>.</p>
+      <div class="metrics"><div><div class="k">Total<br>views</div><div class="v">조회수</div></div><div><div class="k">Est.<br>sales</div><div class="v">추정 판매금액</div></div><div><div class="k">vs<br>followers</div><div class="v">팔로워 대비 배수</div></div></div>
+      <ul class="eps">
+        <li><b>터진 영상 해부</b> EP09–12</li>
+        <li><b>셀러 기준</b> EP14–16</li>
+        <li><b>판매 숫자</b> EP18–20</li>
+        <li><b>크리에이터·사이클</b> EP22·24</li>
+      </ul>
+      <div class="read">12 EPISODES · SELF + EDIT →</div></div>
+    <div class="card pillar"><span class="tag">오프라인 방문형</span>
+      <div class="big">02</div>
+      <h3>ON SITE KOREA<small>오프라인 방문 + 한국 트렌드 소개</small></h3>
+      <p>채원 대표가 창고·미팅·올리브영·성수 팝업·다이소에서 직접 보여준다. "한국에서 진짜 유명하다"는 확신과 공급처 신뢰를 만든다.</p>
+      <div class="metrics"><div><div class="k">Korea<br>ranking</div><div class="v">올리브영 랭킹</div></div><div><div class="k">On the<br>shelf</div><div class="v">품절·진열</div></div><div><div class="k">Price<br>gap</div><div class="v">한국·해외 가격차</div></div></div>
+      <ul class="eps">
+        <li><b>B2X 내부 현장</b> EP01–08</li>
+        <li><b>성수 팝업</b> EP13</li>
+        <li><b>올리브영</b> EP17·23</li>
+        <li><b>다이소</b> EP21</li>
+      </ul>
+      <div class="read">12 EPISODES · FILMING SUPPORT →</div></div>
   </div>
-  <p class="note">모든 유형은 같은 CTA로 끝난다 — "Comenta ACADEMY y te mando la lista de sourcing de esta semana."</p>
+  <p class="note">판매금액은 추정치다. 캡션에 출처·기간과 "추정치이며 실제와 다를 수 있음"을 꼭 쓴다. 소재수급형(핫템·마진)은 ①에 흡수, 커뮤니티 전환형은 공동구매 운영(07)에서 다룬다.</p>
 
-  <h2><span class="no">04</span><span class="t">주제 라인업 (24편)</span></h2>
+  <h2><span class="no">04</span><span class="t">주제 라인업 (24편 = 12 + 12)</span></h2>
   <table>
-    <tr><th style="width:23%">축</th><th style="width:11%">편</th><th>대표 주제</th></tr>
-    <tr><td>현장 (촬영지원)</td><td>EP01–08</td><td>소싱 파트너 선언 · $500 도매 언박싱 · 멕시코행 샘플 · <span class="hl">10개부터 도매가(공동구매)</span> · 서울 소싱 미팅 · 창업 스토리 · 첫 수입 실수 3 · 한국이 지금 사는 것</td></tr>
-    <tr><td>Class 1 · 터진 영상 분석</td><td>EP09–12</td><td>500만 뷰 해부 · 글래스 스킨 포맷 · "한국인이 먼저 쓴다" · 같은 제품 200만 vs 2천</td></tr>
-    <tr><td>Class 2 · 핫템 고르는 법</td><td>EP13–16</td><td>한국 트렌드 먼저 보기 · 유행 vs 스테디 · 사기 전 체크리스트 5 · 샘플 테스트</td></tr>
-    <tr><td>Class 3 · 이번 주 핫템</td><td>EP17–20</td><td>한국 1위 선크림 · 틱톡샵 톱 3 · 한국엔 터졌는데 틱톡샵엔 없는 것 · <span class="hl">$5 도매 → $20 소매 마진</span></td></tr>
-    <tr><td>Class 4 · K-뷰티 문화</td><td>EP21–24</td><td>7단계 루틴 · 공부할 한국 크리에이터 3 · 올리브영에서 뜨는 경로 · 한국→틱톡샵 6개월</td></tr>
+    <tr><th style="width:27%">축</th><th style="width:13%">편</th><th>주제</th></tr>
+    <tr><td><span class="pt">①</span> 터진 영상 해부</td><td>EP09–12</td><td>500만 뷰 해부 · 글래스 스킨 포맷 · "한국인이 먼저 쓴다" · 같은 제품 200만 vs 2천</td></tr>
+    <tr><td><span class="pt">①</span> 셀러 기준</td><td>EP14–16</td><td>유행 vs 스테디 · 사기 전 체크리스트 5 · 샘플 테스트</td></tr>
+    <tr><td><span class="pt">①</span> 판매 숫자</td><td>EP18–20</td><td>틱톡샵 톱 3 · 한국엔 터졌는데 틱톡샵엔 없는 것 · <span class="hl">$5 도매 → $20 소매 마진</span></td></tr>
+    <tr><td><span class="pt">①</span> 크리에이터·사이클</td><td>EP22·24</td><td>공부할 한국 크리에이터 3 · 한국→틱톡샵 6개월</td></tr>
+    <tr><td><span class="pt">②</span> B2X 내부 현장</td><td>EP01–08</td><td>소싱 파트너 선언 · $500 도매 언박싱 · 멕시코행 샘플 · <span class="hl">10개부터 도매가</span> · 서울 소싱 미팅 · 창업 스토리 · 첫 수입 실수 3 · 한국이 지금 사는 것</td></tr>
+    <tr><td><span class="pt">②</span> 한국 트렌드 스케치</td><td>EP13·17·21·23</td><td>성수 팝업 · 올리브영 진열대 · 다이소 · 올리브영 매장</td></tr>
   </table>
-  <p class="note">분홍 2편(EP04, EP20)이 공동구매로 바로 이어지는 핵심 편. CTA를 가장 강하게 건다.</p>
+  <p class="note">분홍 2편(EP04, EP20)이 공동구매로 바로 이어지는 핵심 편. 편 번호는 그대로, 두 축으로만 다시 묶었다.</p>
   <div class="foot"><span>B2X PLAN · RE:WORK STUDIO</span><span>3</span></div>
 </section>
 
@@ -221,7 +233,7 @@
     <tr><td>Chingu Amiga</td><td>YT 1,640만 · TT 2,850만</td><td>멕시코 거주 한국인, 팬덤 → K-뷰티 스토어</td><td>EP22 · 모델</td></tr>
     <tr><td>Liah Yoo</td><td>YT 119만</td><td>"틱톡샵 1시간 3,000병" 셀러 시점</td><td>EP16·22</td></tr>
     <tr><td>인스타 성장 릴스 20건</td><td>–</td><td>댓글 키워드 → DM 자동화 CTA</td><td>ACADEMY</td></tr>
-    <tr><td>Creators Brazil 케이스</td><td>49M+ · CPV $0.0075</td><td>태그 + 제목 + 숫자 3개 카드 → 멤버 카드</td><td>④ · 포트폴리오</td></tr>
+    <tr><td>Creators Brazil 케이스</td><td>49M+ · CPV $0.0075</td><td>태그 + 제목 + 숫자 3개 카드 → 멤버 카드</td><td>① · 포트폴리오</td></tr>
   </table>
   <p class="note">수치는 2026-10-07 기준(양PD 큐레이팅 시트, 채널 페이지). 업로드 전 재확인.</p>
 
@@ -241,7 +253,7 @@
       </ul>
     </div>
     <div>
-      <div class="label" style="margin-bottom:2mm">Member card · ④ 커뮤니티 전환형</div>
+      <div class="label" style="margin-bottom:2mm">Member card · ① 분석 소재 · 포트폴리오</div>
       <div class="card member"><span class="tag">MEXICO</span>
         <h3>[SELLER NAME]<small>[한 줄 성과 — 예: 첫 공동구매로 틱톡샵 입점]</small></h3>
         <div class="metrics"><div><div class="k">Group buy<br>units</div><div class="v">[수량]</div></div><div><div class="k">Sales /<br>margin</div><div class="v">[금액]</div></div><div><div class="k">Days to<br>1st sale</div><div class="v">[일수]</div></div></div>
@@ -262,7 +274,7 @@
     <tr><td>2. 수요 조사</td><td>월–수</td><td>"몇 개 가져갈래요?" 투표</td><td>왓츠앱 투표</td></tr>
     <tr><td>3. 오픈</td><td>모인 수량 ≥ MOQ</td><td>단가 확정, 선입금</td><td>왓츠앱 공지</td></tr>
     <tr><td>4. 발송</td><td>마감 후</td><td>샘플 테스트 → 패킹 → 국가별 발송</td><td>현장 콘텐츠로 재활용</td></tr>
-    <tr><td>5. 후기</td><td>판매 후</td><td>멤버 판매 결과 인터뷰</td><td><span class="hl">④ 멤버 카드</span></td></tr>
+    <tr><td>5. 후기</td><td>판매 후</td><td>멤버 판매 결과 인터뷰</td><td><span class="hl">① 분석 소재 · 멤버 카드</span></td></tr>
   </table>
 
   <h2><span class="no">08</span><span class="t">실행 일정 · 금요일 미팅 안건</span></h2>
@@ -276,7 +288,7 @@
   <div class="label" style="margin-top:7mm">Decide on Friday · 10/16</div>
   <ul class="check">
     <li><span><b>포지션 확정</b> — "시딩 대행"이 아니라 "셀러·인플루언서 커뮤니티 + 공동구매"로 간다</span></li>
-    <li><span><b>④ 커뮤니티 전환형</b>을 24편 안에 넣을지, 납품 후 운영 콘텐츠로 둘지</span></li>
+    <li><span><b>판매금액 데이터 출처</b> — 틱톡샵 분석 툴 중 무엇을 쓸지, 추정치 고지 문구</span></li>
     <li><span><b>공동구매 1회차</b> 제품·MOQ·단가 (EP04·EP20에 들어갈 실제 숫자)</span></li>
     <li><span><b>왓츠앱 클럽</b> 운영 주체와 DM 자동응답 세팅 일정</span></li>
     <li><span><b>타깃 국가</b> 우선순위 — 멕시코(스페인어) 먼저? 브라질은 현지 업체 제휴 후?</span></li>
