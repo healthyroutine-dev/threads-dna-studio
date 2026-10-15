@@ -74,13 +74,13 @@ window.SHOOT = [
    ],
    [
     "01 · UNA FRASE",
-    "첫째, 화면에 글자가 딱 한 줄이에요. '토너패드 꿀팁', 이게 전부예요.",
-    "Uno: una sola frase en pantalla. 'Truco de toner pad', y ya."
+    "첫째, 화면에 글자는 '토너패드 꿀팁' 한 줄뿐이에요. 짧으니까 한눈에 들어오죠.",
+    "Uno: en pantalla solo dice 'truco de toner pad'. Es tan corto que lo entiendes de un vistazo."
    ],
    [
     "02 · SOLO MANOS",
-    "둘째, 얼굴은 안 나오고 손만 나와요. 뭘 하려나 싶어서 끝까지 보게 되죠.",
-    "Dos: no sale la cara, solo las manos. Quieres saber qué hace y lo ves hasta el final."
+    "둘째, 얼굴 없이 손만 나와요. 뭘 하려는 건지 궁금해서 끝까지 보게 돼요.",
+    "Dos: no sale la cara, solo las manos. Quieres saber qué va a hacer y lo ves hasta el final."
    ],
    [
     "03 · EL DOBLE",
@@ -126,8 +126,8 @@ window.SHOOT = [
    ],
    [
     "01 · RESPONDE UN COMENTARIO",
-    "첫째, 댓글에 영상으로 답했어요. 보는 사람마다 내 질문에 답해주는 것 같거든요.",
-    "Uno: responde un comentario con un video. Cada persona siente que le contesta a ella."
+    "첫째, 댓글 질문에 영상으로 답했어요. 그러면 보는 사람도 내 질문에 답해주는 것처럼 느껴요.",
+    "Uno: responde con un video a una pregunta de los comentarios. Quien lo ve siente que le contesta a ella."
    ],
    [
     "02 · EL RESULTADO PRIMERO",
@@ -178,13 +178,13 @@ window.SHOOT = [
    ],
    [
     "01 · UN NOMBRE FAMOSO",
-    "첫째, 다 아는 사람 이름으로 시작해요. 그리고 그 사람이 쓰는 장면을 작게 같이 보여주죠.",
-    "Uno: empieza con un nombre que todos conocen y muestra en pequeño cuando ella lo usa."
+    "첫째, 누구나 아는 유명인 이름으로 시작해요. 그 사람이 직접 쓰는 장면까지 보여주니까 믿을 수밖에 없죠.",
+    "Uno: empieza con el nombre de una famosa que todos conocen, y muestra cuando ella lo usa. Así es imposible no creerle."
    ],
    [
     "02 · DEMO RÁPIDA",
-    "둘째, 설명보다 시연이에요. 얼굴 다섯 군데에 톡톡, 그걸로 끝이에요.",
-    "Dos: más demostración que explicación. Cinco toques en la cara, y listo."
+    "둘째, 길게 설명하지 않고 바로 발라서 보여줘요. 얼굴에 톡톡 다섯 번이면 충분하거든요.",
+    "Dos: no explica mucho, lo aplica directo. Cinco toques en la cara y es suficiente."
    ],
    [
     "03 · AGOTADO",
@@ -230,7 +230,7 @@ window.SHOOT = [
    ],
    [
     "01 · AL REVÉS",
-    "첫째, 전후를 거꾸로 보여줘요. 좋아지는 걸 기대했다가 반대로 가니까 멈추게 되죠.",
+    "첫째, 전후를 거꾸로 보여줘요. 좋아질 줄 알았는데 반대니까, '어?' 하고 멈추게 되죠.",
     "Uno: el antes y después va al revés. Esperas una mejora, pasa lo contrario, y te detienes."
    ],
    [
@@ -282,13 +282,13 @@ window.SHOOT = [
    ],
    [
     "01 · LA MARCA ARRIBA",
-    "첫째, 다 아는 제품 이름이 첫 줄에 나와요. 아는 제품이니까 손이 멈추죠.",
-    "Uno: el nombre de un producto que todos conocen en la primera línea. Lo conoces, y te detienes."
+    "첫째, 첫 줄에 누구나 아는 제품 이름이 나와요. 내가 아는 제품이니까 일단 멈추게 되죠.",
+    "Uno: en la primera línea aparece un producto que todos conocen. Como lo conoces, te detienes."
    ],
    [
     "02 · REACCIÓN",
-    "둘째, 설명 대신 표정 하나로 보여줘요. 무슨 일인가 싶어서 계속 보게 돼요.",
-    "Dos: en vez de explicar, una cara. Quieres saber qué pasó y sigues mirando."
+    "둘째, 설명 없이 표정만 보여줘요. 무슨 일이 있었는지 궁금해서 계속 보게 돼요.",
+    "Dos: no explica nada, solo muestra su cara. Quieres saber qué pasó y sigues mirando."
    ],
    [
     "03 · DEBATE",
@@ -339,8 +339,8 @@ window.SHOOT = [
    ],
    [
     "02 · UN NÚMERO",
-    "둘째, 첫 문장에 숫자를 넣었어요. '천만 개 팔렸다' 하면 궁금해서라도 보게 돼요.",
-    "Dos: un número en la primera frase. Con 'diez millones vendidos', lo ves aunque sea por curiosidad."
+    "둘째, 첫마디가 '천만 개 팔렸다'예요. 얼마나 좋길래 싶어서 보게 되죠.",
+    "Dos: lo primero que dice es 'se vendieron diez millones'. Quieres saber qué tiene de bueno."
    ],
    [
     "03 · EL CAMBIO EN VIVO",
@@ -386,13 +386,13 @@ window.SHOOT = [
    ],
    [
     "01 · AUTORIDAD",
-    "첫째, 한국 매장 앞에 약사 가운. 말하기 전부터 믿음이 가죠.",
-    "Uno: bata de farmacéutica en una tienda coreana. Le crees antes de que hable."
+    "첫째, 한국 드럭스토어에서 약사 가운을 입고 나와요. 말을 시작하기도 전에 믿음이 가죠.",
+    "Uno: aparece con bata de farmacéutica en una tienda coreana. Le crees antes de que empiece a hablar."
    ],
    [
     "02 · SÍ O NO",
-    "둘째, 예스냐 노냐 게임이에요. 다음 브랜드가 궁금해서 끝까지 보게 돼요.",
-    "Dos: es un juego de sí o no. Quieres saber la siguiente marca y lo ves hasta el final."
+    "둘째, 브랜드마다 예스, 노로 답해요. 다음 브랜드는 뭐라고 할지 궁금해서 끝까지 보게 돼요.",
+    "Dos: a cada marca le dice sí o no. Quieres saber qué dirá de la siguiente y lo ves hasta el final."
    ],
    [
     "03 · RITMO",
@@ -438,13 +438,13 @@ window.SHOOT = [
    ],
    [
     "01 · LLAMA A TU PÚBLICO",
-    "첫째, '스물다섯 넘었는데 아직 루틴 없다면.' 딱 그 사람이 멈춰요.",
-    "Uno: 'si tienes más de 25 y todavía no tienes rutina'. Esa persona se detiene."
+    "첫째, '스물다섯 넘었는데 아직 루틴이 없다면' 하고 시작해요. 딱 내 얘기다 싶은 사람이 멈추죠.",
+    "Uno: empieza con 'si tienes más de 25 y todavía no tienes rutina'. Quien se siente identificada se detiene."
    ],
    [
     "02 · SOLO 3 PASOS",
-    "둘째, 단계가 세 개뿐이에요. 이 정도면 나도 하겠다 싶죠.",
-    "Dos: solo tres pasos. Piensas: 'eso sí lo puedo hacer'."
+    "둘째, 단계가 세 개뿐이에요. 이 정도면 나도 할 수 있겠다 싶어지죠.",
+    "Dos: solo son tres pasos. Piensas que tú también lo puedes hacer."
    ],
    [
     "03 · TEXTURA",
@@ -490,13 +490,13 @@ window.SHOOT = [
    ],
    [
     "01 · AMBIENTE",
-    "첫째, 첫 화면이 분위기예요. 은은한 밤 조명에 예쁜 제목 하나.",
-    "Uno: la primera imagen es ambiente. Luz suave de noche y un título bonito."
+    "첫째, 첫 화면부터 분위기가 있어요. 은은한 밤 조명에 예쁜 제목 하나로 시선을 잡죠.",
+    "Uno: desde la primera imagen hay ambiente. Luz suave de noche y un título bonito te atrapan."
    ],
    [
     "02 · SONIDO",
-    "둘째, 소리가 주인공이에요. 펌프 누르는 소리, 거품 소리, 톡톡 두드리는 소리.",
-    "Dos: el sonido es el protagonista. La bomba, la espuma, los toquecitos."
+    "둘째, 소리가 주인공이에요. 펌프 소리, 거품 소리, 톡톡 두드리는 소리까지. 소리 듣는 맛에 끝까지 보게 돼요.",
+    "Dos: el sonido es el protagonista. La bomba, la espuma, los toquecitos. Te quedas hasta el final solo por el sonido."
    ],
    [
     "03 · SIN IDIOMA",
@@ -594,13 +594,13 @@ window.SHOOT = [
    ],
    [
     "01 · UNA PREGUNTA",
-    "첫째, 질문으로 시작해요. '모공 때문에 고민이세요?'",
-    "Uno: empieza con una pregunta. '¿Te preocupan tus poros?'"
+    "첫째, '모공 넓어서 고민이세요?' 하고 질문으로 시작해요. 고민 있는 사람은 바로 멈추죠.",
+    "Uno: empieza preguntando '¿te preocupan tus poros?'. Quien tiene ese problema se detiene."
    ],
    [
     "02 · DÍA 13",
-    "둘째, '13일째'라고 써 있어요. 시리즈라서 다음 편을 기다리게 되죠.",
-    "Dos: dice 'Día 13'. Es una serie, así que esperas el siguiente."
+    "둘째, '13일째'라고 시리즈 번호를 붙였어요. 그러니까 다음 편도 기다리게 되죠.",
+    "Dos: le puso número de serie: 'Día 13'. Por eso esperas el siguiente."
    ],
    [
     "03 · 3 TIPS",
@@ -630,12 +630,4 @@ window.SHOOT = [
   ]
  }
 ];
-window.FREE_TALK = [
-  "B2X를 왜 시작하게 됐어요?",
-  "해외 셀러들이 제일 많이 하는 실수는 뭐예요?",
-  "요즘 한국에서 제일 잘 팔리는 제품 하나만 꼽는다면?",
-  "올리브영에 가면 제일 먼저 어디부터 봐요?",
-  "샘플 받으면 제일 먼저 확인하는 건 뭐예요?",
-  "처음 무역 일을 했을 때 가장 힘들었던 순간은요?",
-  "남미 셀러에게 꼭 해주고 싶은 말이 있다면?"
-];
+window.FREE_TALK = [];
