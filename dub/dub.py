@@ -141,6 +141,10 @@ def prepare(args):
             files={"file": ("voice.mp3", f, "audio/mpeg")},
         )
     segs = segment_words(r.json()["words"])
+    if seg_file.exists():  # 다시 실행해도 이미 채운 번역은 유지
+        prev = {x["ko"]: x["es"] for x in json.loads(seg_file.read_text(encoding="utf-8"))["segments"]}
+        for x in segs:
+            x["es"] = prev.get(x["ko"], "")
     meta = {"video": str(Path(args.video).resolve()), "voice_id": voice_id,
             "duration": duration(args.video), "segments": segs}
     seg_file.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
