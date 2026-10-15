@@ -51,7 +51,31 @@
   .col-video { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); display: grid; gap: 12px; }
   @media (max-width: 720px) { .col-video { position: static; } }
   .player { background: #000; aspect-ratio: 9 / 16; max-width: 100%; width: 100%; max-height: 72vh; margin: 0 auto; }
+  .player { position: relative; }
   .player video { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+  .ov { position: absolute; inset: 0; pointer-events: none; display: grid; grid-template-rows: auto 1fr auto auto; padding: 12px; gap: 8px; }
+  .ov[hidden] { display: none !important; }
+  .ov .lab { justify-self: start; background: var(--point); color: #fff; font-family: var(--f-display); font-size: 15px; letter-spacing: -0.2px; padding: 4px 9px; text-transform: uppercase; line-height: 1.2; max-width: 100%; }
+  .ov .sub { justify-self: center; text-align: center; font-weight: 800; font-size: 16px; line-height: 1.35; color: #fff; text-shadow: 0 0 3px #000, 0 0 6px #000, 0 2px 2px #000; max-width: 94%; }
+  .ov .go { pointer-events: auto; justify-self: center; background: rgba(9,9,11,0.85); color: #fff; border: 1px solid var(--point); padding: 6px 14px; font: 700 13px var(--f-body); cursor: pointer; }
+  .mode { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--panel); border: 1px solid var(--line); padding: 8px 12px; font-size: 13px; }
+  .mode label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 700; }
+  .mode input { accent-color: var(--point); width: 16px; height: 16px; }
+  .mode span.label { font-size: 10px; }
+  .tabs { display: flex; gap: 0; border: 1px solid var(--line); }
+  .tabs button { flex: 1; background: none; border: 0; color: var(--quiet); padding: 8px 10px; font: 700 13px var(--f-body); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--point); color: #fff; }
+  .lec { list-style: none; margin: 0; padding: 0; }
+  .lrow { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; padding: 12px 6px; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .lrow:hover { background: var(--panel); }
+  .lrow.on { background: var(--point-tint); box-shadow: inset 2px 0 0 var(--point); }
+  .lrow .chipl { display: inline-block; font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: var(--point-ink); border: 1px solid var(--point); padding: 1px 6px; margin-bottom: 6px; }
+  .lrow.sig .chipl, .lrow.fin .chipl { background: var(--point); color: #fff; }
+  .lrow .kov { margin: 0; font-size: 15px; font-weight: 700; }
+  .lrow .esv { margin: 4px 0 0; font-size: 13.5px; color: var(--quiet); }
+  .lrow .esv::before { content: "ES  "; font-family: var(--f-mono); font-size: 10px; color: var(--dim); }
+  .flow { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 2px; font-family: var(--f-mono); font-size: 10.5px; color: var(--quiet); letter-spacing: 0.6px; }
+  .flow span { border: 1px solid var(--line); padding: 2px 6px; white-space: nowrap; }
   .who { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .who a { font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--line); }
   .who a:hover { border-color: var(--point); }
@@ -114,7 +138,7 @@
 <section class="intro"><div class="wrap">
   <span class="label">Reference library · 2026-10-15</span>
   <h1>WHAT SOLD,<br><span>AND HOW TO COPY IT.</span></h1>
-  <p>잘 된 K-뷰티 영상 12개. 왼쪽에서 원본을 재생하고, 가운데 스크립트 줄을 누르면 그 장면으로 이동합니다. 오른쪽은 <b>왜 터졌나 → 너는 이렇게 → 이걸로 돈 버는 법</b> 순서로 정리했습니다.</p>
+  <p>잘 된 K-뷰티 영상 12개와 채원 대표의 강의 스크립트. <b>강의 모드</b>를 켜고 재생하면 포인트마다 영상이 멈추고 라벨과 스페인어 자막이 뜹니다. 가운데는 대표 더빙 스크립트(원본 대사는 옆 탭), 오른쪽은 <b>왜 터졌나 → 너는 이렇게 → 이걸로 돈 버는 법</b> 정리입니다.</p>
 </div></section>
 
 <nav class="rail" aria-label="레퍼런스 목록"><div class="wrap" id="rail"></div></nav>
@@ -123,15 +147,26 @@
   <div class="grid">
     <section class="col-video" aria-label="원본 영상">
       <div class="who"><a id="handle" href="#" target="_blank" rel="noopener"></a><span class="label" id="meta"></span></div>
-      <div class="player"><video id="vid" controls playsinline preload="metadata"></video></div>
+      <div class="mode"><label><input type="checkbox" id="lecMode" checked> 강의 모드</label><span class="label">포인트마다 멈춤</span></div>
+      <div class="player"><video id="vid" controls playsinline preload="metadata"></video>
+        <div class="ov" id="ov" hidden><span class="lab" id="ovLab"></span><span></span><span class="sub" id="ovSub"></span><button type="button" class="go" id="ovGo">계속 ▶</button></div>
+      </div>
       <div class="stats" id="stats"></div>
       <div class="nav2"><button id="prev" type="button">← 이전</button><button id="next" type="button">다음 →</button></div>
     </section>
 
     <section class="col-script" aria-label="스크립트">
-      <div class="colhead"><h2>Script</h2><span class="label">원문 · 한국어</span></div>
-      <ol class="script" id="script"></ol>
-      <p class="hint">대사는 TikTok 자동자막과 음성 인식으로 받아 적고 다듬었습니다. <span class="tag-text">화면</span>표시는 화면에 뜬 자막입니다.</p>
+      <div class="colhead"><h2>Script</h2><span class="label" id="reelNo"></span></div>
+      <div class="tabs" role="tablist"><button type="button" role="tab" id="tabLec" aria-selected="true">대표 강의 스크립트</button><button type="button" role="tab" id="tabOrig" aria-selected="false">원본 대사</button></div>
+      <div id="paneLec">
+        <div class="flow"><span>숫자 · 시그니처</span><span>01–03 왜 터졌나</span><span>04 너는 이렇게</span><span>05 돈 버는 법</span></div>
+        <ol class="lec" id="lec"></ol>
+        <p class="hint">시점 = 원본을 멈출 곳. 굵은 글씨 = 채원 대표 한국어 더빙, ES = 화면 스페인어 자막. 마지막 줄은 공식 요약 + CTA. 줄을 누르면 그 장면에서 멈춘 화면을 보여줍니다.</p>
+      </div>
+      <div id="paneOrig" hidden>
+        <ol class="script" id="script"></ol>
+        <p class="hint">원본 영상의 대사. TikTok 자동자막과 음성 인식으로 받아 적고 다듬었습니다. <span class="tag-text">화면</span>표시는 화면에 뜬 자막입니다.</p>
+      </div>
     </section>
 
     <section class="col-sum" aria-label="내용 정리">
@@ -158,12 +193,28 @@
 </div></footer>
 
 <script src="data.js"></script>
+<script src="lecture.js"></script>
 <script>
 (function () {
   const E = window.EPISODES || [];
   const $ = (id) => document.getElementById(id);
   const vid = $("vid");
-  let cur = 0, lines = [];
+  let cur = 0, lines = [], lec = [], nextP = 0, holding = false;
+  const L = window.LECTURE || {};
+  const ov = $("ov"), lecMode = $("lecMode");
+  function hideOv() { ov.hidden = true; holding = false; }
+  function showOv(k) {
+    const r = lec[k]; if (!r) return;
+    $("ovLab").textContent = r.label; $("ovSub").textContent = r.es; ov.hidden = false; holding = true;
+    lec.forEach((x, j) => x.node.classList.toggle("on", j === k));
+    $("ovGo").hidden = k === lec.length - 1;
+  }
+  function syncNext() { const t = vid.currentTime; nextP = lec.findIndex((r) => r.t > t + 0.05); if (nextP < 0) nextP = lec.length; }
+  function setTab(which) {
+    const lecOn = which === "lec";
+    $("tabLec").setAttribute("aria-selected", lecOn); $("tabOrig").setAttribute("aria-selected", !lecOn);
+    $("paneLec").hidden = !lecOn; $("paneOrig").hidden = lecOn;
+  }
 
   const fmt = (t) => { const s = Math.floor(t); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
@@ -188,7 +239,19 @@
     document.querySelectorAll(".chip").forEach((c, j) => c.setAttribute("aria-current", j === cur ? "true" : "false"));
     const chip = $("chip-" + e.no); if (chip) chip.scrollIntoView({ block: "nearest", inline: "center" });
 
-    vid.pause(); vid.src = "v/" + e.id + ".mp4"; vid.poster = "v/" + e.id + ".jpg";
+    hideOv(); vid.pause(); vid.src = "v/" + e.id + ".mp4"; vid.poster = "v/" + e.id + ".jpg";
+    $("reelNo").textContent = "K-Beauty que vende " + e.no + "/100";
+    const lc = $("lec"); lc.replaceChildren();
+    lec = (L[e.no] || []).map((r, k, a) => ({ t: r[0], label: r[1], ko: r[2], es: r[3], k, last: k === a.length - 1 }));
+    lec.forEach((r) => {
+      const li = el("li", "lrow" + (r.k === 0 ? " sig" : "") + (r.last ? " fin" : ""));
+      const ts = el("button", "ts", fmt(r.t)); ts.type = "button"; ts.setAttribute("aria-label", fmt(r.t) + " 장면에서 멈춤");
+      const body = el("div"); body.append(el("span", "chipl", r.label), el("p", "kov", r.ko), el("p", "esv", r.es));
+      li.append(ts, body);
+      li.addEventListener("click", () => { vid.pause(); vid.currentTime = Math.min(r.t, (vid.duration || r.t) - 0.05); syncNext(); nextP = r.k + 1; showOv(r.k); });
+      r.node = li; lc.append(li);
+    });
+    nextP = 0;
     if (play) vid.play().catch(() => {});
 
     const h = $("handle"); h.textContent = "@" + e.handle; h.href = "https://www.tiktok.com/@" + e.handle + "/video/" + e.id;
@@ -231,12 +294,22 @@
   }
 
   vid.addEventListener("timeupdate", () => {
+    if (lecMode.checked && !vid.paused && nextP < lec.length && vid.currentTime >= lec[nextP].t - 0.05) {
+      const k = nextP; vid.pause(); if (!lec[k].last) vid.currentTime = lec[k].t; nextP = k + 1; showOv(k);
+    }
     const t = vid.currentTime; let on = -1;
     lines.forEach((r, k) => { if (r.kind !== "text" && r.t <= t + 0.15) on = k; });
     if (on < 0) lines.forEach((r, k) => { if (r.t <= t + 0.15) on = k; });
     lines.forEach((r, k) => r.node.classList.toggle("on", k === on));
   });
 
+  vid.addEventListener("play", () => { if (holding) hideOv(); lec.forEach((x) => x.node.classList.remove("on")); });
+  vid.addEventListener("seeked", () => { if (!holding) syncNext(); });
+  vid.addEventListener("ended", () => { if (lecMode.checked && lec.length) { nextP = lec.length; showOv(lec.length - 1); } });
+  $("ovGo").addEventListener("click", () => { hideOv(); vid.play().catch(() => {}); });
+  lecMode.addEventListener("change", () => { if (!lecMode.checked) hideOv(); syncNext(); });
+  $("tabLec").addEventListener("click", () => setTab("lec"));
+  $("tabOrig").addEventListener("click", () => setTab("orig"));
   $("prev").addEventListener("click", () => show(cur - 1, true));
   $("next").addEventListener("click", () => show(cur + 1, true));
   $("copy").addEventListener("click", () => {
