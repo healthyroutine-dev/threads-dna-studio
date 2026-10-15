@@ -1,0 +1,233 @@
+{
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "0 palabras.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "0 palabras.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "voice": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
+   "sub": "Cero palabras. 5,4 millones de vistas. | Esto es lo que hizo bien, | y lo que le falta.",
+   "vo": "vo_01.wav",
+   "d": 6.06
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.5,
+   "lit": [],
+   "h1": "0 palabras.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Sin",
+   "h2": "filtro",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "voice": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
+   "sub": "Uno: 'sin filtro' en pantalla todo el tiempo. | La duda desaparece antes de empezar.",
+   "vo": "vo_03.wav",
+   "d": 5.48
+  },
+  {
+   "t": "play",
+   "a": 1.5,
+   "b": 3.0,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Sin",
+   "h2": "filtro",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3.0,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · El problema",
+   "h2": "primero",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "voice": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
+   "sub": "Dos: el problema, por escrito. | Rojez, manchas, arrugas. | Si eres tú, te detienes.",
+   "vo": "vo_05.wav",
+   "d": 6.39
+  },
+  {
+   "t": "play",
+   "a": 3.0,
+   "b": 5.6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · El problema",
+   "h2": "primero",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 5.6,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Antes /",
+   "h2": "después",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "voice": "Three: just before and after. Ten seconds, so people watch it twice.",
+   "sub": "Tres: solo antes y después. | Diez segundos, así que lo ven dos veces.",
+   "vo": "vo_07.wav",
+   "d": 4.9
+  },
+  {
+   "t": "play",
+   "a": 5.6,
+   "b": 7.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Antes /",
+   "h2": "después",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 7.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu turno:",
+   "h2": "tu voz",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "voice": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
+   "sub": "Tu turno: copia el antes y después, | pero agrega tu voz. | Mira a la cámara y di qué usaste y por qué.",
+   "vo": "vo_09.wav",
+   "d": 6.52
+  },
+  {
+   "t": "play",
+   "a": 7.5,
+   "b": 9.0,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu turno:",
+   "h2": "tu voz",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9.0,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Vistas",
+   "h2": "≠ ventas",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "voice": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
+   "sub": "Vistas no son ventas. | Los videos donde hablas venden. | Una creadora con 5.300 seguidores | vendió entre 25 y 60 mil dólares en TikTok Shop.",
+   "vo": "vo_11.wav",
+   "d": 9.3
+  },
+  {
+   "t": "play",
+   "a": 9.0,
+   "b": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Vistas",
+   "h2": "≠ ventas",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "La",
+   "h2": "fórmula",
+   "now": 0,
+   "pause": "FÓRMULA",
+   "pip": true,
+   "voice": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
+   "sub": "Sin filtro, problema primero, y luego tu voz. | Soy Chaewon, desde Seúl. | Comenta ACADEMY | y te mando la lista de sourcing de esta semana.",
+   "vo": "vo_13.wav",
+   "d": 7.94
+  }
+ ],
+ "video_y": 70,
+ "handle": "@kbeautywithelizabeth · TikTok",
+ "meta": {
+  "no": "001",
+  "views": "5,4 M",
+  "mult": "57×",
+  "dur": "10 S"
+ }
+}

@@ -1,0 +1,58 @@
+[
+ {
+  "seg": 1,
+  "pause": "HOOK",
+  "start": 0.5,
+  "end": 6.57,
+  "say_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
+  "sub_es": "Cero palabras. 5,4 millones de vistas. Esto es lo que hizo bien, y lo que le falta."
+ },
+ {
+  "seg": 3,
+  "pause": "01",
+  "start": 7.57,
+  "end": 13.03,
+  "say_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
+  "sub_es": "Uno: 'sin filtro' en pantalla todo el tiempo. La duda desaparece antes de empezar."
+ },
+ {
+  "seg": 5,
+  "pause": "02",
+  "start": 14.53,
+  "end": 20.93,
+  "say_en": "Two: the problem, in writing. Redness, melasma, wrinkles. If that's you, you stop.",
+  "sub_es": "Dos: el problema, por escrito. Rojez, manchas, arrugas. Si eres tú, te detienes."
+ },
+ {
+  "seg": 7,
+  "pause": "03",
+  "start": 23.53,
+  "end": 28.43,
+  "say_en": "Three: just before and after. Ten seconds, so people watch it twice.",
+  "sub_es": "Tres: solo antes y después. Diez segundos, así que lo ven dos veces."
+ },
+ {
+  "seg": 9,
+  "pause": "04",
+  "start": 30.33,
+  "end": 36.87,
+  "say_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
+  "sub_es": "Tu turno: copia el antes y después, pero agrega tu voz. Mira a la cámara y di qué usaste y por qué."
+ },
+ {
+  "seg": 11,
+  "pause": "05",
+  "start": 38.37,
+  "end": 47.67,
+  "say_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
+  "sub_es": "Vistas no son ventas. Los videos donde hablas venden. Una creadora con 5.300 seguidores vendió entre 25 y 60 mil dólares en TikTok Shop."
+ },
+ {
+  "seg": 13,
+  "pause": "FÓRMULA",
+  "start": 48.53,
+  "end": 56.5,
+  "say_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
+  "sub_es": "Sin filtro, problema primero, y luego tu voz. Soy Chaewon, desde Seúl. Comenta ACADEMY y te mando la lista de sourcing de esta semana."
+ }
+]

@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:P;src:url(Pretendard-Medium.woff2);font-weight:500}
+@font-face{font-family:P;src:url(Pretendard-Bold.woff2);font-weight:700}
+@font-face{font-family:P;src:url(Pretendard-ExtraBold.woff2);font-weight:800}
+@font-face{font-family:AB;src:url(ArchivoBlack-400.ttf)}
+@font-face{font-family:SM;src:url(SpaceMono-400.ttf);font-weight:400}
+@font-face{font-family:SM;src:url(SpaceMono-700.ttf);font-weight:700}
+:root{--bg:#09090B;--card:#17171B;--line:#2A2A30;--ink:#FFFFFF;--quiet:#A1A1AA;--dim:#71717A;--point:#DB3D5A}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);font-family:P,sans-serif;overflow:hidden}
+.head{position:absolute;left:0;right:0;top:0;height:600px;padding:96px 52px 0;background:var(--bg)}
+.lab{display:flex;justify-content:space-between;font-family:SM;font-weight:700;font-size:24px;letter-spacing:5px;color:var(--quiet);text-transform:uppercase}
+.lab b{color:var(--point)}
+.hl{margin-top:22px;font-family:AB;font-size:86px;line-height:.95;letter-spacing:-2px;text-transform:uppercase}
+.hl .l2{color:var(--point)}
+.stats{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--line);padding-top:16px}
+.stats>div{padding-left:20px;border-left:2px solid var(--line)}
+.stats>div:first-child{padding-left:0;border-left:0}
+.stats .k{font-family:SM;font-size:19px;letter-spacing:3px;color:var(--quiet);text-transform:uppercase}
+.stats .v{font-family:AB;font-size:46px;letter-spacing:-1px;margin-top:2px}
+.prog{position:absolute;left:52px;right:52px;top:528px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.prog div{height:44px;border:2px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:SM;font-weight:700;font-size:22px;letter-spacing:2px;color:var(--dim);background:var(--card)}
+.prog div.on{background:var(--point);border-color:var(--point);color:#fff}
+.prog div.now{outline:4px solid #fff;outline-offset:2px}
+.pause{position:absolute;left:52px;top:630px;font-family:SM;font-weight:700;font-size:26px;letter-spacing:4px;color:#fff;background:var(--point);padding:6px 14px;border-radius:4px}
+.pip{position:absolute;left:691px;top:640px;width:346px;height:346px;border-radius:50%;border:8px dashed rgba(255,255,255,.95);background:rgba(13,13,13,.55);display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+.pip b{font-family:SM;font-weight:700;font-size:26px;letter-spacing:3px;color:#fff}
+.pip span{font-family:P;font-weight:800;font-size:30px;color:var(--point)}
+.handle{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-family:SM;font-weight:700;font-size:26px;letter-spacing:3px;color:#fff;-webkit-text-stroke:6px rgba(0,0,0,.85);paint-order:stroke fill}
+</style></head><body>
+<div class="head">
+ <div class="lab"><span>B2X · K-Beauty que vende</span><span><b id="no">001</b>/100</span></div>
+ <div class="hl"><div id="h1"></div><div class="l2" id="h2"></div></div>
+ <div class="stats">
+  <div><p class="k">Vistas</p><p class="v" id="s1"></p></div>
+  <div><p class="k">vs seguidores</p><p class="v" id="s2"></p></div>
+  <div><p class="k">Duración</p><p class="v" id="s3"></p></div>
+ </div>
+</div>
+<div class="prog" id="prog"></div>
+<div class="pause" id="pause" style="display:none"></div>
+<div class="pip" id="pip"><b>CEO VIDEO</b><span>대표 영상 삽입</span><b style="font-size:20px;color:#BDBDBD">346 × 346 · 원형</b></div>
+<p class="handle" id="handle"></p>
+<script>
+function render(s){
+ const m=s.meta||{};
+ no.textContent=m.no||'001'; s1.textContent=m.views||''; s2.textContent=m.mult||''; s3.textContent=m.dur||'';
+ h1.textContent=s.h1||''; h2.textContent=s.h2||'';
+ prog.innerHTML=[1,2,3,4,5].map(i=>`<div class="${s.lit.includes(i)?'on':''} ${s.now===i?'now':''}">0${i}</div>`).join('');
+ if(s.pause){pause.style.display='block';pause.textContent='❚❚ '+s.pause}
+ handle.textContent=s.handle||'';
+ pip.style.display=s.pip?'flex':'none';
+}
+</script></body></html>
