@@ -1,0 +1,193 @@
+<title>B2X 촬영 대본</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  /* Layout: checklist band, episode rail, then per episode: reference video (sticky left) + big Korean lines (right). Stacks on phones.
+     Single dark look, B2X point color #DB3D5A. */
+  :root {
+    --bg: #09090B; --panel: #131317; --panel-2: #1B1B21; --line: #2A2A31;
+    --ink: #F7F7F8; --quiet: #A1A1AA; --dim: #6E6E78;
+    --point: #DB3D5A; --point-tint: rgba(219, 61, 90, 0.14); --point-ink: #FF7A93; --ok: #3FBF7F;
+    --f-display: "Archivo Black", "Noto Sans KR", system-ui, sans-serif;
+    --f-body: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+    --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6; }
+  :focus-visible { outline: 2px solid var(--point); outline-offset: 2px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--quiet); }
+
+  header .wrap { padding-block: 22px 14px; display: grid; gap: 8px; border-bottom: 1px solid var(--line); }
+  h1 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(30px, 6vw, 52px); line-height: 0.95; letter-spacing: -1.4px; text-transform: uppercase; }
+  h1 span { color: var(--point); }
+  header p { margin: 0; color: var(--quiet); max-width: 64ch; }
+  header p b { color: var(--ink); }
+
+  .prep .wrap { padding-block: 18px; display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .prep .wrap { grid-template-columns: minmax(0, 1fr); } }
+  .box { background: var(--panel); border: 1px solid var(--line); padding: 14px 16px; }
+  .box h2 { margin: 0 0 8px; font-size: 13px; font-family: var(--f-mono); letter-spacing: 1.4px; text-transform: uppercase; color: var(--point-ink); }
+  .box ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 14px; }
+  .box.cta .ko { font-size: 19px; font-weight: 800; line-height: 1.45; margin: 0; }
+  .box.cta .es { color: var(--quiet); font-size: 13px; margin: 6px 0 0; }
+  .box.cta .note { color: var(--dim); font-size: 12.5px; margin: 8px 0 0; }
+
+  nav.rail { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-block: 1px solid var(--line); }
+  nav.rail .wrap { display: flex; gap: 8px; overflow-x: auto; padding-block: 10px; }
+  .chip { flex: none; display: flex; gap: 8px; align-items: center; background: var(--panel); border: 1px solid var(--line); color: var(--ink); padding: 6px 12px; font: 700 13px var(--f-body); cursor: pointer; white-space: nowrap; }
+  .chip .n { font-family: var(--f-mono); color: var(--quiet); font-weight: 400; }
+  .chip .p { font-family: var(--f-mono); font-size: 11px; color: var(--dim); font-weight: 400; }
+  .chip.done .p { color: var(--ok); }
+  .chip[aria-current="true"] { border-color: var(--point); background: var(--point-tint); }
+
+  main .wrap { padding-block: 20px 48px; }
+  .ep { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: 24px; align-items: start; }
+  @media (max-width: 760px) { .ep { grid-template-columns: minmax(0, 1fr); } }
+  .vcol { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 66px); display: grid; gap: 10px; }
+  @media (max-width: 760px) { .vcol { position: static; } }
+  .player { aspect-ratio: 9 / 16; width: 100%; max-width: 100%; max-height: 62vh; background: #000; margin: 0 auto; }
+  @media (max-width: 760px) { .player { max-height: 46vh; } }
+  .player video { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .vmeta { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; font-size: 13px; }
+  .vmeta b { font-weight: 700; }
+
+  .ephead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border-bottom: 1px solid var(--point); padding-bottom: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+  .ephead h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 26px; letter-spacing: -0.6px; }
+  .ephead h2 span { color: var(--point); }
+  ol.lines { list-style: none; margin: 0; padding: 0; }
+  .ln { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 16px 4px; border-bottom: 1px solid var(--line); }
+  .ln.on { background: var(--point-tint); }
+  .ln .num { font-family: var(--f-display); font-size: 22px; color: var(--dim); line-height: 1.2; }
+  .ln.hook .num { color: var(--point); }
+  .ln .top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .tag { font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: var(--point-ink); border: 1px solid var(--point); padding: 1px 6px; }
+  .ln.hook .tag { background: var(--point); color: #fff; }
+  .seek { background: none; border: 1px solid var(--line); color: var(--quiet); font: 400 11px var(--f-mono); padding: 1px 7px; cursor: pointer; }
+  .seek:hover { border-color: var(--point); color: var(--ink); }
+  .ko { margin: 0; font-size: clamp(19px, 2.3vw, 23px); font-weight: 700; line-height: 1.5; text-wrap: pretty; }
+  .es { margin: 6px 0 0; font-size: 13px; color: var(--dim); }
+  .es::before { content: "ES "; font-family: var(--f-mono); font-size: 10px; }
+  .done-wrap { margin-top: 10px; }
+  .done-wrap label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--quiet); cursor: pointer; }
+  .done-wrap input { accent-color: var(--ok); width: 18px; height: 18px; }
+  .ln.ok .ko { color: var(--quiet); }
+  .ln.ok .num { color: var(--ok); }
+  .tip { color: var(--dim); font-size: 12.5px; margin-top: 12px; }
+  footer .wrap { padding-block: 18px 32px; border-top: 1px solid var(--line); color: var(--dim); font-size: 12.5px; }
+</style>
+
+<header><div class="wrap">
+  <span class="label">B2X · K-Beauty que vende · 촬영일</span>
+  <h1>SHOOTING <span>SCRIPT</span></h1>
+  <p>채원 대표가 <b>한국어로</b> 카메라를 보고 말할 대본입니다. 촬영본으로 대표 목소리를 학습해 스페인어로 바꾸고, 한국어 원음은 작게 깝니다. 위 영상은 각 편의 레퍼런스이고, 줄 옆 <b>▶ 장면</b>을 누르면 그 문장이 설명하는 장면으로 이동합니다.</p>
+</div></header>
+
+<section class="prep"><div class="wrap">
+  <div class="box">
+    <h2>촬영 체크리스트</h2>
+    <ul>
+      <li>세로, 얼굴과 어깨, 정면. 머리 위 여백 조금 (원형 화면에 들어감)</li>
+      <li>단색 배경, 조용한 방, 배경음악 없음</li>
+      <li>핀마이크 또는 휴대폰을 입 가까이</li>
+      <li>문장마다 앞뒤 1초 쉬고, 한 문장씩 끊어서</li>
+      <li>마음에 안 들면 그 문장만 다시. 테이크는 여러 번 OK</li>
+    </ul>
+  </div>
+  <div class="box cta">
+    <h2>공통 마무리 · 한 번만 촬영</h2>
+    <p class="ko" id="ctaKo"></p>
+    <p class="es" id="ctaEs"></p>
+    <p class="note">모든 편 마지막에 같은 컷을 씁니다. 2~3번 찍어두세요.</p>
+  </div>
+  <div class="box">
+    <h2>목소리 학습용 · 자유롭게 2~3분</h2>
+    <ul id="free"></ul>
+  </div>
+</div></section>
+
+<nav class="rail" aria-label="편 목록"><div class="wrap" id="rail"></div></nav>
+
+<main><div class="wrap">
+  <div class="ep">
+    <div class="vcol">
+      <div class="player"><video id="vid" controls playsinline preload="metadata"></video></div>
+      <div class="vmeta"><b id="ref"></b><span class="label" id="vinfo"></span></div>
+    </div>
+    <div>
+      <div class="ephead"><h2 id="epTitle"></h2><span class="label" id="progress"></span></div>
+      <ol class="lines" id="lines"></ol>
+      <p class="tip">문장 7개 + 공통 마무리. 한 편에 5분 안팎이면 충분합니다. 촬영한 줄은 체크해두세요 (이 브라우저에만 저장).</p>
+    </div>
+  </div>
+</div></main>
+
+<footer><div class="wrap">레퍼런스 영상은 내부 참고용입니다. 원본 권리는 각 크리에이터에게 있습니다.</div></footer>
+
+<script src="shoot.js"></script>
+<script src="lecture.js"></script>
+<script src="data.js"></script>
+<script>
+(function () {
+  const S = window.SHOOT || [], L = window.LECTURE || {}, E = window.EPISODES || [];
+  const $ = (id) => document.getElementById(id);
+  const el = (t, c, x) => { const n = document.createElement(t); if (c) n.className = c; if (x != null) n.textContent = x; return n; };
+  const vid = $("vid");
+  const store = { get(k) { try { return JSON.parse(localStorage.getItem("b2xshoot") || "{}")[k]; } catch (_) { return undefined; } },
+                  set(k, v) { try { const o = JSON.parse(localStorage.getItem("b2xshoot") || "{}"); o[k] = v; localStorage.setItem("b2xshoot", JSON.stringify(o)); } catch (_) {} } };
+  const fmt = (t) => { const s = Math.floor(t); return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0"); };
+  let cur = 0;
+
+  $("ctaKo").textContent = (window.CTA || {}).ko || ""; $("ctaEs").textContent = (window.CTA || {}).es || "";
+  (window.FREE_TALK || []).forEach((q) => $("free").append(el("li", null, q)));
+
+  const doneCount = (no, n) => { let c = 0; for (let i = 0; i < n; i++) if (store.get(no + "-" + i)) c++; return c; };
+
+  function rail() {
+    const r = $("rail"); r.replaceChildren();
+    S.forEach((s, i) => {
+      const n = doneCount(s.no, s.lines.length);
+      const b = el("button", "chip" + (n === s.lines.length ? " done" : "")); b.type = "button";
+      b.setAttribute("aria-current", i === cur ? "true" : "false");
+      b.append(el("span", "n", s.no), el("span", null, s.title), el("span", "p", n + "/" + s.lines.length));
+      b.addEventListener("click", () => show(i));
+      r.append(b);
+    });
+  }
+
+  function show(i) {
+    cur = i; const s = S[i]; const meta = E.find((e) => e.no === s.no) || {};
+    vid.pause(); vid.src = "v/" + meta.id + ".mp4"; vid.poster = "v/" + meta.id + ".jpg";
+    $("ref").textContent = s.ref; $("vinfo").textContent = (meta.stats ? meta.stats.views + " 뷰 · " : "") + (meta.dur ? meta.dur + "초" : "");
+    $("epTitle").replaceChildren(el("span", null, s.no + " "), document.createTextNode(s.title));
+    const times = (L[s.no] || []).map((r) => r[0]);
+    const ol = $("lines"); ol.replaceChildren();
+    s.lines.forEach((ln, k) => {
+      const key = s.no + "-" + k, ok = !!store.get(key);
+      const li = el("li", "ln" + (k === 0 ? " hook" : "") + (ok ? " ok" : ""));
+      const body = el("div");
+      const top = el("div", "top"); top.append(el("span", "tag", k === 0 ? "HOOK · 첫 문장" : ln[0]));
+      if (times[k] != null) {
+        const b = el("button", "seek", "▶ 장면 " + fmt(times[k])); b.type = "button";
+        b.addEventListener("click", () => { document.querySelectorAll(".ln").forEach((x) => x.classList.remove("on")); li.classList.add("on");
+          vid.currentTime = Math.min(times[k], (vid.duration || times[k]) - 0.05); vid.pause(); });
+        top.append(b);
+      }
+      const dw = el("div", "done-wrap"); const lb = el("label"); const cb = el("input"); cb.type = "checkbox"; cb.id = "done-" + key; cb.checked = ok;
+      cb.addEventListener("change", () => { store.set(key, cb.checked); li.classList.toggle("ok", cb.checked); upd(); rail(); });
+      lb.append(cb, document.createTextNode("촬영 완료")); dw.append(lb);
+      body.append(top, el("p", "ko", ln[1]), el("p", "es", ln[2]), dw);
+      li.append(el("span", "num", k === 0 ? "H" : (k === s.lines.length - 1 ? "F" : String(k).padStart(2, "0"))), body);
+      ol.append(li);
+    });
+    upd(); rail();
+    try { history.replaceState(null, "", "#" + s.no); } catch (_) {}
+  }
+  function upd() { const s = S[cur]; $("progress").textContent = "촬영 " + doneCount(s.no, s.lines.length) + " / " + s.lines.length; }
+
+  const start = Math.max(0, S.findIndex((s) => "#" + s.no === location.hash));
+  show(start);
+})();
+</script>
