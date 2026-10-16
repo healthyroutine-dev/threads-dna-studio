@@ -159,8 +159,8 @@ window.SHOOT = [
    ],
    [
     "CTA · 엔드카드",
-    "댓글에 답하고, 결과부터 보여주고, 순서대로, 세트로. 이 흐름 그대로 써보세요.",
-    "Responde un comentario, muestra primero el resultado, sigue el orden y vende el set. Usa este orden tal cual."
+    "잘 팔리는 세트 구성, 댓글에 'ACADEMY' 남기면 보내드려요.",
+    "¿Los sets que más se venden? Comenta ACADEMY."
    ]
   ]
  },
@@ -213,8 +213,8 @@ window.SHOOT = [
    ],
    [
     "CTA · 엔드카드",
-    "유명인 이름, 짧은 시연, 그리고 품절 한마디. 사실이기만 하면 이만한 후킹이 없어요.",
-    "Un nombre famoso, una demo corta y un 'se agotó'. Si es verdad, no hay mejor gancho."
+    "한국에서 막 뜨는 신제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
+    "¿Lo nuevo que está explotando en Corea? Comenta ACADEMY."
    ]
   ]
  },
