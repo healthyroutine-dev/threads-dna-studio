@@ -18,7 +18,7 @@
    "start": 0.0,
    "end": 4.333333333333333,
    "framing": "wide",
-   "zoom": 1.0,
+   "zoom": 1.2,
    "punch_at": []
   },
   {
@@ -32,7 +32,7 @@
    "start": 6.25,
    "end": 7.291666666666667,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
     6.291666666666667
    ]
@@ -48,14 +48,14 @@
    "start": 9.541666666666666,
    "end": 14.166666666666666,
    "framing": "wide",
-   "zoom": 1.0,
+   "zoom": 1.2,
    "punch_at": []
   },
   {
    "start": 14.166666666666666,
    "end": 16.833333333333332,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
     15.083333333333334
    ]
@@ -71,7 +71,7 @@
    "start": 19.083333333333332,
    "end": 20.833333333333332,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
     19.125
    ]
@@ -80,7 +80,7 @@
    "start": 20.833333333333332,
    "end": 23.25,
    "framing": "wide",
-   "zoom": 1.0,
+   "zoom": 1.2,
    "punch_at": []
   },
   {
@@ -94,7 +94,7 @@
    "start": 26.958333333333332,
    "end": 28.583333333333332,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": []
   },
   {
@@ -110,7 +110,7 @@
    "start": 33.583333333333336,
    "end": 42.291666666666664,
    "framing": "wide",
-   "zoom": 1.0,
+   "zoom": 1.2,
    "punch_at": []
   },
   {
@@ -124,7 +124,7 @@
    "start": 43.875,
    "end": 49.333333333333336,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
     44.333333333333336
    ]
@@ -140,9 +140,9 @@
    "start": 51.375,
    "end": 55.916666666666664,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
-    54.5
+    51.458333333333336
    ]
   },
   {
@@ -156,7 +156,7 @@
    "start": 60.083333333333336,
    "end": 64.41666666666667,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": []
   },
   {
@@ -170,9 +170,9 @@
    "start": 70.29166666666667,
    "end": 72.33333333333333,
    "framing": "close",
-   "zoom": 2.1,
+   "zoom": 1.75,
    "punch_at": [
-    71.16666666666667
+    70.375
    ]
   },
   {
@@ -186,7 +186,7 @@
  "captions": [
   {
    "start": 0.16,
-   "end": 2.34,
+   "end": 2.84,
    "words": [
     {
      "text": "인스타든",
@@ -203,20 +203,20 @@
     {
      "text": "올리기는",
      "hl": false
+    },
+    {
+     "text": "하는데",
+     "hl": false
     }
    ]
   },
   {
-   "start": 2.34,
+   "start": 2.84,
    "end": 3.9,
    "words": [
     {
-     "text": "하는데",
-     "hl": false
-    },
-    {
      "text": "문의로",
-     "hl": true
+     "hl": false
     },
     {
      "text": "이어지나요?",
@@ -256,7 +256,7 @@
    "words": [
     {
      "text": "\"얼마예요?\"",
-     "hl": true
+     "hl": false
     }
    ]
   },
@@ -288,7 +288,7 @@
   },
   {
    "start": 9.58,
-   "end": 12.42,
+   "end": 12.82,
    "words": [
     {
      "text": "밤늦게까지",
@@ -309,17 +309,17 @@
     {
      "text": "듣고",
      "hl": false
+    },
+    {
+     "text": "자격증",
+     "hl": false
     }
    ]
   },
   {
-   "start": 12.42,
+   "start": 12.82,
    "end": 14.22,
    "words": [
-    {
-     "text": "자격증",
-     "hl": true
-    },
     {
      "text": "하나라도",
      "hl": false
@@ -356,7 +356,7 @@
     },
     {
      "text": "할인뿐이죠.",
-     "hl": true
+     "hl": false
     }
    ]
   },
@@ -408,7 +408,7 @@
     },
     {
      "text": "탓이",
-     "hl": true
+     "hl": false
     },
     {
      "text": "아니라는",
@@ -460,7 +460,7 @@
     },
     {
      "text": "가격과",
-     "hl": true
+     "hl": false
     },
     {
      "text": "싸워야",
@@ -496,7 +496,7 @@
   },
   {
    "start": 28.64,
-   "end": 30.7,
+   "end": 31.12,
    "words": [
     {
      "text": "그래서",
@@ -513,17 +513,17 @@
     {
      "text": "대표님들을",
      "hl": false
+    },
+    {
+     "text": "가만히",
+     "hl": false
     }
    ]
   },
   {
-   "start": 30.7,
+   "start": 31.12,
    "end": 33.62,
    "words": [
-    {
-     "text": "가만히",
-     "hl": false
-    },
     {
      "text": "봤더니",
      "hl": false
@@ -546,7 +546,7 @@
     },
     {
      "text": "가지",
-     "hl": true
+     "hl": false
     },
     {
      "text": "있더라고요.",
@@ -582,15 +582,15 @@
   },
   {
    "start": 35.9,
-   "end": 37.84,
+   "end": 38.2,
    "words": [
     {
      "text": "\"얼마예요?\"라는",
-     "hl": true
+     "hl": false
     },
     {
      "text": "DM이",
-     "hl": true
+     "hl": false
     },
     {
      "text": "왔을",
@@ -599,17 +599,17 @@
     {
      "text": "때",
      "hl": false
+    },
+    {
+     "text": "가슴",
+     "hl": false
     }
    ]
   },
   {
-   "start": 37.84,
-   "end": 40.4,
+   "start": 38.2,
+   "end": 41.54,
    "words": [
-    {
-     "text": "가슴",
-     "hl": false
-    },
     {
      "text": "철렁하지",
      "hl": false
@@ -620,7 +620,7 @@
     },
     {
      "text": "할인",
-     "hl": true
+     "hl": false
     },
     {
      "text": "얘기",
@@ -629,13 +629,7 @@
     {
      "text": "꺼내지",
      "hl": false
-    }
-   ]
-  },
-  {
-   "start": 40.4,
-   "end": 42.34,
-   "words": [
+    },
     {
      "text": "않고",
      "hl": false
@@ -647,7 +641,13 @@
     {
      "text": "보내실",
      "hl": false
-    },
+    }
+   ]
+  },
+  {
+   "start": 41.54,
+   "end": 42.34,
+   "words": [
     {
      "text": "수",
      "hl": false
@@ -676,13 +676,13 @@
     },
     {
      "text": "\"얼마예요?\"",
-     "hl": true
+     "hl": false
     }
    ]
   },
   {
    "start": 43.92,
-   "end": 46.32,
+   "end": 46.9,
    "words": [
     {
      "text": "말고",
@@ -690,7 +690,7 @@
     },
     {
      "text": "\"언제부터",
-     "hl": true
+     "hl": false
     },
     {
      "text": "돼요?\"를",
@@ -703,13 +703,7 @@
     {
      "text": "묻게",
      "hl": false
-    }
-   ]
-  },
-  {
-   "start": 46.32,
-   "end": 49.38,
-   "words": [
+    },
     {
      "text": "만드는",
      "hl": false
@@ -717,7 +711,13 @@
     {
      "text": "첫",
      "hl": false
-    },
+    }
+   ]
+  },
+  {
+   "start": 46.9,
+   "end": 49.38,
+   "words": [
     {
      "text": "줄,",
      "hl": false
@@ -776,7 +776,7 @@
   },
   {
    "start": 51.44,
-   "end": 54.48,
+   "end": 55.06,
    "words": [
     {
      "text": "실력",
@@ -805,24 +805,24 @@
     {
      "text": "눈에",
      "hl": false
-    }
-   ]
-  },
-  {
-   "start": 54.48,
-   "end": 55.98,
-   "words": [
+    },
     {
      "text": "3초",
-     "hl": true
+     "hl": false
     },
     {
      "text": "안에",
      "hl": false
-    },
+    }
+   ]
+  },
+  {
+   "start": 55.06,
+   "end": 55.98,
+   "words": [
     {
      "text": "보이게",
-     "hl": true
+     "hl": false
     },
     {
      "text": "만드는",
@@ -836,7 +836,7 @@
   },
   {
    "start": 55.98,
-   "end": 58.56,
+   "end": 59.22,
    "words": [
     {
      "text": "네,",
@@ -865,17 +865,17 @@
     {
      "text": "때",
      "hl": false
+    },
+    {
+     "text": "대표님의",
+     "hl": false
     }
    ]
   },
   {
-   "start": 58.56,
+   "start": 59.22,
    "end": 60.14,
    "words": [
-    {
-     "text": "대표님의",
-     "hl": false
-    },
     {
      "text": "눈으로",
      "hl": false
@@ -892,7 +892,7 @@
   },
   {
    "start": 60.14,
-   "end": 62.98,
+   "end": 63.5,
    "words": [
     {
      "text": "엄지로",
@@ -913,17 +913,17 @@
     {
      "text": "들어온",
      "hl": false
+    },
+    {
+     "text": "손님의",
+     "hl": false
     }
    ]
   },
   {
-   "start": 62.98,
+   "start": 63.5,
    "end": 64.459,
    "words": [
-    {
-     "text": "손님의",
-     "hl": true
-    },
     {
      "text": "눈으로",
      "hl": false
@@ -940,7 +940,7 @@
   },
   {
    "start": 64.459,
-   "end": 67.6,
+   "end": 68.46,
    "words": [
     {
      "text": "그,",
@@ -959,27 +959,27 @@
      "hl": false
     },
     {
-     "text": "십오년",
+     "text": "15년",
      "hl": false
     },
     {
      "text": "경력도",
-     "hl": true
-    }
-   ]
-  },
-  {
-   "start": 67.6,
-   "end": 70.36,
-   "words": [
+     "hl": false
+    },
     {
      "text": "자격증",
-     "hl": true
+     "hl": false
     },
     {
      "text": "몇",
      "hl": false
-    },
+    }
+   ]
+  },
+  {
+   "start": 68.46,
+   "end": 70.36,
+   "words": [
     {
      "text": "개도",
      "hl": false
@@ -1050,7 +1050,7 @@
     },
     {
      "text": "없는",
-     "hl": true
+     "hl": false
     },
     {
      "text": "거랑",
@@ -1065,131 +1065,226 @@
  ],
  "emphasis": [
   {
+   "t": 2.84,
+   "text": "문의로 이어지나요?",
+   "style": "hand",
+   "pos": [
+    520,
+    430
+   ],
+   "rot": -4,
+   "sfx": "softpop",
+   "end": 4.64
+  },
+  {
    "t": 6.3,
    "text": "\"얼마예요?\"",
-   "style": "boom",
-   "sfx": "impact",
+   "style": "cream",
+   "sfx": "chime",
    "punch": true,
-   "shake": true,
-   "end": 8.1
+   "dur": 1.0,
+   "end": 7.3
   },
   {
    "t": 8.88,
-   "text": "읽고 끝.",
-   "style": "tag",
-   "sfx": "pop",
+   "text": "또 읽고 끝…",
+   "style": "label",
+   "pos": [
+    700,
+    760
+   ],
+   "sfx": "softpop",
    "end": 10.68
   },
   {
    "t": 15.1,
-   "text": "남는 건 할인뿐",
-   "style": "boom",
-   "sfx": "impact",
+   "text": "결국 남는 건\\N할인뿐이죠",
+   "style": "hand",
+   "pos": [
+    1420,
+    430
+   ],
+   "rot": 3,
    "punch": true,
-   "end": 16.9
+   "sfx": "softpop",
+   "dur": 2.2,
+   "end": 17.3
   },
   {
    "t": 19.12,
-   "text": "대표님 탓이 아니에요",
-   "style": "tag",
-   "sfx": "ding",
+   "text": "대표님 탓이 아니라는 거예요",
+   "style": "cream",
+   "type": true,
+   "sfx": "chime",
    "punch": true,
-   "end": 20.92
+   "dur": 1.75,
+   "end": 20.87
   },
   {
-   "t": 25.3,
-   "text": "계속 가격과 싸워야 할까?",
-   "style": "tag",
-   "sfx": "pop",
-   "end": 27.1
+   "t": 23.28,
+   "text": "그럼 계속 앞으로도\\N가격과 싸워야 할까요?",
+   "style": "hand",
+   "pos": [
+    960,
+    800
+   ],
+   "dur": 3.6,
+   "end": 26.88
   },
   {
    "t": 32.38,
    "text": "딱 세 가지",
-   "style": "boom",
-   "sfx": "ding",
+   "style": "cream",
+   "type": true,
+   "sfx": "chime",
    "punch": true,
-   "end": 34.18
+   "dur": 1.2,
+   "end": 33.58
+  },
+  {
+   "t": 35.9,
+   "text": "\"얼마예요?\" DM",
+   "style": "label",
+   "pos": [
+    1250,
+    420
+   ],
+   "sfx": "softpop",
+   "end": 37.7
   },
   {
    "t": 37.84,
-   "text": "가슴 철렁 없이",
-   "style": "tag",
-   "sfx": "pop",
-   "end": 39.64
+   "text": "가슴 철렁하지 않고",
+   "style": "hand",
+   "pos": [
+    520,
+    430
+   ],
+   "rot": -4,
+   "dur": 1.6,
+   "end": 39.44
   },
   {
    "t": 43.18,
-   "text": "\"얼마예요?\"",
-   "style": "strike",
-   "sfx": "pop",
+   "text": "\"얼마예요?\" 말고",
+   "style": "cream",
    "dur": 1.1,
    "end": 44.27
   },
   {
    "t": 44.32,
    "text": "\"언제부터 돼요?\"",
-   "style": "boom",
-   "sfx": "ding",
+   "style": "hand",
+   "pos": [
+    960,
+    800
+   ],
    "punch": true,
-   "end": 46.12
+   "sfx": "chime",
+   "dur": 2.0,
+   "end": 46.32
   },
   {
-   "t": 54.48,
-   "text": "3초 안에 보이게",
-   "style": "boom",
-   "sfx": "impact",
+   "t": 51.44,
+   "text": "처음 보는 손님 눈에\\N3초 안에 보이게",
+   "style": "hand",
+   "pos": [
+    960,
+    790
+   ],
    "punch": true,
-   "shake": true,
-   "end": 56.28
+   "sfx": "chime",
+   "dur": 4.3,
+   "end": 55.74
+  },
+  {
+   "t": 60.88,
+   "text": "엄지로 휙휙",
+   "style": "label",
+   "pos": [
+    1300,
+    430
+   ],
+   "sfx": "softwhoosh",
+   "end": 62.68
   },
   {
    "t": 62.98,
    "text": "손님의 눈으로",
-   "style": "tag",
-   "sfx": "pop",
-   "end": 64.78
+   "style": "cream",
+   "type": true,
+   "dur": 1.2,
+   "end": 64.18
+  },
+  {
+   "t": 66.14,
+   "text": "15년 경력도, 자격증도",
+   "style": "label",
+   "pos": [
+    700,
+    760
+   ],
+   "end": 67.94
   },
   {
    "t": 69.02,
-   "text": "안 보여요",
-   "style": "tag",
-   "sfx": "pop",
-   "end": 70.82
+   "text": "안 보이거든요",
+   "style": "hand",
+   "pos": [
+    1420,
+    430
+   ],
+   "rot": 3,
+   "sfx": "softpop",
+   "dur": 1.3,
+   "end": 70.31
   },
   {
-   "t": 71.16,
-   "text": "첫 줄 하나",
-   "style": "boom",
-   "sfx": "ding",
+   "t": 70.36,
+   "text": "보이는 건 첫 줄 하나예요",
+   "style": "cream",
+   "type": true,
+   "sfx": "chime",
    "punch": true,
-   "end": 72.96
+   "dur": 1.9,
+   "end": 72.26
   },
   {
-   "t": 74.3,
-   "text": "없는 거랑 똑같다",
-   "style": "tag",
-   "sfx": "impact",
-   "shake": true,
-   "end": 75.55
+   "t": 73.5,
+   "text": "그 실력은\\N없는 거랑 똑같거든요",
+   "style": "hand",
+   "pos": [
+    960,
+    800
+   ],
+   "dur": 2.0,
+   "end": 75.5
   }
  ],
  "transitions": [
   {
    "t": 16.85,
    "type": "flash",
-   "sfx": "whoosh"
+   "sfx": "softwhoosh"
   },
   {
    "t": 33.57,
    "type": "flash",
-   "sfx": "whoosh"
+   "sfx": "softwhoosh"
   },
   {
    "t": 49.33,
    "type": "flash",
-   "sfx": "whoosh"
+   "sfx": "softwhoosh"
   }
  ],
- "sfx_volume": 0.45
+ "sfx_volume": 0.35,
+ "speed": 1.1,
+ "retouch": {
+  "skin_cbcr": [
+   110,
+   151
+  ],
+  "strength": 0.8
+ }
 }

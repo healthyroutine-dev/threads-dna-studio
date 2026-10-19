@@ -11,9 +11,9 @@ import argparse
 import json
 import re
 
-FRAMINGS = {"wide": 1.0, "medium": 1.45, "close": 2.1}
+FRAMINGS = {"wide": 1.2, "medium": 1.45, "close": 1.75}
 CYCLE = ["wide", "medium", "close", "medium"]
-MAX_CHARS = 16
+MAX_CHARS = 20
 
 
 def snap(t, fps):
@@ -84,12 +84,13 @@ def build(stt, d):
 
     # captions with keyword highlight
     kw = d.get("keywords", [])
+    repl = d.get("replace", {})
     captions = []
     for s in sents:
         for c in chunk_sentence(s):
             captions.append({
                 "start": c[0]["start"], "end": c[-1]["end"],
-                "words": [{"text": w["text"], "hl": any(w["text"].strip('"\'').startswith(k) for k in kw)} for w in c],
+                "words": [{"text": repl.get(w["text"], w["text"]), "hl": any(w["text"].strip('"\'').startswith(k) for k in kw)} for w in c],
             })
     for a, b in zip(captions, captions[1:]):
         if b["start"] - a["end"] < 0.35:
@@ -107,6 +108,7 @@ def build(stt, d):
         "face": d["face"], "segments": segments, "captions": captions,
         "emphasis": emphasis, "transitions": list(trans_times.values()),
         "sfx_volume": d.get("sfx_volume", 0.45),
+        "speed": d.get("speed", 1.0), "retouch": d.get("retouch"),
     }
 
 
