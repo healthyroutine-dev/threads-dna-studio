@@ -1,0 +1,1195 @@
+{
+ "source": "/home/user/work/src/raw7.mp4",
+ "range": [
+  0.0,
+  75.6
+ ],
+ "fps": 24,
+ "output": {
+  "width": 1920,
+  "height": 1080
+ },
+ "face": [
+  0.4875,
+  0.324
+ ],
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 4.333333333333333,
+   "framing": "wide",
+   "zoom": 1.0,
+   "punch_at": []
+  },
+  {
+   "start": 4.333333333333333,
+   "end": 6.25,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 6.25,
+   "end": 7.291666666666667,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    6.291666666666667
+   ]
+  },
+  {
+   "start": 7.291666666666667,
+   "end": 9.541666666666666,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 9.541666666666666,
+   "end": 14.166666666666666,
+   "framing": "wide",
+   "zoom": 1.0,
+   "punch_at": []
+  },
+  {
+   "start": 14.166666666666666,
+   "end": 16.833333333333332,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    15.083333333333334
+   ]
+  },
+  {
+   "start": 16.833333333333332,
+   "end": 19.083333333333332,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 19.083333333333332,
+   "end": 20.833333333333332,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    19.125
+   ]
+  },
+  {
+   "start": 20.833333333333332,
+   "end": 23.25,
+   "framing": "wide",
+   "zoom": 1.0,
+   "punch_at": []
+  },
+  {
+   "start": 23.25,
+   "end": 26.958333333333332,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 26.958333333333332,
+   "end": 28.583333333333332,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": []
+  },
+  {
+   "start": 28.583333333333332,
+   "end": 33.583333333333336,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": [
+    32.375
+   ]
+  },
+  {
+   "start": 33.583333333333336,
+   "end": 42.291666666666664,
+   "framing": "wide",
+   "zoom": 1.0,
+   "punch_at": []
+  },
+  {
+   "start": 42.291666666666664,
+   "end": 43.875,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 43.875,
+   "end": 49.333333333333336,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    44.333333333333336
+   ]
+  },
+  {
+   "start": 49.333333333333336,
+   "end": 51.375,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 51.375,
+   "end": 55.916666666666664,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    54.5
+   ]
+  },
+  {
+   "start": 55.916666666666664,
+   "end": 60.083333333333336,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 60.083333333333336,
+   "end": 64.41666666666667,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": []
+  },
+  {
+   "start": 64.41666666666667,
+   "end": 70.29166666666667,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  },
+  {
+   "start": 70.29166666666667,
+   "end": 72.33333333333333,
+   "framing": "close",
+   "zoom": 2.1,
+   "punch_at": [
+    71.16666666666667
+   ]
+  },
+  {
+   "start": 72.33333333333333,
+   "end": 75.6,
+   "framing": "medium",
+   "zoom": 1.45,
+   "punch_at": []
+  }
+ ],
+ "captions": [
+  {
+   "start": 0.16,
+   "end": 2.34,
+   "words": [
+    {
+     "text": "인스타든",
+     "hl": false
+    },
+    {
+     "text": "블로그든",
+     "hl": false
+    },
+    {
+     "text": "열심히",
+     "hl": false
+    },
+    {
+     "text": "올리기는",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 2.34,
+   "end": 3.9,
+   "words": [
+    {
+     "text": "하는데",
+     "hl": false
+    },
+    {
+     "text": "문의로",
+     "hl": true
+    },
+    {
+     "text": "이어지나요?",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 4.38,
+   "end": 6.3,
+   "words": [
+    {
+     "text": "오긴",
+     "hl": false
+    },
+    {
+     "text": "오는데",
+     "hl": false
+    },
+    {
+     "text": "첫",
+     "hl": false
+    },
+    {
+     "text": "마디가",
+     "hl": false
+    },
+    {
+     "text": "이거죠.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 6.3,
+   "end": 6.9,
+   "words": [
+    {
+     "text": "\"얼마예요?\"",
+     "hl": true
+    }
+   ]
+  },
+  {
+   "start": 7.36,
+   "end": 9.58,
+   "words": [
+    {
+     "text": "답장",
+     "hl": false
+    },
+    {
+     "text": "보내면",
+     "hl": false
+    },
+    {
+     "text": "또",
+     "hl": false
+    },
+    {
+     "text": "읽고",
+     "hl": false
+    },
+    {
+     "text": "끝.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 9.58,
+   "end": 12.42,
+   "words": [
+    {
+     "text": "밤늦게까지",
+     "hl": false
+    },
+    {
+     "text": "콘텐츠",
+     "hl": false
+    },
+    {
+     "text": "만들고",
+     "hl": false
+    },
+    {
+     "text": "강의",
+     "hl": false
+    },
+    {
+     "text": "듣고",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 12.42,
+   "end": 14.22,
+   "words": [
+    {
+     "text": "자격증",
+     "hl": true
+    },
+    {
+     "text": "하나라도",
+     "hl": false
+    },
+    {
+     "text": "더",
+     "hl": false
+    },
+    {
+     "text": "따고.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 14.22,
+   "end": 16.54,
+   "words": [
+    {
+     "text": "그런데",
+     "hl": false
+    },
+    {
+     "text": "결국",
+     "hl": false
+    },
+    {
+     "text": "남는",
+     "hl": false
+    },
+    {
+     "text": "건",
+     "hl": false
+    },
+    {
+     "text": "할인뿐이죠.",
+     "hl": true
+    }
+   ]
+  },
+  {
+   "start": 16.9,
+   "end": 19.12,
+   "words": [
+    {
+     "text": "제가",
+     "hl": false
+    },
+    {
+     "text": "이",
+     "hl": false
+    },
+    {
+     "text": "일을",
+     "hl": false
+    },
+    {
+     "text": "하면서",
+     "hl": false
+    },
+    {
+     "text": "알게",
+     "hl": false
+    },
+    {
+     "text": "된",
+     "hl": false
+    },
+    {
+     "text": "게",
+     "hl": false
+    },
+    {
+     "text": "있어요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 19.12,
+   "end": 20.88,
+   "words": [
+    {
+     "text": "대표님",
+     "hl": false
+    },
+    {
+     "text": "탓이",
+     "hl": true
+    },
+    {
+     "text": "아니라는",
+     "hl": false
+    },
+    {
+     "text": "거예요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 20.88,
+   "end": 23.28,
+   "words": [
+    {
+     "text": "실력이",
+     "hl": false
+    },
+    {
+     "text": "부족해서도,",
+     "hl": false
+    },
+    {
+     "text": "게을러서도",
+     "hl": false
+    },
+    {
+     "text": "아니고요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 23.28,
+   "end": 27.0,
+   "words": [
+    {
+     "text": "그럼",
+     "hl": false
+    },
+    {
+     "text": "계속",
+     "hl": false
+    },
+    {
+     "text": "앞으로도",
+     "hl": false
+    },
+    {
+     "text": "가격과",
+     "hl": true
+    },
+    {
+     "text": "싸워야",
+     "hl": false
+    },
+    {
+     "text": "할까요?",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 27.0,
+   "end": 28.64,
+   "words": [
+    {
+     "text": "저도",
+     "hl": false
+    },
+    {
+     "text": "그게",
+     "hl": false
+    },
+    {
+     "text": "제일",
+     "hl": false
+    },
+    {
+     "text": "궁금했어요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 28.64,
+   "end": 30.7,
+   "words": [
+    {
+     "text": "그래서",
+     "hl": false
+    },
+    {
+     "text": "거기서",
+     "hl": false
+    },
+    {
+     "text": "빠져나온",
+     "hl": false
+    },
+    {
+     "text": "대표님들을",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 30.7,
+   "end": 33.62,
+   "words": [
+    {
+     "text": "가만히",
+     "hl": false
+    },
+    {
+     "text": "봤더니",
+     "hl": false
+    },
+    {
+     "text": "하는",
+     "hl": false
+    },
+    {
+     "text": "게",
+     "hl": false
+    },
+    {
+     "text": "딱",
+     "hl": false
+    },
+    {
+     "text": "세",
+     "hl": false
+    },
+    {
+     "text": "가지",
+     "hl": true
+    },
+    {
+     "text": "있더라고요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 33.62,
+   "end": 35.9,
+   "words": [
+    {
+     "text": "이",
+     "hl": false
+    },
+    {
+     "text": "영상",
+     "hl": false
+    },
+    {
+     "text": "끝까지",
+     "hl": false
+    },
+    {
+     "text": "보시면",
+     "hl": false
+    },
+    {
+     "text": "다음에",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 35.9,
+   "end": 37.84,
+   "words": [
+    {
+     "text": "\"얼마예요?\"라는",
+     "hl": true
+    },
+    {
+     "text": "DM이",
+     "hl": true
+    },
+    {
+     "text": "왔을",
+     "hl": false
+    },
+    {
+     "text": "때",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 37.84,
+   "end": 40.4,
+   "words": [
+    {
+     "text": "가슴",
+     "hl": false
+    },
+    {
+     "text": "철렁하지",
+     "hl": false
+    },
+    {
+     "text": "않고",
+     "hl": false
+    },
+    {
+     "text": "할인",
+     "hl": true
+    },
+    {
+     "text": "얘기",
+     "hl": false
+    },
+    {
+     "text": "꺼내지",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 40.4,
+   "end": 42.34,
+   "words": [
+    {
+     "text": "않고",
+     "hl": false
+    },
+    {
+     "text": "답장",
+     "hl": false
+    },
+    {
+     "text": "보내실",
+     "hl": false
+    },
+    {
+     "text": "수",
+     "hl": false
+    },
+    {
+     "text": "있을",
+     "hl": false
+    },
+    {
+     "text": "거예요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 42.34,
+   "end": 43.92,
+   "words": [
+    {
+     "text": "그리고",
+     "hl": false
+    },
+    {
+     "text": "손님이",
+     "hl": false
+    },
+    {
+     "text": "\"얼마예요?\"",
+     "hl": true
+    }
+   ]
+  },
+  {
+   "start": 43.92,
+   "end": 46.32,
+   "words": [
+    {
+     "text": "말고",
+     "hl": false
+    },
+    {
+     "text": "\"언제부터",
+     "hl": true
+    },
+    {
+     "text": "돼요?\"를",
+     "hl": false
+    },
+    {
+     "text": "먼저",
+     "hl": false
+    },
+    {
+     "text": "묻게",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 46.32,
+   "end": 49.38,
+   "words": [
+    {
+     "text": "만드는",
+     "hl": false
+    },
+    {
+     "text": "첫",
+     "hl": false
+    },
+    {
+     "text": "줄,",
+     "hl": false
+    },
+    {
+     "text": "오늘",
+     "hl": false
+    },
+    {
+     "text": "그거",
+     "hl": false
+    },
+    {
+     "text": "한번",
+     "hl": false
+    },
+    {
+     "text": "같이",
+     "hl": false
+    },
+    {
+     "text": "써볼게요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 49.38,
+   "end": 51.44,
+   "words": [
+    {
+     "text": "제",
+     "hl": false
+    },
+    {
+     "text": "일은",
+     "hl": false
+    },
+    {
+     "text": "한",
+     "hl": false
+    },
+    {
+     "text": "줄로",
+     "hl": false
+    },
+    {
+     "text": "말하면",
+     "hl": false
+    },
+    {
+     "text": "이거예요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 51.44,
+   "end": 54.48,
+   "words": [
+    {
+     "text": "실력",
+     "hl": false
+    },
+    {
+     "text": "있는",
+     "hl": false
+    },
+    {
+     "text": "대표님을",
+     "hl": false
+    },
+    {
+     "text": "처음",
+     "hl": false
+    },
+    {
+     "text": "보는",
+     "hl": false
+    },
+    {
+     "text": "손님",
+     "hl": false
+    },
+    {
+     "text": "눈에",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 54.48,
+   "end": 55.98,
+   "words": [
+    {
+     "text": "3초",
+     "hl": true
+    },
+    {
+     "text": "안에",
+     "hl": false
+    },
+    {
+     "text": "보이게",
+     "hl": true
+    },
+    {
+     "text": "만드는",
+     "hl": false
+    },
+    {
+     "text": "거.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 55.98,
+   "end": 58.56,
+   "words": [
+    {
+     "text": "네,",
+     "hl": false
+    },
+    {
+     "text": "그래서",
+     "hl": false
+    },
+    {
+     "text": "저는",
+     "hl": false
+    },
+    {
+     "text": "대표님",
+     "hl": false
+    },
+    {
+     "text": "피드를",
+     "hl": false
+    },
+    {
+     "text": "볼",
+     "hl": false
+    },
+    {
+     "text": "때",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 58.56,
+   "end": 60.14,
+   "words": [
+    {
+     "text": "대표님의",
+     "hl": false
+    },
+    {
+     "text": "눈으로",
+     "hl": false
+    },
+    {
+     "text": "안",
+     "hl": false
+    },
+    {
+     "text": "봐요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 60.14,
+   "end": 62.98,
+   "words": [
+    {
+     "text": "엄지로",
+     "hl": false
+    },
+    {
+     "text": "휙휙",
+     "hl": false
+    },
+    {
+     "text": "넘기다가",
+     "hl": false
+    },
+    {
+     "text": "우연히",
+     "hl": false
+    },
+    {
+     "text": "들어온",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 62.98,
+   "end": 64.459,
+   "words": [
+    {
+     "text": "손님의",
+     "hl": true
+    },
+    {
+     "text": "눈으로",
+     "hl": false
+    },
+    {
+     "text": "보는",
+     "hl": false
+    },
+    {
+     "text": "거죠.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 64.459,
+   "end": 67.6,
+   "words": [
+    {
+     "text": "그,",
+     "hl": false
+    },
+    {
+     "text": "그",
+     "hl": false
+    },
+    {
+     "text": "눈으로",
+     "hl": false
+    },
+    {
+     "text": "보면요",
+     "hl": false
+    },
+    {
+     "text": "십오년",
+     "hl": false
+    },
+    {
+     "text": "경력도",
+     "hl": true
+    }
+   ]
+  },
+  {
+   "start": 67.6,
+   "end": 70.36,
+   "words": [
+    {
+     "text": "자격증",
+     "hl": true
+    },
+    {
+     "text": "몇",
+     "hl": false
+    },
+    {
+     "text": "개도",
+     "hl": false
+    },
+    {
+     "text": "안",
+     "hl": false
+    },
+    {
+     "text": "보이거든요,",
+     "hl": false
+    },
+    {
+     "text": "사실.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 70.36,
+   "end": 72.38,
+   "words": [
+    {
+     "text": "보이는",
+     "hl": false
+    },
+    {
+     "text": "건",
+     "hl": false
+    },
+    {
+     "text": "첫",
+     "hl": false
+    },
+    {
+     "text": "줄",
+     "hl": false
+    },
+    {
+     "text": "하나예요.",
+     "hl": false
+    }
+   ]
+  },
+  {
+   "start": 72.38,
+   "end": 75.4,
+   "words": [
+    {
+     "text": "거기서",
+     "hl": false
+    },
+    {
+     "text": "안",
+     "hl": false
+    },
+    {
+     "text": "멈추면",
+     "hl": false
+    },
+    {
+     "text": "그",
+     "hl": false
+    },
+    {
+     "text": "실력은",
+     "hl": false
+    },
+    {
+     "text": "없는",
+     "hl": true
+    },
+    {
+     "text": "거랑",
+     "hl": false
+    },
+    {
+     "text": "똑같거든요.",
+     "hl": false
+    }
+   ]
+  }
+ ],
+ "emphasis": [
+  {
+   "t": 6.3,
+   "text": "\"얼마예요?\"",
+   "style": "boom",
+   "sfx": "impact",
+   "punch": true,
+   "shake": true,
+   "end": 8.1
+  },
+  {
+   "t": 8.88,
+   "text": "읽고 끝.",
+   "style": "tag",
+   "sfx": "pop",
+   "end": 10.68
+  },
+  {
+   "t": 15.1,
+   "text": "남는 건 할인뿐",
+   "style": "boom",
+   "sfx": "impact",
+   "punch": true,
+   "end": 16.9
+  },
+  {
+   "t": 19.12,
+   "text": "대표님 탓이 아니에요",
+   "style": "tag",
+   "sfx": "ding",
+   "punch": true,
+   "end": 20.92
+  },
+  {
+   "t": 25.3,
+   "text": "계속 가격과 싸워야 할까?",
+   "style": "tag",
+   "sfx": "pop",
+   "end": 27.1
+  },
+  {
+   "t": 32.38,
+   "text": "딱 세 가지",
+   "style": "boom",
+   "sfx": "ding",
+   "punch": true,
+   "end": 34.18
+  },
+  {
+   "t": 37.84,
+   "text": "가슴 철렁 없이",
+   "style": "tag",
+   "sfx": "pop",
+   "end": 39.64
+  },
+  {
+   "t": 43.18,
+   "text": "\"얼마예요?\"",
+   "style": "strike",
+   "sfx": "pop",
+   "dur": 1.1,
+   "end": 44.27
+  },
+  {
+   "t": 44.32,
+   "text": "\"언제부터 돼요?\"",
+   "style": "boom",
+   "sfx": "ding",
+   "punch": true,
+   "end": 46.12
+  },
+  {
+   "t": 54.48,
+   "text": "3초 안에 보이게",
+   "style": "boom",
+   "sfx": "impact",
+   "punch": true,
+   "shake": true,
+   "end": 56.28
+  },
+  {
+   "t": 62.98,
+   "text": "손님의 눈으로",
+   "style": "tag",
+   "sfx": "pop",
+   "end": 64.78
+  },
+  {
+   "t": 69.02,
+   "text": "안 보여요",
+   "style": "tag",
+   "sfx": "pop",
+   "end": 70.82
+  },
+  {
+   "t": 71.16,
+   "text": "첫 줄 하나",
+   "style": "boom",
+   "sfx": "ding",
+   "punch": true,
+   "end": 72.96
+  },
+  {
+   "t": 74.3,
+   "text": "없는 거랑 똑같다",
+   "style": "tag",
+   "sfx": "impact",
+   "shake": true,
+   "end": 75.55
+  }
+ ],
+ "transitions": [
+  {
+   "t": 16.85,
+   "type": "flash",
+   "sfx": "whoosh"
+  },
+  {
+   "t": 33.57,
+   "type": "flash",
+   "sfx": "whoosh"
+  },
+  {
+   "t": 49.33,
+   "type": "flash",
+   "sfx": "whoosh"
+  }
+ ],
+ "sfx_volume": 0.45
+}

@@ -1,0 +1,29 @@
+{
+ "source": "/home/user/work/src/raw7.mp4",
+ "range": [0.0, 75.6],
+ "fps": 24,
+ "face": [0.4875, 0.324],
+ "sfx_volume": 0.45,
+ "keywords": ["얼마예요", "할인", "문의로", "탓이", "가격과", "가지", "DM이", "언제부터", "3초", "보이게", "손님의", "경력도", "자격증", "없는"],
+ "emphasis": [
+  {"t": 6.30,  "text": "\"얼마예요?\"",        "style": "boom",   "sfx": "impact", "punch": true, "shake": true},
+  {"t": 8.88,  "text": "읽고 끝.",             "style": "tag",    "sfx": "pop"},
+  {"t": 15.10, "text": "남는 건 할인뿐",        "style": "boom",   "sfx": "impact", "punch": true},
+  {"t": 19.12, "text": "대표님 탓이 아니에요",   "style": "tag",    "sfx": "ding",   "punch": true},
+  {"t": 25.30, "text": "계속 가격과 싸워야 할까?", "style": "tag",   "sfx": "pop"},
+  {"t": 32.38, "text": "딱 세 가지",            "style": "boom",   "sfx": "ding",   "punch": true},
+  {"t": 37.84, "text": "가슴 철렁 없이",           "style": "tag",    "sfx": "pop"},
+  {"t": 43.18, "text": "\"얼마예요?\"",          "style": "strike", "sfx": "pop", "dur": 1.1},
+  {"t": 44.32, "text": "\"언제부터 돼요?\"",     "style": "boom",   "sfx": "ding",   "punch": true},
+  {"t": 54.48, "text": "3초 안에 보이게",        "style": "boom",   "sfx": "impact", "punch": true, "shake": true},
+  {"t": 62.98, "text": "손님의 눈으로",          "style": "tag",    "sfx": "pop"},
+  {"t": 69.02, "text": "안 보여요",             "style": "tag",    "sfx": "pop"},
+  {"t": 71.16, "text": "첫 줄 하나",            "style": "boom",   "sfx": "ding",   "punch": true},
+  {"t": 74.30, "text": "없는 거랑 똑같다",       "style": "tag",    "sfx": "impact", "shake": true}
+ ],
+ "transitions": [
+  {"t": 16.85, "type": "flash", "sfx": "whoosh"},
+  {"t": 33.57, "type": "flash", "sfx": "whoosh"},
+  {"t": 49.33, "type": "flash", "sfx": "whoosh"}
+ ]
+}
