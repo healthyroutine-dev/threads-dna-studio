@@ -14,6 +14,11 @@ for no,(keep,ov) in B.items():
             lab=f"0{p+1} · "+lab.split(' · ',1)[1]; p+=1
         elif 'TU TIP' in lab or 'ASÍ SE VENDE' in lab:
             lab=f"0{p+1} · "+lab.split(' · ',1)[1]; p+=1
+        if lab.startswith('CTA'):
+            ko=re.sub(r",? ?댓글에 'ACADEMY' 남기면 (방법 )?보내드려요\.$", "", ko).rstrip(',')
+            ko=ko+(" 방법" if '신청' in ko and not ko.endswith('방법') else "")+", 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!"
+            es=es.replace(" Comenta ACADEMY.", " Te lo mando todo 🎁 ¡Comenta cualquier emoji!")
+            if '신청' in ko: es=es.replace("Te lo mando todo","Te explico cómo")
         rows.append([t,lab,"",es,ko])
     dur=E[no]['dur']; short=dur<=15; clips=[]; prev=0
     for r in rows:

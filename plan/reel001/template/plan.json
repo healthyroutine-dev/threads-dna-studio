@@ -230,16 +230,17 @@
    "pause": "CTA",
    "pip": true,
    "endcard": true,
-   "sub": "¿Mi checklist de antes y después? Comenta ACADEMY.",
-   "voice": "¿Mi checklist de antes y después? Comenta ACADEMY.",
-   "ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
+   "sub": "¿Mi checklist de antes y después? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi checklist de antes y después? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "전후 촬영 체크리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
    "vo": "vo_13.wav",
-   "d": 3.82,
+   "d": 5.69,
    "items": [
     "Checklist de antes y después",
     "Lo más vendido en Corea",
     "Lista de sourcing de la semana"
-   ]
+   ],
+   "voice_en": "Want my before-and-after checklist? I'll send you everything. Comment any emoji!"
   }
  ],
  "video_y": 70,

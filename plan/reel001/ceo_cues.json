@@ -69,11 +69,11 @@
   "seg": 13,
   "pause": "CTA",
   "start": 49.6,
-  "end": 53.43,
-  "say_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
-  "say_en": "",
-  "sub_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
-  "say_ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
+  "end": 55.3,
+  "say_es": "¿Mi checklist de antes y después? Te lo mando todo. ¡Comenta cualquier emoji!",
+  "say_en": "Want my before-and-after checklist? I'll send you everything. Comment any emoji!",
+  "sub_es": "¿Mi checklist de antes y después? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+  "say_ko": "전후 촬영 체크리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
   "quote_es": ""
  }
 ]

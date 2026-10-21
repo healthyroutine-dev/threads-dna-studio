@@ -12,19 +12,21 @@ html,body{width:1080px;height:1920px;background:var(--bg);color:var(--ink);font-
 .pip{position:absolute;left:367px;top:220px;width:346px;height:346px;border-radius:50%;border:8px dashed rgba(255,255,255,.95);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
 .pip b{font-family:SM;font-size:26px;letter-spacing:3px}.pip span{font-weight:800;font-size:30px;color:var(--point)}
 .ask{position:absolute;left:64px;right:64px;top:640px;text-align:center;font-family:AB;font-size:92px;line-height:.95;letter-spacing:-2px;text-transform:uppercase}
-.kw{position:absolute;left:120px;right:120px;top:790px;height:190px;background:var(--point);border-radius:24px;display:flex;align-items:center;justify-content:center;font-family:AB;font-size:120px;letter-spacing:2px}
-.list{position:absolute;left:150px;right:150px;top:1040px;display:grid;gap:22px}
+.kw{position:absolute;left:120px;right:120px;top:780px;height:250px;background:var(--point);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-family:AB;font-size:96px;line-height:1;text-transform:uppercase}
+.kw div{display:flex;align-items:center;gap:18px;white-space:nowrap}
+.kw .em{font-family:"Noto Color Emoji";font-size:62px;letter-spacing:4px}
+.list{position:absolute;left:150px;right:150px;top:1090px;display:grid;gap:22px}
 .list div{display:flex;gap:22px;align-items:center;font-weight:800;font-size:46px}
 .list i{font-style:normal;width:54px;height:54px;border-radius:50%;background:var(--card);border:3px solid var(--point);display:flex;align-items:center;justify-content:center;font-family:SM;font-size:26px;color:var(--point);flex:none}
-.dm{position:absolute;left:64px;right:64px;top:1340px;text-align:center;font-weight:700;font-size:42px;color:var(--quiet)}
+.dm{position:absolute;left:64px;right:64px;top:1375px;text-align:center;font-weight:700;font-size:42px;color:var(--quiet)}
 .dm b{color:var(--ink)}
 .arrow{position:absolute;right:150px;top:1450px;font-family:AB;font-size:150px;color:var(--point);transform:rotate(35deg)}
 .brand{position:absolute;left:0;right:0;top:1580px;text-align:center;font-family:SM;font-size:30px;letter-spacing:9px}
 </style></head><body>
-<div class="top"><span>K-BEAUTY ACADEMY</span><span><b id="no">001</b>/100</span></div>
+<div class="top"><span>K-BEAUTY QUE VENDE</span><span><b id="no">001</b>/100</span></div>
 <div class="pip"><b>CEO VIDEO</b><span>대표 영상 삽입</span></div>
 <div class="ask">Comenta</div>
-<div class="kw">ACADEMY</div>
+<div class="kw"><div>Cualquier</div><div>Emoji <span class="em">😍🔥🎁</span></div></div>
 <div class="list" id="list"></div>
 <div class="dm">y <b>te lo mando por mensaje</b></div>
 <script>function render(s){no.textContent=s.no||"001";list.innerHTML=(s.items||[]).map((t,i)=>`<div><i>0${i+1}</i>${t}</div>`).join("")}</script>

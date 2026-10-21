@@ -1,5 +1,5 @@
 // 촬영 대본 · B안 (짧은 버전, 001–026). A안은 plan/script-A-full
-window.CTA={"ko": "소싱 리스트랑 한국 인기템, 댓글에 'ACADEMY' 남기면 보내드려요.", "es": "¿La lista de sourcing y lo más vendido en Corea? Comenta ACADEMY."};
+window.CTA={"ko": "소싱 리스트랑 한국 인기템, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!", "es": "¿La lista de sourcing y lo más vendido en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"};
 window.SHOOT=[
  {
   "no": "001",
@@ -44,8 +44,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi checklist de antes y después? Comenta ACADEMY."
+    "전후 촬영 체크리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi checklist de antes y después? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -91,8 +91,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "제가 직접 고른 패드 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Los pads que elegí en Corea? Comenta ACADEMY."
+    "제가 직접 고른 패드 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Los pads que elegí en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -140,8 +140,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "잘 팔리는 세트 구성, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Los sets que más se venden? Comenta ACADEMY."
+    "잘 팔리는 세트 구성, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Los sets que más se venden? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -189,8 +189,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "한국에서 막 뜨는 신제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Lo nuevo que está explotando en Corea? Comenta ACADEMY."
+    "한국에서 막 뜨는 신제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Lo nuevo que está explotando en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -237,8 +237,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "피부 진정 라인 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi lista de productos calmantes? Comenta ACADEMY."
+    "피부 진정 라인 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi lista de productos calmantes? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -286,8 +286,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "민감 피부용 제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Productos para piel sensible? Comenta ACADEMY."
+    "민감 피부용 제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Productos para piel sensible? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -334,8 +334,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "이번 주 올리브영 순위, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿El ranking de Olive Young de esta semana? Comenta ACADEMY."
+    "이번 주 올리브영 순위, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿El ranking de Olive Young de esta semana? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -382,8 +382,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "한국 사람들이 진짜 쓰는 브랜드 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Las marcas que de verdad usan en Corea? Comenta ACADEMY."
+    "한국 사람들이 진짜 쓰는 브랜드 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Las marcas que de verdad usan en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -429,8 +429,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "입문자용 3단계 세트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿El set de 3 pasos para empezar? Comenta ACADEMY."
+    "입문자용 3단계 세트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿El set de 3 pasos para empezar? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -476,8 +476,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "영상에 예쁘게 나오는 제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Productos que se ven increíbles en video? Comenta ACADEMY."
+    "영상에 예쁘게 나오는 제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Productos que se ven increíbles en video? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -524,8 +524,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "말하면서 하기 좋은 3단계 루틴, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Una rutina de 3 pasos para tu chisme? Comenta ACADEMY."
+    "말하면서 하기 좋은 3단계 루틴, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Una rutina de 3 pasos para tu chisme? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -572,8 +572,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "30일 시리즈 주제 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿30 temas para tu serie? Comenta ACADEMY."
+    "30일 시리즈 주제 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿30 temas para tu serie? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -614,8 +614,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "매주 남미에서 터진 K뷰티 영상 분석, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿El análisis semanal de lo que explota en LATAM? Comenta ACADEMY."
+    "매주 남미에서 터진 K뷰티 영상 분석, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿El análisis semanal de lo que explota en LATAM? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -656,8 +656,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "평소보다 몇 배 나왔는지까지 계산한 레퍼런스 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi lista de referencias con cuántas veces superaron su promedio? Comenta ACADEMY."
+    "평소보다 몇 배 나왔는지까지 계산한 레퍼런스 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi lista de referencias con cuántas veces superaron su promedio? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -698,8 +698,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "표 한 장으로 터진 영상 모음, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Los videos de una sola tabla que explotaron? Comenta ACADEMY."
+    "표 한 장으로 터진 영상 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Los videos de una sola tabla que explotaron? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -740,8 +740,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "성분 자막 잘 된 예시 모음, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Ejemplos de subtítulos de ingredientes que funcionan? Comenta ACADEMY."
+    "성분 자막 잘 된 예시 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Ejemplos de subtítulos de ingredientes que funcionan? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -782,8 +782,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "다음 편 예고로 댓글 받는 방법, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Cómo ganar comentarios con un adelanto del próximo video? Comenta ACADEMY."
+    "다음 편 예고로 댓글 받는 방법, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Cómo ganar comentarios con un adelanto del próximo video? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -824,8 +824,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "광고처럼 안 들리는 협찬 문장 모음, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Frases para que un patrocinio no suene a anuncio? Comenta ACADEMY."
+    "광고처럼 안 들리는 협찬 문장 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Frases para que un patrocinio no suene a anuncio? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -866,8 +866,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "첫 3초 훅 문장 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi lista de frases gancho para los primeros 3 segundos? Comenta ACADEMY."
+    "첫 3초 훅 문장 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi lista de frases gancho para los primeros 3 segundos? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -908,8 +908,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "남미에서 지금 뜨는 K뷰티 영상 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Lo que está subiendo ahora en LATAM? Comenta ACADEMY."
+    "남미에서 지금 뜨는 K뷰티 영상 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Lo que está subiendo ahora en LATAM? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -950,8 +950,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "팔로워 적은 계정이 터진 사례 모음, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Casos de cuentas pequeñas que explotaron? Comenta ACADEMY."
+    "팔로워 적은 계정이 터진 사례 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Casos de cuentas pequeñas que explotaron? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -992,8 +992,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "10초 루틴 영상 구성표, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi plantilla de rutina en 10 segundos? Comenta ACADEMY."
+    "10초 루틴 영상 구성표, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi plantilla de rutina en 10 segundos? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -1034,8 +1034,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "남미에 아직 안 알려진 신기한 한국 제품 리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Productos coreanos curiosos que aún no llegan a LATAM? Comenta ACADEMY."
+    "남미에 아직 안 알려진 신기한 한국 제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Productos coreanos curiosos que aún no llegan a LATAM? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -1076,8 +1076,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "여러분 영상 분석 신청, 댓글에 'ACADEMY' 남기면 방법 보내드려요.",
-    "¿Quieres que analice tu video? Comenta ACADEMY."
+    "여러분 영상 분석 신청 방법, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Quieres que analice tu video? Te explico cómo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -1118,8 +1118,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "전후 사진 잘 쓴 예시랑 조심할 점, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Ejemplos de antes y después bien hechos, y qué cuidar? Comenta ACADEMY."
+    "전후 사진 잘 쓴 예시랑 조심할 점, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Ejemplos de antes y después bien hechos, y qué cuidar? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  },
@@ -1160,8 +1160,8 @@ window.SHOOT=[
    ],
    [
     "CTA · 엔드카드",
-    "날짜 자막 후기 영상 템플릿, 댓글에 'ACADEMY' 남기면 보내드려요.",
-    "¿Mi plantilla de reseña con los días en pantalla? Comenta ACADEMY."
+    "날짜 자막 후기 영상 템플릿, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+    "¿Mi plantilla de reseña con los días en pantalla? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
    ]
   ]
  }
