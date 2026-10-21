@@ -106,8 +106,8 @@ B = {
   4: ("셋째, 다만 남의 얼굴이면 꼭 동의를 받으세요. 효과를 부풀리면 신고 대상이에요.",
       "Tres: pero si es la cara de otra persona, pide permiso. Si exageras el efecto, te pueden reportar.")}),
 "026": ([0,1,3,4,5,6], {
-  3: ("둘째, 그런데 570만 명이 봤는데 공유는 299번이에요. 남미 K뷰티 영상 평균의 6분의 1도 안 돼요.",
-      "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la sexta parte del promedio en K-beauty de LATAM."),
+  3: ("둘째, 그런데 570만 명이 봤는데 공유는 299번이에요. 남미 K뷰티 영상 중간값의 5분의 1도 안 돼요.",
+      "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la quinta parte de la mediana en K-beauty de LATAM."),
   4: ("셋째, 많이 봤는데 아무도 안 퍼뜨렸다면 광고비로 밀어준 영상일 가능성이 커요. 조회수만 보고 따라 하면 안 돼요.",
       "Tres: si muchos lo vieron y nadie lo compartió, lo más probable es que sea pauta pagada. No lo copies solo por las vistas.")}),
 }

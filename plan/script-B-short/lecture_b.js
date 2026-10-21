@@ -1900,8 +1900,8 @@ window.LECTURE_B = {
     9,
     "02 · PROPORCIÓN DE COMPARTIDOS",
     "",
-    "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la sexta parte del promedio en K-beauty de LATAM.",
-    "둘째, 그런데 570만 명이 봤는데 공유는 299번이에요. 남미 K뷰티 영상 평균의 6분의 1도 안 돼요."
+    "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la quinta parte de la mediana en K-beauty de LATAM.",
+    "둘째, 그런데 570만 명이 봤는데 공유는 299번이에요. 남미 K뷰티 영상 중간값의 5분의 1도 안 돼요."
    ],
    [
     12,
