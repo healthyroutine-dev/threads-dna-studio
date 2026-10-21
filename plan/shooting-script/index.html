@@ -81,7 +81,7 @@
 </style>
 
 <header><div class="wrap">
-  <span class="label">B2X · K-Beauty que vende · 촬영일</span>
+  <span class="label">B2X · K-Beauty que vende 001–026 · B안 (짧은 버전) · 촬영일</span>
   <h1>SHOOTING <span>SCRIPT</span></h1>
   <p>채원 대표가 <b>한국어로</b> 카메라를 보고 말할 대본입니다. 촬영본으로 대표 목소리를 학습해 스페인어로 바꾸고, 한국어 원음은 작게 깝니다. 위 영상은 각 편의 레퍼런스이고, 줄 옆 <b>▶ 장면</b>을 누르면 그 문장이 설명하는 장면으로 이동합니다.</p>
 </div></header>
@@ -95,7 +95,8 @@
       <li>핀마이크 또는 휴대폰을 입 가까이</li>
       <li>문장마다 앞뒤 1초 쉬고, 한 문장씩 끊어서</li>
       <li>마음에 안 들면 그 문장만 다시. 테이크는 여러 번 OK</li>
-      <li>목소리 학습은 이 대사 촬영분으로 합니다 (12편 합치면 약 10분)</li>
+      <li>목소리 학습은 이 대사 촬영분으로 합니다 (26편 합치면 약 20분)</li>
+      <li>시간 남으면 A안에서 빠진 줄도 한두 개씩 예비로 (편집에서 길이 보충용)</li>
     </ul>
   </div>
   <div class="box cta">
@@ -117,7 +118,7 @@
     <div>
       <div class="ephead"><h2 id="epTitle"></h2><span class="label" id="progress"></span></div>
       <ol class="lines" id="lines"></ol>
-      <p class="tip">문장 7~8개. 한 편에 5분 안팎이면 충분합니다. 촬영한 줄은 체크해두세요 (이 브라우저에만 저장).</p>
+      <p class="tip">B안: 문장 6~7개, 완성본 1분 안쪽. 한 편에 5분 안팎이면 충분합니다. 촬영한 줄은 체크해두세요 (이 브라우저에만 저장).</p>
     </div>
   </div>
 </div></main>
@@ -127,6 +128,7 @@
 <script src="shoot.js"></script>
 <script src="lecture.js"></script>
 <script src="data.js"></script>
+<script src="data_ws.js"></script>
 <script>
 (function () {
   const S = window.SHOOT || [], L = window.LECTURE || {}, E = window.EPISODES || [];
@@ -179,7 +181,7 @@
       if (ln[3]) body.append(el("p", "quote", "화면 인용 " + ln[3]));
       if (/^CTA/.test(ln[0]) && s.items) body.append(el("p", "es", "엔드카드: Comenta ACADEMY · " + s.items.join(" · ")));
       body.append(dw);
-      li.append(el("span", "num", k === 0 ? "H" : (/^CTA/.test(ln[0]) ? "C" : (/RECUERDA|FÓRMULA/.test(ln[0]) ? "F" : String(k).padStart(2, "0")))), body);
+      li.append(el("span", "num", k === 0 ? "H" : (/^CTA/.test(ln[0]) ? "C" : (/TU TIP/.test(ln[0]) ? "T" : (/ASÍ SE VENDE/.test(ln[0]) ? "$" : String(k).padStart(2, "0"))))), body);
       ol.append(li);
     });
     upd(); rail();

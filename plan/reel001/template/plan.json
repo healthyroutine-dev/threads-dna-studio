@@ -224,28 +224,6 @@
     4,
     5
    ],
-   "h1": "Recuerda",
-   "h2": "esto",
-   "now": 0,
-   "pause": "RECUERDA",
-   "pip": true,
-   "voice": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
-   "sub": "Sin filtro, el problema primero, | antes y después, y al final, el producto. | ¡Recuerda esto!",
-   "vo": "vo_13.wav",
-   "d": 6.3,
-   "voice_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
-   "ko": "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!"
-  },
-  {
-   "t": "freeze",
-   "at": 9.85,
-   "lit": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
    "h1": "",
    "h2": "",
    "now": 0,
@@ -255,7 +233,7 @@
    "sub": "¿Mi checklist de antes y después? Comenta ACADEMY.",
    "voice": "¿Mi checklist de antes y después? Comenta ACADEMY.",
    "ko": "전후 촬영 체크리스트, 댓글에 'ACADEMY' 남기면 보내드려요.",
-   "vo": "vo_14.wav",
+   "vo": "vo_13.wav",
    "d": 3.82,
    "items": [
     "Checklist de antes y después",

@@ -67,20 +67,9 @@
  },
  {
   "seg": 13,
-  "pause": "RECUERDA",
-  "start": 49.6,
-  "end": 55.9,
-  "say_es": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
-  "say_en": "No filter, problem first, then your voice. I'm Chaewon in Seoul. Comment ACADEMY and I'll send you this week's sourcing list.",
-  "sub_es": "Sin filtro, el problema primero, antes y después, y al final, el producto. ¡Recuerda esto!",
-  "say_ko": "필터 없이, 고민 먼저, 전후로 보여주고, 마지막에 제품 한마디. 이거 기억하세요!",
-  "quote_es": ""
- },
- {
-  "seg": 14,
   "pause": "CTA",
-  "start": 55.9,
-  "end": 59.73,
+  "start": 49.6,
+  "end": 53.43,
   "say_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
   "say_en": "",
   "sub_es": "¿Mi checklist de antes y después? Comenta ACADEMY.",
