@@ -38,7 +38,6 @@ for i, s in enumerate(plan['segs']):
     key = s['pause'].split()[0]; a, b = SECT[key]; ch = speech_chunks(a, b); cutlist[key] = ch
     fl = []; n = len(ch); c, x0, y0 = CROP; z = 0
     for k, (x, y) in enumerate(ch):
-        if k and any(ch[k-1][1] - 0.2 <= j <= x + 0.2 for j in JUMPS): z ^= 1   # 이어 붙인 지점마다 줌 번갈아 (점프컷 가림)
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
