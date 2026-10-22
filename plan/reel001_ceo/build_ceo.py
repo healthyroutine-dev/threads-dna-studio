@@ -4,7 +4,14 @@
 import json, subprocess, sys
 CEO_V, CEO_A, SIL = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = json.load(open('plan.json'))
-SUBS = json.load(open('subs_plan.json'))   # 자막 조각: 의미·호흡 단위, 한 줄(폭 900px 이하)
+SUBS = json.load(open('subs_plan.json'))
+# 헤드카피는 처음 후킹 제목으로 끝까지 고정, 포인트 이름은 멈춤 배지로 ("01 · SIN FILTRO")
+H1, H2 = plan['segs'][0]['h1'], plan['segs'][0]['h2']
+for s in plan['segs']:
+    if s.get('endcard'): continue
+    if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
+        s['pause'] = (s['h1'] + ' ' + s['h2']).upper().replace('/ ', '/ ')
+    s['h1'], s['h2'] = H1, H2   # 자막 조각: 의미·호흡 단위, 한 줄(폭 900px 이하)
 VY = int(plan.get('video_y', 0)); SRC = 'src_7482942231217704238.mp4'
 run = lambda c: subprocess.run(c, check=True)
 dur = lambda f: float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout)
