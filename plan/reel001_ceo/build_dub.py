@@ -52,12 +52,16 @@ for i, s in enumerate(plan['segs']):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
-    fl.append(''.join(f'[v{k}][a{k}]' for k in range(n)) + f'concat=n={n}:v=1:a=1[v][a]')
+    ks = round(min(1.1, max(1.0, sum(y - x for x, y in ch) / dur(ES[key]))), 3)   # 한국어(영상+원음)는 최대 1.1배까지만 빠르게
+    fl.append(''.join(f'[v{k}][a{k}]' for k in range(n)) + f'concat=n={n}:v=1:a=1[v0][a0]')
+    fl.append(f'[v0]setpts=PTS/{ks}[v];[a0]atempo={ks}[a]')
     fl.append(f"[v]fps=30,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(lte(hypot(X-164.5,Y-164.5),165),255,0)'[vc]")
     run(['ffmpeg', '-v', 'error', '-y', '-i', CEO_V, '-i', CEO_A, '-filter_complex', ';'.join(fl), '-map', '[vc]', '-map', '[a]',
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])
     s['ceo'] = f'ceo_{i:02d}.mov'; s['ceo_d'] = round(dur(f'ceo_{i:02d}.mov'), 2)
-    s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2); s['d'] = round(max(s['es_d'], s['ceo_d']) + LEAD + TAIL + 0.1, 2)   # 한국어 원음·영상이 잘리지 않게 긴 쪽 기준
+    s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2); s['d'] = round(max(s['es_d'], s['ceo_d']) + LEAD + TAIL + 0.1, 2)
+    s['es_off'] = round(max(0, s['ceo_d'] - s['es_d']), 2); s['ko_off'] = round(max(0, s['es_d'] - s['ceo_d']), 2)   # 짧은 쪽을 늦게 시작 → 같이 끝남
+    s['ko_speed'] = ks
 json.dump(cutlist, open('ceo_cutlist.json', 'w'), indent=1)
 json.dump(plan, open('plan.json', 'w'), ensure_ascii=False, indent=1)
 
@@ -80,13 +84,13 @@ for i, s in enumerate(plan['segs']):
         px, py = (367, 220) if s.get('endcard') else (691, 640)
         base = f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
         ins = ['-ss', str(s['at']), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
-        fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
+        fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
         last = 'o2'
         if s.get('endcard'):
             ins += ['-i', 'hand.png']; fc += ";[o2][4:v]overlay=x='720+34*abs(sin(PI*1.5*t))':y=1420:eval=frame[o3]"; last = 'o3'
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
-        cues.append((s['es'], t + LEAD, 1.0, s['d'])); cues.append((s['ceo'], t + LEAD, KO_VOL, s['d'] - LEAD))
-        if not s.get('endcard'): subs.append((SUBS.get(s['pause'].split()[0], [s['sub']]), t + LEAD, os.path.basename(s['es'])))
+        cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d'])); cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
+        if not s.get('endcard'): subs.append((SUBS.get(s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es'])))
     run(cmd); parts.append(out); t += dur(out)
 open('list.txt', 'w').write(''.join(f"file '{p}'\n" for p in parts))
 run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', 'video_nosub.mp4'])
