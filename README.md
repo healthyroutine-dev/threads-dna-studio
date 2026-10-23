@@ -21,5 +21,7 @@
 2. `dub/work/<영상이름>/segments.json` 의 각 구간 `"es"` 에 스페인어 번역 입력
 3. `python dub/dub.py render 영상.mp4 --ko-volume 0.18` → `dub/work/<영상이름>/<영상이름>_es.mp4`
 
+이미 복제한 목소리를 쓰려면 `--voice-id` 를 붙인다 (예: 채원 대표 v2 = `2tNk6YiVpK91N5GMnp0a`).
+
 필요한 API 키 권한: Text to Speech, Speech to Text, Voice Isolator, Voices(Write).
 목소리 복제는 반드시 본인 동의를 받은 뒤 진행한다.

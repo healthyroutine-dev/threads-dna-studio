@@ -10,7 +10,8 @@
               → work/<이름>/<이름>_es.mp4
 
 사용법:
-  python dub/dub.py prepare 영상.mp4 --speaker "채원"
+  python dub/dub.py prepare 영상.mp4 --speaker "채원"          # 새로 복제
+  python dub/dub.py prepare 영상.mp4 --voice-id <복제 목소리 ID>  # 기존 목소리 재사용
   python dub/dub.py render 영상.mp4 [--ko-volume 0.18]
 
 API 키: ELEVENLABS_API_KEY 환경변수, 또는 클라우드 환경의 네트워크 시크릿(xi-api-key).
@@ -117,6 +118,8 @@ def prepare(args):
             r = call("POST", "/audio-isolation", files={"audio": ("audio.wav", f, "audio/wav")})
         clean.write_bytes(r.content)
 
+    if args.voice_id:
+        voice_file.write_text(args.voice_id)
     if voice_file.exists():
         voice_id = voice_file.read_text().strip()
         print(f"3/4 목소리 복제 — 기존 voice_id 사용: {voice_id}")
@@ -218,6 +221,8 @@ def main():
     a = sub.add_parser("prepare", help="추출·잡음제거·목소리복제·받아쓰기")
     a.add_argument("video")
     a.add_argument("--speaker", default="speaker", help="복제 목소리 이름")
+    a.add_argument("--voice-id", default=os.environ.get("DUB_VOICE_ID"),
+                   help="이미 복제해 둔 목소리 ID (지정하면 새로 복제하지 않음)")
     b = sub.add_parser("render", help="스페인어 TTS + 믹스")
     b.add_argument("video")
     b.add_argument("--ko-volume", type=float, default=0.18, help="한국어 원음 볼륨 (기본 0.18)")
