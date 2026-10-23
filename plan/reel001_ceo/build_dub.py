@@ -6,7 +6,7 @@ CEO_V, CEO_A, SIL = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = json.load(open('plan.json'))
 SUBS = json.load(open('subs_plan.json'))
 # 헤드카피는 처음 후킹 제목으로 끝까지 고정, 포인트 이름은 멈춤 배지로 ("01 · SIN FILTRO")
-H1, H2 = plan['segs'][0]['h1'], plan['segs'][0]['h2']
+H1, H2 = 'Ni una palabra.', plan['segs'][0]['h2']   # 제목: Ni una palabra. / 5,4 M de vistas. (말 한마디 없이 / 조회수 540만)
 for s in plan['segs']:
     if s.get('endcard'): continue
     if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
@@ -87,7 +87,7 @@ for i, s in enumerate(plan['segs']):
         fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
         last = 'o2'
         if s.get('endcard'):
-            ins += ['-i', 'hand.png']; fc += ";[o2][4:v]overlay=x='720+34*abs(sin(PI*1.5*t))':y=1420:eval=frame[o3]"; last = 'o3'
+            ins += ['-i', 'hand_down.png']; fc += ";[o2][4:v]overlay=x=455:y='1440+34*abs(sin(PI*1.6*t))':eval=frame[o3]"; last = "o3"   # 아래를 가리키는 손, 위아래로 통통
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
         cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d'])); cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
         if not s.get('endcard'): subs.append((SUBS.get(s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es'])))
