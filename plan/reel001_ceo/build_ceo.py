@@ -31,7 +31,7 @@ def speech_chunks(a, b):
         if s > cur: out.append([cur, s])
         cur = max(cur, e)
     if cur < b: out.append([cur, b])
-    out = [[max(a, x - 0.10), min(b, y + 0.16)] for x, y in out if y - x > 0.12]
+    out = [[max(a, x - 0.12), min(b, y + 0.22)] for x, y in out if y - x > 0.12]
     merged = []
     for x, y in out:
         if merged and x - merged[-1][1] < 0.05: merged[-1][1] = y

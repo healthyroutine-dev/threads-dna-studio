@@ -35,7 +35,7 @@ def speech_chunks(a, b):
         if s > cur: out.append([cur, s])
         cur = max(cur, e)
     if cur < b: out.append([cur, b])
-    out = [[max(a, x - 0.10), min(b, y + 0.16)] for x, y in out if y - x > 0.12]
+    out = [[max(a, x - 0.12), min(b, y + 0.22)] for x, y in out if y - x > 0.12]
     merged = []
     for x, y in out:
         if merged and x - merged[-1][1] < 0.05: merged[-1][1] = y
@@ -57,7 +57,7 @@ for i, s in enumerate(plan['segs']):
     run(['ffmpeg', '-v', 'error', '-y', '-i', CEO_V, '-i', CEO_A, '-filter_complex', ';'.join(fl), '-map', '[vc]', '-map', '[a]',
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])
     s['ceo'] = f'ceo_{i:02d}.mov'; s['ceo_d'] = round(dur(f'ceo_{i:02d}.mov'), 2)
-    s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2); s['d'] = round(s['es_d'] + LEAD + TAIL + 0.1, 2)
+    s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2); s['d'] = round(max(s['es_d'], s['ceo_d']) + LEAD + TAIL + 0.1, 2)   # 한국어 원음·영상이 잘리지 않게 긴 쪽 기준
 json.dump(cutlist, open('ceo_cutlist.json', 'w'), indent=1)
 json.dump(plan, open('plan.json', 'w'), ensure_ascii=False, indent=1)
 
