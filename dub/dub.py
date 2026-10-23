@@ -17,6 +17,7 @@ API 키: ELEVENLABS_API_KEY 환경변수, 또는 클라우드 환경의 네트�
 """
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -168,7 +169,9 @@ def render(args):
     placed = []
 
     for i, s in enumerate(segs):
-        raw = tts_dir / f"{s['id']:03d}.mp3"
+        # 번역문이 바뀌면 파일명이 달라져 자동으로 다시 생성된다
+        tag = hashlib.sha1(f"{meta['voice_id']}|{s['es']}".encode()).hexdigest()[:8]
+        raw = tts_dir / f"{s['id']:03d}_{tag}.mp3"
         if args.force or not raw.exists():
             r = call(
                 "POST", f"/text-to-speech/{meta['voice_id']}",

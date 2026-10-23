@@ -4,3 +4,4 @@ __pycache__/
 dub/work/
 *.mp4
 *.mov
+dub/input/
