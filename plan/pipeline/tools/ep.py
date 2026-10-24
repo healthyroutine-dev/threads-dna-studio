@@ -76,7 +76,7 @@ def prep(no, fn):
 def es_views(v):   # '190만' -> '1,9 M', '9.47만' -> '94.700'
     n = float(v.replace(',', '').replace('만', '')) * (10000 if '만' in v else 1)
     if n >= 1e6: return f'{n/1e6:.1f}'.replace('.', ',').replace(',0', '') + ' M'
-    if n >= 1e4: return f'{n/1e3:.0f} K'
+    if n >= 1e4: return f'{n/1e3:.0f} mil'   # K 대신 mil (제목 표기와 통일)
     return f'{int(n):,}'.replace(',', '.')
 
 CW = json.load(open(T + '/charw.json'))

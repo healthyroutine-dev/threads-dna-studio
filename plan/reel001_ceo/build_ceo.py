@@ -14,6 +14,10 @@ for s in plan['segs']:
     s['h1'], s['h2'] = H1, H2   # 자막 조각: 의미·호흡 단위, 한 줄(폭 900px 이하)
 VY = int(plan.get('video_y', 0)); SRC = 'src_7482942231217704238.mp4'
 run = lambda c: subprocess.run(c, check=True)
+import re as _re   # 재생 구간 원본 소리 (-19 LUFS 정도)
+_o = subprocess.run(['ffmpeg', '-hide_banner', '-i', SRC, '-vn', '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+_L = float((_re.findall(r'I:\s+(-?[\d.]+) LUFS', _o) or ['-19'])[-1])
+SRC_VOL = round(10 ** (max(-12, min(18, -19 - _L)) / 20), 3)
 dur = lambda f: float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout)
 
 # 대표 촬영본에서 각 멈춤 구간에 해당하는 원본 시간 (받아쓰기 기준)
@@ -82,7 +86,9 @@ for i, s in enumerate(plan['segs']):
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
         cues.append((s['ceo'], t + LEAD))
         if not s.get('endcard'): subs.append((' | '.join(SUBS.get(s['pause'].split()[0], [s['sub']])), t + LEAD, s['ceo_d']))
-    run(cmd); parts.append(out); t += dur(out)
+    run(cmd); parts.append(out)
+    if s['t'] == 'play': cues.append((SRC, t, s['a'], dur(out)))
+    t += dur(out)
 open('list.txt', 'w').write(''.join(f"file '{p}'\n" for p in parts))
 run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', 'video_nosub.mp4'])
 
@@ -100,8 +106,12 @@ run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fl), '-
 
 # 4) 오디오: 대표 원음을 정지 구간에 배치
 ins = []; fl = []
-for k, (f, st) in enumerate(cues):
-    ins += ['-i', f]; ms = int(st * 1000); fl.append(f'[{k}:a]aresample=48000,adelay={ms}|{ms}[a{k}]')
+for k, (f, st, *ss) in enumerate(cues):
+    ms = int(st * 1000)
+    if ss:   # 재생 구간 원본 소리
+        ins += ['-ss', str(ss[0]), '-i', f]; fl.append(f'[{k}:a]aresample=48000,atrim=0:{ss[1]:.2f},afade=t=in:d=0.05,afade=t=out:st={max(0, ss[1] - 0.12):.2f}:d=0.12,volume={SRC_VOL},adelay={ms}|{ms}[a{k}]')
+    else:
+        ins += ['-i', f]; fl.append(f'[{k}:a]aresample=48000,adelay={ms}|{ms}[a{k}]')
 fl.append(''.join(f'[a{k}]' for k in range(len(cues))) + f'amix=inputs={len(cues)}:normalize=0,apad,atrim=0:{t:.2f},loudnorm=I=-16:TP=-1.5[a]')
 run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[a]', '-ac', '2', 'voice_ko.wav'])
 run(['ffmpeg', '-v', 'error', '-y', '-i', 'video_only.mp4', '-i', 'voice_ko.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', 'b2x_kbeauty_que_vende_001_ceo_ko.mp4'])

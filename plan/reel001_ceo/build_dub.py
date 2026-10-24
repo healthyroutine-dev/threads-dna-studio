@@ -23,6 +23,10 @@ CROP = (900, 90, 520)            # 원형에 들어갈 얼굴 정사각 크롭 (
 sil = [tuple(map(float, l.split())) for l in open(SIL) if l.strip()]
 DUB = sys.argv[4]
 KO_VOL = 0.13                     # 한국어 원음 (약 -18dB)
+import re as _re   # 재생 구간 원본 소리 (-19 LUFS 정도)
+_o = subprocess.run(['ffmpeg', '-hide_banner', '-i', SRC, '-vn', '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+_L = float((_re.findall(r'I:\s+(-?[\d.]+) LUFS', _o) or ['-19'])[-1])
+SRC_VOL = round(10 ** (max(-12, min(18, -19 - _L)) / 20), 3)
 WORDS = json.load(open(f'{DUB}/es_words.json'))
 import glob, os
 ES = {os.path.basename(f).split('_', 2)[2][:-4]: f for f in glob.glob(f'{DUB}/es_*.wav')}   # key -> wav
@@ -91,7 +95,9 @@ for i, s in enumerate(plan['segs']):
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
         cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d'])); cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
         if not s.get('endcard'): subs.append((SUBS.get(s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es'])))
-    run(cmd); parts.append(out); t += dur(out)
+    run(cmd); parts.append(out)
+    if s['t'] == 'play': cues.append((SRC, t, SRC_VOL, dur(out), s['a']))
+    t += dur(out)
 open('list.txt', 'w').write(''.join(f"file '{p}'\n" for p in parts))
 run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', 'video_nosub.mp4'])
 
@@ -119,9 +125,10 @@ run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fl), '-
 
 # 4) 오디오: 스페인어(대표 v2) + 한국어 원음 작게
 ins = []; fl = []
-for k, (f, st, vol, ln) in enumerate(cues):
-    ins += ['-i', f]; ms = int(st * 1000)
-    fl.append(f'[{k}:a]aresample=48000,aformat=channel_layouts=mono,atrim=0:{ln:.2f},afade=t=out:st={max(0, ln - 0.3):.2f}:d=0.3,volume={vol},adelay={ms}[a{k}]')
+for k, (f, st, vol, ln, *ss) in enumerate(cues):
+    ins += (['-ss', str(ss[0])] if ss else []) + ['-i', f]; ms = int(st * 1000)
+    fi = 'afade=t=in:d=0.05,' if ss else ''
+    fl.append(f'[{k}:a]aresample=48000,aformat=channel_layouts=mono,atrim=0:{ln:.2f},{fi}afade=t=out:st={max(0, ln - (0.12 if ss else 0.3)):.2f}:d={0.12 if ss else 0.3},volume={vol},adelay={ms}[a{k}]')
 fl.append(''.join(f'[a{k}]' for k in range(len(cues))) + f'amix=inputs={len(cues)}:normalize=0,apad,atrim=0:{t:.2f},loudnorm=I=-16:TP=-1.5[a]')
 run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fl), '-map', '[a]', '-ac', '2', 'voice_es.wav'])
 run(['ffmpeg', '-v', 'error', '-y', '-i', 'video_only.mp4', '-i', 'voice_es.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', 'b2x_kbeauty_que_vende_001_es_dub_ceo.mp4'])
