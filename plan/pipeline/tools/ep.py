@@ -145,6 +145,7 @@ def plan(no):
     st = E['stats']; ws = E.get('src') == '우식PD'
     meta = dict(no=no, views=es_views(st['views']), mult=st['mult'].replace(',', '.'), dur=f"{E['dur']} S", multk='vs promedio' if E['stats'].get('multLabel', '팔로워 대비') == '평소 대비' else 'vs seguidores')
     sect = {**sc['sect'], **ov.get('sect', {})}   # 경계 손보기
+    for k in ov.get('drop', []): sect.pop(k, None)   # 건너뛴 포인트는 구간도 뺌
     p = dict(src='src.mp4', video_y=ov.get('video_y', 70), handle=f"@{E['handle']} · TikTok", meta=meta, segs=segs, sect=sect, cut=ov.get('cut', []), crop=ov.get('crop', [900, 30, 60]),
              title_es=ov['title_es'], title_ko=ov['title_ko'])
     json.dump(p, open(f'{D}/plan_base.json', 'w'), ensure_ascii=False, indent=1); shutil.copy(f'{D}/plan_base.json', f'{D}/plan.json')
@@ -153,6 +154,7 @@ def plan(no):
     json.dump(subs, open(f'{D}/subs_plan.json', 'w'), ensure_ascii=False, indent=1)
     for k, v in subs.items(): print(k, ' | '.join(v))
     print('title', ov['title_es'], '=', ov['title_ko'], [round(width(x.upper()) * 86 / 54) for x in ov['title_es']])
+    assert all(round(width(x.upper()) * 86 / 54) <= 880 for x in ov['title_es']), '제목 한 줄 폭 880 초과 (영상에서 두 줄로 넘어감)'
 
 def tts(no):
     D = f'{S}/ep/{no}'; p = json.load(open(f'{D}/plan_base.json')); sc = json.load(open(f'{D}/sect.json'))

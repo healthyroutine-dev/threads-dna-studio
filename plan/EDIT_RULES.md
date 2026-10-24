@@ -77,7 +77,7 @@
 
 ## 10. 자동화 (`plan/pipeline/`)
 1. `ep.py prep NNN FILE` 받아쓰기·음성정리·무음·대본 줄 매칭(SECT) → `report.txt`
-2. `episodes/NNN/override.json` 작성: `title_es/title_ko`(폭 960px 이하, `titles.json`), `thumb_sub_es/ko`, 수정 문장 `es{}`, 배지 `labels{}`, 손본 자막 `subs{}`, `notes`, 경계 `sect{}`, 건너뛴 포인트 `drop[]`, 중복 컷 `cut[[a,b]]`, CTA 자료 `items[]`·`cta_ko`
+2. `episodes/NNN/override.json` 작성: `title_es/title_ko`(한 줄 폭 **880 이하** — 넘으면 영상 헤더에서 두 줄로 깨짐, `titles.json`), `thumb_sub_es/ko`, 수정 문장 `es{}`, 배지 `labels{}`, 손본 자막 `subs{}`, `notes`, 경계 `sect{}`, 건너뛴 포인트 `drop[]`, 중복 컷 `cut[[a,b]]`, CTA 자료 `items[]`·`cta_ko`
 3. `ep.py plan NNN` → plan_base.json + subs_plan.json (자동 분할 후 **어색한 곳은 손으로 고쳐 override.subs에 저장**)
 4. `ep.py tts NNN` 대표 v2 스페인어(속도 1회 추정) + STT 역검수 + 단어 시간
 5. `beauty_queue.sh` 얼굴 보정 (원형 영역 960x1000@60,460만, 편당 약 20분) → beauty.mp4, plan crop = [900,30,60]
