@@ -11,7 +11,7 @@ H1, H2 = plan['title_es']   # 제목 (plan.json title_es / title_ko)
 for s in plan['segs']:
     if s.get('endcard'): continue
     if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
-        s['pause'] = (s['h1'] + ' ' + s['h2']).upper().replace('/ ', '/ ')
+        s['key'] = s['pause']; s['pause'] = (s['h1'] + ' ' + s['h2']).upper().replace('/ ', '/ ')
     s['h1'], s['h2'] = H1, H2   # 자막 조각: 의미·호흡 단위, 한 줄(폭 900px 이하)
 VY = int(plan.get('video_y', 0)); SRC = plan['src']
 run = lambda c: subprocess.run(c, check=True)
@@ -50,7 +50,7 @@ def speech_chunks(a, b):
 cutlist = {}
 for i, s in enumerate(plan['segs']):
     if not s.get('pip'): continue
-    key = s['pause'].split()[0]; a, b = SECT[key]; ch = speech_chunks(a, b); cutlist[key] = ch
+    key = s.get('key') or s['pause'].split()[0]; a, b = SECT[key]; ch = speech_chunks(a, b); cutlist[key] = ch
     fl = []; n = len(ch); c, x0, y0 = CROP; z = 0
     for k, (x, y) in enumerate(ch):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
@@ -97,7 +97,7 @@ for i, s in enumerate(plan['segs']):
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
         if DUB: cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d']))
         cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
-        if not s.get('endcard'): subs.append((SUBS.get(s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es']) if DUB else s['ceo_d']))
+        if not s.get('endcard'): subs.append((SUBS.get(s.get('key') or s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es']) if DUB else s['ceo_d']))
     run(cmd); parts.append(out)
     if s['t'] == 'play':   # 레퍼런스가 재생되는 구간은 원본 소리(음악·효과음)를 그대로
         cues.append((SRC, t, SRC_VOL, dur(out), s['a']))
