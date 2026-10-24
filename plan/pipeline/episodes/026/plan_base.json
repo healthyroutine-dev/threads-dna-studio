@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@dr.altheaco · TikTok",
+ "meta": {
+  "no": "026",
+  "views": "5,7 M",
+  "mult": "1.156×",
+  "dur": "17 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Una cuenta de 4.900 seguidores con 5,7 millones de vistas. Más de mil veces sus seguidores. Pero yo no me creo ese número.",
+   "voice": "Una cuenta de 4.900 seguidores con 5,7 millones de vistas. Más de mil veces sus seguidores. Pero yo no me creo ese número.",
+   "ko": "팔로워 4,900명 계정이 570만 뷰. 팔로워의 1,000배가 넘어요. 근데 저는 이 숫자 안 믿어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Day 1",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: la estructura es buena. En el 'Day 1' muestra la piel con rojez, sin esconder nada.",
+   "voice": "Uno: la estructura es buena. En el 'Day 1' muestra la piel con rojez, sin esconder nada.",
+   "ko": "첫째, 구조 자체는 좋아요. 'Day 1'에 붉은기 있는 피부부터 솔직하게 보여줘요."
+  },
+  {
+   "t": "play",
+   "a": 6.5,
+   "b": 9,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Day 1",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Proporción de compartidos",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la quinta parte de la mediana en K-beauty de LATAM.",
+   "voice": "Dos: pero lo vieron 5,7 millones y solo se compartió 299 veces. Ni la quinta parte de la mediana en K-beauty de LATAM.",
+   "ko": "둘째, 그런데 570만 명이 봤는데 공유는 299번이에요. 남미 K뷰티 영상 중간값의 5분의 1도 안 돼요."
+  },
+  {
+   "t": "play",
+   "a": 9.5,
+   "b": 12,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Proporción de compartidos",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 12,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Señal de anuncio",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: si muchos lo vieron y nadie lo compartió, lo más probable es que sea pauta pagada. No lo copies solo por las vistas.",
+   "voice": "Tres: si muchos lo vieron y nadie lo compartió, lo más probable es que sea pauta pagada. No lo copies solo por las vistas.",
+   "ko": "셋째, 많이 봤는데 아무도 안 퍼뜨렸다면 광고비로 밀어준 영상일 가능성이 커요. 조회수만 보고 따라 하면 안 돼요."
+  },
+  {
+   "t": "play",
+   "a": 12.5,
+   "b": 15,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Señal de anuncio",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 15,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Al elegir referencias, después de las vistas mira los compartidos. El video que la gente le manda a sus amigos es el que de verdad explotó.",
+   "voice": "Al elegir referencias, después de las vistas mira los compartidos. El video que la gente le manda a sus amigos es el que de verdad explotó.",
+   "ko": "레퍼런스를 고를 땐 조회수 다음에 공유 수를 보세요. 사람들이 친구한테 보낸 영상이 진짜 터진 영상이에요."
+  },
+  {
+   "t": "freeze",
+   "at": 15,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Mi plantilla de video de reseña? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi plantilla de video de reseña? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "날짜 자막 후기 영상 템플릿, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Plantilla de video de reseña",
+    "Cómo detectar videos pagados",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   9.7
+  ],
+  "01": [
+   9.7,
+   17.44
+  ],
+  "02": [
+   17.44,
+   28.98
+  ],
+  "03": [
+   28.98,
+   40.04
+  ],
+  "04": [
+   40.04,
+   50.45
+  ],
+  "CTA": [
+   50.45,
+   58.02
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "5,7 M de vistas.",
+  "No te lo creas."
+ ],
+ "title_ko": [
+  "조회수 570만.",
+  "믿지 마세요."
+ ]
+}

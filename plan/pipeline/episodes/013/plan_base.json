@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@pibubeauty.ec · TikTok",
+ "meta": {
+  "no": "013",
+  "views": "3,1 M",
+  "mult": "75×",
+  "dur": "12 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Una cuenta que suele tener 2 mil likes consiguió 147 mil con este video de 12 segundos. 75 veces más.",
+   "voice": "Una cuenta que suele tener 2 mil likes consiguió 147 mil con este video de 12 segundos. 75 veces más.",
+   "ko": "평소 좋아요 2천 개 받던 계정이 이 12초 영상 하나로 14만 7천 개를 받았어요. 75배예요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Partir en dos",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: partió la pantalla en dos, piel normal y piel grasa, lado a lado. Al que mira le queda una sola pregunta: '¿cuál es mi piel?'.",
+   "voice": "Uno: partió la pantalla en dos, piel normal y piel grasa, lado a lado. Al que mira le queda una sola pregunta: '¿cuál es mi piel?'.",
+   "ko": "첫째, 화면을 반으로 갈라 보통 피부와 지성 피부를 나란히 놨어요. 보는 사람이 할 일이 '내 피부는 어느 쪽이지?' 하나로 줄어요."
+  },
+  {
+   "t": "play",
+   "a": 1,
+   "b": 2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Partir en dos",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 2,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un paso cada 2 s",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: cambia de paso cada 2 segundos. No alcanzas a verlo todo, lo repites y terminas guardándolo.",
+   "voice": "Dos: cambia de paso cada 2 segundos. No alcanzas a verlo todo, lo repites y terminas guardándolo.",
+   "ko": "둘째, 2초마다 다음 단계로 넘어가요. 한 번엔 다 못 보니까 다시 돌려보고, 그러다 저장까지 눌러요."
+  },
+  {
+   "t": "play",
+   "a": 2,
+   "b": 10,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un paso cada 2 s",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 10,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Top en guardados",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: sus guardados son el 65% de sus likes. Entre los videos de LATAM, está en el 10% superior.",
+   "voice": "Tres: sus guardados son el 65% de sus likes. Entre los videos de LATAM, está en el 10% superior.",
+   "ko": "셋째, 이 영상은 좋아요 대비 저장이 65%예요. 남미 영상 272개 중에서도 상위 10% 안에 들어요."
+  },
+  {
+   "t": "play",
+   "a": 10,
+   "b": 11.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Top en guardados",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 11.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Si el producto cambia según el tipo de piel, divide la pantalla y muéstralos lado a lado. No hace falta hablar.",
+   "voice": "Si el producto cambia según el tipo de piel, divide la pantalla y muéstralos lado a lado. No hace falta hablar.",
+   "ko": "피부 타입마다 갈리는 제품이라면 화면을 반씩 나눠서 나란히 보여주세요. 말은 없어도 돼요."
+  },
+  {
+   "t": "freeze",
+   "at": 11.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿El análisis semanal de lo que explota en LATAM? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿El análisis semanal de lo que explota en LATAM? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "매주 남미에서 터진 K뷰티 영상 분석, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Análisis semanal de LATAM",
+    "Lo más vendido en Corea",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   10.32
+  ],
+  "01": [
+   10.32,
+   23.0
+  ],
+  "02": [
+   23.0,
+   33.31
+  ],
+  "03": [
+   33.31,
+   43.81
+  ],
+  "04": [
+   43.81,
+   52.09
+  ],
+  "CTA": [
+   52.09,
+   62.57
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "12 segundos.",
+  "75 veces más."
+ ],
+ "title_ko": [
+  "12초.",
+  "좋아요 평소의 75배."
+ ]
+}

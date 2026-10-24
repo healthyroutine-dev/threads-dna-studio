@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@marrrtulis · TikTok",
+ "meta": {
+  "no": "016",
+  "views": "4,2 M",
+  "mult": "29×",
+  "dur": "32 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Marcas de acné: solo habló de ese problema. Tuvo 29 veces los likes de siempre.",
+   "voice": "Marcas de acné: solo habló de ese problema. Tuvo 29 veces los likes de siempre.",
+   "ko": "여드름 자국, 딱 이 고민 하나만 말했어요. 이 계정 평소 영상보다 좋아요가 29배 나왔어요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Porcentajes en pantalla",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: pone los ingredientes con números en pantalla. Niacinamida 4%, ácido tranexámico 2%.",
+   "voice": "Uno: pone los ingredientes con números en pantalla. Niacinamida 4%, ácido tranexámico 2%.",
+   "ko": "첫째, 성분을 숫자로 화면에 박아요. 나이아신아마이드 4%, 트라넥삼산 2%."
+  },
+  {
+   "t": "play",
+   "a": 12.5,
+   "b": 15,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Porcentajes en pantalla",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 15,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Cápsulas nuevas",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: muestra de cerca las cápsulas blancas de la ampolla. Nunca las habías visto, y te detienes.",
+   "voice": "Dos: muestra de cerca las cápsulas blancas de la ampolla. Nunca las habías visto, y te detienes.",
+   "ko": "둘째, 앰플 속 하얀 캡슐을 크게 보여줘요. 처음 보는 모양이라 손이 멈춰요."
+  },
+  {
+   "t": "play",
+   "a": 22.5,
+   "b": 25,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Cápsulas nuevas",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 25,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Da un plazo",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: dice 'en un mes se nota'. Por eso no suena a publicidad exagerada.",
+   "voice": "Tres: dice 'en un mes se nota'. Por eso no suena a publicidad exagerada.",
+   "ko": "셋째, '한 달쯤 쓰면 보여요'라고 기간을 정해줘요. 그래서 과장 광고처럼 안 들려요."
+  },
+  {
+   "t": "play",
+   "a": 25.5,
+   "b": 28,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Da un plazo",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 28,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Para presentar un producto, elige un solo problema. Los ingredientes, en porcentaje; el efecto, en tiempo.",
+   "voice": "Para presentar un producto, elige un solo problema. Los ingredientes, en porcentaje; el efecto, en tiempo.",
+   "ko": "제품 하나를 소개할 땐 고민도 하나만 잡으세요. 성분은 퍼센트로, 효과는 기간으로 말하면 돼요."
+  },
+  {
+   "t": "freeze",
+   "at": 28,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Productos recomendados para cada problema de piel? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Productos recomendados para cada problema de piel? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "성분 자막 잘 된 예시 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Productos por problema de piel",
+    "Plantilla de un problema, un producto",
+    "Lo más vendido en Corea"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.55
+  ],
+  "01": [
+   8.55,
+   16.32
+  ],
+  "02": [
+   16.32,
+   24.83
+  ],
+  "03": [
+   24.83,
+   33.17
+  ],
+  "04": [
+   33.17,
+   41.39
+  ],
+  "CTA": [
+   41.39,
+   50.3
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Un problema.",
+  "29 veces más."
+ ],
+ "title_ko": [
+  "고민 하나.",
+  "좋아요 평소의 29배."
+ ]
+}

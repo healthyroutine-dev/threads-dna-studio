@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@skinco_beauty · TikTok",
+ "meta": {
+  "no": "018",
+  "views": "2,2 M",
+  "mult": "40×",
+  "dur": "38 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Es la cuenta de una tienda de K-beauty en México. Tuvo 40 veces los likes de siempre, y mucho es gracias a la primera frase.",
+   "voice": "Es la cuenta de una tienda de K-beauty en México. Tuvo 40 veces los likes de siempre, y mucho es gracias a la primera frase.",
+   "ko": "멕시코 K뷰티 쇼핑몰 계정이에요. 평소 영상보다 좋아요를 40배 받았는데, 첫 문장 덕이 커요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Vale la pena",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: abre con 'skincare viral que sí vale la pena'. Quien ya se decepcionó con un producto de moda se detiene ahí.",
+   "voice": "Uno: abre con 'skincare viral que sí vale la pena'. Quien ya se decepcionó con un producto de moda se detiene ahí.",
+   "ko": "첫째, '돈 쓸 가치 있는 바이럴 스킨케어'로 열어요. 유행 제품 샀다가 실망해 본 사람일수록 이 말에 멈춰요."
+  },
+  {
+   "t": "play",
+   "a": 1,
+   "b": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Vale la pena",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un efecto cada uno",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: dice un solo efecto por producto. El stick de arcilla: poros y grasa. Nada más.",
+   "voice": "Dos: dice un solo efecto por producto. El stick de arcilla: poros y grasa. Nada más.",
+   "ko": "둘째, 제품마다 효과를 하나씩만 말해요. 클레이 스틱은 모공이랑 피지. 그 이상은 안 붙여요."
+  },
+  {
+   "t": "play",
+   "a": 26.5,
+   "b": 29,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un efecto cada uno",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 29,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Cerrar con uno conocido",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: cierra con la crema 345 de Dr.Althea, que todos conocen. Si hay uno conocido, le crees al resto.",
+   "voice": "Tres: cierra con la crema 345 de Dr.Althea, que todos conocen. Si hay uno conocido, le crees al resto.",
+   "ko": "셋째, 마지막은 다들 아는 닥터알티아 345 크림으로 닫아요. 아는 제품이 하나 있으면 나머지도 믿게 돼요."
+  },
+  {
+   "t": "play",
+   "a": 32.5,
+   "b": 35,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Cerrar con uno conocido",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 35,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "En un patrocinio, no digas 'es bueno', di 'vale la pena'. Y al final, en una línea, dónde comprarlo.",
+   "voice": "En un patrocinio, no digas 'es bueno', di 'vale la pena'. Y al final, en una línea, dónde comprarlo.",
+   "ko": "협찬 제품은 '좋은 제품' 말고 '돈 쓸 가치 있는 제품'이라고 말해보세요. 끝에 어디서 사는지 한 줄이면 돼요."
+  },
+  {
+   "t": "freeze",
+   "at": 35,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Frases para que un patrocinio no suene a anuncio? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Frases para que un patrocinio no suene a anuncio? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "광고처럼 안 들리는 협찬 문장 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Frases para patrocinios",
+    "Sets de 4 productos",
+    "Precio mayorista"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   10.26
+  ],
+  "01": [
+   10.26,
+   20.38
+  ],
+  "02": [
+   20.38,
+   29.46
+  ],
+  "03": [
+   29.46,
+   40.22
+  ],
+  "04": [
+   40.22,
+   51.46
+  ],
+  "CTA": [
+   51.46,
+   60.14
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Una sola frase.",
+  "40 veces más."
+ ],
+ "title_ko": [
+  "첫 문장 하나.",
+  "좋아요 평소의 40배."
+ ]
+}

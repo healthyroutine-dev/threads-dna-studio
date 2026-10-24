@@ -25,6 +25,18 @@ def key_of(lab, k):
 
 def norm(t): return re.sub(r"[\s'\".,!?…~·:()]", '', t)
 
+def sentences(segs):
+    out = []
+    for s in segs:
+        w = s.get('w') or []; cur = []
+        for k, x in enumerate(w):
+            cur.append(x)
+            if x[2].strip().endswith(('.', '?', '!')) and k < len(w) - 1:
+                out.append({'s': cur[0][0], 'e': cur[-1][1], 't': ''.join(y[2] for y in cur).strip(), 'w': cur}); cur = []
+        if cur: out.append({'s': cur[0][0] if out and out[-1]['w'] is not w else s['s'], 'e': s['e'], 't': ''.join(y[2] for y in cur).strip(), 'w': cur})
+        if not w: out.append(s)
+    return out
+
 def prep(no, fn):
     D = f'{S}/ep/{no}'; os.makedirs(D, exist_ok=True); R = S + '/ceo_raw'
     src = f'{R}/{fn}.mp4'
@@ -37,6 +49,7 @@ def prep(no, fn):
         open(f'{D}/sil.txt', 'w').write(''.join(f'{v[i]} {v[i+1]}\n' for i in range(0, len(v) - 1, 2)))
     E, LB, SH = data(no)
     rows = LB['rows']; segs = json.load(open(f'{D}/ko.json')); total = dur(src)
+    segs = sentences(segs)   # 한 조각에 문장 두 개가 묶이면 단어 시간으로 문장마다 쪼갬 (경계가 밀리지 않게)
     # 단조 DP: 받아쓰기 조각 n개를 대본 줄 m개에 순서대로 배정 (유사도 합 최대)
     n, m = len(segs), len(rows)
     sim = lambda i, j, r: difflib.SequenceMatcher(None, norm(''.join(s['t'] for s in segs[i:j])), norm(rows[r][4])).ratio()
@@ -119,6 +132,7 @@ def plan(no):
         wins = [[a, b] for a, b in (clips or [[prev, at]]) if b > prev + 0.01 and b <= at + 0.01] if at > prev + 0.01 else []
         for a, b in wins:
             segs.append(dict(t='play', a=round(a, 2), b=round(min(b, at), 2), lit=list(lit), h1=h1, h2='', now=0, pause=None, pip=False))
+        if key in ov.get('drop', []): prev = at; continue   # 촬영에서 통째로 건너뛴 포인트는 멈춤 없이
         if key not in ('HOOK', 'CTA'):
             lit.append(len(lit) + 1); h1 = ov.get('labels', {}).get(key) or (lab.split(' · ', 1)[0] + ' · ' + lab.split(' · ', 1)[1].capitalize())
         es = ov.get('es', {}).get(key, es)
@@ -130,7 +144,8 @@ def plan(no):
         segs.append(s); prev = at
     st = E['stats']; ws = E.get('src') == '우식PD'
     meta = dict(no=no, views=es_views(st['views']), mult=st['mult'].replace(',', '.'), dur=f"{E['dur']} S", multk='vs promedio' if E['stats'].get('multLabel', '팔로워 대비') == '평소 대비' else 'vs seguidores')
-    p = dict(src='src.mp4', video_y=ov.get('video_y', 70), handle=f"@{E['handle']} · TikTok", meta=meta, segs=segs, sect=sc['sect'], crop=ov.get('crop', [900, 30, 60]),
+    sect = {**sc['sect'], **ov.get('sect', {})}   # 경계 손보기
+    p = dict(src='src.mp4', video_y=ov.get('video_y', 70), handle=f"@{E['handle']} · TikTok", meta=meta, segs=segs, sect=sect, cut=ov.get('cut', []), crop=ov.get('crop', [900, 30, 60]),
              title_es=ov['title_es'], title_ko=ov['title_ko'])
     json.dump(p, open(f'{D}/plan_base.json', 'w'), ensure_ascii=False, indent=1); shutil.copy(f'{D}/plan_base.json', f'{D}/plan.json')
     subs = {s['pause']: split_subs(s['sub']) for s in segs if s['t'] == 'freeze' and not s.get('endcard')}
@@ -142,7 +157,7 @@ def plan(no):
 def tts(no):
     D = f'{S}/ep/{no}'; p = json.load(open(f'{D}/plan_base.json')); sc = json.load(open(f'{D}/sect.json'))
     # 한국어 구간 길이(무음 정리 후) 추정 → 스페인어 속도 (글자/14.5초 기준, 0.85~1.12)
-    sil = [tuple(map(float, l.split())) for l in open(f'{D}/sil.txt') if l.strip()]
+    sil = sorted([tuple(map(float, l.split())) for l in open(f'{D}/sil.txt') if l.strip()] + [tuple(c) for c in p.get('cut', [])])
     def kd(a, b):
         cur = a; out = []
         for s_, e_ in sil:
@@ -154,7 +169,7 @@ def tts(no):
     speed = {}
     for s in p['segs']:
         if s['t'] != 'freeze': continue
-        k = s['pause']; ko_d = kd(*sc['sect'][k]); es_est = len(s['voice']) / 14.5
+        k = s['pause']; ko_d = kd(*p['sect'][k]); es_est = len(s['voice']) / 14.5
         speed[k] = round(min(1.12, max(0.85, es_est / (ko_d / 1.1))), 2)
     os.makedirs(f'{D}/dub', exist_ok=True); json.dump(speed, open(f'{D}/dub/speed.json', 'w'))
     run(['python3', T + '/el_tts.py', f'{D}/plan_base.json', f'{D}/dub', f'{D}/dub/speed.json'])

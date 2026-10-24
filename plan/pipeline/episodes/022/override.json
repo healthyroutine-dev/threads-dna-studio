@@ -1,0 +1,38 @@
+{
+ "title_es": [
+  "8 segundos.",
+  "5 pasos."
+ ],
+ "title_ko": [
+  "8초.",
+  "다섯 단계."
+ ],
+ "thumb_sub_es": "Menos de 10 segundos.",
+ "thumb_sub_ko": "10초 안에 끝내기.",
+ "sect": {
+  "04": [
+   21.95,
+   30.27
+  ]
+ },
+ "drop": [
+  "03"
+ ],
+ "notes": [
+  "촬영에서 대본 03(15초 이하 데이터)을 건너뜀 → 03 멈춤 빼고 포인트 2개 + 팁"
+ ],
+ "subs": {
+  "HOOK": [
+   "950 mil vistas",
+   "con un video de 8 segundos.",
+   "Es la cuenta de una tienda pequeña",
+   "con solo diez videos."
+  ],
+  "04": [
+   "Termina tu video de rutina",
+   "en menos de 10 segundos.",
+   "Que no alcancen a leerlo todo",
+   "es lo que hace que lo vuelvan a ver."
+  ]
+ }
+}

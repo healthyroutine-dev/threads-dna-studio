@@ -1,0 +1,203 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@koreanbeautyhn · TikTok",
+ "meta": {
+  "no": "022",
+  "views": "952 K",
+  "mult": "7×",
+  "dur": "8 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "950 mil vistas con un video de 8 segundos. Es la cuenta de una tienda pequeña con solo diez videos.",
+   "voice": "950 mil vistas con un video de 8 segundos. Es la cuenta de una tienda pequeña con solo diez videos.",
+   "ko": "8초짜리 영상으로 95만 뷰예요. 영상이 열 개밖에 없는 작은 매장 계정이에요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Lado a lado",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: pone la rutina de piel seca y la de piel grasa lado a lado. Solo miras tu lado.",
+   "voice": "Uno: pone la rutina de piel seca y la de piel grasa lado a lado. Solo miras tu lado.",
+   "ko": "첫째, 건성과 지성 루틴을 나란히 놔요. 내 쪽만 보면 돼요."
+  },
+  {
+   "t": "play",
+   "a": 1,
+   "b": 2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Lado a lado",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 2,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Cinco pasos en 8 s",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: dos limpiadores, sérum, crema y protector. Cinco pasos en 8 segundos.",
+   "voice": "Dos: dos limpiadores, sérum, crema y protector. Cinco pasos en 8 segundos.",
+   "ko": "둘째, 클렌저 두 개, 세럼, 크림, 선크림. 8초에 다섯 단계를 다 넣어요."
+  },
+  {
+   "t": "play",
+   "a": 2,
+   "b": 5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Cinco pasos en 8 s",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "play",
+   "a": 5,
+   "b": 7,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Cinco pasos en 8 s",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 7,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 3,
+   "pause": "04",
+   "pip": true,
+   "sub": "Termina tu video de rutina en menos de 10 segundos. Que no alcancen a leerlo todo es lo que hace que lo vuelvan a ver.",
+   "voice": "Termina tu video de rutina en menos de 10 segundos. Que no alcancen a leerlo todo es lo que hace que lo vuelvan a ver.",
+   "ko": "루틴 영상은 10초 안에 끝내 보세요. 한 번에 다 못 읽게 만드는 게 다시 보게 만드는 방법이에요."
+  },
+  {
+   "t": "freeze",
+   "at": 7,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Mi plantilla de rutina en 10 segundos? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi plantilla de rutina en 10 segundos? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "10초 루틴 영상 구성표, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Plantilla de rutina en 10 s",
+    "Sets por tipo de piel",
+    "Precio mayorista"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   7.81
+  ],
+  "01": [
+   7.81,
+   13.74
+  ],
+  "02": [
+   13.74,
+   22.09
+  ],
+  "03": [
+   22.09,
+   23.97
+  ],
+  "04": [
+   21.95,
+   30.27
+  ],
+  "CTA": [
+   30.27,
+   39.21
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "8 segundos.",
+  "5 pasos."
+ ],
+ "title_ko": [
+  "8초.",
+  "다섯 단계."
+ ]
+}

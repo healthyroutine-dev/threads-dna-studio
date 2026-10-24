@@ -1,0 +1,49 @@
+{
+ "title_es": [
+  "Antes y después.",
+  "13 veces más."
+ ],
+ "title_ko": [
+  "전후 사진.",
+  "좋아요 평소의 13배."
+ ],
+ "thumb_sub_es": "El resultado primero.",
+ "thumb_sub_ko": "결과부터 보여주기.",
+ "es": {
+  "HOOK": "Un video de 21 segundos con una foto de acné. Tuvo 13 veces sus likes de siempre.",
+  "02": "Dos: a los 4 segundos muestra la piel ya limpia. Ese resultado da mucha más confianza.",
+  "03": "Tres: si es la cara de otra persona, pide permiso. Si exageras el efecto, te pueden reportar."
+ },
+ "labels": {
+  "02": "02 · El resultado"
+ },
+ "cut": [
+  [
+   35.1,
+   36.68
+  ]
+ ],
+ "notes": [
+  "HOOK·02·03 촬영 문장대로 (02 \"내 손님\" 빠짐)",
+  "04 \"맨 앞에 두세요\" 두 번 → 뒤의 것 컷"
+ ],
+ "subs": {
+  "01": [
+   "Uno: la primera imagen es",
+   "un primer plano de piel con acné.",
+   "Si tienes lo mismo, te detienes."
+  ],
+  "02": [
+   "Dos: a los 4 segundos",
+   "muestra la piel ya limpia.",
+   "Ese resultado da",
+   "mucha más confianza."
+  ],
+  "04": [
+   "Si tienes fotos del resultado,",
+   "ponlas al inicio.",
+   "La explicación solo se escucha",
+   "después de ver el resultado."
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "title_es": [
+  "56 segundos.",
+  "8,8 M de vistas."
+ ],
+ "title_ko": [
+  "56초.",
+  "조회수 880만."
+ ],
+ "thumb_sub_es": "Largo, pero lo ves todo.",
+ "thumb_sub_ko": "길어도 끝까지 보게.",
+ "es": {
+  "01": "Uno: empieza con 'si tienes piel grasa con tendencia al acné'. Solo se quedan los que se identifican, y lo ven completo."
+ },
+ "subs": {
+  "01": [
+   "Uno: empieza con",
+   "'si tienes piel grasa",
+   "con tendencia al acné'.",
+   "Solo se quedan los que se identifican,",
+   "y lo ven completo."
+  ],
+  "03": [
+   "Tres: tenía mucho que decir,",
+   "pero cortó antes del minuto.",
+   "En los videos que reuní,",
+   "los de menos de un minuto",
+   "tuvieron 3,4 veces más vistas."
+  ]
+ }
+}

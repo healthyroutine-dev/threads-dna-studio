@@ -1,0 +1,42 @@
+{
+ "title_es": [
+  "Un problema.",
+  "29 veces más."
+ ],
+ "title_ko": [
+  "고민 하나.",
+  "좋아요 평소의 29배."
+ ],
+ "thumb_sub_es": "Un producto, un problema.",
+ "thumb_sub_ko": "제품 하나, 고민 하나.",
+ "es": {
+  "CTA": "¿Productos recomendados para cada problema de piel? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
+ },
+ "items": [
+  "Productos por problema de piel",
+  "Plantilla de un problema, un producto",
+  "Lo más vendido en Corea"
+ ],
+ "cta_ko": "피부 고민별 추천 제품, 전부 정리해서 보내드릴게요 🎁",
+ "notes": [
+  "CTA 촬영 문장대로 \"피부 고민별 추천 제품\"으로 변경"
+ ],
+ "subs": {
+  "02": [
+   "Dos: muestra de cerca",
+   "las cápsulas blancas de la ampolla.",
+   "Nunca las habías visto, y te detienes."
+  ],
+  "03": [
+   "Tres: dice 'en un mes se nota'.",
+   "Por eso no suena",
+   "a publicidad exagerada."
+  ],
+  "04": [
+   "Para presentar un producto,",
+   "elige un solo problema.",
+   "Los ingredientes, en porcentaje;",
+   "el efecto, en tiempo."
+  ]
+ }
+}

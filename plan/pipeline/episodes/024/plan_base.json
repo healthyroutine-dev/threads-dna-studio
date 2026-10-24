@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@pibubeauty.ec · TikTok",
+ "meta": {
+  "no": "024",
+  "views": "1,7 M",
+  "mult": "58×",
+  "dur": "14 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Este video sacó 58 veces su promedio.",
+   "voice": "Este video sacó 58 veces su promedio.",
+   "ko": "013편과 같은 매장 계정이에요. 같은 포맷으로 또 평소의 58배가 나왔어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Mostrar el comentario",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: pone el comentario de una seguidora en una esquina. Quien tiene el mismo problema siente que es su pregunta.",
+   "voice": "Uno: pone el comentario de una seguidora en una esquina. Quien tiene el mismo problema siente que es su pregunta.",
+   "ko": "첫째, 시청자 댓글을 화면 구석에 그대로 띄워요. 같은 고민이 있는 사람은 자기 질문처럼 느껴요."
+  },
+  {
+   "t": "play",
+   "a": 1,
+   "b": 11,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Mostrar el comentario",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 11,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Pedidos para el próximo",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: al final escribe 'en el próximo video armo tu rutina, pídela'. Sus 1.600 comentarios son temas para el próximo video.",
+   "voice": "Dos: al final escribe 'en el próximo video armo tu rutina, pídela'. Sus 1.600 comentarios son temas para el próximo video.",
+   "ko": "둘째, 끝에 '다음 영상에서 네 루틴 짜줄게, 신청해'라고 써요. 댓글 1,600개가 다 다음 영상 주제예요."
+  },
+  {
+   "t": "play",
+   "a": 11,
+   "b": 13,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Pedidos para el próximo",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 13,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Repetir el formato",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: no abandona un formato que ya le funcionó.",
+   "voice": "Tres: no abandona un formato que ya le funcionó.",
+   "ko": "셋째, 한 번 터진 포맷을 버리지 않았어요. 013편이 75배, 이 영상이 58배예요."
+  },
+  {
+   "t": "play",
+   "a": 13,
+   "b": 13.6,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Repetir el formato",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 13.6,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Si un video te explotó, deja el formato igual y cambia solo el tema. El próximo tema, sácalo de las preguntas en comentarios.",
+   "voice": "Si un video te explotó, deja el formato igual y cambia solo el tema. El próximo tema, sácalo de las preguntas en comentarios.",
+   "ko": "한 번 터진 영상이 있으면 포맷은 그대로 두고 주제만 바꿔서 다시 찍으세요. 다음 주제는 댓글 질문에서 고르면 돼요."
+  },
+  {
+   "t": "freeze",
+   "at": 13.6,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Cómo analizar un video que explotó? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Cómo analizar un video que explotó? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "여러분 영상 분석 신청 방법, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Cómo analizar un video viral",
+    "Rutinas por tipo de piel",
+    "Precio mayorista"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   3.72
+  ],
+  "01": [
+   3.72,
+   13.0
+  ],
+  "02": [
+   13.0,
+   26.2
+  ],
+  "03": [
+   26.2,
+   30.88
+  ],
+  "04": [
+   30.88,
+   41.8
+  ],
+  "CTA": [
+   41.8,
+   49.61
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Mismo formato.",
+  "58 veces más."
+ ],
+ "title_ko": [
+  "같은 포맷.",
+  "좋아요 평소의 58배."
+ ]
+}

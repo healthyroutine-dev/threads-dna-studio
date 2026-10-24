@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@rafadicas29 · TikTok",
+ "meta": {
+  "no": "021",
+  "views": "1,9 M",
+  "mult": "45×",
+  "dur": "21 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "7 mil seguidores. Sus videos suelen tener unos 700 likes, y este pasó los 30 mil.",
+   "voice": "7 mil seguidores. Sus videos suelen tener unos 700 likes, y este pasó los 30 mil.",
+   "ko": "팔로워 7천 명. 평소 영상 좋아요는 700개 정도인데, 이 영상은 3만 개를 넘었어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · El secreto coreano",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: el primer texto es 'el truco de las coreanas para una piel perfecta'. Y a los 3 segundos, el resultado.",
+   "voice": "Uno: el primer texto es 'el truco de las coreanas para una piel perfecta'. Y a los 3 segundos, el resultado.",
+   "ko": "첫째, 첫 자막이 '한국 여자들의 완벽한 피부 비법'이에요. 3초 만에 결과부터 보여주고요."
+  },
+  {
+   "t": "play",
+   "a": 3.5,
+   "b": 6,
+   "lit": [
+    1
+   ],
+   "h1": "01 · El secreto coreano",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Días en pantalla",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: pone los días, día 3, día 6. Aplicarse una crema se vuelve un experimento.",
+   "voice": "Dos: pone los días, día 3, día 6. Aplicarse una crema se vuelve un experimento.",
+   "ko": "둘째, 3일째, 6일째 날짜를 붙여요. 그냥 바르는 장면이 실험처럼 보여요."
+  },
+  {
+   "t": "play",
+   "a": 8.5,
+   "b": 11,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Días en pantalla",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 11,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Datos de cuentas pequeñas",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: de 105 cuentas con menos de 100 mil seguidores, 16 pasaron el millón de vistas. 'Mi cuenta es muy pequeña' no se sostiene.",
+   "voice": "Tres: de 105 cuentas con menos de 100 mil seguidores, 16 pasaron el millón de vistas. 'Mi cuenta es muy pequeña' no se sostiene.",
+   "ko": "셋째, 팔로워 10만이 안 되는 계정 105개 중에 16개가 100만 뷰를 넘겼어요. 계정이 작아서 안 된다는 건 틀렸어요."
+  },
+  {
+   "t": "play",
+   "a": 15.5,
+   "b": 18,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Datos de cuentas pequeñas",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 18,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Poner los días es la forma más fácil de crear un 'experimento'. Solo agrega día 1, día 3, día 6.",
+   "voice": "Poner los días es la forma más fácil de crear un 'experimento'. Solo agrega día 1, día 3, día 6.",
+   "ko": "날짜 자막은 가장 쉽게 '실험'을 만드는 방법이에요. 1일째, 3일째, 6일째만 붙여보세요."
+  },
+  {
+   "t": "freeze",
+   "at": 18,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Casos de cuentas pequeñas que explotaron? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Casos de cuentas pequeñas que explotaron? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "팔로워 적은 계정이 터진 사례 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Cuentas pequeñas que explotaron",
+    "Plantilla de días en pantalla",
+    "Lo más vendido en Corea"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   9.16
+  ],
+  "01": [
+   9.16,
+   18.91
+  ],
+  "02": [
+   18.91,
+   26.82
+  ],
+  "03": [
+   26.82,
+   36.86
+  ],
+  "04": [
+   36.86,
+   45.29
+  ],
+  "CTA": [
+   45.29,
+   54.58
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "7 mil seguidores.",
+  "45 veces más."
+ ],
+ "title_ko": [
+  "팔로워 7천.",
+  "좋아요 평소의 45배."
+ ]
+}

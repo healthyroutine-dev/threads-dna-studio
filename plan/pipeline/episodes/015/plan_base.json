@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@fran_y_lila.beauty · TikTok",
+ "meta": {
+  "no": "015",
+  "views": "8,9 M",
+  "mult": "33×",
+  "dur": "29 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Es una sola foto. En 29 segundos la pantalla no cambia ni una vez, y tiene más de 180 mil guardados.",
+   "voice": "Es una sola foto. En 29 segundos la pantalla no cambia ni una vez, y tiene más de 180 mil guardados.",
+   "ko": "사진 한 장이에요. 29초 동안 화면이 한 번도 안 바뀌는데, 저장이 18만 번이 넘었어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Cinco problemas",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: arriba pone cinco fotos de problemas de piel. La gente busca primero la que se parece a su piel.",
+   "voice": "Uno: arriba pone cinco fotos de problemas de piel. La gente busca primero la que se parece a su piel.",
+   "ko": "첫째, 맨 위에 피부 고민 사진 다섯 장을 깔아요. 사람들은 제품보다 내 피부랑 닮은 사진부터 찾아요."
+  },
+  {
+   "t": "play",
+   "a": 6.5,
+   "b": 9,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Cinco problemas",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Unir con flechas",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: una flecha une cada foto con un sérum. Con esta tabla, ya sabes cuál elegir.",
+   "voice": "Dos: una flecha une cada foto con un sérum. Con esta tabla, ya sabes cuál elegir.",
+   "ko": "둘째, 사진마다 화살표로 세럼을 하나씩 이어줘요. 이 표 한 장이면 고를 게 정해져요."
+  },
+  {
+   "t": "play",
+   "a": 17.5,
+   "b": 20,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Unir con flechas",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 20,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Proporción de guardados",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: sus guardados son el 67% de sus likes. Casi el doble de la mediana en LATAM, que es 36%.",
+   "voice": "Tres: sus guardados son el 67% de sus likes. Casi el doble de la mediana en LATAM, que es 36%.",
+   "ko": "셋째, 좋아요 대비 저장이 67%예요. 남미 영상 중간값 36%의 거의 두 배죠."
+  },
+  {
+   "t": "play",
+   "a": 23.5,
+   "b": 26,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Proporción de guardados",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 26,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Si el producto se elige según el problema, haz una tabla. La gente guarda cuando tiene una razón para volver.",
+   "voice": "Si el producto se elige según el problema, haz una tabla. La gente guarda cuando tiene una razón para volver.",
+   "ko": "고민별로 골라야 하는 제품이면 표 한 장으로 만들어 보세요. 다시 볼 이유가 있어야 저장을 눌러요."
+  },
+  {
+   "t": "freeze",
+   "at": 26,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Los videos de una sola tabla que explotaron? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Los videos de una sola tabla que explotaron? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "표 한 장으로 터진 영상 모음, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Videos tipo tabla que explotaron",
+    "Plantilla de tabla por problema",
+    "Lo más vendido en Corea"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.14
+  ],
+  "01": [
+   8.14,
+   19.12
+  ],
+  "02": [
+   19.12,
+   27.71
+  ],
+  "03": [
+   27.71,
+   37.53
+  ],
+  "04": [
+   37.53,
+   46.38
+  ],
+  "CTA": [
+   46.38,
+   55.34
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Una sola foto.",
+  "186 K guardados."
+ ],
+ "title_ko": [
+  "사진 한 장.",
+  "저장 18만 6천."
+ ]
+}

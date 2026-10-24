@@ -21,7 +21,7 @@ dur = lambda f: float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
 SECT = {k: tuple(v) for k, v in plan['sect'].items()}
 LEAD, TAIL = 0.12, 0.25          # 정지 화면에서 말 시작 전/후 여유
 CROP = tuple(plan.get('crop', (900, 90, 520)))   # 원형에 들어갈 정사각 크롭 (크기, x, y) · 보정 영상 기준
-sil = [tuple(map(float, l.split())) for l in open(SIL) if l.strip()]
+sil = sorted([tuple(map(float, l.split())) for l in open(SIL) if l.strip()] + [tuple(c) for c in plan.get('cut', [])])   # cut: 다시 말한 중복 구간 빼기
 DUB = sys.argv[5] if MODE == 'es' else None
 KO_VOL = 0.13 if MODE == 'es' else 1.0   # es: 한국어 원음 약 -18dB
 WORDS = json.load(open(f'{DUB}/es_words.json')) if DUB else {}

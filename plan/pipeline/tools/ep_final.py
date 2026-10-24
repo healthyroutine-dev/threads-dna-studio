@@ -31,7 +31,7 @@ t_es = ' '.join(p['title_es']); t_ko = ' '.join(p['title_ko'])
 cap = f"""{t_es} 🤯
 {ov.get('cap_es', '3 claves de este video de K-beauty, y cómo usarlas para vender.')}
 
-🎁 {cta['sub'].replace(' 🎁', '').replace('¡Comenta cualquier emoji!', 'Comenta cualquier emoji y te lo mando por mensaje.')}
+🎁 {cta['sub'].split('Te lo mando')[0].strip()} Comenta cualquier emoji y te lo mando por mensaje.
 
 📹 Video original: @{E['handle']} (TikTok)
 #kbeauty #skincarecoreano #tiktokshop #creadoradecontenido #ugc"""
@@ -50,7 +50,7 @@ md = f"""# {no} 업로드 문구 (인스타 릴스 · 틱톡 공통)
 ## 캡션 한국어 뜻 (확인용)
 {t_ko} 🤯
 {ov.get('cap_ko', '이 K뷰티 영상의 핵심 3가지, 그리고 팔 때 써먹는 법.')}
-🎁 {cta_ko.split('🎁')[0].strip().rstrip(',')} 받고 싶으면 아무 이모티콘이나 댓글로 남겨주세요. DM으로 보내드려요.
+🎁 {cta_ko.split('🎁')[0].strip().rstrip(',')}. 받고 싶으면 아무 이모티콘이나 댓글로 남겨주세요. DM으로 보내드려요.
 📹 원본 영상: @{E['handle']} (틱톡)
 
 ## 올리기 전 체크

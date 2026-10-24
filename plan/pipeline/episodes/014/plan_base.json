@@ -1,0 +1,205 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@lafernandesss · TikTok",
+ "meta": {
+  "no": "014",
+  "views": "1,2 M",
+  "mult": "1×",
+  "dur": "19 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "1,2 millones de vistas. Parece un éxito, ¿no? Pero para esta cuenta es un día normal.",
+   "voice": "1,2 millones de vistas. Parece un éxito, ¿no? Pero para esta cuenta es un día normal.",
+   "ko": "120만 뷰. 숫자만 보면 대박 같죠. 근데 이 계정한테는 그냥 평소 성적이에요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "play",
+   "a": 6.5,
+   "b": 9,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Su promedio",
+   "h2": "",
+   "now": 1,
+   "pause": "02",
+   "pip": true,
+   "sub": "Uno: esta cuenta tiene unos 30 mil likes por video. Este tuvo 33 mil: justo su promedio.",
+   "voice": "Uno: esta cuenta tiene unos 30 mil likes por video. Este tuvo 33 mil: justo su promedio.",
+   "ko": "둘째, 이 계정은 영상마다 좋아요가 평균 3만 개쯤 나와요. 이 영상도 3만 3천 개, 딱 평소만큼이에요."
+  },
+  {
+   "t": "play",
+   "a": 12.5,
+   "b": 15,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Su promedio",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 15,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sus seguidores",
+   "h2": "",
+   "now": 2,
+   "pause": "03",
+   "pip": true,
+   "sub": "Dos: así que no es un ejemplo de 'grábalo así y explota'. Ese número lo dan sus 770 mil seguidores.",
+   "voice": "Dos: así que no es un ejemplo de 'grábalo así y explota'. Ese número lo dan sus 770 mil seguidores.",
+   "ko": "셋째, 그러니까 '이렇게 찍으면 터진다'는 예시가 아니에요. 팔로워 77만이 만든 숫자예요."
+  },
+  {
+   "t": "play",
+   "a": 15,
+   "b": 17,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sus seguidores",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 17,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 3,
+   "pause": "04",
+   "pip": true,
+   "sub": "Compara cada referencia con el promedio de esa cuenta. Solo vale copiar lo que hizo más de 10 veces su promedio.",
+   "voice": "Compara cada referencia con el promedio de esa cuenta. Solo vale copiar lo que hizo más de 10 veces su promedio.",
+   "ko": "레퍼런스는 그 계정 평소 숫자랑 먼저 비교해 보세요. 평소보다 10배 넘게 나온 영상만 따라 할 가치가 있어요."
+  },
+  {
+   "t": "freeze",
+   "at": 17,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Mi lista de referencias con cuántas veces superaron su promedio? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi lista de referencias con cuántas veces superaron su promedio? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "평소보다 몇 배 나왔는지까지 계산한 레퍼런스 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Referencias con multiplicador",
+    "Cómo elegir referencias",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.45
+  ],
+  "01": [
+   6.76,
+   8.4
+  ],
+  "02": [
+   8.45,
+   18.08
+  ],
+  "03": [
+   18.08,
+   27.82
+  ],
+  "04": [
+   27.82,
+   38.9
+  ],
+  "CTA": [
+   38.9,
+   49.39
+  ]
+ },
+ "cut": [
+  [
+   5.35,
+   6.6
+  ]
+ ],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "1,2 M de vistas.",
+  "Y es su promedio."
+ ],
+ "title_ko": [
+  "조회수 120만.",
+  "그런데 평소 성적."
+ ]
+}

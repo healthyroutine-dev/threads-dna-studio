@@ -1,0 +1,47 @@
+{
+ "title_es": [
+  "5,7 M de vistas.",
+  "No te lo creas."
+ ],
+ "title_ko": [
+  "조회수 570만.",
+  "믿지 마세요."
+ ],
+ "thumb_sub_es": "Mira los compartidos.",
+ "thumb_sub_ko": "공유 수를 보세요.",
+ "es": {
+  "CTA": "¿Mi plantilla de video de reseña? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
+ },
+ "items": [
+  "Plantilla de video de reseña",
+  "Cómo detectar videos pagados",
+  "Lista de sourcing de la semana"
+ ],
+ "cta_ko": "후기 영상 템플릿, 전부 정리해서 보내드릴게요 🎁",
+ "notes": [
+  "CTA 촬영대로 \"후기 영상 템플릿\""
+ ],
+ "subs": {
+  "01": [
+   "Uno: la estructura es buena.",
+   "En el 'Day 1' muestra",
+   "la piel con rojez,",
+   "sin esconder nada."
+  ],
+  "03": [
+   "Tres: si muchos lo vieron",
+   "y nadie lo compartió,",
+   "lo más probable es",
+   "que sea pauta pagada.",
+   "No lo copies solo por las vistas."
+  ],
+  "04": [
+   "Al elegir referencias,",
+   "después de las vistas",
+   "mira los compartidos.",
+   "El video que la gente",
+   "le manda a sus amigos",
+   "es el que de verdad explotó."
+  ]
+ }
+}

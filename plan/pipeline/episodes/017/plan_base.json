@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@hoslyandrea · TikTok",
+ "meta": {
+  "no": "017",
+  "views": "8,8 M",
+  "mult": "26×",
+  "dur": "56 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Dura 56 segundos y tiene 8,8 millones de vistas. Tiene un truco para que lo veas completo.",
+   "voice": "Dura 56 segundos y tiene 8,8 millones de vistas. Tiene un truco para que lo veas completo.",
+   "ko": "56초짜리인데 880만 뷰가 나왔어요. 길어도 끝까지 보게 만든 장치가 있어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Acotar el público",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: empieza con 'si tienes piel grasa con tendencia al acné'. Solo se quedan los que se identifican, y lo ven completo.",
+   "voice": "Uno: empieza con 'si tienes piel grasa con tendencia al acné'. Solo se quedan los que se identifican, y lo ven completo.",
+   "ko": "첫째, 첫마디가 '지성에 여드름 잘 나는 피부라면'이에요. 해당하는 사람만 남기니까 끝까지 봐요."
+  },
+  {
+   "t": "play",
+   "a": 2.5,
+   "b": 5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Acotar el público",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Pegarse a una marca conocida",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: lo presenta como 'de la marca del sérum viral'. Pega un protector nuevo a algo que ya conoces.",
+   "voice": "Dos: lo presenta como 'de la marca del sérum viral'. Pega un protector nuevo a algo que ya conoces.",
+   "ko": "둘째, '그 바이럴 세럼 만든 브랜드'라고 소개해요. 처음 보는 선크림을 아는 제품 옆에 붙인 거죠."
+  },
+  {
+   "t": "play",
+   "a": 42.5,
+   "b": 45,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Pegarse a una marca conocida",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 45,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Cortar antes del minuto",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: tenía mucho que decir, pero cortó antes del minuto. En los videos que reuní, los de menos de un minuto tuvieron 3,4 veces más vistas.",
+   "voice": "Tres: tenía mucho que decir, pero cortó antes del minuto. En los videos que reuní, los de menos de un minuto tuvieron 3,4 veces más vistas.",
+   "ko": "셋째, 할 말이 많았지만 1분 안에서 끊었어요. 제가 모은 영상에선 1분 안쪽이 3.4배 더 많이 봤거든요."
+  },
+  {
+   "t": "play",
+   "a": 47.5,
+   "b": 50,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Cortar antes del minuto",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 50,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Si el producto necesita explicación, acota el público en la primera frase y corta antes del minuto.",
+   "voice": "Si el producto necesita explicación, acota el público en la primera frase y corta antes del minuto.",
+   "ko": "길게 설명할 제품이면 첫 문장에서 대상을 좁히고, 1분 안에서 끊으세요."
+  },
+  {
+   "t": "freeze",
+   "at": 50,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Cómo ganar comentarios con un adelanto del próximo video? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Cómo ganar comentarios con un adelanto del próximo video? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "다음 편 예고로 댓글 받는 방법, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Cómo usar el adelanto del próximo video",
+    "Guion de menos de 1 minuto",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.81
+  ],
+  "01": [
+   8.81,
+   18.78
+  ],
+  "02": [
+   18.78,
+   28.1
+  ],
+  "03": [
+   28.1,
+   39.16
+  ],
+  "04": [
+   39.16,
+   45.95
+  ],
+  "CTA": [
+   45.95,
+   55.97
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "56 segundos.",
+  "8,8 M de vistas."
+ ],
+ "title_ko": [
+  "56초.",
+  "조회수 880만."
+ ]
+}

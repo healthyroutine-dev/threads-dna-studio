@@ -1,0 +1,46 @@
+{
+ "title_es": [
+  "Crema conocida.",
+  "11,5 M de vistas."
+ ],
+ "title_ko": [
+  "다 아는 크림.",
+  "조회수 1150만."
+ ],
+ "thumb_sub_es": "Algo nuevo de lo conocido.",
+ "thumb_sub_ko": "아는 제품의 새 얘기.",
+ "es": {
+  "03": "Tres: pero sus guardados son solo el 31% de sus likes, menos que el promedio."
+ },
+ "sect": {
+  "03": [
+   26.6,
+   32.95
+  ],
+  "04": [
+   34.28,
+   43.3
+  ]
+ },
+ "notes": [
+  "03 둘째 문장(\"다시 볼 정보가 부족했던 거예요\") 촬영에서 빠짐 → 스페인어도 뺌. 04 앞 \"다시 볼 정보는\"(말하다 바꾼 조각) 컷"
+ ],
+ "subs": {
+  "01": [
+   "Uno: todos conocen la crema 345",
+   "como calmante;",
+   "ella cuenta",
+   "que también aclara las marcas.",
+   "Algo nuevo de un producto conocido",
+   "casi no tiene competencia."
+  ],
+  "04": [
+   "Un producto conocido",
+   "explota otra vez",
+   "con una historia nueva.",
+   "Para tener guardados, agrega",
+   "la tabla de ingredientes",
+   "o el orden de uso."
+  ]
+ }
+}

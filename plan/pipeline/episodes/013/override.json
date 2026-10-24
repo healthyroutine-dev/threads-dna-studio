@@ -1,0 +1,43 @@
+{
+ "title_es": [
+  "12 segundos.",
+  "75 veces más."
+ ],
+ "title_ko": [
+  "12초.",
+  "좋아요 평소의 75배."
+ ],
+ "thumb_sub_es": "Pantalla dividida.",
+ "thumb_sub_ko": "화면 반으로 나누기.",
+ "es": {
+  "03": "Tres: sus guardados son el 65% de sus likes. Entre los videos de LATAM, está en el 10% superior."
+ },
+ "subs": {
+  "HOOK": [
+   "Una cuenta que suele tener 2 mil likes",
+   "consiguió 147 mil",
+   "con este video de 12 segundos.",
+   "75 veces más."
+  ],
+  "01": [
+   "Uno: partió la pantalla en dos,",
+   "piel normal y piel grasa, lado a lado.",
+   "Al que mira le queda",
+   "una sola pregunta:",
+   "'¿cuál es mi piel?'."
+  ],
+  "03": [
+   "Tres: sus guardados son el 65%",
+   "de sus likes.",
+   "Entre los videos de LATAM,",
+   "está en el 10% superior."
+  ],
+  "04": [
+   "Si el producto cambia",
+   "según el tipo de piel,",
+   "divide la pantalla",
+   "y muéstralos lado a lado.",
+   "No hace falta hablar."
+  ]
+ }
+}

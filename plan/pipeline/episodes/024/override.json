@@ -1,0 +1,44 @@
+{
+ "title_es": [
+  "Mismo formato.",
+  "58 veces más."
+ ],
+ "title_ko": [
+  "같은 포맷.",
+  "좋아요 평소의 58배."
+ ],
+ "thumb_sub_es": "No cambies el formato.",
+ "thumb_sub_ko": "포맷은 그대로.",
+ "es": {
+  "HOOK": "Este video sacó 58 veces su promedio.",
+  "03": "Tres: no abandona un formato que ya le funcionó.",
+  "CTA": "¿Cómo analizar un video que explotó? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
+ },
+ "items": [
+  "Cómo analizar un video viral",
+  "Rutinas por tipo de piel",
+  "Precio mayorista"
+ ],
+ "cta_ko": "터진 영상 분석 방법, 전부 정리해서 보내드릴게요 🎁",
+ "notes": [
+  "HOOK \"013편과 같은 매장\" 촬영에서 빠짐 → 스페인어도 뺌",
+  "03 숫자 문장 촬영에서 빠짐 → 뺌",
+  "CTA 촬영대로 \"터진 영상 분석 방법\""
+ ],
+ "subs": {
+  "01": [
+   "Uno: pone el comentario",
+   "de una seguidora",
+   "en una esquina.",
+   "Quien tiene el mismo problema",
+   "siente que es su pregunta."
+  ],
+  "04": [
+   "Si un video te explotó,",
+   "deja el formato igual",
+   "y cambia solo el tema.",
+   "El próximo tema, sácalo",
+   "de las preguntas en comentarios."
+  ]
+ }
+}

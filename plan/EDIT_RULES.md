@@ -63,6 +63,10 @@
 - 촬영본 드라이브 폴더 `10G9sVNDWfjZBGHsHlK3nlDDNG3d-UNhu` (DJI_…_NNNN_D_final.mp4 26개, 편당 1개, 문장 단위로 끊어 찍어 이어 붙임).
   파일↔편 대응은 받아쓰기로 확인: `pipeline/file_map.json` (0014·0022 없음 → 0015=014 … 0028=026).
 - 촬영 중 대본과 다르게 말한 문장은 `report.txt`에 ⚠로 표시 → **스페인어는 실제로 말한 문장에 맞춘다.**
+- 촬영에서 **포인트를 통째로 건너뛰면** 그 멈춤을 빼고(`drop`) 번호를 실제로 말한 대로 다시 붙인다 (014: 01 건너뜀 → 포인트 2개, 022: 03 건너뜀).
+- **같은 말을 두 번** 했으면 하나만 남기고 컷(`cut` 구간, 무음 안에서 자름). 말하다 바꾼 조각도 컷.
+- 문장 하나가 빠져 남은 문장이 안 이어지면(021 숫자 문장) 스페인어는 대본대로 두고 메모.
+- 받아쓰기 한 조각에 문장 두 개가 묶이면 단어 시간으로 문장마다 쪼개 경계를 잡는다 (`ep.py` 자동).
 - 대본 내용이 원본 영상과 사실이 다르면 스페인어·배지에서 바로잡고 메모로 남긴다 (예: 002 "얼굴 없이 손만" → 원본에 얼굴이 나옴 → "Sin hablar · 말 없이 손으로만").
 
 ## 9. 더빙 목소리 결정 (2026-10-24)
@@ -70,11 +74,11 @@
 
 ## 10. 자동화 (`plan/pipeline/`)
 1. `ep.py prep NNN FILE` 받아쓰기·음성정리·무음·대본 줄 매칭(SECT) → `report.txt`
-2. `episodes/NNN/override.json` 작성: `title_es/title_ko`(폭 960px 이하, `titles.json`), `thumb_sub_es/ko`, 수정 문장 `es{}`, 배지 `labels{}`, 손본 자막 `subs{}`, `notes`
+2. `episodes/NNN/override.json` 작성: `title_es/title_ko`(폭 960px 이하, `titles.json`), `thumb_sub_es/ko`, 수정 문장 `es{}`, 배지 `labels{}`, 손본 자막 `subs{}`, `notes`, 경계 `sect{}`, 건너뛴 포인트 `drop[]`, 중복 컷 `cut[[a,b]]`, CTA 자료 `items[]`·`cta_ko`
 3. `ep.py plan NNN` → plan_base.json + subs_plan.json (자동 분할 후 **어색한 곳은 손으로 고쳐 override.subs에 저장**)
 4. `ep.py tts NNN` 대표 v2 스페인어(속도 1회 추정) + STT 역검수 + 단어 시간
 5. `beauty_queue.sh` 얼굴 보정 (원형 영역 960x1000@60,460만, 편당 약 20분) → beauty.mp4, plan crop = [900,30,60]
-6. `build_ep.py es|ko` 조립 → `ep_final.py NNN` 썸네일·업로드문구·`plan/final/NNN`
+6. `build_ep.py es|ko` 조립 → `ep_final.py NNN` 썸네일·업로드문구·`plan/final/NNN` (여러 편 한 번에: `build_all.sh NNN ...`)
 - 경로는 세션 스크래치패드 기준으로 되어 있음. 새 세션에서는 `S=` 경로만 바꿔서 사용.
 
 ## 11. 납품

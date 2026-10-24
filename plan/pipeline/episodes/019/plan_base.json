@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@megskinbeauty · TikTok",
+ "meta": {
+  "no": "019",
+  "views": "11,5 M",
+  "mult": "12×",
+  "dur": "44 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "'¿Por qué nadie habla de esto?' Con esa frase llegó a 11,5 millones de vistas.",
+   "voice": "'¿Por qué nadie habla de esto?' Con esa frase llegó a 11,5 millones de vistas.",
+   "ko": "\"왜 아무도 이 얘기를 안 하지?\" 이 한 문장으로 1,150만 뷰가 나왔어요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · El efecto escondido",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: todos conocen la crema 345 como calmante; ella cuenta que también aclara las marcas. Algo nuevo de un producto conocido casi no tiene competencia.",
+   "voice": "Uno: todos conocen la crema 345 como calmante; ella cuenta que también aclara las marcas. Algo nuevo de un producto conocido casi no tiene competencia.",
+   "ko": "첫째, 다들 진정 크림으로만 아는 345 크림에서 '자국까지 옅어진다'는 새 얘기를 꺼내요. 아는 제품의 새 얘기엔 경쟁자가 거의 없어요."
+  },
+  {
+   "t": "play",
+   "a": 13.5,
+   "b": 16,
+   "lit": [
+    1
+   ],
+   "h1": "01 · El efecto escondido",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 16,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Decir quién eres",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: dice que es cosmetóloga y explica los ingredientes. Con esa credencial, no suena a anuncio.",
+   "voice": "Dos: dice que es cosmetóloga y explica los ingredientes. Con esa credencial, no suena a anuncio.",
+   "ko": "둘째, 피부관리사라고 밝히고 성분을 짚어요. 자격이 있으니 광고처럼 안 들려요."
+  },
+  {
+   "t": "play",
+   "a": 20.5,
+   "b": 23,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Decir quién eres",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 23,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Pocos guardados",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: pero sus guardados son solo el 31% de sus likes, menos que el promedio.",
+   "voice": "Tres: pero sus guardados son solo el 31% de sus likes, menos que el promedio.",
+   "ko": "셋째, 근데 저장은 좋아요의 31%로 평균보다 낮아요. 다시 볼 정보가 부족했던 거예요."
+  },
+  {
+   "t": "play",
+   "a": 34.5,
+   "b": 37,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Pocos guardados",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 37,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Un producto conocido explota otra vez con una historia nueva. Para tener guardados, agrega la tabla de ingredientes o el orden de uso.",
+   "voice": "Un producto conocido explota otra vez con una historia nueva. Para tener guardados, agrega la tabla de ingredientes o el orden de uso.",
+   "ko": "아는 제품도 새 얘기 하나면 다시 터져요. 저장까지 받으려면 성분표나 사용 순서를 붙이세요."
+  },
+  {
+   "t": "freeze",
+   "at": 37,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Mi lista de frases gancho para los primeros 3 segundos? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi lista de frases gancho para los primeros 3 segundos? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "첫 3초 훅 문장 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Frases gancho de 3 segundos",
+    "Tablas de ingredientes",
+    "Lo más vendido en Corea"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   6.79
+  ],
+  "01": [
+   6.79,
+   18.96
+  ],
+  "02": [
+   18.96,
+   26.75
+  ],
+  "03": [
+   26.6,
+   32.95
+  ],
+  "04": [
+   34.28,
+   43.3
+  ],
+  "CTA": [
+   43.19,
+   51.55
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Crema conocida.",
+  "11,5 M de vistas."
+ ],
+ "title_ko": [
+  "다 아는 크림.",
+  "조회수 1150만."
+ ]
+}

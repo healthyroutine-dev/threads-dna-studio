@@ -1,0 +1,32 @@
+{
+ "title_es": [
+  "Una sola foto.",
+  "186 K guardados."
+ ],
+ "title_ko": [
+  "사진 한 장.",
+  "저장 18만 6천."
+ ],
+ "thumb_sub_es": "Una tabla, cero palabras.",
+ "thumb_sub_ko": "표 한 장이면 끝.",
+ "subs": {
+  "02": [
+   "Dos: una flecha une cada foto",
+   "con un sérum.",
+   "Con esta tabla, ya sabes cuál elegir."
+  ],
+  "03": [
+   "Tres: sus guardados son el 67%",
+   "de sus likes.",
+   "Casi el doble de la mediana",
+   "en LATAM, que es 36%."
+  ],
+  "04": [
+   "Si el producto se elige",
+   "según el problema,",
+   "haz una tabla.",
+   "La gente guarda cuando",
+   "tiene una razón para volver."
+  ]
+ }
+}

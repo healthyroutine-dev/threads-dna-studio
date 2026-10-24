@@ -1,0 +1,222 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@lafernandesss · TikTok",
+ "meta": {
+  "no": "023",
+  "views": "4,7 M",
+  "mult": "15×",
+  "dur": "14 S",
+  "multk": "vs promedio"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Es la creadora que ya te presenté. Aquel video quedó en su promedio; este, 15 veces más.",
+   "voice": "Es la creadora que ya te presenté. Aquel video quedó en su promedio; este, 15 veces más.",
+   "ko": "014편에서 본 그 크리에이터예요. 그때 영상은 평소만큼 나왔는데, 이 영상은 평소의 15배가 나왔어요."
+  },
+  {
+   "t": "play",
+   "a": 0.3,
+   "b": 1,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Crema de cápsulas",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: la primera escena es una crema llena de cápsulas amarillas. Ni sabes si es cosmético, y te detienes.",
+   "voice": "Uno: la primera escena es una crema llena de cápsulas amarillas. Ni sabes si es cosmético, y te detienes.",
+   "ko": "첫째, 첫 장면이 노란 캡슐이 가득 든 크림이에요. 이게 화장품인지부터 헷갈려서 멈춰요."
+  },
+  {
+   "t": "play",
+   "a": 1,
+   "b": 5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Crema de cápsulas",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Uno vs varios",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: aquí cambia a otro producto raro cada 2 segundos. Eso hizo la diferencia de 15 veces.",
+   "voice": "Dos: aquí cambia a otro producto raro cada 2 segundos. Eso hizo la diferencia de 15 veces.",
+   "ko": "둘째, 014편은 크림 하나였고, 이 영상은 2초마다 신기한 제품이 바뀌어요. 그게 15배 차이를 만들었어요."
+  },
+  {
+   "t": "play",
+   "a": 5,
+   "b": 10,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Uno vs varios",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 10,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Texto sin nombres",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: el texto no tiene nombres de productos. Por eso preguntan en comentarios: más de 2.600.",
+   "voice": "Tres: el texto no tiene nombres de productos. Por eso preguntan en comentarios: más de 2.600.",
+   "ko": "셋째, 자막에 제품 이름이 없어요. 그래서 댓글로 물어보고, 그게 2,600개가 넘었어요."
+  },
+  {
+   "t": "play",
+   "a": 10,
+   "b": 13,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Texto sin nombres",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 13,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Pon lado a lado tu video que mejor funcionó y uno normal, y busca la diferencia. Es una referencia más exacta que cualquier video ajeno.",
+   "voice": "Pon lado a lado tu video que mejor funcionó y uno normal, y busca la diferencia. Es una referencia más exacta que cualquier video ajeno.",
+   "ko": "내 계정에서 잘 된 영상과 평범한 영상을 나란히 놓고 차이를 찾아보세요. 남의 영상보다 그게 더 정확한 레퍼런스예요."
+  },
+  {
+   "t": "freeze",
+   "at": 13,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Productos coreanos curiosos que aún no llegan a LATAM? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Productos coreanos curiosos que aún no llegan a LATAM? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "남미에 아직 안 알려진 신기한 한국 제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Productos coreanos que aún no llegan",
+    "Lanzamientos en Corea",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.84
+  ],
+  "01": [
+   8.84,
+   17.1
+  ],
+  "02": [
+   17.1,
+   24.93
+  ],
+  "03": [
+   24.93,
+   33.83
+  ],
+  "04": [
+   33.83,
+   43.8
+  ],
+  "CTA": [
+   43.8,
+   53.77
+  ]
+ },
+ "cut": [],
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Misma creadora.",
+  "15 veces más."
+ ],
+ "title_ko": [
+  "같은 크리에이터.",
+  "평소의 15배."
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "title_es": [
+  "1,2 M de vistas.",
+  "Y es su promedio."
+ ],
+ "title_ko": [
+  "조회수 120만.",
+  "그런데 평소 성적."
+ ],
+ "thumb_sub_es": "Compáralo con su promedio.",
+ "thumb_sub_ko": "평소 숫자랑 비교하기.",
+ "es": {
+  "02": "Uno: esta cuenta tiene unos 30 mil likes por video. Este tuvo 33 mil: justo su promedio.",
+  "03": "Dos: así que no es un ejemplo de 'grábalo así y explota'. Ese número lo dan sus 770 mil seguidores."
+ },
+ "labels": {
+  "02": "01 · Su promedio",
+  "03": "02 · Sus seguidores"
+ },
+ "sect": {
+  "HOOK": [
+   0.0,
+   8.45
+  ],
+  "02": [
+   8.45,
+   18.08
+  ],
+  "03": [
+   18.08,
+   27.82
+  ]
+ },
+ "cut": [
+  [
+   5.35,
+   6.6
+  ]
+ ],
+ "drop": [
+  "01"
+ ],
+ "notes": [
+  "촬영에서 대본 01(윤기 피부)을 건너뛰고 02·03을 첫째·둘째로 말함 → 01 멈춤 빼고 포인트 2개로",
+  "HOOK \"평소 성적이에요\" 두 번 말한 것 중 앞의 것 컷"
+ ]
+}

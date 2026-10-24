@@ -1,0 +1,52 @@
+{
+ "title_es": [
+  "Misma creadora.",
+  "15 veces más."
+ ],
+ "title_ko": [
+  "같은 크리에이터.",
+  "평소의 15배."
+ ],
+ "thumb_sub_es": "¿Qué cambió?",
+ "thumb_sub_ko": "뭐가 달라졌을까?",
+ "es": {
+  "HOOK": "Es la creadora que ya te presenté. Aquel video quedó en su promedio; este, 15 veces más.",
+  "02": "Dos: aquí cambia a otro producto raro cada 2 segundos. Eso hizo la diferencia de 15 veces."
+ },
+ "notes": [
+  "HOOK \"014편\" → 촬영대로 \"이전에 소개해드린\"",
+  "02 \"014편은 크림 하나였고\" 촬영에서 빠짐 → 스페인어도 뺌"
+ ],
+ "subs": {
+  "HOOK": [
+   "Es la creadora que ya te presenté.",
+   "Aquel video quedó en su promedio;",
+   "este, 15 veces más."
+  ],
+  "01": [
+   "Uno: la primera escena es una crema",
+   "llena de cápsulas amarillas.",
+   "Ni sabes si es cosmético, y te detienes."
+  ],
+  "02": [
+   "Dos: aquí cambia",
+   "a otro producto raro",
+   "cada 2 segundos.",
+   "Eso hizo la diferencia de 15 veces."
+  ],
+  "03": [
+   "Tres: el texto no tiene",
+   "nombres de productos.",
+   "Por eso preguntan en comentarios:",
+   "más de 2.600."
+  ],
+  "04": [
+   "Pon lado a lado",
+   "tu video que mejor funcionó",
+   "y uno normal,",
+   "y busca la diferencia.",
+   "Es una referencia más exacta",
+   "que cualquier video ajeno."
+  ]
+ }
+}
