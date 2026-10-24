@@ -1,0 +1,277 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@elvinasworld · TikTok",
+ "meta": {
+  "no": "002",
+  "views": "1,9 M",
+  "mult": "6.109×",
+  "dur": "12 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "311 seguidores y 1,9 millones de vistas. Con un video de 12 segundos.",
+   "voice": "311 seguidores y 1,9 millones de vistas. Con un video de 12 segundos.",
+   "ko": "팔로워 311명인데 190만 뷰가 나왔어요. 12초짜리 영상 하나로요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.2,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Una frase",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: en pantalla solo dice 'truco de toner pad'. Es tan corto que lo entiendes de un vistazo.",
+   "voice": "Uno: en pantalla solo dice 'truco de toner pad'. Es tan corto que lo entiendes de un vistazo.",
+   "ko": "첫째, 화면에 글자는 '토너패드 꿀팁' 한 줄뿐이에요. 짧으니까 한눈에 들어오죠."
+  },
+  {
+   "t": "play",
+   "a": 1.2,
+   "b": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Una frase",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sin hablar",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: no dice nada, solo lo muestra con las manos. Quieres saber qué va a hacer y lo ves hasta el final.",
+   "voice": "Dos: no dice nada, solo lo muestra con las manos. Quieres saber qué va a hacer y lo ves hasta el final.",
+   "ko": "둘째, 얼굴 없이 손만 나와요. 뭘 하려는 건지 궁금해서 끝까지 보게 돼요."
+  },
+  {
+   "t": "play",
+   "a": 3,
+   "b": 5.5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sin hablar",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 5.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · El doble",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: separó un pad en dos. Si un frasco te rinde el doble, ¡qué maravilla!",
+   "voice": "Tres: separó un pad en dos. Si un frasco te rinde el doble, ¡qué maravilla!",
+   "ko": "셋째, 패드 한 장을 두 장으로 갈라서 써요. 한 통을 두 배로 쓸 수 있다니까, 안 궁금할 수가 없죠."
+  },
+  {
+   "t": "play",
+   "a": 5.5,
+   "b": 9.2,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · El doble",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9.2,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Busca una forma de que tu producto dure más y grábala. No tiene que ser largo: 12 segundos bastan.",
+   "voice": "Busca una forma de que tu producto dure más y grábala. No tiene que ser largo: 12 segundos bastan.",
+   "ko": "여러분도 지금 쓰는 제품을 더 오래 쓰는 방법 하나만 찾아서 찍어보세요. 길 필요 없이 12초면 돼요."
+  },
+  {
+   "t": "play",
+   "a": 9.2,
+   "b": 11.1,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 11.1,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Los pads son baratos y se acaban rápido, así que la gente vuelve a comprar. Por eso son perfectos para tu primera venta.",
+   "voice": "Los pads son baratos y se acaban rápido, así que la gente vuelve a comprar. Por eso son perfectos para tu primera venta.",
+   "ko": "패드는 가격 부담이 적고 금방 다 써서 또 사게 돼요. 그래서 처음 팔아보는 상품으로 딱이에요."
+  },
+  {
+   "t": "play",
+   "a": 11.1,
+   "b": 11.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 11.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Los pads que elegí en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Los pads que elegí en Corea? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "제가 직접 고른 패드 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Pads elegidos en Corea",
+    "Precio mayorista",
+    "Ideas para videos cortos"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   7.17
+  ],
+  "01": [
+   7.17,
+   14.88
+  ],
+  "02": [
+   14.88,
+   22.49
+  ],
+  "03": [
+   22.49,
+   30.96
+  ],
+  "04": [
+   30.96,
+   39.98
+  ],
+  "05": [
+   39.98,
+   48.17
+  ],
+  "CTA": [
+   48.17,
+   56.31
+  ]
+ },
+ "crop": [
+  900,
+  90,
+  520
+ ],
+ "title_es": [
+  "311 seguidores.",
+  "1,9 M de vistas."
+ ],
+ "title_ko": [
+  "팔로워 311명.",
+  "조회수 190만."
+ ]
+}

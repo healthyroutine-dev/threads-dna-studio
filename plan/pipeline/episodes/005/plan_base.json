@@ -1,0 +1,278 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@greta.cos · TikTok",
+ "meta": {
+  "no": "005",
+  "views": "5,3 M",
+  "mult": "220×",
+  "dur": "11 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Mostró cómo su piel empeoró, y tiene 357 mil likes.",
+   "voice": "Mostró cómo su piel empeoró, y tiene 357 mil likes.",
+   "ko": "피부가 나빠진 걸 그대로 보여줬는데, 좋아요가 35만 개예요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.2,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Al revés",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: con 'pasar de esto… a esto' muestra el antes y después al revés. Esperas una mejora, pasa lo contrario, y te detienes.",
+   "voice": "Uno: con 'pasar de esto… a esto' muestra el antes y después al revés. Esperas una mejora, pasa lo contrario, y te detienes.",
+   "ko": "첫째, '이랬던 피부가… 이렇게 됐다'로 전후를 거꾸로 보여줘요. 좋아질 줄 알았는데 반대니까 멈추게 되죠.",
+   "quote": "«El dolor de pasar de esto… a esto»"
+  },
+  {
+   "t": "play",
+   "a": 1.2,
+   "b": 3.4,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Al revés",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3.4,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Luz real",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: muestra la textura real con luz del día. Como no esconde nada, le crees.",
+   "voice": "Dos: muestra la textura real con luz del día. Como no esconde nada, le crees.",
+   "ko": "둘째, 바깥 햇빛 아래서 피부 결을 그대로 보여줘요. 숨기지 않으니까 믿음이 가요."
+  },
+  {
+   "t": "play",
+   "a": 3.4,
+   "b": 6.5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Luz real",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 6.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Empatía",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: lo subió alguien famosa por su 'glass skin'. Por eso los comentarios se llenaron de 'a mí también'.",
+   "voice": "Tres: lo subió alguien famosa por su 'glass skin'. Por eso los comentarios se llenaron de 'a mí también'.",
+   "ko": "셋째, '글래스 스킨'으로 유명한 사람이 이걸 올렸어요. 그래서 댓글이 '나도 그래'로 가득했죠."
+  },
+  {
+   "t": "play",
+   "a": 6.5,
+   "b": 8.8,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Empatía",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 8.8,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Todas tenemos fotos de una mala época de la piel. Súbelas así: 'así estaba, y así estoy'.",
+   "voice": "Todas tenemos fotos de una mala época de la piel. Súbelas así: 'así estaba, y así estoy'.",
+   "ko": "피부 안 좋았던 시기 사진, 다들 하나쯤 있잖아요. '이랬던 내가 지금은 이렇게' 하고 올려보세요."
+  },
+  {
+   "t": "play",
+   "a": 8.8,
+   "b": 10.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 10.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "En este video no vende nada. En la segunda parte cuenta 'así me recuperé' y ahí presenta los productos.",
+   "voice": "En este video no vende nada. En la segunda parte cuenta 'así me recuperé' y ahí presenta los productos.",
+   "ko": "이 영상에서는 아무것도 팔지 않아요. 대신 다음 편에서 '이렇게 회복했어요' 하면서 제품을 소개하는 거예요."
+  },
+  {
+   "t": "play",
+   "a": 10.5,
+   "b": 10.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 10.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Mi lista de productos calmantes? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi lista de productos calmantes? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "피부 진정 라인 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Línea calmante",
+    "Guía para tu 2.ª parte",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   5.06
+  ],
+  "01": [
+   5.06,
+   16.12
+  ],
+  "02": [
+   16.12,
+   24.42
+  ],
+  "03": [
+   24.42,
+   33.16
+  ],
+  "04": [
+   33.16,
+   41.02
+  ],
+  "05": [
+   41.02,
+   50.04
+  ],
+  "CTA": [
+   50.04,
+   58.25
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Su piel empeoró.",
+  "357 mil likes."
+ ],
+ "title_ko": [
+  "피부가 나빠졌는데.",
+  "좋아요 35만."
+ ]
+}

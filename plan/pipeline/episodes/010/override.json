@@ -1,0 +1,46 @@
+{
+ "title_es": [
+  "Solo sonidos.",
+  "1,9 M de vistas."
+ ],
+ "title_ko": [
+  "소리만.",
+  "조회수 190만."
+ ],
+ "thumb_sub_es": "El sonido es el protagonista.",
+ "thumb_sub_ko": "소리가 주인공.",
+ "subs": {
+  "HOOK": [
+   "No dice ni una palabra,",
+   "y tiene 1,9 millones de vistas."
+  ],
+  "01": [
+   "Uno: desde la primera imagen",
+   "hay ambiente.",
+   "Luz suave de noche",
+   "y un título bonito te atrapan."
+  ],
+  "02": [
+   "Dos: el sonido es el protagonista.",
+   "La bomba, la espuma, los toquecitos.",
+   "Te quedas hasta el final",
+   "solo por el sonido."
+  ],
+  "03": [
+   "Tres: como no habla,",
+   "se entiende en cualquier país."
+  ],
+  "04": [
+   "Graba con luz de noche,",
+   "la cámara fija",
+   "y el micrófono cerca del producto.",
+   "En pantalla,",
+   "solo el nombre de cada paso."
+  ],
+  "05": [
+   "Eso sí: el sonido solo te da vistas.",
+   "Para vender,",
+   "al final di qué producto es."
+  ]
+ }
+}

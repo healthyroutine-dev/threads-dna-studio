@@ -1,4 +1,4 @@
-# K-Beauty que vende · 편집 규칙 (001 완성 기준, 2026-10-23)
+# K-Beauty que vende · 편집 규칙 (001·002 기준, 2026-10-24 갱신)
 
 001을 만들면서 정한 규칙. 002부터 그대로 적용한다. 바뀌면 이 파일을 고친다.
 기준 결과물: `plan/final/001/` · 도구: `plan/reel001_ceo/` (`beauty.py`, `build_ceo.py`, `build_dub.py`, `el_tts.py`)
@@ -57,3 +57,26 @@
 ## 7. 편당 납품
 `plan/final/NNN/`: ES 최종 mp4 · KO(대표 원음) mp4 · 썸네일 png · 업로드 문구(ES 캡션 + KO 뜻 + 체크리스트).
 썸네일: `make_thumb.py` (C1 핑크, 제목 2줄, 부제는 스페인어, 원형 = 보정한 대표 얼굴, brand 없음).
+
+## 8. 편 번호 · 촬영본
+- **편 번호(001~026) = 콘텐츠 순서.** "007편" = 7번째 콘텐츠(판매량 숫자 후킹). 한 편 안의 구간은 HOOK·01~05·CTA로 부른다.
+- 촬영본 드라이브 폴더 `10G9sVNDWfjZBGHsHlK3nlDDNG3d-UNhu` (DJI_…_NNNN_D_final.mp4 26개, 편당 1개, 문장 단위로 끊어 찍어 이어 붙임).
+  파일↔편 대응은 받아쓰기로 확인: `pipeline/file_map.json` (0014·0022 없음 → 0015=014 … 0028=026).
+- 촬영 중 대본과 다르게 말한 문장은 `report.txt`에 ⚠로 표시 → **스페인어는 실제로 말한 문장에 맞춘다.**
+- 대본 내용이 원본 영상과 사실이 다르면 스페인어·배지에서 바로잡고 메모로 남긴다 (예: 002 "얼굴 없이 손만" → 원본에 얼굴이 나옴 → "Sin hablar · 말 없이 손으로만").
+
+## 9. 더빙 목소리 결정 (2026-10-24)
+- "올드하다" 피드백으로 A~D 비교 후 **현재 설정 유지**: multilingual_v2 · stability 0.5 · similarity 0.85 · style 0.15 · speed 구간별 0.85~1.12.
+
+## 10. 자동화 (`plan/pipeline/`)
+1. `ep.py prep NNN FILE` 받아쓰기·음성정리·무음·대본 줄 매칭(SECT) → `report.txt`
+2. `episodes/NNN/override.json` 작성: `title_es/title_ko`(폭 960px 이하, `titles.json`), `thumb_sub_es/ko`, 수정 문장 `es{}`, 배지 `labels{}`, 손본 자막 `subs{}`, `notes`
+3. `ep.py plan NNN` → plan_base.json + subs_plan.json (자동 분할 후 **어색한 곳은 손으로 고쳐 override.subs에 저장**)
+4. `ep.py tts NNN` 대표 v2 스페인어(속도 1회 추정) + STT 역검수 + 단어 시간
+5. `beauty_queue.sh` 얼굴 보정 (원형 영역 960x1000@60,460만, 편당 약 20분) → beauty.mp4, plan crop = [900,30,60]
+6. `build_ep.py es|ko` 조립 → `ep_final.py NNN` 썸네일·업로드문구·`plan/final/NNN`
+- 경로는 세션 스크래치패드 기준으로 되어 있음. 새 세션에서는 `S=` 경로만 바꿔서 사용.
+
+## 11. 납품
+- 영상·썸네일은 채팅으로 전달, 사용자가 드라이브 **"편집완"** 폴더(`1oHboaz7-PshzJFWs-8DRxLw8JQak8v9g`)에 올림 (드라이브 연결은 큰 파일 업로드 불가).
+- 업로드 문구는 드라이브 "편집완"에 문서로 직접 올림.

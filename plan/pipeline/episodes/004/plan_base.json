@@ -1,0 +1,262 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@angelzardoyaaa · TikTok",
+ "meta": {
+  "no": "004",
+  "views": "4,2 M",
+  "mult": "429×",
+  "dur": "27 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "9 mil seguidores y 4,2 millones de vistas. Mira lo que hizo en los primeros 3 segundos.",
+   "voice": "9 mil seguidores y 4,2 millones de vistas. Mira lo que hizo en los primeros 3 segundos.",
+   "ko": "팔로워 9천 명인데 420만 뷰가 나왔어요. 첫 3초에 뭘 했는지 보세요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.6,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.6,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Un nombre famoso",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: lo primero que dice es 'Georgina habló de este sérum'. Escuchas un nombre conocido y te quedas hasta el final.",
+   "voice": "Uno: lo primero que dice es 'Georgina habló de este sérum'. Escuchas un nombre conocido y te quedas hasta el final.",
+   "ko": "첫째, 첫마디가 '조지나가 이 세럼 얘기를 했대요'예요. 아는 이름이 나오니까 일단 끝까지 듣게 되죠.",
+   "quote": "«Georgina habló de este sérum»"
+  },
+  {
+   "t": "play",
+   "a": 3.5,
+   "b": 6,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Un nombre famoso",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Demo rápida",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: no explica mucho, lo aplica directo. Con verlo, ya sabes cómo se usa.",
+   "voice": "Dos: no explica mucho, lo aplica directo. Con verlo, ya sabes cómo se usa.",
+   "ko": "둘째, 길게 설명하지 않고 바로 발라서 보여줘요. 보는 순간 어떻게 쓰는지 알 수 있죠."
+  },
+  {
+   "t": "play",
+   "a": 22.1,
+   "b": 24.6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Demo rápida",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 24.6,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Agotado",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: al final dice 'la semana pasada se agotó en toda España'. Sientes que si no compras ya, llegas tarde.",
+   "voice": "Tres: al final dice 'la semana pasada se agotó en toda España'. Sientes que si no compras ya, llegas tarde.",
+   "ko": "셋째, 마지막에 '지난주엔 스페인 전역에서 품절됐었어요'라고 해요. 지금 안 사면 늦을 것 같죠.",
+   "quote": "«La semana pasada se agotó en toda España»"
+  },
+  {
+   "t": "play",
+   "a": 24.6,
+   "b": 26,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Agotado",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 26,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Busca qué producto coreano usa de verdad una famosa de tu país. Eso sí: solo información comprobada.",
+   "voice": "Busca qué producto coreano usa de verdad una famosa de tu país. Eso sí: solo información comprobada.",
+   "ko": "여러분 나라 연예인이 실제로 쓰는 K-뷰티 제품을 찾아보세요. 단, 꼭 확인된 사실만 쓰셔야 해요."
+  },
+  {
+   "t": "play",
+   "a": 26,
+   "b": 26.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 26.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop. Llegar primero a un lanzamiento así es tu oportunidad.",
+   "voice": "Este sérum vendió 1,56 millones de dólares en su primer mes en TikTok Shop. Llegar primero a un lanzamiento así es tu oportunidad.",
+   "ko": "이 세럼은 미국 틱톡샵 첫 달에만 156만 달러어치가 팔렸어요. 뜨는 신제품을 먼저 잡으면 그만큼 팔 기회가 커져요."
+  },
+  {
+   "t": "freeze",
+   "at": 26.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Lo nuevo que está explotando en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Lo nuevo que está explotando en Corea? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "한국에서 막 뜨는 신제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Nuevos lanzamientos en Corea",
+    "Precio mayorista",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   6.88
+  ],
+  "01": [
+   6.88,
+   16.0
+  ],
+  "02": [
+   16.0,
+   23.7
+  ],
+  "03": [
+   23.7,
+   33.14
+  ],
+  "04": [
+   33.14,
+   41.93
+  ],
+  "05": [
+   41.93,
+   53.48
+  ],
+  "CTA": [
+   53.48,
+   61.56
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "9 mil seguidores.",
+  "4,2 M de vistas."
+ ],
+ "title_ko": [
+  "팔로워 9천.",
+  "조회수 420만."
+ ]
+}

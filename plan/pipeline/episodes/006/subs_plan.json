@@ -1,0 +1,35 @@
+{
+ "HOOK": [
+  "Una mala reseña",
+  "de un producto famoso,",
+  "y 2,2 millones de vistas."
+ ],
+ "01": [
+  "Uno: la primera línea dice",
+  "'cuando usas los pads",
+  "Zero Pore de Medicube una vez'.",
+  "Conoces el producto, y te detienes."
+ ],
+ "02": [
+  "Dos: no explica nada,",
+  "solo repite '¿qué es esto?'.",
+  "Quieres saber qué pasó",
+  "y sigues mirando."
+ ],
+ "03": [
+  "Tres: tiene 414 comentarios.",
+  "Mientras discuten entre 'a mí también'",
+  "y 'lo usaste mal',",
+  "las vistas siguen subiendo."
+ ],
+ "04": [
+  "Tú graba",
+  "'antes de comprar, mira esto'",
+  "mientras haces una prueba de parche."
+ ],
+ "05": [
+  "La gente confía más",
+  "en quien avisa primero.",
+  "Y tienes muchas menos devoluciones."
+ ]
+}

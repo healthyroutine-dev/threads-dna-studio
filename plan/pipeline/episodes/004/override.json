@@ -1,0 +1,50 @@
+{
+ "title_es": [
+  "9 mil seguidores.",
+  "4,2 M de vistas."
+ ],
+ "title_ko": [
+  "팔로워 9천.",
+  "조회수 420만."
+ ],
+ "thumb_sub_es": "El nombre de una famosa.",
+ "thumb_sub_ko": "유명인 이름 하나.",
+ "subs": {
+  "HOOK": [
+   "9 mil seguidores",
+   "y 4,2 millones de vistas.",
+   "Mira lo que hizo",
+   "en los primeros 3 segundos."
+  ],
+  "01": [
+   "Uno: lo primero que dice es",
+   "'Georgina habló de este sérum'.",
+   "Escuchas un nombre conocido",
+   "y te quedas hasta el final."
+  ],
+  "02": [
+   "Dos: no explica mucho,",
+   "lo aplica directo.",
+   "Con verlo, ya sabes cómo se usa."
+  ],
+  "03": [
+   "Tres: al final dice",
+   "'la semana pasada",
+   "se agotó en toda España'.",
+   "Sientes que si no compras ya,",
+   "llegas tarde."
+  ],
+  "04": [
+   "Busca qué producto coreano usa",
+   "de verdad una famosa de tu país.",
+   "Eso sí: solo información comprobada."
+  ],
+  "05": [
+   "Este sérum vendió",
+   "1,56 millones de dólares",
+   "en su primer mes en TikTok Shop.",
+   "Llegar primero a un lanzamiento así",
+   "es tu oportunidad."
+  ]
+ }
+}

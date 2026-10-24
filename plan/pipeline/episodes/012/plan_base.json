@@ -1,0 +1,261 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@kelly.coreana · TikTok",
+ "meta": {
+  "no": "012",
+  "views": "909 K",
+  "mult": "2.1×",
+  "dur": "57 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "909 mil vistas, y este video ya le está generando dinero. Mira cómo lo hace.",
+   "voice": "909 mil vistas, y este video ya le está generando dinero. Mira cómo lo hace.",
+   "ko": "조회수는 91만인데, 이 영상은 이미 돈을 벌고 있어요. 어떻게 하는 건지 보세요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Una pregunta",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: empieza preguntando '¿te preocupan tus poros?'. Quien tiene ese problema se detiene.",
+   "voice": "Uno: empieza preguntando '¿te preocupan tus poros?'. Quien tiene ese problema se detiene.",
+   "ko": "첫째, '모공 넓어서 고민이세요?' 하고 질문으로 시작해요. 고민 있는 사람은 바로 멈추죠."
+  },
+  {
+   "t": "play",
+   "a": 1.5,
+   "b": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Una pregunta",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Día 13",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: le puso número de serie: 'Día 13'. Por eso esperas el siguiente.",
+   "voice": "Dos: le puso número de serie: 'Día 13'. Por eso esperas el siguiente.",
+   "ko": "둘째, '13일째'라고 시리즈 번호를 붙였어요. 그러니까 다음 편도 기다리게 되죠."
+  },
+  {
+   "t": "play",
+   "a": 21.5,
+   "b": 24,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Día 13",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 24,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · 3 tips",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: '¿lo estás viendo tocándote la cara? ¡No!' Te señala directo. Te quedas, y con tres tips, lo guardas.",
+   "voice": "Tres: '¿lo estás viendo tocándote la cara? ¡No!' Te señala directo. Te quedas, y con tres tips, lo guardas.",
+   "ko": "셋째, '지금 얼굴 만지면서 보고 있죠? 안 돼요!' 하고 콕 집어요. 뜨끔해서 끝까지 보고, 팁이 세 개라 저장까지 해요.",
+   "quote": "«¿Lo estás viendo tocándote la cara? ¡No!»"
+  },
+  {
+   "t": "play",
+   "a": 35.5,
+   "b": 38,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · 3 tips",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 38,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Empieza tu serie 'Día 1'. Un problema, tres tips y un producto por tip.",
+   "voice": "Empieza tu serie 'Día 1'. Un problema, tres tips y un producto por tip.",
+   "ko": "여러분도 '1일차' 시리즈를 시작해보세요. 고민 하나에 팁 세 개, 팁마다 제품 하나씩."
+  },
+  {
+   "t": "play",
+   "a": 49.7,
+   "b": 52.2,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 52.2,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Y gana dinero con el código de descuento del caption. Si empiezas con precio del club, te queda todavía más.",
+   "voice": "Y gana dinero con el código de descuento del caption. Si empiezas con precio del club, te queda todavía más.",
+   "ko": "그리고 캡션에 할인 코드를 넣어서 수익을 내요. 클럽 가격으로 시작하면 여러분은 더 많이 남길 수 있고요."
+  },
+  {
+   "t": "freeze",
+   "at": 56.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿30 temas para tu serie? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿30 temas para tu serie? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "30일 시리즈 주제 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "30 temas para tu serie",
+    "Precio de miembro",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   6.8
+  ],
+  "01": [
+   6.8,
+   14.55
+  ],
+  "02": [
+   14.55,
+   22.51
+  ],
+  "03": [
+   22.51,
+   33.57
+  ],
+  "04": [
+   33.57,
+   41.36
+  ],
+  "05": [
+   41.36,
+   50.34
+  ],
+  "CTA": [
+   50.34,
+   59.89
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "909 mil vistas.",
+  "Y ya da dinero."
+ ],
+ "title_ko": [
+  "조회수 91만.",
+  "그런데 벌써 돈을 번다."
+ ]
+}

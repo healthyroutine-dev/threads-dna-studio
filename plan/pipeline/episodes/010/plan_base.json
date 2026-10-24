@@ -1,0 +1,260 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@summercooljinny · TikTok",
+ "meta": {
+  "no": "010",
+  "views": "1,9 M",
+  "mult": "17×",
+  "dur": "76 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "No dice ni una palabra, y tiene 1,9 millones de vistas.",
+   "voice": "No dice ni una palabra, y tiene 1,9 millones de vistas.",
+   "ko": "한마디도 안 하는데 조회수가 190만이에요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 2,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Ambiente",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: desde la primera imagen hay ambiente. Luz suave de noche y un título bonito te atrapan.",
+   "voice": "Uno: desde la primera imagen hay ambiente. Luz suave de noche y un título bonito te atrapan.",
+   "ko": "첫째, 첫 화면부터 분위기가 있어요. 은은한 밤 조명에 예쁜 제목 하나로 시선을 잡죠."
+  },
+  {
+   "t": "play",
+   "a": 19.5,
+   "b": 22,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Ambiente",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 22,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sonido",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: el sonido es el protagonista. La bomba, la espuma, los toquecitos. Te quedas hasta el final solo por el sonido.",
+   "voice": "Dos: el sonido es el protagonista. La bomba, la espuma, los toquecitos. Te quedas hasta el final solo por el sonido.",
+   "ko": "둘째, 소리가 주인공이에요. 펌프 소리, 거품 소리, 톡톡 두드리는 소리까지. 소리 듣는 맛에 끝까지 보게 돼요."
+  },
+  {
+   "t": "play",
+   "a": 41.5,
+   "b": 44,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sonido",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 44,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Sin idioma",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: como no habla, se entiende en cualquier país.",
+   "voice": "Tres: como no habla, se entiende en cualquier país.",
+   "ko": "셋째, 말이 없으니까 어느 나라 사람이 봐도 다 이해해요."
+  },
+  {
+   "t": "play",
+   "a": 63.5,
+   "b": 66,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Sin idioma",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 66,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Graba con luz de noche, la cámara fija y el micrófono cerca del producto. En pantalla, solo el nombre de cada paso.",
+   "voice": "Graba con luz de noche, la cámara fija y el micrófono cerca del producto. En pantalla, solo el nombre de cada paso.",
+   "ko": "여러분도 밤 조명에 카메라를 고정하고, 마이크는 제품 가까이 두고 찍어보세요. 자막은 단계 이름만 넣으면 돼요."
+  },
+  {
+   "t": "play",
+   "a": 72.5,
+   "b": 75,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 75,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Eso sí: el sonido solo te da vistas. Para vender, al final di qué producto es.",
+   "voice": "Eso sí: el sonido solo te da vistas. Para vender, al final di qué producto es.",
+   "ko": "다만 소리만으로는 조회수까지예요. 팔려면 마지막에 어떤 제품인지 한마디는 꼭 해주세요."
+  },
+  {
+   "t": "freeze",
+   "at": 75.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Productos que se ven increíbles en video? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Productos que se ven increíbles en video? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "영상에 예쁘게 나오는 제품 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Texturas que se ven bien",
+    "Tips de luz y sonido",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   4.36
+  ],
+  "01": [
+   4.36,
+   13.22
+  ],
+  "02": [
+   13.22,
+   23.88
+  ],
+  "03": [
+   23.88,
+   28.5
+  ],
+  "04": [
+   28.5,
+   38.3
+  ],
+  "05": [
+   38.3,
+   46.74
+  ],
+  "CTA": [
+   46.74,
+   54.4
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Solo sonidos.",
+  "1,9 M de vistas."
+ ],
+ "title_ko": [
+  "소리만.",
+  "조회수 190만."
+ ]
+}

@@ -1,0 +1,261 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@kbeautydrx · TikTok",
+ "meta": {
+  "no": "008",
+  "views": "4 M",
+  "mult": "50×",
+  "dur": "45 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Una farmacéutica le dijo 'no' a marcas populares, y 89 mil personas guardaron el video.",
+   "voice": "Una farmacéutica le dijo 'no' a marcas populares, y 89 mil personas guardaron el video.",
+   "ko": "약사가 인기 브랜드에 '노'라고 했는데, 이 영상을 8만 9천 명이 저장했어요."
+  },
+  {
+   "t": "play",
+   "a": 0.7,
+   "b": 3.2,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3.2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Autoridad",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: aparece con bata de farmacéutica en una tienda coreana. Le crees antes de que empiece a hablar.",
+   "voice": "Uno: aparece con bata de farmacéutica en una tienda coreana. Le crees antes de que empiece a hablar.",
+   "ko": "첫째, 한국 드럭스토어에서 약사 가운을 입고 나와요. 말을 시작하기도 전에 믿음이 가죠."
+  },
+  {
+   "t": "play",
+   "a": 7,
+   "b": 9.5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Autoridad",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9.5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sí o no",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: '¿Beauty of Joseon? Mmm… no.' Descarta una marca que todos aman. Por eso quieres saber qué dirá de la siguiente.",
+   "voice": "Dos: '¿Beauty of Joseon? Mmm… no.' Descarta una marca que todos aman. Por eso quieres saber qué dirá de la siguiente.",
+   "ko": "둘째, '조선미녀? 음… 노.' 다들 좋아하는 브랜드를 바로 떨어뜨려요. 그러니 다음 브랜드는 뭐라고 할지 궁금해지죠.",
+   "quote": "«¿Beauty of Joseon? Mmm… no.»"
+  },
+  {
+   "t": "play",
+   "a": 14,
+   "b": 16.5,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Sí o no",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 16.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Ritmo",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: solo uno o dos segundos por marca. Va tan rápido que no da tiempo de aburrirse.",
+   "voice": "Tres: solo uno o dos segundos por marca. Va tan rápido que no da tiempo de aburrirse.",
+   "ko": "셋째, 브랜드 하나에 1, 2초씩만 써요. 템포가 빠르니까 지루할 틈이 없죠."
+  },
+  {
+   "t": "play",
+   "a": 36.5,
+   "b": 39,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Ritmo",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 39,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Juzga cinco productos que hayas probado con un sí o un no. Basta con una razón para cada uno.",
+   "voice": "Juzga cinco productos que hayas probado con un sí o un no. Basta con una razón para cada uno.",
+   "ko": "여러분도 써본 제품 다섯 개를 예스, 노로 판정해보세요. 이유는 한 줄씩만 붙이면 돼요."
+  },
+  {
+   "t": "play",
+   "a": 42,
+   "b": 44.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 44.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Y los productos con 'sí' se vuelven tu lista para vender. Como los probaste tú, tu recomendación pesa más.",
+   "voice": "Y los productos con 'sí' se vuelven tu lista para vender. Como los probaste tú, tu recomendación pesa más.",
+   "ko": "그리고 예스를 준 제품은 그대로 여러분 판매 리스트가 돼요. 직접 써보고 고른 거니까 추천에도 힘이 실리고요."
+  },
+  {
+   "t": "freeze",
+   "at": 44.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Las marcas que de verdad usan en Corea? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Las marcas que de verdad usan en Corea? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "한국 사람들이 진짜 쓰는 브랜드 리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Marcas que sí usan en Corea",
+    "Precio mayorista",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   7.28
+  ],
+  "01": [
+   7.28,
+   17.01
+  ],
+  "02": [
+   17.01,
+   27.12
+  ],
+  "03": [
+   27.12,
+   35.21
+  ],
+  "04": [
+   35.21,
+   43.45
+  ],
+  "05": [
+   43.45,
+   53.66
+  ],
+  "CTA": [
+   53.66,
+   62.53
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Le dijo «no».",
+  "89 mil guardados."
+ ],
+ "title_ko": [
+  "인기 브랜드에 \"노\".",
+  "저장 8만 9천."
+ ]
+}

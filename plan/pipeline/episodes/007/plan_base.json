@@ -1,0 +1,261 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@lacey.odum · TikTok",
+ "meta": {
+  "no": "007",
+  "views": "1,5 M",
+  "mult": "91×",
+  "dur": "71 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Se llenó la cara de líneas blancas, y tiene 1,5 millones de vistas.",
+   "voice": "Se llenó la cara de líneas blancas, y tiene 1,5 millones de vistas.",
+   "ko": "얼굴에 하얀 줄을 잔뜩 그었는데, 조회수가 150만이에요."
+  },
+  {
+   "t": "play",
+   "a": 0.5,
+   "b": 1.2,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 1.2,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Imagen rara",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: la primera imagen es rara. En cuanto piensas '¿qué es eso?', ya te detuviste.",
+   "voice": "Uno: la primera imagen es rara. En cuanto piensas '¿qué es eso?', ya te detuviste.",
+   "ko": "첫째, 첫 화면부터 이상해요. '저게 뭐지?' 하는 순간 이미 멈춘 거죠."
+  },
+  {
+   "t": "play",
+   "a": 1.2,
+   "b": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Imagen rara",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un número",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: lo primero que dice es 'se vendieron diez millones'. Quieres saber qué tiene de bueno.",
+   "voice": "Dos: lo primero que dice es 'se vendieron diez millones'. Quieres saber qué tiene de bueno.",
+   "ko": "둘째, 첫마디가 '천만 개 팔렸다'예요. 얼마나 좋길래 싶어서 보게 되죠."
+  },
+  {
+   "t": "play",
+   "a": 10.5,
+   "b": 13,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Un número",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 13,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · El cambio en vivo",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: la base blanca se vuelve su tono de piel con un solo toque. Lo ves frente a ti, así que no hace falta explicar.",
+   "voice": "Tres: la base blanca se vuelve su tono de piel con un solo toque. Lo ves frente a ti, así que no hace falta explicar.",
+   "ko": "셋째, 하얀 파운데이션이 한 번 문지르면 피부색으로 바뀌어요. 눈앞에서 바로 보이니까 따로 설명할 필요가 없죠."
+  },
+  {
+   "t": "play",
+   "a": 61.5,
+   "b": 64,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · El cambio en vivo",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 64,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Pon las ventas o el ranking en tu primera frase. Si el número es real, eso solo ya es un gancho.",
+   "voice": "Pon las ventas o el ranking en tu primera frase. Si el número es real, eso solo ya es un gancho.",
+   "ko": "여러분도 첫 문장에 판매량이나 순위를 넣어보세요. 확인된 숫자라면 그것만으로 후킹이 돼요."
+  },
+  {
+   "t": "play",
+   "a": 66.5,
+   "b": 69,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 69,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Al final dice 'si ves el carrito naranja, todavía hay stock'. Así quien lo ve va a comprar en ese momento.",
+   "voice": "Al final dice 'si ves el carrito naranja, todavía hay stock'. Así quien lo ve va a comprar en ese momento.",
+   "ko": "마지막에 '주황색 장바구니가 보이면 아직 재고가 있는 거예요'라고 해요. 그래야 보던 사람이 바로 사러 가거든요.",
+   "quote": "«Si ves el carrito naranja, todavía hay»"
+  },
+  {
+   "t": "freeze",
+   "at": 70.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿El ranking de Olive Young de esta semana? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿El ranking de Olive Young de esta semana? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "이번 주 올리브영 순위, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Ranking de Olive Young",
+    "Números de ventas reales",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   5.65
+  ],
+  "01": [
+   5.65,
+   12.7
+  ],
+  "02": [
+   12.7,
+   20.29
+  ],
+  "03": [
+   20.29,
+   31.6
+  ],
+  "04": [
+   31.6,
+   40.51
+  ],
+  "05": [
+   40.51,
+   50.17
+  ],
+  "CTA": [
+   50.17,
+   57.67
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "Líneas blancas.",
+  "1,5 M de vistas."
+ ],
+ "title_ko": [
+  "얼굴에 하얀 줄.",
+  "조회수 150만."
+ ]
+}

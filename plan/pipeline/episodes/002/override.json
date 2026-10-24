@@ -1,0 +1,66 @@
+{
+ "title_es": [
+  "311 seguidores.",
+  "1,9 M de vistas."
+ ],
+ "title_ko": [
+  "팔로워 311명.",
+  "조회수 190만."
+ ],
+ "thumb_sub_es": "Un truco de 12 segundos.",
+ "thumb_sub_ko": "12초짜리 꿀팁 하나.",
+ "crop": [
+  900,
+  90,
+  520
+ ],
+ "es": {
+  "02": "Dos: no dice nada, solo lo muestra con las manos. Quieres saber qué va a hacer y lo ves hasta el final.",
+  "03": "Tres: separó un pad en dos. Si un frasco te rinde el doble, ¡qué maravilla!"
+ },
+ "notes": [
+  "02: 원본에 얼굴이 나와서 '얼굴 없이 손만' → 스페인어는 '말 없이 손으로만 보여줘요'로 수정",
+  "03: 촬영 문장대로 '너무 좋은 거죠'"
+ ],
+ "subs": {
+  "HOOK": [
+   "311 seguidores",
+   "y 1,9 millones de vistas.",
+   "Con un video de 12 segundos."
+  ],
+  "01": [
+   "Uno: en pantalla solo dice",
+   "'truco de toner pad'.",
+   "Es tan corto",
+   "que lo entiendes de un vistazo."
+  ],
+  "02": [
+   "Dos: no dice nada,",
+   "solo lo muestra con las manos.",
+   "Quieres saber qué va a hacer",
+   "y lo ves hasta el final."
+  ],
+  "03": [
+   "Tres: separó un pad en dos.",
+   "Si un frasco te rinde el doble,",
+   "¡qué maravilla!"
+  ],
+  "04": [
+   "Busca una forma",
+   "de que tu producto dure más",
+   "y grábala.",
+   "No tiene que ser largo:",
+   "12 segundos bastan."
+  ],
+  "05": [
+   "Los pads son baratos",
+   "y se acaban rápido,",
+   "así que la gente vuelve a comprar.",
+   "Por eso son perfectos",
+   "para tu primera venta."
+  ]
+ },
+ "labels": {
+  "02": "02 · Sin hablar"
+ }
+}

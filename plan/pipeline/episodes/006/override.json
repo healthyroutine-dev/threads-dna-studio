@@ -1,0 +1,47 @@
+{
+ "title_es": [
+  "Una mala reseña.",
+  "2,2 M de vistas."
+ ],
+ "title_ko": [
+  "나쁜 후기 하나.",
+  "조회수 220만."
+ ],
+ "thumb_sub_es": "Avisar primero vende más.",
+ "thumb_sub_ko": "먼저 알려주면 더 팔린다.",
+ "subs": {
+  "HOOK": [
+   "Una mala reseña",
+   "de un producto famoso,",
+   "y 2,2 millones de vistas."
+  ],
+  "01": [
+   "Uno: la primera línea dice",
+   "'cuando usas los pads",
+   "Zero Pore de Medicube una vez'.",
+   "Conoces el producto, y te detienes."
+  ],
+  "02": [
+   "Dos: no explica nada,",
+   "solo repite '¿qué es esto?'.",
+   "Quieres saber qué pasó",
+   "y sigues mirando."
+  ],
+  "03": [
+   "Tres: tiene 414 comentarios.",
+   "Mientras discuten entre 'a mí también'",
+   "y 'lo usaste mal',",
+   "las vistas siguen subiendo."
+  ],
+  "04": [
+   "Tú graba",
+   "'antes de comprar, mira esto'",
+   "mientras haces una prueba de parche."
+  ],
+  "05": [
+   "La gente confía más",
+   "en quien avisa primero.",
+   "Y tienes muchas menos devoluciones."
+  ]
+ }
+}

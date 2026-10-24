@@ -1,0 +1,262 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@justtrendy31 · TikTok",
+ "meta": {
+  "no": "003",
+  "views": "6,8 M",
+  "mult": "58×",
+  "dur": "84 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.6,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.6,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Este video tiene 99 mil guardados. Son personas que lo guardaron para comprar después.",
+   "voice": "Este video tiene 99 mil guardados. Son personas que lo guardaron para comprar después.",
+   "ko": "이 영상, 저장만 9만 9천 번이에요. 나중에 사려고 저장해둔 사람들이죠."
+  },
+  {
+   "t": "play",
+   "a": 0.6,
+   "b": 2.5,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 2.5,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Responde un comentario",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: responde con un video a una pregunta de los comentarios. Quien lo ve siente que le contesta a ella.",
+   "voice": "Uno: responde con un video a una pregunta de los comentarios. Quien lo ve siente que le contesta a ella.",
+   "ko": "첫째, 댓글 질문에 영상으로 답했어요. 그러면 보는 사람도 내 질문에 답해주는 것처럼 느껴요."
+  },
+  {
+   "t": "play",
+   "a": 2.5,
+   "b": 3.6,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Responde un comentario",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3.6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · El resultado primero",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: arriba aparece primero 'así traté las manchas de todo mi cuerpo'. Antes de que hable, ya te preguntas cómo lo hizo.",
+   "voice": "Dos: arriba aparece primero 'así traté las manchas de todo mi cuerpo'. Antes de que hable, ya te preguntas cómo lo hizo.",
+   "ko": "둘째, 화면 위에 '온몸 착색을 이렇게 잡았다'는 문장이 먼저 떠요. 말 시작하기도 전에 '어떻게 한 거지?' 싶어지죠.",
+   "quote": "«Así traté las manchas de todo mi cuerpo»"
+  },
+  {
+   "t": "play",
+   "a": 24.5,
+   "b": 27,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · El resultado primero",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 27,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · En orden",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: muestra los cinco productos en el orden de uso. Al verlos en orden, sientes que no basta con comprar uno.",
+   "voice": "Tres: muestra los cinco productos en el orden de uso. Al verlos en orden, sientes que no basta con comprar uno.",
+   "ko": "셋째, 제품 다섯 개를 쓰는 순서대로 하나씩 보여줘요. 순서대로 보다 보면 하나만 사면 안 될 것 같거든요."
+  },
+  {
+   "t": "play",
+   "a": 60,
+   "b": 62.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · En orden",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 62.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Seguro tienes comentarios de '¿cómo se usa?'. Respóndelos con un video.",
+   "voice": "Seguro tienes comentarios de '¿cómo se usa?'. Respóndelos con un video.",
+   "ko": "여러분 영상에도 '이거 어떻게 써요?' 댓글 있잖아요. 그 댓글에 영상으로 답해보세요."
+  },
+  {
+   "t": "play",
+   "a": 77.5,
+   "b": 80,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 80,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Termina con 'te dejo el link del set de cinco'. Un set te deja mucho más que productos sueltos.",
+   "voice": "Termina con 'te dejo el link del set de cinco'. Un set te deja mucho más que productos sueltos.",
+   "ko": "마지막엔 '5종 세트 링크 걸어둘게요'로 끝내요. 세트는 하나만 팔아도 많이 남거든요.",
+   "quote": "«La oferta del set de cinco está increíble»"
+  },
+  {
+   "t": "freeze",
+   "at": 83.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Los sets que más se venden? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Los sets que más se venden? Te lo mando todo ¡Comenta cualquier emoji!",
+   "ko": "잘 팔리는 세트 구성, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Sets que más se venden",
+    "Precio mayorista",
+    "Guía para responder comentarios"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   5.91
+  ],
+  "01": [
+   5.91,
+   14.9
+  ],
+  "02": [
+   14.9,
+   25.14
+  ],
+  "03": [
+   25.14,
+   35.15
+  ],
+  "04": [
+   35.15,
+   42.9
+  ],
+  "05": [
+   42.9,
+   50.91
+  ],
+  "CTA": [
+   50.91,
+   58.46
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "99 mil guardados.",
+  "Para comprar."
+ ],
+ "title_ko": [
+  "저장 9만 9천.",
+  "사려고 저장."
+ ]
+}

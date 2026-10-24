@@ -1,0 +1,46 @@
+{
+ "title_es": [
+  "909 mil vistas.",
+  "Y ya da dinero."
+ ],
+ "title_ko": [
+  "조회수 91만.",
+  "그런데 벌써 돈을 번다."
+ ],
+ "thumb_sub_es": "Pregunta, serie y código.",
+ "thumb_sub_ko": "질문, 시리즈, 할인코드.",
+ "subs": {
+  "HOOK": [
+   "909 mil vistas, y este video",
+   "ya le está generando dinero.",
+   "Mira cómo lo hace."
+  ],
+  "01": [
+   "Uno: empieza preguntando",
+   "'¿te preocupan tus poros?'.",
+   "Quien tiene ese problema se detiene."
+  ],
+  "02": [
+   "Dos: le puso número de serie:",
+   "'Día 13'.",
+   "Por eso esperas el siguiente."
+  ],
+  "03": [
+   "Tres: '¿lo estás viendo",
+   "tocándote la cara? ¡No!'",
+   "Te señala directo.",
+   "Te quedas, y con tres tips, lo guardas."
+  ],
+  "04": [
+   "Empieza tu serie 'Día 1'.",
+   "Un problema, tres tips",
+   "y un producto por tip."
+  ],
+  "05": [
+   "Y gana dinero con el código",
+   "de descuento del caption.",
+   "Si empiezas con precio del club,",
+   "te queda todavía más."
+  ]
+ }
+}

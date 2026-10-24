@@ -1,0 +1,261 @@
+{
+ "src": "src.mp4",
+ "video_y": 70,
+ "handle": "@jimoon · TikTok",
+ "meta": {
+  "no": "011",
+  "views": "7,6 M",
+  "mult": "6.3×",
+  "dur": "124 S",
+  "multk": "vs seguidores"
+ },
+ "segs": [
+  {
+   "t": "play",
+   "a": 0,
+   "b": 0.6,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 0.6,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "sub": "Dos minutos de chisme, y 1,1 millones de likes.",
+   "voice": "Dos minutos de chisme, y 1,1 millones de likes.",
+   "ko": "2분 내내 수다만 떨었는데, 좋아요가 110만 개예요."
+  },
+  {
+   "t": "play",
+   "a": 0.6,
+   "b": 3,
+   "lit": [],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Un chisme",
+   "h2": "",
+   "now": 1,
+   "pause": "01",
+   "pip": true,
+   "sub": "Uno: empieza con 'cómo me peleé con una marca'. La gente no viene por el producto, viene por la historia.",
+   "voice": "Uno: empieza con 'cómo me peleé con una marca'. La gente no viene por el producto, viene por la historia.",
+   "ko": "첫째, '브랜드랑 싸운 썰'로 시작해요. 제품 얘기가 아니라 이야기를 들으러 오는 거죠.",
+   "quote": "«Cómo me peleé con una marca»"
+  },
+  {
+   "t": "play",
+   "a": 50.5,
+   "b": 53,
+   "lit": [
+    1
+   ],
+   "h1": "01 · Un chisme",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 53,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Producto de fondo",
+   "h2": "",
+   "now": 2,
+   "pause": "02",
+   "pip": true,
+   "sub": "Dos: mientras habla, sus manos hacen la rutina. Por eso no parece anuncio.",
+   "voice": "Dos: mientras habla, sus manos hacen la rutina. Por eso no parece anuncio.",
+   "ko": "둘째, 말하는 동안 손은 계속 스킨케어를 해요. 그래서 광고 같지가 않아요."
+  },
+  {
+   "t": "play",
+   "a": 86.5,
+   "b": 89,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "02 · Producto de fondo",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 89,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Hasta el final",
+   "h2": "",
+   "now": 3,
+   "pause": "03",
+   "pip": true,
+   "sub": "Tres: quieres saber cómo termina y ves los dos minutos. Y el producto sale todo ese tiempo.",
+   "voice": "Tres: quieres saber cómo termina y ves los dos minutos. Y el producto sale todo ese tiempo.",
+   "ko": "셋째, 끝이 궁금해서 2분을 다 봐요. 그동안 제품도 계속 화면에 나오고요."
+  },
+  {
+   "t": "play",
+   "a": 104.5,
+   "b": 107,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "03 · Hasta el final",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 107,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 4,
+   "pause": "04",
+   "pip": true,
+   "sub": "Cuenta algo que te pasó esta semana mientras haces tu rutina de tres pasos.",
+   "voice": "Cuenta algo que te pasó esta semana mientras haces tu rutina de tres pasos.",
+   "ko": "이번 주에 있었던 일 하나를 얘기하면서, 손으로는 세 단계 루틴을 해보세요."
+  },
+  {
+   "t": "play",
+   "a": 119.5,
+   "b": 122,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "04 · Tu tip",
+   "h2": "",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 122,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "05 · Así se vende",
+   "h2": "",
+   "now": 5,
+   "pause": "05",
+   "pip": true,
+   "sub": "Pon los productos en el caption. Al final, tus seguidoras compran lo que tú usas.",
+   "voice": "Pon los productos en el caption. Al final, tus seguidoras compran lo que tú usas.",
+   "ko": "제품 이름은 캡션에 적어두세요. 팔로워들은 결국 내가 쓰는 걸 따라 사요."
+  },
+  {
+   "t": "freeze",
+   "at": 123.92,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "sub": "¿Una rutina de 3 pasos para tu chisme? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Una rutina de 3 pasos para tu chisme? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "말하면서 하기 좋은 3단계 루틴, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "endcard": true,
+   "items": [
+    "Rutina de 3 pasos",
+    "Guía para tu caption",
+    "Lista de sourcing de la semana"
+   ]
+  }
+ ],
+ "sect": {
+  "HOOK": [
+   0.0,
+   5.68
+  ],
+  "01": [
+   5.68,
+   12.83
+  ],
+  "02": [
+   12.83,
+   20.55
+  ],
+  "03": [
+   20.55,
+   27.26
+  ],
+  "04": [
+   27.26,
+   32.78
+  ],
+  "05": [
+   32.78,
+   40.24
+  ],
+  "CTA": [
+   40.24,
+   48.8
+  ]
+ },
+ "crop": [
+  900,
+  30,
+  60
+ ],
+ "title_es": [
+  "2 min de chisme.",
+  "1,1 M de likes."
+ ],
+ "title_ko": [
+  "2분 수다.",
+  "좋아요 110만."
+ ]
+}
