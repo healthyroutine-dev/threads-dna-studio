@@ -59,7 +59,7 @@ def render(spec: dict, browser) -> Path:
         sys.exit(f"배경 이미지 없음: {bg}")
     use_pip = cat != "F" and not spec.get("no_pip", False)
     pip_path = Path(spec.get("pip") or HERE / "assets" / "ceo_circle.png")
-    label = f"{spec['label']} · EP.{int(spec['ep']):02d}"
+    label = spec["label"]   # 편 번호는 넣지 않음 (순서가 바뀔 수 있음)
     html = HTML.format(
         W=W, H=H, bg=data_uri(bg), color=COLORS[cat], academy=esc(spec.get("academy_text", "K-Beauty Influencer Academy")),
         label=esc(label), title=esc(spec["title"]).replace("|", "<br>"), sub=esc(spec.get("sub", "")),
