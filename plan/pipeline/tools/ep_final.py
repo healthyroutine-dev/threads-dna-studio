@@ -13,8 +13,11 @@ F = f'{REPO}/plan/final/{no}'; os.makedirs(F, exist_ok=True)
 # 썸네일: 배경 = 원본에서 포인트 02 장면, 원형 = 보정한 대표 얼굴
 t_bg = [s['at'] for s in p['segs'] if s['t'] == 'freeze'][2]
 run(['ffmpeg', '-v', 'error', '-y', '-ss', str(max(0, t_bg - 0.3)), '-i', f'{D}/src.mp4', '-frames:v', '1', '-vf', 'scale=1080:1920:flags=lanczos,unsharp=5:5:0.5', f'{D}/thumb_bg.jpg'])
-if ov.get('thumb_blur_top'):   # 원본에 박힌 상단 글자가 헤더와 겹치면 그 띠만 흐리게
-    hb = int(ov['thumb_blur_top']); run(['ffmpeg', '-v', 'error', '-y', '-i', f'{D}/thumb_bg.jpg', '-filter_complex', f'[0]split[a][b];[b]crop=1080:{hb}:0:0,boxblur=24:3,eq=brightness=-0.15[t];[a][t]overlay=0:0', f'{D}/thumb_bg.jpg'])
+import cv2
+_g = cv2.Canny(cv2.cvtColor(cv2.resize(cv2.imread(f'{D}/thumb_bg.jpg'), (1080, 1920)), cv2.COLOR_BGR2GRAY), 80, 200)[180:330] / 255
+auto_blur = (cv2.blur(_g, (41, 15)) > 0.16).mean() > 0.1   # 헤더 자리(ACADEMY 줄)에 원본 글자가 있으면 자동
+if ov.get('thumb_blur_top') or auto_blur:   # 원본에 박힌 상단 글자가 헤더와 겹치면 그 띠만 흐리게
+    hb = int(ov.get('thumb_blur_top', 420)); run(['ffmpeg', '-v', 'error', '-y', '-i', f'{D}/thumb_bg.jpg', '-filter_complex', f'[0]split[a][b];[b]crop=1080:{hb}:0:0,boxblur=24:3,eq=brightness=-0.15[t];[a][t]overlay=0:0', f'{D}/thumb_bg.jpg'])
 bv = f'{D}/beauty.mp4'; fx, fy = (160, 60) if p['crop'] == [900, 30, 60] else (220, 520)
 run(['ffmpeg', '-v', 'error', '-y', '-ss', '1.0', '-i', bv, '-frames:v', '1', '-vf', f'crop=640:640:{fx}:{fy},scale=400:400', f'{D}/ceo_face.png'])
 ep_i = int(no)
