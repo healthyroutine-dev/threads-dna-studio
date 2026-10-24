@@ -16,8 +16,11 @@ run(['ffmpeg', '-v', 'error', '-y', '-ss', str(max(0, t_bg - 0.3)), '-i', f'{D}/
 bv = f'{D}/beauty.mp4'; fx, fy = (160, 60) if p['crop'] == [900, 30, 60] else (220, 520)
 run(['ffmpeg', '-v', 'error', '-y', '-ss', '1.0', '-i', bv, '-frames:v', '1', '-vf', f'crop=640:640:{fx}:{fy},scale=400:400', f'{D}/ceo_face.png'])
 ep_i = int(no)
+# 원형 위치: 편마다 원본 인물 눈·입·글자를 피해 자동 선택 (pip_pick.py)
+px, py = subprocess.run(['python3', S + '/tools/pip_pick.py', f'{D}/thumb_bg.jpg'], capture_output=True, text=True).stdout.split()[-2:]
+if ov.get('pip_xy'): px, py = map(str, ov['pip_xy'])   # 자동이 어색하면 편별로 손으로 지정
 run(['python3', f'{REPO}/plan/reel001/template/make_thumb.py', '--bg', f'{D}/thumb_bg.jpg', '--cat', 'C1', '--label', 'CLASS 1 · VIRAL', '--ep', str(ep_i),
-     '--title', '|'.join(p['title_es']), '--sub', ov.get('thumb_sub_es', '¿Qué hizo diferente?'), '--pip', f'{D}/ceo_face.png', '--brand-text', '', '--out', f'{F}/{no}_썸네일.png'])
+     '--title', '|'.join(p['title_es']), '--sub', ov.get('thumb_sub_es', '¿Qué hizo diferente?'), '--pip', f'{D}/ceo_face.png', '--pip-x', px, '--pip-y', py, '--brand-text', '', '--out', f'{F}/{no}_썸네일.png'])
 
 # 영상
 shutil.copy(f'{D}/b2x_kbeauty_que_vende_{no}_es.mp4', f'{F}/{no}_ES_최종.mp4')

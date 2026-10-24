@@ -27,7 +27,7 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
 .title{{font-weight:700;font-size:85px;line-height:1.08;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;
   -webkit-box-orient:vertical;overflow:hidden}}
 .sub{{font-weight:400;font-size:39px;color:#9A9A9A;margin-top:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
-.pip{{position:absolute;right:43px;bottom:{pip_bottom}px;width:346px;height:346px;border-radius:50%;border:16px solid #fff;
+.pip{{position:absolute;left:{pip_x}px;top:{pip_y}px;width:346px;height:346px;border-radius:50%;border:16px solid #fff;
   box-sizing:border-box;background:url({pip}) center/cover;box-shadow:0 12px 32px rgba(0,0,0,.5)}}
 .brand{{position:absolute;left:0;right:0;top:1824px;transform:translateY(-50%);text-align:center;
   font-weight:700;font-size:43px;letter-spacing:9px;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
@@ -64,7 +64,7 @@ def render(spec: dict, browser) -> Path:
         W=W, H=H, bg=data_uri(bg), color=COLORS[cat], academy=esc(spec.get("academy_text", "K-Beauty Influencer Academy")),
         label=esc(label), title=esc(spec["title"]).replace("|", "<br>"), sub=esc(spec.get("sub", "")),
         pip=data_uri(pip_path) if use_pip else "", pip_div='<div class="pip"></div>' if use_pip else "",
-        brand=esc(spec.get("brand_text", "B2X")), pip_bottom=int(spec.get("pip_bottom", 336)))
+        brand=esc(spec.get("brand_text", "B2X")), pip_x=int(spec.get("pip_x", 691)), pip_y=int(spec.get("pip_y", 1920 - 346 - int(spec.get("pip_bottom", 336)))))
     out = Path(spec["out"]).expanduser()
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
@@ -85,7 +85,7 @@ def main():
     ap.add_argument("--batch", help="episodes.json (항목 배열)")
     ap.add_argument("--bg"); ap.add_argument("--cat"); ap.add_argument("--label"); ap.add_argument("--ep", type=int)
     ap.add_argument("--title"); ap.add_argument("--sub", default=""); ap.add_argument("--out")
-    ap.add_argument("--pip"); ap.add_argument("--no-pip", action="store_true"); ap.add_argument("--pip-bottom", type=int)
+    ap.add_argument("--pip"); ap.add_argument("--no-pip", action="store_true"); ap.add_argument("--pip-bottom", type=int); ap.add_argument("--pip-x", type=int); ap.add_argument("--pip-y", type=int)
     ap.add_argument("--academy-text"); ap.add_argument("--brand-text")
     ap.add_argument("--grid-preview", action="store_true")
     ap.add_argument("--chromium", default=os.environ.get("CHROMIUM_PATH", "/opt/pw-browsers/chromium"))
@@ -103,7 +103,7 @@ def main():
         if need:
             sys.exit("필수 옵션 누락: " + ", ".join("--" + k for k in need))
         specs = [dict(bg=a.bg, cat=a.cat, label=a.label, ep=a.ep, title=a.title, sub=a.sub, out=a.out,
-                      pip=a.pip, pip_bottom=a.pip_bottom, no_pip=a.no_pip, academy_text=a.academy_text, brand_text=a.brand_text,
+                      pip=a.pip, pip_bottom=a.pip_bottom, pip_x=a.pip_x, pip_y=a.pip_y, no_pip=a.no_pip, academy_text=a.academy_text, brand_text=a.brand_text,
                       grid_preview=a.grid_preview)]
         specs[0] = {k: v for k, v in specs[0].items() if v is not None}
 
