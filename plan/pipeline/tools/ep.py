@@ -140,6 +140,7 @@ def plan(no):
         s = dict(t='freeze', at=round(at, 2), lit=list(lit) if key != 'CTA' else [1, 2, 3, 4, 5], h1=h1 if key not in ('HOOK', 'CTA') else '', h2='',
                  now=(lit[-1] if key not in ('HOOK', 'CTA') else 0), pause=key, pip=True, sub=es, voice=es.replace(' 🎁 ', '. ').replace('🎁', '').replace('..', '.'), ko=ko)
         if len(sh_line) > 3 and sh_line[3]: s['quote'] = sh_line[3]
+        if key in ov.get('still', {}): s['still'] = ov['still'][key]   # 멈춤 화면을 원본의 다른 순간으로 (설명과 증거 맞추기)
         if key == 'CTA': s.update(endcard=True, items=ov.get('items', SH['items']), lit=[1, 2, 3, 4, 5], h1='', h2='', now=0)
         segs.append(s); prev = at
     st = E['stats']; ws = E.get('src') == '우식PD'

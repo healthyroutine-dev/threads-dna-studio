@@ -7,6 +7,7 @@ segs = [s for s in json.load(open(plan))['segs'] if s.get('voice')]
 texts = [s['voice'] for s in segs]
 for k, s in enumerate(segs):
     key = s['pause'].split()[0]
+    if os.environ.get('ONLY') and key not in os.environ['ONLY'].split(','): continue   # 고친 구간만 다시
     body = {'text': texts[k], 'model_id': MODEL,
             'voice_settings': {'stability': 0.5, 'similarity_boost': 0.85, 'style': 0.15, 'use_speaker_boost': True, 'speed': SPEED.get(key, 1.0)},
             'previous_text': texts[k - 1] if k else None, 'next_text': texts[k + 1] if k + 1 < len(texts) else None}

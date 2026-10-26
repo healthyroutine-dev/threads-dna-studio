@@ -38,5 +38,10 @@
    "Los ingredientes, en porcentaje;",
    "el efecto, en tiempo."
   ]
- }
+ },
+ "still": {
+  "01": 7.5,
+  "02": 3.5
+ },
+ "sub_bottom": 760
 }

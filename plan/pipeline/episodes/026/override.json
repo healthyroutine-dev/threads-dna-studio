@@ -10,16 +10,18 @@
  "thumb_sub_es": "Mira los compartidos.",
  "thumb_sub_ko": "공유 수를 보세요.",
  "es": {
-  "CTA": "¿Mi plantilla de video de reseña? Te lo mando todo 🎁 ¡Comenta cualquier emoji!"
+  "CTA": "¿Mi plantilla de video de reseña? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+  "03": "Tres: si muchos lo vieron y casi nadie lo compartió, puede ser pauta pagada. No lo copies solo por las vistas."
  },
  "items": [
   "Plantilla de video de reseña",
   "Cómo detectar videos pagados",
-  "Lista de sourcing de la semana"
+  "Productos de la semana"
  ],
  "cta_ko": "후기 영상 템플릿, 전부 정리해서 보내드릴게요 🎁",
  "notes": [
-  "CTA 촬영대로 \"후기 영상 템플릿\""
+  "CTA 촬영대로 \"후기 영상 템플릿\"",
+  "03 '아무도 공유 안 함' → 'casi nadie(거의 아무도)', 광고 단정 → 'puede ser(일 수도)' (299회 공유와 모순 수정)"
  ],
  "subs": {
   "01": [
@@ -30,9 +32,8 @@
   ],
   "03": [
    "Tres: si muchos lo vieron",
-   "y nadie lo compartió,",
-   "lo más probable es",
-   "que sea pauta pagada.",
+   "y casi nadie lo compartió,",
+   "puede ser pauta pagada.",
    "No lo copies solo por las vistas."
   ],
   "04": [
