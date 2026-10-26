@@ -57,8 +57,14 @@ for i, s in enumerate(plan['segs']):
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
     ks = round(min(1.1, max(1.0, sum(y - x for x, y in ch) / dur(ES[key]))), 3) if DUB else 1.0   # 한국어(영상+원음)는 최대 1.1배까지만 빠르게
-    fl.append(''.join(f'[v{k}][a{k}]' for k in range(n)) + f'concat=n={n}:v=1:a=1[v0][a0]')
-    fl.append(f'[v0]setpts=PTS/{ks}[v];[a0]atempo={ks}[a]')
+    # 이어 붙인 지점을 자연스럽게: 화면 디졸브·소리 크로스페이드 0.1초 (길이 같게) (점프컷 완화)
+    XV = XA = 0.1; pv, pa, acc = 'v0', 'a0', ch[0][1] - ch[0][0]
+    for k in range(1, n):
+        fl.append(f'[{pv}][v{k}]xfade=transition=fade:duration={XV}:offset={acc - XV:.3f}[vx{k}]')
+        fl.append(f'[{pa}][a{k}]acrossfade=d={XA}:c1=tri:c2=tri[ax{k}]')
+        pv, pa = f'vx{k}', f'ax{k}'; acc += (ch[k][1] - ch[k][0]) - XV
+    fl.append(f'[{pv}]null[vv0];[{pa}]anull[aa0]')
+    fl.append(f'[vv0]setpts=PTS/{ks}[v];[aa0]atempo={ks}[a]')
     fl.append(f"[v]fps=30,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(lte(hypot(X-164.5,Y-164.5),165),255,0)'[vc]")
     run(['ffmpeg', '-v', 'error', '-y', '-i', CEO_V, '-i', CEO_A, '-filter_complex', ';'.join(fl), '-map', '[vc]', '-map', '[a]',
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])
@@ -88,7 +94,8 @@ for i, s in enumerate(plan['segs']):
                f"[0:v]fps=30,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY}[v];[v][1:v]overlay=0:0[o]", '-map', '[o]'] + enc + [out]
     else:
         px, py = (367, 220) if s.get('endcard') else (691, 640)
-        base = f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
+        zc = (lambda z: f"crop={z[2]}:{z[2] * 16 // 9}:{z[0]}:{z[1]}," if z else '')(s.get('zoom'))   # 멈춤 화면 확대
+        base = f"[0:v]trim=end_frame=1,scale=1080:1920,{zc}scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
         ins = ['-ss', str(s.get('still', s['at'])), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
         fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
         last = 'o2'

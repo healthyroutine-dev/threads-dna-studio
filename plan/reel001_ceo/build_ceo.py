@@ -52,7 +52,13 @@ for i, s in enumerate(plan['segs']):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
-    fl.append(''.join(f'[v{k}][a{k}]' for k in range(n)) + f'concat=n={n}:v=1:a=1[v][a]')
+    # 이어 붙인 지점을 자연스럽게: 화면 디졸브·소리 크로스페이드 0.1초
+    XV = 0.1; pv, pa, acc = 'v0', 'a0', ch[0][1] - ch[0][0]
+    for k in range(1, n):
+        fl.append(f'[{pv}][v{k}]xfade=transition=fade:duration={XV}:offset={acc - XV:.3f}[vx{k}]')
+        fl.append(f'[{pa}][a{k}]acrossfade=d={XV}:c1=tri:c2=tri[ax{k}]')
+        pv, pa = f'vx{k}', f'ax{k}'; acc += (ch[k][1] - ch[k][0]) - XV
+    fl.append(f'[{pv}]null[v];[{pa}]anull[a]')
     fl.append(f"[v]fps=30,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(lte(hypot(X-164.5,Y-164.5),165),255,0)'[vc]")
     run(['ffmpeg', '-v', 'error', '-y', '-i', CEO_V, '-i', CEO_A, '-filter_complex', ';'.join(fl), '-map', '[vc]', '-map', '[a]',
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])

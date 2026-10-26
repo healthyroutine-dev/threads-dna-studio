@@ -40,5 +40,17 @@
    "El próximo tema, sácalo",
    "de las preguntas en comentarios."
   ]
- }
+ },
+ "still": {
+  "01": 0.6,
+  "02": 12.5
+ },
+ "zoom": {
+  "01": [
+   540,
+   960,
+   540
+  ]
+ },
+ "sub_bottom": 760
 }

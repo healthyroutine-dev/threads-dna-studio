@@ -127,9 +127,11 @@ def plan(no):
     segs = []; prev = 0.0; lit = []; h1 = ''
     for k, r in enumerate(rows):
         t, lab, _, es, ko = r; key = key_of(lab, k)
+        t = ov.get('at', {}).get(key, t)   # 멈추는 시점 조정 (설명하는 동작이 다 보이게)
         at = min(t, dur_src - 0.08)
         # 재생 구간: 15초 이하 원본은 이어서, 넘으면 clips(멈춤 앞 2.5초)만
         wins = [[a, b] for a, b in (clips or [[prev, at]]) if b > prev + 0.01 and b <= at + 0.01] if at > prev + 0.01 else []
+        if key in ov.get('clip', {}): wins = [ov['clip'][key]]   # 멈춤 앞 재생 구간을 직접 지정 (동작·소리를 더 길게)
         for a, b in wins:
             segs.append(dict(t='play', a=round(a, 2), b=round(min(b, at), 2), lit=list(lit), h1=h1, h2='', now=0, pause=None, pip=False))
         if key in ov.get('drop', []): prev = at; continue   # 촬영에서 통째로 건너뛴 포인트는 멈춤 없이
@@ -140,7 +142,8 @@ def plan(no):
         s = dict(t='freeze', at=round(at, 2), lit=list(lit) if key != 'CTA' else [1, 2, 3, 4, 5], h1=h1 if key not in ('HOOK', 'CTA') else '', h2='',
                  now=(lit[-1] if key not in ('HOOK', 'CTA') else 0), pause=key, pip=True, sub=es, voice=es.replace(' 🎁 ', '. ').replace('🎁', '').replace('..', '.'), ko=ko)
         if len(sh_line) > 3 and sh_line[3]: s['quote'] = sh_line[3]
-        if key in ov.get('still', {}): s['still'] = ov['still'][key]   # 멈춤 화면을 원본의 다른 순간으로 (설명과 증거 맞추기)
+        if key in ov.get('still', {}): s['still'] = ov['still'][key]
+        if key in ov.get('zoom', {}): s['zoom'] = ov['zoom'][key]   # 멈춤 화면 확대 [x, y, w] (9:16, 원본 1080x1920 기준)   # 멈춤 화면을 원본의 다른 순간으로 (설명과 증거 맞추기)
         if key == 'CTA': s.update(endcard=True, items=ov.get('items', SH['items']), lit=[1, 2, 3, 4, 5], h1='', h2='', now=0)
         segs.append(s); prev = at
     st = E['stats']; ws = E.get('src') == '우식PD'
