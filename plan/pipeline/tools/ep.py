@@ -158,7 +158,7 @@ def plan(no):
     json.dump(subs, open(f'{D}/subs_plan.json', 'w'), ensure_ascii=False, indent=1)
     for k, v in subs.items(): print(k, ' | '.join(v))
     print('title', ov['title_es'], '=', ov['title_ko'], [round(width(x.upper()) * 86 / 54) for x in ov['title_es']])
-    assert all(round(width(x.upper()) * 86 / 54) <= 880 for x in ov['title_es']), '제목 한 줄 폭 880 초과 (영상에서 두 줄로 넘어감)'
+    # 제목은 영상에서 3줄 안으로 자동 축소 (overlay.html) — 폭 제한 없음
 
 def tts(no):
     D = f'{S}/ep/{no}'; p = json.load(open(f'{D}/plan_base.json')); sc = json.load(open(f'{D}/sect.json'))

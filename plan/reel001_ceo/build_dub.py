@@ -6,7 +6,7 @@ CEO_V, CEO_A, SIL = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = json.load(open('plan.json'))
 SUBS = json.load(open('subs_plan.json'))
 # 헤드카피는 처음 후킹 제목으로 끝까지 고정, 포인트 이름은 멈춤 배지로 ("01 · SIN FILTRO")
-H1, H2 = 'Ni una palabra.', plan['segs'][0]['h2']   # 제목: Ni una palabra. / 5,4 M de vistas. (말 한마디 없이 / 조회수 540만)
+H1, H2 = 'Su antes y después', 'vendió sin una palabra.'   # 제목 (피부 전후 영상, 말 한마디 없이 팔렸다)
 for s in plan['segs']:
     if s.get('endcard'): continue
     if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
@@ -21,6 +21,12 @@ SECT = {'HOOK': (0.0, 5.3), '01': (5.3, 13.5), '02': (13.5, 23.75), '03': (23.75
 LEAD, TAIL = 0.12, 0.25          # 정지 화면에서 말 시작 전/후 여유
 CROP = (900, 90, 520)            # 원형에 들어갈 얼굴 정사각 크롭 (크기, x, y) @1080x1920
 sil = [tuple(map(float, l.split())) for l in open(SIL) if l.strip()]
+import os as _os, re as _re   # 한국어 문장 사이 쉬는 틈 줄이기 (-35dB 기준 추가, 말 앞 0.08·뒤 0.14초)
+_s35 = SIL.replace('.txt', '35.txt')
+if not _os.path.exists(_s35):
+    _o = subprocess.run(['ffmpeg', '-hide_banner', '-i', CEO_A, '-af', 'silencedetect=n=-35dB:d=0.2', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    _v = _re.findall(r'silence_(?:start|end): ([0-9.]+)', _o); open(_s35, 'w').write(''.join(f'{_v[i]} {_v[i+1]}\n' for i in range(0, len(_v) - 1, 2)))
+sil = sorted(sil + [tuple(map(float, l.split())) for l in open(_s35) if l.strip()])
 DUB = sys.argv[4]
 KO_VOL = 0.13                     # 한국어 원음 (약 -18dB)
 import re as _re   # 재생 구간 원본 소리 (-19 LUFS 정도)
@@ -39,7 +45,7 @@ def speech_chunks(a, b):
         if s > cur: out.append([cur, s])
         cur = max(cur, e)
     if cur < b: out.append([cur, b])
-    out = [[max(a, x - 0.12), min(b, y + 0.22)] for x, y in out if y - x > 0.12]
+    out = [[max(a, x - 0.08), min(b, y + 0.14)] for x, y in out if y - x > 0.12]
     merged = []
     for x, y in out:
         if merged and x - merged[-1][1] < 0.05: merged[-1][1] = y

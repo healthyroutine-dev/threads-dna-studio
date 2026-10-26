@@ -48,7 +48,7 @@ html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);fon
 function render(s){
  const m=s.meta||{};
  no.textContent=m.no||'001'; s1.textContent=m.views||''; s2k.textContent=m.multk||"vs seguidores"; s2.textContent=m.mult||''; s3.textContent=m.dur||'';
- h1.textContent=s.h1||''; h2.textContent=s.h2||'';
+ h1.textContent=s.h1||''; h2.textContent=s.h2||''; {const hl=document.querySelector('.hl');let f=86;hl.style.fontSize=f+'px';while(hl.offsetHeight>172&&f>44){f-=2;hl.style.fontSize=f+'px';}}  /* 긴 제목은 3줄 안에 들어가게 글자 크기 자동 축소 */
  prog.innerHTML=[1,2,3,4,5].map(i=>`<div class="${s.lit.includes(i)?'on':''} ${s.now===i?'now':''}">0${i}</div>`).join('');
  if(s.pause){pause.style.display='block';pause.textContent='❚❚ '+s.pause}
  handle.textContent=s.handle||'';

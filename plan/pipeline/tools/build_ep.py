@@ -21,7 +21,12 @@ dur = lambda f: float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
 SECT = {k: tuple(v) for k, v in plan['sect'].items()}
 LEAD, TAIL = 0.12, 0.25          # 정지 화면에서 말 시작 전/후 여유
 CROP = tuple(plan.get('crop', (900, 90, 520)))   # 원형에 들어갈 정사각 크롭 (크기, x, y) · 보정 영상 기준
-sil = sorted([tuple(map(float, l.split())) for l in open(SIL) if l.strip()] + [tuple(c) for c in plan.get('cut', [])])   # cut: 다시 말한 중복 구간 빼기
+# 한국어 문장 사이 쉬는 틈 줄이기: 숨소리까지 무음으로 보는 -35dB 기준을 함께 써서 틈을 더 잘라냄 (말 앞 0.08·뒤 0.14초만 남김)
+_s35 = SIL.replace('.txt', '35.txt')
+if not os.path.exists(_s35):
+    _o = subprocess.run(['ffmpeg', '-hide_banner', '-i', CEO_A, '-af', 'silencedetect=n=-35dB:d=0.2', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    _v = re.findall(r'silence_(?:start|end): ([0-9.]+)', _o); open(_s35, 'w').write(''.join(f'{_v[i]} {_v[i+1]}\n' for i in range(0, len(_v) - 1, 2)))
+sil = sorted([tuple(map(float, l.split())) for l in open(SIL) if l.strip()] + [tuple(map(float, l.split())) for l in open(_s35) if l.strip()] + [tuple(c) for c in plan.get('cut', [])])   # cut: 다시 말한 중복 구간 빼기
 DUB = sys.argv[5] if MODE == 'es' else None
 KO_VOL = 0.13 if MODE == 'es' else 1.0   # es: 한국어 원음 약 -18dB
 import re as _re   # 재생 구간 원본 소리: 원본 전체 음량을 재서 -19 LUFS 정도로 맞춤 (대표 음성보다 살짝 작게)
@@ -39,7 +44,7 @@ def speech_chunks(a, b):
         if s > cur: out.append([cur, s])
         cur = max(cur, e)
     if cur < b: out.append([cur, b])
-    out = [[max(a, x - 0.12), min(b, y + 0.22)] for x, y in out if y - x > 0.12]
+    out = [[max(a, x - 0.08), min(b, y + 0.14)] for x, y in out if y - x > 0.12]
     merged = []
     for x, y in out:
         if merged and x - merged[-1][1] < 0.05: merged[-1][1] = y

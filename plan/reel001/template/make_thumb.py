@@ -24,7 +24,7 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
   padding:40px 46px 42px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
 .bar{{position:absolute;left:0;top:0;bottom:0;width:13px;border-radius:26px 0 0 26px;background:{color}}}
 .label{{font-weight:700;font-size:36px;letter-spacing:6px;color:#BDBDBD;text-transform:uppercase}}
-.title{{font-weight:700;font-size:85px;line-height:1.08;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;
+.title{{font-weight:700;font-size:68px;line-height:1.08;margin-top:10px;display:-webkit-box;-webkit-line-clamp:4;
   -webkit-box-orient:vertical;overflow:hidden}}
 .sub{{font-weight:400;font-size:39px;color:#9A9A9A;margin-top:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 .pip{{position:absolute;left:{pip_x}px;top:{pip_y}px;width:346px;height:346px;border-radius:50%;border:16px solid #fff;
