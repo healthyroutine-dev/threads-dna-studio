@@ -6,7 +6,7 @@ CEO_V, CEO_A, SIL = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = json.load(open('plan.json'))
 SUBS = json.load(open('subs_plan.json'))
 # 헤드카피는 처음 후킹 제목으로 끝까지 고정, 포인트 이름은 멈춤 배지로 ("01 · SIN FILTRO")
-H1, H2 = 'Su antes y después', 'vendió sin una palabra.'   # 제목 (피부 전후 영상, 말 한마디 없이 팔렸다)
+H1, H2 = 'Su antes y después', 'explotó sin decir una palabra.'   # 제목 (피부 전후 영상, 말 한마디 없이 터졌다)
 for s in plan['segs']:
     if s.get('endcard'): continue
     if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
