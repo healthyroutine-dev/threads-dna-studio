@@ -146,7 +146,7 @@ def plan(no):
     meta = dict(no=no, views=es_views(st['views']), mult=st['mult'].replace(',', '.'), dur=f"{E['dur']} S", multk='vs promedio' if E['stats'].get('multLabel', '팔로워 대비') == '평소 대비' else 'vs seguidores')
     sect = {**sc['sect'], **ov.get('sect', {})}   # 경계 손보기
     for k in ov.get('drop', []): sect.pop(k, None)   # 건너뛴 포인트는 구간도 뺌
-    p = dict(src='src.mp4', video_y=ov.get('video_y', 70), handle=f"@{E['handle']} · TikTok", meta=meta, segs=segs, sect=sect, cut=ov.get('cut', []), crop=ov.get('crop', [900, 30, 60]),
+    p = dict(src='src.mp4', video_y=ov.get('video_y', 70), handle=f"@{E['handle']} · TikTok", meta=meta, segs=segs, sect=sect, cut=ov.get('cut', []), sub_bottom=ov.get('sub_bottom', 495), crop=ov.get('crop', [900, 30, 60]),
              title_es=ov['title_es'], title_ko=ov['title_ko'])
     json.dump(p, open(f'{D}/plan_base.json', 'w'), ensure_ascii=False, indent=1); shutil.copy(f'{D}/plan_base.json', f'{D}/plan.json')
     subs = {s['pause']: split_subs(s['sub']) for s in segs if s['t'] == 'freeze' and not s.get('endcard')}

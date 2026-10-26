@@ -2,7 +2,7 @@
 # mode es: 대표 v2 스페인어 + 한국어 원음 작게, 속도 맞춤·같이 끝남, 자막 = 스페인어 단어 시간
 # mode ko: 대표 한국어 원음, 정지 = 한국어 길이, 자막(스페인어)은 길이 비례
 # usage: python3 build_ep.py es|ko <ceo_video> <clean.wav> <silences.txt> [dub_dir]
-import json, subprocess, sys, glob, os
+import json, subprocess, sys, glob, os, re
 MODE = sys.argv[1]; CEO_V, CEO_A, SIL = sys.argv[2], sys.argv[3], sys.argv[4]
 plan = json.load(open('plan.json'))
 SUBS = json.load(open('subs_plan.json'))
@@ -125,6 +125,8 @@ for parts, st, wav in subs:
         end = w[-1][1] if k == len(parts) - 1 else char_time(w, acc / tot)
         chunks.append((x, st + prev, st + end + (0.15 if k == len(parts) - 1 else 0))); prev = end
 json.dump([c[0] for c in chunks], open('subs.json', 'w'), ensure_ascii=False)
+_sh = open('subs.html').read()   # 원본 화면 글자와 겹치면 편별로 자막 높이 올림 (plan sub_bottom, 기본 495)
+open('subs.html', 'w').write(re.sub(r'bottom:\d+px', f"bottom:{int(plan.get('sub_bottom', 495))}px", _sh, count=1))
 run(['node', 'render_subs.mjs'])
 ins = ['-i', 'video_nosub.mp4']; fl = []; prev = '0:v'
 for k, (x, a, e) in enumerate(chunks):
