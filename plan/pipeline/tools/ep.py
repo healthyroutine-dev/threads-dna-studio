@@ -117,6 +117,8 @@ def split_subs(text, limit=880):
         i += 1
     return out
 
+OPEN = 3.0   # 시작할 때 원본을 보여주는 길이(초) — 모든 편 동일
+
 def plan(no):
     D = f'{S}/ep/{no}'; E, LB, SH = data(no); sc = json.load(open(f'{D}/sect.json'))
     ov = json.load(open(f'{D}/override.json')) if os.path.exists(f'{D}/override.json') else {}
@@ -124,14 +126,19 @@ def plan(no):
     rows = LB['rows']; dur_src = E['dur']; clips = LB['clips'] if dur_src > 15 else None
     shutil.copy(f'{S}/site/v/{E["id"]}.mp4', f'{D}/src.mp4')
     for f in os.listdir(S + '/eptpl'): shutil.copy(f'{S}/eptpl/{f}', D)
-    segs = []; prev = 0.0; lit = []; h1 = ''
+    segs = []; prev = 0.0; lit = []; h1 = ''; hook_at = 0.0
     for k, r in enumerate(rows):
         t, lab, _, es, ko = r; key = key_of(lab, k)
         t = ov.get('at', {}).get(key, t)   # 멈추는 시점 조정 (설명하는 동작이 다 보이게)
+        still0 = None
+        if key == 'HOOK' and 'HOOK' not in ov.get('at', {}): t = min(OPEN, dur_src - 0.1); hook_at = t   # 시작 원본 3초 → 후킹 멈춤
+        elif k > 0 and t < hook_at: still0, t = t, hook_at   # 3초 안쪽 포인트(첫 화면 등)는 그 장면을 멈춤 화면으로, 재생은 건너뜀
         at = min(t, dur_src - 0.08)
         # 재생 구간: 15초 이하 원본은 이어서, 넘으면 clips(멈춤 앞 2.5초)만
         wins = [[a, b] for a, b in (clips or [[prev, at]]) if b > prev + 0.01 and b <= at + 0.01] if at > prev + 0.01 else []
+        if key == 'HOOK': wins = [[0.0, at]] if at > 0.01 else []
         if key in ov.get('clip', {}): wins = [ov['clip'][key]]   # 멈춤 앞 재생 구간을 직접 지정 (동작·소리를 더 길게)
+        wins = [[max(a, prev), b] for a, b in wins if b - max(a, prev) >= 1.0]   # 앞 구간과 겹치지 않게, 1초 미만 깜빡임은 빼기
         for a, b in wins:
             segs.append(dict(t='play', a=round(a, 2), b=round(min(b, at), 2), lit=list(lit), h1=h1, h2='', now=0, pause=None, pip=False))
         if key in ov.get('drop', []): prev = at; continue   # 촬영에서 통째로 건너뛴 포인트는 멈춤 없이
@@ -142,6 +149,7 @@ def plan(no):
         s = dict(t='freeze', at=round(at, 2), lit=list(lit) if key != 'CTA' else [1, 2, 3, 4, 5], h1=h1 if key not in ('HOOK', 'CTA') else '', h2='',
                  now=(lit[-1] if key not in ('HOOK', 'CTA') else 0), pause=key, pip=True, sub=es, voice=es.replace(' 🎁 ', '. ').replace('🎁', '').replace('..', '.'), ko=ko)
         if len(sh_line) > 3 and sh_line[3]: s['quote'] = sh_line[3]
+        if still0 is not None: s['still'] = still0
         if key in ov.get('still', {}): s['still'] = ov['still'][key]
         if key in ov.get('zoom', {}): s['zoom'] = ov['zoom'][key]   # 멈춤 화면 확대 [x, y, w] (9:16, 원본 1080x1920 기준)   # 멈춤 화면을 원본의 다른 순간으로 (설명과 증거 맞추기)
         if key == 'CTA': s.update(endcard=True, items=ov.get('items', SH['items']), lit=[1, 2, 3, 4, 5], h1='', h2='', now=0)

@@ -1,0 +1,228 @@
+{
+ "segs": [
+  {
+   "t": "play",
+   "a": 0.0,
+   "b": 3.0,
+   "lit": [],
+   "h1": "Ni una palabra.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 3.0,
+   "lit": [],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": "HOOK",
+   "pip": true,
+   "voice": "Ni una sola palabra y 5,4 millones de vistas. El secreto son tres cosas.",
+   "sub": "Ni una sola palabra | y 5,4 millones de vistas. | El secreto son tres cosas.",
+   "vo": "vo_01.wav",
+   "d": 5.43,
+   "voice_en": "Zero words. 5.4 million views. Here's what it got right, and what it's missing.",
+   "ko": "말 한마디 없는데 조회수가 540만이에요. 비결은 딱 세 가지예요.",
+   "ceo": "ceo_01.mov",
+   "ceo_d": 5.06
+  },
+  {
+   "t": "freeze",
+   "at": 3.0,
+   "lit": [
+    1
+   ],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 1,
+   "pause": "01 · SIN FILTRO",
+   "pip": true,
+   "voice": "Uno: escribió 'sin filtro' desde el inicio. Responde la duda antes de que aparezca.",
+   "sub": "Uno: escribió 'sin filtro' desde el inicio. | Responde la duda antes de que aparezca.",
+   "vo": "vo_03.wav",
+   "d": 7.94,
+   "voice_en": "One: 'No filter' stays on screen the whole time. Doubt is gone before it starts.",
+   "ko": "첫째, 화면에 '노필터'라고 먼저 적어뒀어요. 보는 사람이 의심하기 전에, 먼저 답을 준 거죠.",
+   "ceo": "ceo_03.mov",
+   "ceo_d": 7.57,
+   "still": 1.5
+  },
+  {
+   "t": "freeze",
+   "at": 3.0,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 2,
+   "pause": "02 · EL PROBLEMA PRIMERO",
+   "pip": true,
+   "voice": "Dos: en pantalla escribió tres palabras: rojez, manchas, arrugas. Si es tu problema, dejas de deslizar.",
+   "sub": "Dos: en pantalla escribió tres palabras: | rojez, manchas, arrugas. | Si es tu problema, dejas de deslizar.",
+   "vo": "vo_05.wav",
+   "d": 9.75,
+   "voice_en": "Two: three words on screen. Redness, melasma, wrinkles. If that's your problem, you stop scrolling.",
+   "ko": "둘째, 화면에 '홍조, 기미, 주름' 세 단어를 적어뒀어요. 내 고민이랑 같으면 손가락이 멈추죠.",
+   "quote": "«Redness, melasma, wrinkles»",
+   "ceo": "ceo_05.mov",
+   "ceo_d": 9.38
+  },
+  {
+   "t": "play",
+   "a": 3.0,
+   "b": 5.6,
+   "lit": [
+    1,
+    2
+   ],
+   "h1": "Ni una palabra.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 5.6,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 3,
+   "pause": "03 · ANTES / DESPUÉS",
+   "pip": true,
+   "voice": "Tres: sin explicar, solo antes y después. Dura diez segundos, lo ves otra vez, y eso suma vistas.",
+   "sub": "Tres: sin explicar, solo antes y después. | Dura diez segundos, lo ves otra vez, | y eso suma vistas.",
+   "vo": "vo_07.wav",
+   "d": 8.54,
+   "voice_en": "Three: just before and after. Ten seconds, so people watch it twice.",
+   "ko": "셋째, 설명 없이 전후만 보여줘요. 10초라서 한 번 더 보게 되고, 그게 다 조회수가 되는 거예요.",
+   "ceo": "ceo_07.mov",
+   "ceo_d": 8.17
+  },
+  {
+   "t": "play",
+   "a": 5.6,
+   "b": 7.5,
+   "lit": [
+    1,
+    2,
+    3
+   ],
+   "h1": "Ni una palabra.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 7.5,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 4,
+   "pause": "04 · TU TIP",
+   "pip": true,
+   "voice": "Cuando grabes, haz una cosa más: al final, di qué producto usaste.",
+   "sub": "Cuando grabes, haz una cosa más: | al final, di qué producto usaste.",
+   "vo": "vo_09.wav",
+   "d": 7.58,
+   "voice_en": "Your turn: copy the before and after, but add your voice. Look at the camera and say what you used and why.",
+   "ko": "여러분이 찍을 때는 하나만 더 해보세요. 마지막에 어떤 제품을 썼는지 한마디 해주는 거예요.",
+   "ceo": "ceo_09.mov",
+   "ceo_d": 7.21
+  },
+  {
+   "t": "play",
+   "a": 7.5,
+   "b": 9.0,
+   "lit": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "h1": "Ni una palabra.",
+   "h2": "5,4 M de vistas.",
+   "now": 0,
+   "pause": null,
+   "pip": false
+  },
+  {
+   "t": "freeze",
+   "at": 9.0,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "5,4 M de vistas.",
+   "now": 5,
+   "pause": "05 · ASÍ SE VENDE",
+   "pip": true,
+   "voice": "Para comprar, tienen que saber qué usaste. Una creadora con unos 5.000 seguidores vendió hasta 60 mil dólares en TikTok Shop.",
+   "sub": "Para comprar, tienen que saber qué usaste. | Una creadora con unos 5.000 seguidores | vendió hasta 60 mil dólares en TikTok Shop.",
+   "vo": "vo_11.wav",
+   "d": 9.7,
+   "voice_en": "Views aren't sales. Talking videos sell. One creator with 5,300 followers made 25 to 60 thousand dollars on TikTok Shop.",
+   "ko": "보는 사람이 뭘 썼는지 알아야 사잖아요. 실제로 팔로워 5천 명 정도인 크리에이터도 틱톡샵에서 6만 달러까지 팔았어요.",
+   "ceo": "ceo_11.mov",
+   "ceo_d": 9.33
+  },
+  {
+   "t": "freeze",
+   "at": 9.85,
+   "lit": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "h1": "",
+   "h2": "",
+   "now": 0,
+   "pause": "CTA",
+   "pip": true,
+   "endcard": true,
+   "sub": "¿Mi checklist de antes y después? Te lo mando todo 🎁 ¡Comenta cualquier emoji!",
+   "voice": "¿Mi checklist de antes y después? Te lo mando todo. ¡Comenta cualquier emoji!",
+   "ko": "전후 촬영 체크리스트, 전부 정리해서 보내드릴게요 🎁 댓글에 아무 이모티콘이나 남겨주세요!",
+   "vo": "vo_13.wav",
+   "d": 7.48,
+   "items": [
+    "Checklist de antes y después",
+    "Lo más vendido en Corea",
+    "Productos de la semana"
+   ],
+   "voice_en": "Want my before-and-after checklist? I'll send you everything. Comment any emoji!",
+   "ceo": "ceo_13.mov",
+   "ceo_d": 7.11
+  }
+ ],
+ "video_y": 70,
+ "handle": "@kbeautywithelizabeth · TikTok",
+ "meta": {
+  "no": "001",
+  "views": "5,4 M",
+  "mult": "57×",
+  "dur": "10 S"
+ }
+}

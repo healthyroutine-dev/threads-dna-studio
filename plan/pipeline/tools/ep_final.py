@@ -11,7 +11,7 @@ run = lambda c: subprocess.run(c, check=True)
 F = f'{REPO}/plan/final/{no}'; os.makedirs(F, exist_ok=True)
 
 # 썸네일: 배경 = 원본에서 포인트 02 장면, 원형 = 보정한 대표 얼굴
-t_bg = [s['at'] for s in p['segs'] if s['t'] == 'freeze'][2]
+t_bg = [s.get('still', s['at']) for s in p['segs'] if s['t'] == 'freeze'][2]
 run(['ffmpeg', '-v', 'error', '-y', '-ss', str(max(0, t_bg - 0.3)), '-i', f'{D}/src.mp4', '-frames:v', '1', '-vf', 'scale=1080:1920:flags=lanczos,unsharp=5:5:0.5', f'{D}/thumb_bg.jpg'])
 import cv2
 _g = cv2.Canny(cv2.cvtColor(cv2.resize(cv2.imread(f'{D}/thumb_bg.jpg'), (1080, 1920)), cv2.COLOR_BGR2GRAY), 80, 200)[180:330] / 255

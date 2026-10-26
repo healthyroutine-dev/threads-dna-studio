@@ -99,7 +99,7 @@ for i, s in enumerate(plan['segs']):
     else:
         px, py = (367, 220) if s.get('endcard') else (691, 640)
         base = f"[0:v]trim=end_frame=1,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
-        ins = ['-ss', str(s['at']), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
+        ins = ['-ss', str(s.get('still', s['at'])), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
         fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
         last = 'o2'
         if s.get('endcard'):
