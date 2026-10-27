@@ -61,7 +61,7 @@ for i, s in enumerate(plan['segs']):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
-    ks = round(min(1.1, max(1.0, sum(y - x for x, y in ch) / dur(ES[key]))), 3) if DUB else 1.0   # 한국어(영상+원음)는 최대 1.1배까지만 빠르게
+    ks = round(min(1.25, max(0.85, (sum(y - x for x, y in ch) - 0.1 * (len(ch) - 1)) / dur(ES[key]))), 3) if DUB else 1.0   # 한국어(영상+원음)를 스페인어 길이에 맞춤 (0.85~1.25배) → 같이 시작·같이 끝 (늦게 시작하며 화면 멈추는 랙 방지)
     # 이어 붙인 지점을 자연스럽게: 화면 디졸브·소리 크로스페이드 0.1초 (길이 같게) (점프컷 완화)
     XV = XA = 0.1; pv, pa, acc = 'v0', 'a0', ch[0][1] - ch[0][0]
     for k in range(1, n):
@@ -77,7 +77,7 @@ for i, s in enumerate(plan['segs']):
     if DUB: s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2)
     else: s['es_d'] = 0
     s['d'] = round(max(s['es_d'], s['ceo_d']) + LEAD + TAIL + 0.1, 2)
-    s['es_off'] = round(max(0, s['ceo_d'] - s['es_d']), 2) if DUB else 0; s['ko_off'] = round(max(0, s['es_d'] - s['ceo_d']), 2)   # 짧은 쪽을 늦게 시작 → 같이 끝남
+    s['es_off'] = 0; s['ko_off'] = 0   # 둘 다 바로 시작 (늦게 시작하면 대표 화면이 멈춰 보임)
     s['ko_speed'] = ks
 json.dump(cutlist, open('ceo_cutlist.json', 'w'), indent=1)
 json.dump(plan, open('plan.json', 'w'), ensure_ascii=False, indent=1)

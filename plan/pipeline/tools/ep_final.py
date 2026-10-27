@@ -23,7 +23,7 @@ run(['ffmpeg', '-v', 'error', '-y', '-ss', '1.0', '-i', bv, '-frames:v', '1', '-
 ep_i = int(no)
 px, py = '691', '735'   # 원형 위치는 모든 편 동일 (제목 박스 바로 아래 오른쪽) — 그리드에서 깔끔하게
 run(['python3', f'{REPO}/plan/reel001/template/make_thumb.py', '--bg', f'{D}/thumb_bg.jpg', '--cat', 'C1', '--label', 'CLASS 1 · VIRAL', '--ep', str(ep_i),
-     '--title', '|'.join(p['title_es']), '--sub', ov.get('thumb_sub_es', '¿Qué hizo diferente?'), '--pip', f'{D}/ceo_face.png', '--pip-x', px, '--pip-y', py, '--brand-text', '', '--out', f'{F}/{no}_썸네일.png'])
+     '--title', '|'.join(x.replace('\n', '|') for x in p['title_es']), '--sub', ov.get('thumb_sub_es', '¿Qué hizo diferente?'), '--pip', f'{D}/ceo_face.png', '--pip-x', px, '--pip-y', py, '--brand-text', '', '--out', f'{F}/{no}_썸네일.png'])
 
 # 영상
 shutil.copy(f'{D}/b2x_kbeauty_que_vende_{no}_es.mp4', f'{F}/{no}_ES_최종.mp4')

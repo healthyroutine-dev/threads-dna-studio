@@ -6,7 +6,7 @@ CEO_V, CEO_A, SIL = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = json.load(open('plan.json'))
 SUBS = json.load(open('subs_plan.json'))
 # 헤드카피는 처음 후킹 제목으로 끝까지 고정, 포인트 이름은 멈춤 배지로 ("01 · SIN FILTRO")
-H1, H2 = 'Su antes y después', 'explotó sin decir una palabra.'   # 제목 (피부 전후 영상, 말 한마디 없이 터졌다)
+H1, H2 = 'Su antes y después', 'explotó sin decir\nuna palabra.'   # 제목 (의미 단위 줄바꿈)
 for s in plan['segs']:
     if s.get('endcard'): continue
     if s.get('pause') and s['pause'] not in ('HOOK',) and s.get('h1'):
@@ -62,7 +62,7 @@ for i, s in enumerate(plan['segs']):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
         fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
-    ks = round(min(1.1, max(1.0, sum(y - x for x, y in ch) / dur(ES[key]))), 3)   # 한국어(영상+원음)는 최대 1.1배까지만 빠르게
+    ks = round(min(1.25, max(0.85, (sum(y - x for x, y in ch) - 0.1 * (len(ch) - 1)) / dur(ES[key]))), 3)   # 스페인어 길이에 맞춤 (0.85~1.25배), 같이 시작
     # 이어 붙인 지점을 자연스럽게: 화면 디졸브·소리 크로스페이드 0.1초
     XV = 0.1; pv, pa, acc = 'v0', 'a0', ch[0][1] - ch[0][0]
     for k in range(1, n):
@@ -76,7 +76,7 @@ for i, s in enumerate(plan['segs']):
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])
     s['ceo'] = f'ceo_{i:02d}.mov'; s['ceo_d'] = round(dur(f'ceo_{i:02d}.mov'), 2)
     s['es'] = ES[key]; s['es_d'] = round(dur(ES[key]), 2); s['d'] = round(max(s['es_d'], s['ceo_d']) + LEAD + TAIL + 0.1, 2)
-    s['es_off'] = round(max(0, s['ceo_d'] - s['es_d']), 2); s['ko_off'] = round(max(0, s['es_d'] - s['ceo_d']), 2)   # 짧은 쪽을 늦게 시작 → 같이 끝남
+    s['es_off'] = 0; s['ko_off'] = 0   # 둘 다 바로 시작 (랙 방지)
     s['ko_speed'] = ks
 json.dump(cutlist, open('ceo_cutlist.json', 'w'), indent=1)
 json.dump(plan, open('plan.json', 'w'), ensure_ascii=False, indent=1)
