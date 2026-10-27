@@ -7,25 +7,25 @@
 :root{--bg:#09090B;--card:#17171B;--line:#2A2A30;--ink:#fff;--quiet:#A1A1AA;--point:#DB3D5A}
 *{box-sizing:border-box;margin:0}
 html,body{width:1080px;height:1920px;background:var(--bg);color:var(--ink);font-family:P,sans-serif;overflow:hidden}
-.top{position:absolute;left:64px;right:64px;top:110px;display:flex;justify-content:space-between;font-family:SM;font-size:26px;letter-spacing:5px;color:var(--quiet)}
+.top{position:absolute;left:64px;right:64px;top:110px;display:none;display:flex;justify-content:space-between;font-family:SM;font-size:26px;letter-spacing:5px;color:var(--quiet)}
 .top b{color:var(--point)}
-.pip{position:absolute;left:367px;top:220px;width:346px;height:346px;border-radius:50%;border:8px dashed rgba(255,255,255,.95);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.pip{position:absolute;left:367px;top:60px;width:346px;height:346px;border-radius:50%;border:8px dashed rgba(255,255,255,.95);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
 .pip b{font-family:SM;font-size:26px;letter-spacing:3px}.pip span{font-weight:800;font-size:30px;color:var(--point)}
-.ask{position:absolute;left:64px;right:64px;top:640px;text-align:center;font-family:AB;font-size:92px;line-height:.95;letter-spacing:-2px;text-transform:uppercase}
-.kw{position:absolute;left:120px;right:120px;top:780px;height:250px;background:var(--point);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-family:AB;font-size:96px;line-height:1;text-transform:uppercase}
+.ask{position:absolute;left:64px;right:64px;top:480px;text-align:center;font-family:AB;font-size:92px;line-height:.95;letter-spacing:-2px;text-transform:uppercase}
+.kw{position:absolute;left:120px;right:120px;top:620px;height:250px;background:var(--point);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-family:AB;font-size:96px;line-height:1;text-transform:uppercase}
 .kw div{display:flex;align-items:center;gap:18px;white-space:nowrap}
 .kw .em{font-family:"Noto Color Emoji";font-size:62px;letter-spacing:4px}
-.list{position:absolute;left:150px;right:150px;top:1090px;display:grid;gap:22px}
+.list{position:absolute;left:150px;right:150px;top:930px;display:grid;gap:22px}
 .list div{display:flex;gap:22px;align-items:center;font-weight:800;font-size:46px}
 .list i{font-style:normal;width:54px;height:54px;border-radius:50%;background:var(--card);border:3px solid var(--point);display:flex;align-items:center;justify-content:center;font-family:SM;font-size:26px;color:var(--point);flex:none}
-.dm{position:absolute;left:64px;right:64px;top:1375px;text-align:center;font-weight:700;font-size:42px;color:var(--quiet)}
+.dm{position:absolute;left:64px;right:64px;top:1215px;text-align:center;font-weight:700;font-size:42px;color:var(--quiet)}
 .dm b{color:var(--ink)}
 .arrow{position:absolute;right:150px;top:1450px;font-family:AB;font-size:150px;color:var(--point);transform:rotate(35deg)}
 .brand{position:absolute;left:0;right:0;top:1580px;text-align:center;font-family:SM;font-size:30px;letter-spacing:9px}
 @font-face{font-family:NS;src:url(NotoSans-VF.woff2);font-weight:100 900}
-.b2x{position:absolute;left:0;right:0;top:1680px;text-align:center;font-family:NS;color:#fff}.b2x h1{font-weight:700;font-size:58px;letter-spacing:-.5px;line-height:1.05}.b2x p{font-weight:400;font-size:29px;color:#AEB4BF;letter-spacing:.5px;margin-top:6px}
+.b2x{position:absolute;left:0;right:0;top:1460px;text-align:center;font-family:NS;color:#fff}.b2x h1{font-weight:700;font-size:58px;letter-spacing:-.5px;line-height:1.05}.b2x p{font-weight:400;font-size:29px;color:#AEB4BF;letter-spacing:.5px;margin-top:6px}
 </style></head><body>
-<div class="top"><span>K-BEAUTY QUE VENDE</span><span style="display:none"><b id="no"></b></span></div>
+<div class="top" style="display:none"><span>K-BEAUTY QUE VENDE</span><span style="display:none"><b id="no"></b></span></div>
 <div class="pip"><b>CEO VIDEO</b><span>대표 영상 삽입</span></div>
 <div class="ask">Comenta</div>
 <div class="kw"><div>Cualquier</div><div>Emoji <span class="em">😍🔥🎁</span></div></div>

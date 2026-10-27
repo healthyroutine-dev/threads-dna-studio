@@ -98,14 +98,14 @@ for i, s in enumerate(plan['segs']):
         cmd = ['ffmpeg', '-v', 'error', '-y', '-ss', str(s['a']), '-to', str(s['b']), '-i', SRC, '-i', ov, '-filter_complex',
                f"[0:v]fps=30,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY}[v];[v][1:v]overlay=0:0[o]", '-map', '[o]'] + enc + [out]
     else:
-        px, py = (367, 220) if s.get('endcard') else (691, 640)
+        px, py = (367, 60) if s.get('endcard') else (691, 640)   # 엔드카드는 인스타 하단 계정명·캡션 피해 위로 160px
         zc = (lambda z: f"crop={z[2]}:{z[2] * 16 // 9}:{z[0]}:{z[1]}," if z else '')(s.get('zoom'))   # 멈춤 화면 확대
         base = f"[0:v]trim=end_frame=1,scale=1080:1920,{zc}scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
         ins = ['-ss', str(s.get('still', s['at'])), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
         fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
         last = 'o2'
         if s.get('endcard'):
-            ins += ['-i', 'hand_down.png']; fc += ";[o2][4:v]overlay=x=455:y='1440+34*abs(sin(PI*1.6*t))':eval=frame[o3]"; last = "o3"   # 아래를 가리키는 손, 위아래로 통통
+            ins += ['-i', 'hand_down.png']; fc += ";[4:v]scale=140:140[hd];[o2][hd]overlay=x=470:y='1272+26*abs(sin(PI*1.6*t))':eval=frame[o3]"; last = "o3"   # 아래를 가리키는 손, 위아래로 통통
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
         if DUB: cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d']))
         cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
