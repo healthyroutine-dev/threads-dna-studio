@@ -14,14 +14,14 @@
 
 한국어 (먼저 확인)
 - 뷰티 크리에이터를 위한 K뷰티 바이럴 공식 🇰🇷
-- 한국에서 지금 제일 핫한 것, 누구보다 먼저
+- 한국에서 지금 제일 핫한 것, 가장 빠르게 소개합니다
 - 🛍️ 서울 현지 바이어가 직접 pick!
 - 👇 K뷰티 팔고 싶다면? 왓츠앱으로!
 
-스페인어 (실제 입력, 147자)
+스페인어 (실제 입력, 148자)
 ```
 Fórmula viral de K-beauty para creadoras 🇰🇷
-Lo más top de Corea, antes que nadie
+Te traigo primero lo más top de Corea
 🛍️ Pick de una compradora en Seúl
 👇 ¿Vender K-beauty? Por WhatsApp
 ```
