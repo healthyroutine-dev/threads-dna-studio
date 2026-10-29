@@ -2,26 +2,29 @@
 
 | 항목 | 스페인어 (실제 입력) | 한국어 뜻 |
 |---|---|---|
-| 이름 | K-Beauty que vende 🇰🇷 | 팔리는 K뷰티 |
+| 이름 | Curadora de K-Beauty 🇰🇷 | K뷰티 큐레이터 |
 | 사용자 이름 | k_beauty_moment | — |
 | 카테고리 | Belleza, cosmética y cuidado personal | 뷰티, 화장품 및 개인 관리 |
 | 링크 | wa.me/(번호) | 왓츠앱 |
 | 연락 버튼 | WhatsApp | — |
 | 하이라이트 | 보류 (스토리가 주제별 3~5개 쌓이면) | — |
 
-## 소개 (최종 확정 2026-10-29, 128자)
-한국어 뜻 (먼저 확인)
-- K뷰티 바이럴 릴스를 쉽게 풀어드려요
-- 🛍️ 서울의 K뷰티 바이어
-- 👇 릴스로 파는 팁, 왓츠앱으로 무료로
+## 최종 확정 v2 (2026-10-29)
+이름: K뷰티 큐레이터 🇰🇷 → `Curadora de K-Beauty 🇰🇷`
 
-스페인어 (실제 입력)
+한국어 (먼저 확인)
+- 뷰티 크리에이터를 위한 K뷰티 바이럴 공식 🇰🇷
+- 한국에서 지금 제일 핫한 것, 누구보다 먼저
+- 🛍️ 서울 현지 바이어가 직접 pick!
+- 👇 K뷰티 팔고 싶다면? 왓츠앱으로!
+
+스페인어 (실제 입력, 147자)
 ```
-Te explico los reels virales de K-beauty
-🛍️ Compradora de K-beauty en Seúl
-👇 Tips gratis para vender con tus reels por WhatsApp
+Fórmula viral de K-beauty para creadoras 🇰🇷
+Lo más top de Corea, antes que nadie
+🛍️ Pick de una compradora en Seúl
+👇 ¿Vender K-beauty? Por WhatsApp
 ```
-- 근거: 남미 인스타 톤(tuteo), "tips"·"gratis" 선호, 문의 채널은 왓츠앱. GPT 안의 "profesional"·"claves"를 구체화.
 - 규칙: bio 같은 문구는 항상 한국어 뜻을 먼저 보여주고 스페인어를 붙인다.
 
 ## 메모
