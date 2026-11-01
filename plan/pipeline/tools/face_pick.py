@@ -14,7 +14,7 @@ for i in np.linspace(0, n - 1, 240).astype(int):
     if not r.face_blendshapes: continue
     b = {k.category_name: k.score for k in r.face_blendshapes[0]}
     sharp = cv2.Laplacian(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), cv2.CV_64F).var()
-    sc = (b['mouthSmileLeft'] + b['mouthSmileRight']) * 1.2 - (b['eyeBlinkLeft'] + b['eyeBlinkRight']) * 1.5 - b['jawOpen'] * 2.5 - b['mouthFunnel'] - b['mouthPucker'] \
+    sc = (b['mouthSmileLeft'] + b['mouthSmileRight']) * 1.2 - (b['eyeBlinkLeft'] + b['eyeBlinkRight']) * 4.0 - (b['eyeSquintLeft'] + b['eyeSquintRight']) * 1.5 + (b['eyeWideLeft'] + b['eyeWideRight']) * 1.0 - b['jawOpen'] * 2.5 - b['mouthFunnel'] - b['mouthPucker'] \
          - abs(b['eyeLookOutLeft'] - b['eyeLookInLeft']) - (b['browInnerUp'] * 0.5) + min(sharp, 300) / 600
     res.append((sc, i / fps, f))
 res.sort(key=lambda r: -r[0]); picked = []
