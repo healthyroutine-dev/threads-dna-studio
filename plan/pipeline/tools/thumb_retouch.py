@@ -1,5 +1,5 @@
 # 썸네일 대표 얼굴 보정 (v7, 2026-11-01): 턱선 갸름하게 + 눈 약 8% 크게 — 어색하지 않게 부드러운 국소 워프
-# usage: thumb_retouch.py IN.png OUT.png [EYE=0.17] [SLIM=0.08]  (턱선 약 8% 좁힘, 눈 윤곽 기준 약 12% — 2026-11-01 확정)
+# usage: thumb_retouch.py IN.png OUT.png [EYE=0.14] [SLIM=0.08]  (턱선 약 8% 좁힘, 눈 윤곽 기준 약 10% — 은근하게, 2026-11-01 확정)
 import sys, cv2, numpy as np, mediapipe as mp
 S = '/tmp/claude-0/-home-user-threads-dna-studio/c2baa838-8d39-5050-9a2e-a92a98b07ab3/scratchpad'
 # 얼굴 윤곽(광대 아래~턱): 왼쪽/오른쪽, 아래로 갈수록 세게 (턱 끝 152는 그대로)
@@ -7,7 +7,7 @@ JAW_L = [(93, .35), (132, .7), (58, 1.0), (172, 1.0), (136, .85), (150, .6), (14
 JAW_R = [(323, .35), (361, .7), (288, 1.0), (397, 1.0), (365, .85), (379, .6), (378, .35)]
 EYE_L, EYE_R = [33, 133, 159, 145], [362, 263, 386, 374]
 
-def retouch(img, eye=0.17, slim=0.08):
+def retouch(img, eye=0.14, slim=0.08):
     H, W = img.shape[:2]
     lm = mp.tasks.vision.FaceLandmarker.create_from_options(mp.tasks.vision.FaceLandmarkerOptions(
         base_options=mp.tasks.BaseOptions(model_asset_path=S + '/models/face_landmarker.task'), running_mode=mp.tasks.vision.RunningMode.IMAGE))
@@ -33,4 +33,4 @@ def retouch(img, eye=0.17, slim=0.08):
 
 if __name__ == '__main__':
     a = sys.argv; img = cv2.imread(a[1])
-    cv2.imwrite(a[2], retouch(img, float(a[3]) if len(a) > 3 else 0.17, float(a[4]) if len(a) > 4 else 0.08))
+    cv2.imwrite(a[2], retouch(img, float(a[3]) if len(a) > 3 else 0.14, float(a[4]) if len(a) > 4 else 0.08))
