@@ -22,6 +22,6 @@ for sc, t, f in res:
     if all(abs(t - p[1]) > 2.0 for p in picked): picked.append((sc, t, f))
     if len(picked) == N: break
 for k, (sc, t, f) in enumerate(picked):
-    cv2.imwrite(f'{out}/cand_{k+1}.png', cv2.flip(cv2.resize(f, (400, 400), interpolation=cv2.INTER_AREA), 1))
+    cv2.imwrite(f'{out}/cand_{k+1}.png', cv2.flip(cv2.resize(f, (800, 800), interpolation=cv2.INTER_AREA), 1))
 json.dump([[k + 1, round(t, 2), round(sc, 3)] for k, (sc, t, f) in enumerate(picked)], open(f'{out}/cands.json', 'w'))
 print(json.load(open(f'{out}/cands.json')))

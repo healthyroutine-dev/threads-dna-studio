@@ -3,6 +3,7 @@
 import sys, os, json, subprocess, shutil
 S = '/tmp/claude-0/-home-user-threads-dna-studio/c2baa838-8d39-5050-9a2e-a92a98b07ab3/scratchpad'
 REPO = '/home/user/threads-dna-studio'
+MODE_KO = os.environ.get('KO') == '1'
 no = sys.argv[1]; D = f'{S}/ep/{no}'
 p = json.load(open(f'{D}/plan_base.json')); ov = json.load(open(f'{D}/override.json'))
 sys.path.insert(0, S + '/tools'); from ep import data
@@ -19,7 +20,7 @@ auto_blur = (cv2.blur(_g, (41, 15)) > 0.16).mean() > 0.1   # 헤더 자리(ACADE
 if ov.get('thumb_blur_top') or auto_blur:   # 원본에 박힌 상단 글자가 헤더와 겹치면 그 띠만 흐리게
     hb = int(ov.get('thumb_blur_top', 420)); run(['ffmpeg', '-v', 'error', '-y', '-i', f'{D}/thumb_bg.jpg', '-filter_complex', f'[0]split[a][b];[b]crop=1080:{hb}:0:0,boxblur=24:3,eq=brightness=-0.15[t];[a][t]overlay=0:0', f'{D}/thumb_bg.jpg'])
 bv = f'{D}/beauty.mp4'; from facecrop import face_crop; fc, fx, fy = face_crop(D)   # 영상 원과 같은 크롭 (얼굴 가운데) + 좌우반전
-run(['python3', f'{S}/tools/face_pick.py', bv, f'{fc},{fx},{fy}', f'{D}/face_pick', '1']); shutil.copy(f'{D}/face_pick/cand_1.png', f'{D}/ceo_face.png')   # v7: 표정 좋은 프레임 자동 선택 (눈 뜸·미소·입 다묾)
+run(['python3', f'{S}/tools/face_pick.py', bv, f'{fc},{fx},{fy}', f'{D}/face_pick', '1']); run(['python3', f'{S}/tools/thumb_retouch.py', f'{D}/face_pick/cand_1.png', f'{D}/ceo_face.png'])   # v7: 표정 좋은 프레임 자동 선택 → 자연스럽게 갸름하게(턱선 8%)·눈 12% (썸네일만)
 ep_i = int(no)
 px, py = '60', '1130'   # 원형 위치는 모든 편 동일 (왼쪽 아래, 영상과 같은 쪽) — 프로필 그리드(3:4) 안 · 오른쪽 버튼 데드존 피함
 run(['python3', f'{REPO}/plan/reel001/template/make_thumb.py', '--bg', f'{D}/thumb_bg.jpg', '--cat', 'C1', '--label', 'CLASS 1 · VIRAL', '--ep', str(ep_i),
@@ -27,7 +28,7 @@ run(['python3', f'{REPO}/plan/reel001/template/make_thumb.py', '--bg', f'{D}/thu
 
 # 영상
 shutil.copy(f'{D}/b2x_kbeauty_que_vende_{no}_es.mp4', f'{F}/{no}_ES_최종.mp4')
-shutil.copy(f'{D}/b2x_kbeauty_que_vende_{no}_ko.mp4', f'{F}/{no}_KO_대표원음.mp4')
+if os.path.exists(f'{D}/b2x_kbeauty_que_vende_{no}_ko.mp4') and MODE_KO: shutil.copy(f'{D}/b2x_kbeauty_que_vende_{no}_ko.mp4', f'{F}/{no}_KO_대표원음.mp4')   # v7: KO 버전 안 만듦
 
 # 업로드 문구
 cta = [s for s in p['segs'] if s.get('endcard')][0]

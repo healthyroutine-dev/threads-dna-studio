@@ -19,8 +19,11 @@ dur = lambda f: float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
 
 # 대표 촬영본에서 각 멈춤 구간에 해당하는 원본 시간 (받아쓰기 기준)
 SECT = {k: tuple(v) for k, v in plan['sect'].items()}
+_S = '/tmp/claude-0/-home-user-threads-dna-studio/c2baa838-8d39-5050-9a2e-a92a98b07ab3/scratchpad'
+PIP_XY, SUB_BOTTOM = (60, 1130), 820   # v7: 원 지름 400 · 왼쪽 여백 60 · 아래 여백 390   # 대표 원 위치(왼쪽 아래 · 그리드 안 · 하단 캡션 데드존 위) / 자막 아래 여백 → 자막이 원 바로 위
 LEAD, TAIL = 0.12, 0.25          # 정지 화면에서 말 시작 전/후 여유
-CROP = tuple(plan.get('crop', (900, 90, 520)))   # 원형에 들어갈 정사각 크롭 (크기, x, y) · 보정 영상 기준
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from facecrop import face_crop
+CROP = face_crop(os.getcwd())   # 원형에 들어갈 정사각 크롭 (크기, x, y) · 얼굴이 원 가운데 오게 자동 (facecrop.py)
 # 한국어 문장 사이 쉬는 틈 줄이기: 숨소리까지 무음으로 보는 -35dB 기준을 함께 써서 틈을 더 잘라냄 (말 앞 0.08·뒤 0.14초만 남김)
 _s35 = SIL.replace('.txt', '35.txt')
 if not os.path.exists(_s35):
@@ -59,9 +62,9 @@ for i, s in enumerate(plan['segs']):
     fl = []; n = len(ch); c, x0, y0 = CROP; z = 0
     for k, (x, y) in enumerate(ch):
         cc = int(c * (0.9 if z else 1.0)); xx = x0 + (c - cc) // 2; yy = y0 + int((c - cc) * 0.4)
-        fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=330:330,setsar=1[v{k}]")
+        fl.append(f"[0:v]trim={x:.3f}:{y:.3f},setpts=PTS-STARTPTS,crop={cc}:{cc}:{xx}:{yy},scale=400:400,setsar=1[v{k}]")
         fl.append(f"[1:a]atrim={x:.3f}:{y:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.012,afade=t=out:st={max(0,y-x-0.02):.3f}:d=0.02[a{k}]")
-    ks = round(min(1.25, max(0.85, (sum(y - x for x, y in ch) - 0.1 * (len(ch) - 1)) / dur(ES[key]))), 3) if DUB else 1.0   # 한국어(영상+원음)를 스페인어 길이에 맞춤 (0.85~1.25배) → 같이 시작·같이 끝 (늦게 시작하며 화면 멈추는 랙 방지)
+    ks = round(min(1.25, max(0.75, (sum(y - x for x, y in ch) - 0.1 * (len(ch) - 1)) / dur(ES[key]))), 3) if DUB else 1.0   # 한국어(영상+원음)를 스페인어 길이에 맞춤 (0.75~1.25배) → 같이 시작·같이 끝 (늦게 시작하며 화면 멈추는 랙 방지)
     # 이어 붙인 지점을 자연스럽게: 화면 디졸브·소리 크로스페이드 0.1초 (길이 같게) (점프컷 완화)
     XV = XA = 0.1; pv, pa, acc = 'v0', 'a0', ch[0][1] - ch[0][0]
     for k in range(1, n):
@@ -70,7 +73,7 @@ for i, s in enumerate(plan['segs']):
         pv, pa = f'vx{k}', f'ax{k}'; acc += (ch[k][1] - ch[k][0]) - XV
     fl.append(f'[{pv}]null[vv0];[{pa}]anull[aa0]')
     fl.append(f'[vv0]setpts=PTS/{ks}[v];[aa0]atempo={ks}[a]')
-    fl.append(f"[v]fps=30,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(lte(hypot(X-164.5,Y-164.5),165),255,0)'[vc]")
+    fl.append(f"[v]fps=30,format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(lte(hypot(X-199.5,Y-199.5),200),255,0)'[vc]")
     run(['ffmpeg', '-v', 'error', '-y', '-i', CEO_V, '-i', CEO_A, '-filter_complex', ';'.join(fl), '-map', '[vc]', '-map', '[a]',
          '-c:v', 'qtrle', '-c:a', 'pcm_s16le', f'ceo_{i:02d}.mov'])
     s['ceo'] = f'ceo_{i:02d}.mov'; s['ceo_d'] = round(dur(f'ceo_{i:02d}.mov'), 2)
@@ -82,9 +85,9 @@ for i, s in enumerate(plan['segs']):
 json.dump(cutlist, open('ceo_cutlist.json', 'w'), indent=1)
 json.dump(plan, open('plan.json', 'w'), ensure_ascii=False, indent=1)
 
-# 흰 원 테두리 (346px, 기존 점선 자리를 덮음)
-run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=white@0:s=346x346,format=rgba', '-frames:v', '1', '-vf',
-     "geq=r=255:g=255:b=255:a='if(lte(hypot(X-172.5,Y-172.5),173),255,0)'", 'ring.png'])
+# 원 테두리 v7: 흰 4px 60% + 강조색 호 (pip_ring.py → ring.png 424px, 원 영상 위에 덮음)
+run(['python3', f'{_S}/tools/pip_ring.py', 'ring.png', '400'])
+sys.path.insert(0, f'{_S}/tools'); from endcard_fx import endcard_cmd
 
 # 2) 오버레이
 run(['node', 'render2.mjs'])
@@ -98,15 +101,14 @@ for i, s in enumerate(plan['segs']):
         cmd = ['ffmpeg', '-v', 'error', '-y', '-ss', str(s['a']), '-to', str(s['b']), '-i', SRC, '-i', ov, '-filter_complex',
                f"[0:v]fps=30,scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY}[v];[v][1:v]overlay=0:0[o]", '-map', '[o]'] + enc + [out]
     else:
-        px, py = (367, 60) if s.get('endcard') else (691, 640)   # 엔드카드는 인스타 하단 계정명·캡션 피해 위로 160px
+        px, py = PIP_XY   # 원은 모든 편 왼쪽 아래 고정 (썸네일과 같은 자리 · 오른쪽 좋아요·댓글 버튼 데드존 피함) / 엔드카드는 위 가운데
         zc = (lambda z: f"crop={z[2]}:{z[2] * 16 // 9}:{z[0]}:{z[1]}," if z else '')(s.get('zoom'))   # 멈춤 화면 확대
         base = f"[0:v]trim=end_frame=1,scale=1080:1920,{zc}scale=1080:1920,setsar=1,split[x][y];[x]boxblur=30:3,eq=brightness=-0.3[bg];[bg][y]overlay=0:{VY},loop=loop=-1:size=1,fps=30,trim=duration={s['d']}[v];[v][1:v]overlay=0:0[o0]"
         ins = ['-ss', str(s.get('still', s['at'])), '-i', SRC, '-i', ov, '-i', 'ring.png', '-i', s['ceo']]
-        fc = base + f";[o0][2:v]overlay={px}:{py}[o1];[3:v]tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o1][c]overlay={px+8}:{py+8}:eof_action=repeat[o2]"
+        fc = base + f";[3:v]hflip,tpad=start_duration={LEAD + s.get('ko_off', 0)}:start_mode=clone:stop_duration={TAIL+0.3}:stop_mode=clone[c];[o0][c]overlay={px}:{py}:eof_action=repeat[o1];[o1][2:v]overlay={px-12}:{py-12}[o2]"
         last = 'o2'
-        if s.get('endcard'):
-            ins += ['-i', 'hand_down.png']; fc += ";[4:v]scale=140:140[hd];[o2][hd]overlay=x=470:y='1272+26*abs(sin(PI*1.6*t))':eval=frame[o3]"; last = "o3"   # 아래를 가리키는 손, 위아래로 통통
         cmd = ['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', f'[{last}]', '-t', str(s['d'])] + enc + [out]
+        if s.get('endcard'): cmd = endcard_cmd(ov, s['d'], parts[-1], out, enc)   # v7: 대표 얼굴 없는 엔딩 카드 (음성은 그대로)
         if DUB: cues.append((s['es'], t + LEAD + s['es_off'], 1.0, s['d']))
         cues.append((s['ceo'], t + LEAD + s['ko_off'], KO_VOL, s['d'] - LEAD - s['ko_off']))
         if not s.get('endcard'): subs.append((SUBS.get(s.get('key') or s['pause'].split()[0], [s['sub']]), t + LEAD + s['es_off'], os.path.basename(s['es']) if DUB else s['ceo_d']))
@@ -138,7 +140,7 @@ for parts, st, wav in subs:
         chunks.append((x, st + prev, st + end + (0.15 if k == len(parts) - 1 else 0))); prev = end
 json.dump([c[0] for c in chunks], open('subs.json', 'w'), ensure_ascii=False)
 _sh = open('subs.html').read()   # 원본 화면 글자와 겹치면 편별로 자막 높이 올림 (plan sub_bottom, 기본 495)
-open('subs.html', 'w').write(re.sub(r'bottom:\d+px', f"bottom:{int(plan.get('sub_bottom', 495))}px", _sh, count=1))
+open('subs.html', 'w').write(re.sub(r'bottom:\d+px', f"bottom:{max(SUB_BOTTOM, int(plan.get('sub_bottom', 495)))}px", _sh, count=1))   # 자막은 원 위로
 run(['node', 'render_subs.mjs'])
 ins = ['-i', 'video_nosub.mp4']; fl = []; prev = '0:v'
 for k, (x, a, e) in enumerate(chunks):
