@@ -13,9 +13,15 @@ for i in np.linspace(0, n - 1, 240).astype(int):
     f = f[y0:y0 + c, x0:x0 + c]; r = lm.detect(mp.Image(image_format=mp.ImageFormat.SRGB, data=cv2.cvtColor(f, cv2.COLOR_BGR2RGB)))
     if not r.face_blendshapes: continue
     b = {k.category_name: k.score for k in r.face_blendshapes[0]}
+    L = np.array([[q.x * c, q.y * c] for q in r.face_landmarks[0]]); fw = L[454, 0] - L[234, 0]; cxn = L[1, 0]
+    roll = abs(np.degrees(np.arctan2(L[263, 1] - L[33, 1], L[263, 0] - L[33, 0])))   # 고개 기울기
+    ycc = cv2.cvtColor(f, cv2.COLOR_BGR2YCrCb); skin = ((ycc[..., 1] > 138) & (ycc[..., 1] < 178) & (ycc[..., 2] > 85) & (ycc[..., 2] < 130)).astype(np.uint8)
+    m = np.zeros_like(skin); cv2.fillConvexPoly(m, cv2.convexHull(L.astype(np.int32)), 1); m = cv2.dilate(m, np.ones((41, 41), np.uint8))
+    yb = int(L[152, 1]); m[yb:, int(cxn - 0.42 * fw):int(cxn + 0.42 * fw)] = 1; m[:int(L[159, 1])] = 1   # 얼굴·목/가슴 가운데·눈 위는 제외
+    hand = (skin * (1 - m)).sum() / (c * c)   # 얼굴 밖 피부 = 손
     sharp = cv2.Laplacian(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), cv2.CV_64F).var()
     sc = (b['mouthSmileLeft'] + b['mouthSmileRight']) * 1.2 - (b['eyeBlinkLeft'] + b['eyeBlinkRight']) * 4.0 - (b['eyeSquintLeft'] + b['eyeSquintRight']) * 1.5 + (b['eyeWideLeft'] + b['eyeWideRight']) * 1.0 - b['jawOpen'] * 2.5 - b['mouthFunnel'] - b['mouthPucker'] \
-         - abs(b['eyeLookOutLeft'] - b['eyeLookInLeft']) - (b['browInnerUp'] * 0.5) + min(sharp, 300) / 600
+         - abs(b['eyeLookOutLeft'] - b['eyeLookInLeft']) - (b['browInnerUp'] * 0.5) + min(sharp, 300) / 600 - hand * 60 - max(0, roll - 3) * 0.15
     res.append((sc, i / fps, f))
 res.sort(key=lambda r: -r[0]); picked = []
 for sc, t, f in res:

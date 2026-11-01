@@ -29,7 +29,22 @@ def retouch(img, eye=0.14, slim=0.08):
         rx, ry = xx - c[0], yy - c[1]; rr = np.clip(np.sqrt(rx ** 2 + ry ** 2) / Re, 0, 1)
         f = 1 - eye * (1 - rr ** 2) ** 2
         sx += rx * (f - 1); sy += ry * (f - 1)
-    return cv2.remap(img, sx.astype(np.float32), sy.astype(np.float32), cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+    out = cv2.remap(img, sx.astype(np.float32), sy.astype(np.float32), cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+    return neck_soft(out, P, fw, cx)
+
+def neck_soft(img, P, fw, cx, amt=0.9):
+    """목주름 흐리게: 턱 아래 목 피부만 결을 살린 채 부드럽게 (가로 주름 위주)"""
+    H, W = img.shape[:2]; y0 = int(P[152, 1] - 0.05 * fw); y1 = min(H, int(P[152, 1] + 0.32 * fw))   # 목걸이 위까지만
+    m = np.zeros((H, W), np.float32)
+    cv2.ellipse(m, (int(cx), int((y0 + y1) / 2)), (int(0.34 * fw), int((y1 - y0) / 2)), 0, 0, 360, 1, -1)
+    ycc = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb); skin = ((ycc[..., 1] > 133) & (ycc[..., 1] < 180) & (ycc[..., 2] > 80) & (ycc[..., 2] < 135)).astype(np.float32)
+    jaw = np.zeros((H, W), np.uint8); cv2.fillConvexPoly(jaw, cv2.convexHull(P.astype(np.int32)), 1)   # 얼굴(턱 포함)은 건드리지 않음
+    m = m * skin * (1 - jaw); m = cv2.GaussianBlur(m * cv2.erode(skin, np.ones((15, 15), np.uint8)), (0, 0), 0.025 * fw) * amt   # 머리카락 가장자리 피함
+    soft = cv2.bilateralFilter(img, 0, 22, 0.035 * fw)
+    soft = cv2.GaussianBlur(soft, (0, 0), sigmaX=0.006 * fw, sigmaY=0.045 * fw)   # 세로로 더 흐려 가로 주름을 지움
+    noise = (img.astype(np.float32) - cv2.GaussianBlur(img, (0, 0), 1.2).astype(np.float32)) * 0.35   # 미세 결은 조금 남김
+    res = soft.astype(np.float32) + noise
+    return np.clip(img * (1 - m[..., None]) + res * m[..., None], 0, 255).astype(np.uint8)
 
 if __name__ == '__main__':
     a = sys.argv; img = cv2.imread(a[1])
