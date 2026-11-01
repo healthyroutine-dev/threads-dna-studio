@@ -4,7 +4,6 @@ import sys, os, json, subprocess, shutil
 S = '/tmp/claude-0/-home-user-threads-dna-studio/c2baa838-8d39-5050-9a2e-a92a98b07ab3/scratchpad'
 REPO = '/home/user/threads-dna-studio'
 MODE_KO = os.environ.get('KO') == '1'
-HAIR_TIDY = {'006', '007', '008', '009'}   # 썸네일 잔머리 정돈 대상 (오른쪽 머리 붕뜸 심한 편, 2026-11-01)
 no = sys.argv[1]; D = f'{S}/ep/{no}'
 p = json.load(open(f'{D}/plan_base.json')); ov = json.load(open(f'{D}/override.json'))
 sys.path.insert(0, S + '/tools'); from ep import data
@@ -22,7 +21,7 @@ if ov.get('thumb_blur_top') or auto_blur:   # 원본에 박힌 상단 글자가 
     hb = int(ov.get('thumb_blur_top', 420)); run(['ffmpeg', '-v', 'error', '-y', '-i', f'{D}/thumb_bg.jpg', '-filter_complex', f'[0]split[a][b];[b]crop=1080:{hb}:0:0,boxblur=24:3,eq=brightness=-0.15[t];[a][t]overlay=0:0', f'{D}/thumb_bg.jpg'])
 bv = f'{D}/beauty.mp4'; from facecrop import face_crop; fc, fx, fy = face_crop(D)   # 영상 원과 같은 크롭 (얼굴 가운데) + 좌우반전
 run(['python3', f'{S}/tools/face_pick.py', bv, f'{fc},{fx},{fy}', f'{D}/face_pick', '1']); run(['python3', f'{S}/tools/thumb_retouch.py', f'{D}/face_pick/cand_1.png', f'{D}/ceo_face.png'])
-if no in HAIR_TIDY: run(['python3', f'{S}/tools/hair_tidy.py', f'{D}/ceo_face.png', f'{D}/ceo_face.png'])   # 잔머리·붕뜬 머리 심한 편만 정돈 (썸네일만)   # v7: 표정 좋은 프레임 자동 선택 → 자연스럽게 갸름하게(턱선 8%)·눈 12% (썸네일만)
+if os.path.exists(f'{D}/ceo_face_manual.png'): shutil.copy(f'{D}/ceo_face_manual.png', f'{D}/ceo_face.png')   # 사용자가 따로 보정해 준 대표 사진이 있으면 그대로 사용 (추가 보정 없음)   # v7: 표정 좋은 프레임 자동 선택 → 자연스럽게 갸름하게(턱선 8%)·눈 12% (썸네일만)
 ep_i = int(no)
 px, py = '60', '1130'   # 원형 위치는 모든 편 동일 (왼쪽 아래, 영상과 같은 쪽) — 프로필 그리드(3:4) 안 · 오른쪽 버튼 데드존 피함
 run(['python3', f'{REPO}/plan/reel001/template/make_thumb.py', '--bg', f'{D}/thumb_bg.jpg', '--cat', 'C1', '--label', 'CLASS 1 · VIRAL', '--ep', str(ep_i),
