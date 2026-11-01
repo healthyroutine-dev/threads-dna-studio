@@ -18,17 +18,18 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
   font-family:Pretendard,"NanumSquareRound","NanumGothic",sans-serif;color:#fff}}
 .bg{{position:absolute;inset:0;background:url({bg}) center top/cover no-repeat}}
 .ov{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 45%)}}
-.academy{{position:absolute;left:0;right:0;top:278px;transform:translateY(-100%);text-align:center;
+.academy{{position:absolute;left:0;right:0;top:336px;transform:translateY(-100%);text-align:center;
   font-weight:700;font-size:39px;letter-spacing:8px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
-.card{{position:absolute;left:76px;width:928px;top:326px;box-sizing:border-box;background:#0D0D0D;border-radius:26px;
+.card{{position:absolute;left:76px;width:928px;top:372px;box-sizing:border-box;background:#0D0D0D;border-radius:26px;
   padding:40px 46px 42px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
 .bar{{position:absolute;left:0;top:0;bottom:0;width:13px;border-radius:26px 0 0 26px;background:{color}}}
 .label{{font-weight:700;font-size:36px;letter-spacing:6px;color:#BDBDBD;text-transform:uppercase}}
 .title{{font-weight:700;font-size:68px;line-height:1.08;margin-top:10px;display:-webkit-box;-webkit-line-clamp:6;white-space:nowrap;
   -webkit-box-orient:vertical;overflow:hidden}}
 .sub{{font-weight:400;font-size:39px;color:#9A9A9A;margin-top:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
-.pip{{position:absolute;left:{pip_x}px;top:{pip_y}px;width:346px;height:346px;border-radius:50%;border:16px solid #fff;
-  box-sizing:border-box;background:url({pip}) center/cover;box-shadow:0 12px 32px rgba(0,0,0,.5)}}
+.pip{{position:absolute;left:{pip_x}px;top:{pip_y}px;width:400px;height:400px;border-radius:50%;
+  background:url({pip}) center/cover;box-shadow:0 12px 32px rgba(0,0,0,.5)}}
+.pip img{{position:absolute;left:-12px;top:-12px;width:424px;height:424px}}
 .brand{{position:absolute;left:0;right:0;top:1824px;transform:translateY(-50%);text-align:center;
   font-weight:700;font-size:43px;letter-spacing:9px;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
 </style></head><body>
@@ -64,7 +65,7 @@ def render(spec: dict, browser) -> Path:
     html = HTML.format(
         W=W, H=H, bg=data_uri(bg), color=COLORS[cat], academy=esc(spec.get("academy_text", "K-Beauty Influencer Academy")),
         label=esc(label), title=esc(spec["title"]).replace("|", "<br>"), sub=esc(spec.get("sub", "")),
-        pip=data_uri(pip_path) if use_pip else "", pip_div='<div class="pip"></div>' if use_pip else "",
+        pip=data_uri(pip_path) if use_pip else "", pip_div=f'<div class="pip"><img src="{data_uri(HERE / "assets" / "pip_ring.png")}"></div>' if use_pip else "",
         brand=esc(spec.get("brand_text", "B2X")), pip_x=int(spec.get("pip_x", 691)), pip_y=int(spec.get("pip_y", 1920 - 346 - int(spec.get("pip_bottom", 336)))))
     out = Path(spec["out"]).expanduser()
     out.parent.mkdir(parents=True, exist_ok=True)
