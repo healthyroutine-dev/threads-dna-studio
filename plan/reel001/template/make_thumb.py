@@ -18,9 +18,9 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#000;
   font-family:Pretendard,"NanumSquareRound","NanumGothic",sans-serif;color:#fff}}
 .bg{{position:absolute;inset:0;background:url({bg}) center top/cover no-repeat}}
 .ov{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 45%)}}
-.academy{{position:absolute;left:0;right:0;top:336px;transform:translateY(-100%);text-align:center;
+.academy{{position:absolute;left:0;right:0;top:226px;transform:translateY(-100%);text-align:center;
   font-weight:700;font-size:39px;letter-spacing:8px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}}
-.card{{position:absolute;left:76px;width:928px;top:372px;box-sizing:border-box;background:#0D0D0D;border-radius:26px;
+.card{{position:absolute;left:76px;width:928px;top:326px;box-sizing:border-box;background:#0D0D0D;border-radius:26px;
   padding:40px 46px 42px;box-shadow:0 12px 36px rgba(0,0,0,.45)}}
 .bar{{position:absolute;left:0;top:0;bottom:0;width:13px;border-radius:26px 0 0 26px;background:{color}}}
 .label{{font-weight:700;font-size:36px;letter-spacing:6px;color:#BDBDBD;text-transform:uppercase}}
