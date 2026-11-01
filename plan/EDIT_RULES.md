@@ -112,7 +112,7 @@
 
 ## v7 수정 (2026-11-01, 1편 시안 확인 중 — 확정 전 노션 업로드 안 함)
 - **엔딩: 대표 얼굴 빼기.** CTA 멘트("~전부 정리해서 보내드릴게요 🎁")가 시작되는 순간부터 엔딩 카드. 앞 화면에서 0.3초 크로스페이드. 대표 음성(스페인어 더빙·한국어 원음)은 끝까지 그대로, 마지막 프레임에 얼굴 없음.
-- 엔딩 카드 (위→아래, 순서대로 등장): 🎁(링 원 안) + 자료명(override items[0]) 0.3초 → 👇(위아래 통통) + "¡Déjame **cualquier emoji** en los comentarios!" 0.9초 → 상호명 "Powered by TECH2WORLDWIDE"(Noto Sans) 1.5초 → "B2X Buyers Club" 작게, 마지막 1.5초. 모두 y1450 위 (하단 캡션 데드존 피함). 이 구간 자막 없음. 도구: `tools/endcard_fx.py`, `endcard.html`.
+- 엔딩 카드 (위→아래, 순서대로 등장): 🎁(링 원 안) + 자료명(override items[0]) 0.3초 → 👇(위아래 통통) + "¡Déjame **cualquier emoji** en los comentarios!" 0.9초 → 상호명 블록 "B2X Buyers Club / Powered by TECH2WORLDWIDE"(Noto Sans, v6 그대로) 끝 2.2초 전에 나왔다가 끝 0.3초 전에 사라짐. 모두 y1450 위 (하단 캡션 데드존 피함). 이 구간 자막 없음. 도구: `tools/endcard_fx.py`, `endcard.html`.
 - **대표 원(PIP)**: 지름 400px, 위치 x60·y1130 (왼쪽 여백 60, 아래 여백 390). 크롭 900px(얼굴+어깨). 좌우반전 유지.
   링: 흰 4px 60% 전체 + 강조색 `#DB3D5A` 11px 호 2구간(왼쪽 아래 1/4, 오른쪽 위 1/6, 둥근 끝) — `tools/pip_ring.py`. 엔딩 카드 🎁 원·밑줄도 같은 색.
 - 자막: 원 바로 위 (subs bottom 820).
