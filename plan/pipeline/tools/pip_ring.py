@@ -2,7 +2,8 @@
 # usage: pip_ring.py OUT.png [지름=400]  → 캔버스 = 지름 + 24 (원 바깥 12px 여유, 원 영상은 (12,12)에 놓임)
 import sys, math
 from PIL import Image, ImageDraw
-POINT = (0xDB, 0x3D, 0x5A)   # 우리 강조색 (EDIT_RULES 2장) — 엔딩 카드와 같은 색
+import os
+POINT = tuple(int(os.environ.get('POINT', 'FD780F')[i:i + 2], 16) for i in (0, 2, 4))   # 강조색 B2X Signature Orange #FD780F (2026-11-02, env POINT로 바꿀 수 있음) — 엔딩 카드와 같은 색
 PAD = 12
 
 def ring(dia=400, ss=4):

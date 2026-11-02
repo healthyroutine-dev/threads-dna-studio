@@ -5,7 +5,7 @@
 @font-face{font-family:AB;src:url(ArchivoBlack-400.ttf)}
 @font-face{font-family:SM;src:url(SpaceMono-400.ttf);font-weight:400}
 @font-face{font-family:SM;src:url(SpaceMono-700.ttf);font-weight:700}
-:root{--bg:#09090B;--card:#17171B;--line:#2A2A30;--ink:#FFFFFF;--quiet:#A1A1AA;--dim:#71717A;--point:#DB3D5A}
+:root{--bg:#09090B;--card:#17171B;--line:#2A2A30;--ink:#FFFFFF;--quiet:#A1A1AA;--dim:#71717A;--point:#FD780F}
 *{box-sizing:border-box;margin:0}
 html,body{width:1080px;height:1920px;background:transparent;color:var(--ink);font-family:P,sans-serif;overflow:hidden}
 .head{position:absolute;left:0;right:0;top:0;height:600px;padding:96px 52px 0;background:var(--bg)}
@@ -54,6 +54,6 @@ function render(s){
  if(s.pause){pause.style.display='block';pause.textContent='❚❚ '+s.pause}
  handle.textContent=s.handle||'';
  if(s.quote){quote.style.display='block';qt.textContent=s.quote}
- pip.style.display=s.pip?'flex':'none';
+ pip.style.display='none';  // 자리표시 점선 원은 숨김 (실제 원은 build_ep에서 왼쪽 아래에 얹음)
 }
 </script></body></html>

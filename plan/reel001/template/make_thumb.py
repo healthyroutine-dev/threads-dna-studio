@@ -8,7 +8,7 @@ import argparse, base64, json, os, sys, tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-COLORS = {"F": "#E6E6E6", "C1": "#DB3D5A", "C2": "#FF8A4C", "C3": "#FF4F9A", "C4": "#2FD4A8"}
+COLORS = {"F": "#E6E6E6", "C1": "#FD780F", "C2": "#FF8A4C", "C3": "#FF4F9A", "C4": "#2FD4A8"}
 W, H = 1080, 1920
 
 HTML = """<!doctype html><html><head><meta charset="utf-8"><style>
